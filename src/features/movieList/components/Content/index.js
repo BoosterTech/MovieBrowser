@@ -1,4 +1,5 @@
 import MovieTile from "./MovieTile";
+import { NoPoster } from "./NoPoster";
 import { ContentHeader, ContentWrapper, TilesContainer } from "./styled";
 
 export const Content = () => {
@@ -6,7 +7,7 @@ export const Content = () => {
     <ContentWrapper>
       <ContentHeader>Popular Movies</ContentHeader>
       <TilesContainer>
-       <MovieTile/>
+        <MovieTile />
       </TilesContainer>
     </ContentWrapper>
   );

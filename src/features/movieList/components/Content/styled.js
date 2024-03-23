@@ -33,9 +33,7 @@ export const TilesContainer = styled.div`
   width: Hug (1, 368px) px;
   height: Hug (650px) px;
   top: 217px;
-  left: 276px;
-  gap: 24px;
-  opacity: 0px;
+  left: 276px; 
   display: flex;
   margin: 24px 0;
 `;
