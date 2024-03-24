@@ -13,7 +13,6 @@ import {
 
 import defaultPosterImage from "./testPoster.png";
 import { ReactComponent as Star } from "./star.svg";
-import { NoPoster } from "../NoPoster";
 
 export const MovieTile = ({
   image = defaultPosterImage,
