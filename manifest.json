@@ -1,0 +1,9 @@
+{
+  "short_name": "Movie Browser",
+  "name": "Create React App Team Project Movie Browser",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
