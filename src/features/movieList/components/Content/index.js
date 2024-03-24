@@ -1,5 +1,4 @@
-import MovieTile from "./MovieTile";
-import { NoPoster } from "./NoPoster";
+import MovieTile from "./components/MovieTile";
 import { ContentHeader, ContentWrapper, TilesContainer } from "./styled";
 
 export const Content = () => {
