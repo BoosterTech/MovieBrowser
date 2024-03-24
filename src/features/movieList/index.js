@@ -1,9 +1,11 @@
 import { Content } from "./components/Content";
+import { Footer } from "./components/Footer";
 
 export const MovieListPage = () => {
-  return <Content />;
+  return (
+    <>
+      <Content />
+      <Footer />
+    </>
+  );
 };
-// napis
-// github
-// coś 
-// comment
