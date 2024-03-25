@@ -13,10 +13,9 @@ export const fetchMovies = async () => {
 
     if (!response.ok) {
       throw new Error(response.statusText);
-      console.log("response error");
     }
 
-    const { meta, results } = await response.json();
+    const { results } = await response.json();
 
     return {
       state: "success",
