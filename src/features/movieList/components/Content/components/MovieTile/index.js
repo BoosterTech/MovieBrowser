@@ -19,7 +19,7 @@ export const MovieTile = ({
   title = "Mulan",
   year = "2020",
   category = ["Action", "Adventure", "Drama"],
-  rate = "7,8",
+  rate = 7,
   vote = 35,
 }) => {
   return (
@@ -36,7 +36,7 @@ export const MovieTile = ({
       </DescriptionContainer>
       <RatingWrapper>
         <Star />
-        <RateContainer>{rate}</RateContainer>
+        <RateContainer>{rate.toFixed(1)}</RateContainer>
         <VoteContainer>
           {vote} {vote > 1 ? "votes" : "vote"}
         </VoteContainer>
