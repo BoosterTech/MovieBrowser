@@ -68,8 +68,9 @@ export const CategoryTag = styled.div`
 
 export const RatingWrapper = styled.div`
   display: flex;
-  max-width: 140px;
-  max-height: 24pxpx;
+  /* max-width: 140px; */
+  width:auto;
+  max-height: 24px;
   top: 610px;
   left: 16px;
   gap: 12px;
@@ -77,7 +78,8 @@ export const RatingWrapper = styled.div`
 `;
 
 export const RateContainer = styled.div`
-  max-width: 24px;
+  /* max-width: 24px; */
+  width: auto;
   max-height: 24px;
   font-size: 16px;
   font-weight: 600;
@@ -86,7 +88,9 @@ export const RateContainer = styled.div`
 `;
 
 export const VoteContainer = styled.div`
-  max-width: 68px;
+  /* max-width: 68px; */
+  width: auto;
+  white-space: nowrap;
   max-height: 24px;
   font-family: Poppins;
   font-size: 16px;
