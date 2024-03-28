@@ -10,8 +10,10 @@ import {
   StyledLinkButton,
   StyledContainerLink,
   StyledLogo,
+  StyledNavLink,
 } from "./styled";
 import Input from "./Input";
+import { toMovieListPage, toPeople } from "../../routes";
 
 export const Header = () => {
   return (
@@ -27,8 +29,16 @@ export const Header = () => {
             <Styledlink>Movies Browser</Styledlink>
           </StyledContainerLink>
           <StyledContainerButton>
-            <StyledButton>MOVIES</StyledButton>
-            <StyledButton>PEOPLE</StyledButton>
+            <StyledButton >
+              <StyledNavLink to={toMovieListPage()} >
+                MOVIE
+              </StyledNavLink>
+            </StyledButton>
+            <StyledButton >
+              <StyledNavLink to={toPeople()} >
+                PEOPLE
+              </StyledNavLink>
+            </StyledButton>
           </StyledContainerButton>
         </StyledItems>
         <StyledSearch>

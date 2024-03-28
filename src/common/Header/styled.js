@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
 import styled from "styled-components";
 
 export const StyledHeader = styled.section`
@@ -16,7 +17,7 @@ export const StyledHeader = styled.section`
 export const StyledUnit = styled.div`
   max-width: 1600px;
   height: 94px;
-  margin: auto;
+  margin: 0 293px auto;
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
@@ -142,3 +143,12 @@ export const StyledButton = styled.button`
     line-height: 18px;
   }
 `;
+
+export const StyledNavLink = styled(NavLink)`
+    color: white;
+    text-decoration: none;
+
+    &.active {
+        font-weight: bold;
+    }
+`; 
