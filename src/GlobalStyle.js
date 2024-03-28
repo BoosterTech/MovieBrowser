@@ -16,6 +16,7 @@ body {
    background-color:#F5F5FA;
    padding: 0px;
    font-family: Poppins;
+   margin: 0;
 };
 
 
