@@ -1,12 +1,11 @@
 import { Header } from "../common/Header";
 import { MovieListPage } from "../features/movieList";
 
-const App = () => {
+const MovieList = () => {
   return( 
   <>
-  <Header />
   <MovieListPage />
   </>
 )};
 
-export default App;
+export default MovieList;
