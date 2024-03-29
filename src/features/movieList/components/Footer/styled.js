@@ -5,6 +5,9 @@ export const Wrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+    left:0;
+    bottom:0;
+    position: relative;
 `;
 
 export const Container = styled.div`

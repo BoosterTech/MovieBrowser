@@ -1,29 +1,33 @@
-import { useEffect, useState } from "react";
-import { fetchMovies } from "./api";
+// import { useEffect, useState } from "react";
+// import { useFetchMovies } from "./api";
 
-export const useMoviesData = () => {
-  const [moviesData, setMoviesData] = useState({
-    state: "loading",
-  });
+// export const useMoviesData = () => {
+//   const [moviesData, setMoviesData] = useState({
+//     state: "loading",
+//     data: [],
+//   });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetchMovies();
-        setMoviesData(data);
-      } catch (error) {
-        setMoviesData({
-          state: "error",
-        });
-      }
-    };
+//   const fetchMovies = useFetchMovies();
 
-    const timeOutId = setTimeout(fetchData, 2000); //only for test purposes. Temporary feature, will delete after tested ^V
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const { state, data } = await fetchMovies();
+//         setMoviesData({ state, data });
+//       } catch (error) {
+//         setMoviesData({
+//           state: "error",
+//           data: [],
+//         });
+//       }
+//     };
 
-    return () => {
-      clearTimeout(timeOutId);
-    };
-  }, []);
+//     const timeOutId = setTimeout(fetchData, 2000); //only for test purposes. Temporary feature, will delete after tested ^V
 
-  return moviesData;
-};
+//     return () => {
+//       clearTimeout(timeOutId);
+//     };
+//   }, [fetchMovies]);
+
+//   return moviesData;
+// };

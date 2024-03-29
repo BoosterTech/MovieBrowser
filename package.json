@@ -20,7 +20,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "homepage":"boostertech.github.io/MovieBrowser/",
+    "homepage": "boostertech.github.io/MovieBrowser/",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

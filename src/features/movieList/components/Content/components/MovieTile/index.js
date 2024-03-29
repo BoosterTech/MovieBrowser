@@ -15,7 +15,7 @@ import defaultPosterImage from "./testPoster.png";
 import { ReactComponent as Star } from "./star.svg";
 
 export const MovieTile = ({
-  image = defaultPosterImage,
+  image,
   title = "Mulan",
   year = "2020",
   category = ["Action", "Adventure", "Drama"],

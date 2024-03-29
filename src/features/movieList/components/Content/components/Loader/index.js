@@ -5,12 +5,17 @@ export const LoadingSpinner = () => {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 100 100"
-      width="100"
-      height="100"
+      width="150"
+      height="150"
       overflow="visible"
       fill="#02599d"
       stroke="#fff5f5"
-      style={{}}
+      style={{
+        position: "absolute",
+        left: "50%",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
+      }}
     >
       <defs>
         <circle
@@ -24,7 +29,6 @@ export const LoadingSpinner = () => {
       {[...Array(12)].map((_, index) => (
         <use
           key={index}
-          //   xmlnsXlink="http://www.w3.org/1999/xlink"
           xlinkHref="#spinner"
           transform={`rotate(${index * 30} 50 50)`}
         >
