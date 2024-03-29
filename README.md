@@ -4,7 +4,7 @@ Welcome to Movie Browser, your go-to destination for exploring movies, actors, a
 
 ## Demo  
 **Note:** This project is currently in active development, with ongoing improvements and features being added. Please check back regularly for updates.
-###  boostertech.github.io/MovieBrowser/
+###  [->See Demo on GH-Pages<-](boostertech.github.io/MovieBrowser/)
 
 ![DemoGif](src/assets/readme_gifMain.gif)
 
