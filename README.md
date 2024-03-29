@@ -35,7 +35,7 @@ Big Thanx to all contributors:
 The Movie Browser app is developed and maintained by all contributors.
 
  Special thanks to 
- ![TMDB_Logo](src/assets/readme_tmdbLogo.svg) for providing access to their movie database API.
+ [![TMDB_Logo](src/assets/readme_tmdbLogo.svg)](https://www.themoviedb.org/) for providing access to their movie database API.
 
 ## License
 
