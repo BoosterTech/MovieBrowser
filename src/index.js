@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import App from "./core/App";
+
+import App from "./App";
+import { GlobalStyle } from "./GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 import store from "./Redux_store/store";
