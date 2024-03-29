@@ -11,18 +11,9 @@ import {
   Wrapper,
 } from "./styled";
 
-import defaultPosterImage from "./testPoster.png";
 import { ReactComponent as Star } from "./star.svg";
-import { NoPoster } from "../NoPoster";
 
-export const MovieTile = ({
-  image = defaultPosterImage,
-  title = "Mulan",
-  year = "2020",
-  category = ["Action", "Adventure", "Drama"],
-  rate = "7,8",
-  vote = 35,
-}) => {
+export const MovieTile = ({ image, title, year, category, rate, vote }) => {
   return (
     <Wrapper>
       <TileImage src={image} alt="TileImage" />
@@ -37,7 +28,7 @@ export const MovieTile = ({
       </DescriptionContainer>
       <RatingWrapper>
         <Star />
-        <RateContainer>{rate}</RateContainer>
+        <RateContainer>{rate.toFixed(1)}</RateContainer>
         <VoteContainer>
           {vote} {vote > 1 ? "votes" : "vote"}
         </VoteContainer>

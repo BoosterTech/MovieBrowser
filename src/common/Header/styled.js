@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom/cjs/react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledHeader = styled.section`
@@ -71,16 +71,15 @@ export const StyledLogo = styled.svg`
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1;
- 
-  @media(max-width: ${({ theme }) => theme.media.tablet}){
+
+  @media (max-width: ${({ theme }) => theme.media.tablet}) {
     width: 30px;
     height: 30px;
   }
-  
-  
-  @media(max-width: ${({ theme }) => theme.media.phone}){
+
+  @media (max-width: ${({ theme }) => theme.media.phone}) {
     width: 17px;
-    height:17px;
+    height: 17px;
   }
 `;
 
@@ -103,7 +102,6 @@ export const Styledlink = styled.a`
     font-size: 12px;
     margin-right: 0px;
   }
-
 `;
 export const StyledContainerButton = styled.div`
   display: grid;
@@ -145,10 +143,10 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 
-    &.active {
-        font-weight: bold;
-    }
-`; 
+  &.active {
+    font-weight: bold;
+  }
+`;
