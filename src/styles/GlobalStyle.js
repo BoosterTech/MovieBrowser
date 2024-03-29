@@ -20,7 +20,4 @@ body {
    font-family: Poppins;
    margin: 0;
 };
-
-
-
 `;
