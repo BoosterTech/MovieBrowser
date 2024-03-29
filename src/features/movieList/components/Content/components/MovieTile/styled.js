@@ -54,7 +54,10 @@ export const CategoryTagWrapper = styled.div`
   display: flex;
   max-width: 279px;
   max-height: 36px;
+  height: auto;
   gap: 8px;
+  font-size: 13px;
+  flex-wrap: wrap;
 `;
 
 export const CategoryTag = styled.div`
@@ -64,21 +67,18 @@ export const CategoryTag = styled.div`
   gap: 10px;
   border-radius: 5px;
   background: #e4e6f0;
+  white-space: nowrap;
 `;
 
 export const RatingWrapper = styled.div`
   display: flex;
-  /* max-width: 140px; */
-  width:auto;
+  max-width: 140px;
   max-height: 24px;
-  top: 610px;
-  left: 16px;
   gap: 12px;
   margin: 39px 0 0 0;
 `;
 
 export const RateContainer = styled.div`
-  /* max-width: 24px; */
   width: auto;
   max-height: 24px;
   font-size: 16px;
@@ -88,8 +88,7 @@ export const RateContainer = styled.div`
 `;
 
 export const VoteContainer = styled.div`
-  /* max-width: 68px; */
-  width: auto;
+  max-width: 68px;
   white-space: nowrap;
   max-height: 24px;
   font-family: Poppins;
