@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContentWrapper = styled.section`
   max-width: 1368px;
-  height: auto;
+  max-height: auto;
   top: 150px;
   left: 276px;
   color: ${({ theme }) => theme.color.Black};
