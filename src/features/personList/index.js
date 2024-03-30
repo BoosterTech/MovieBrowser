@@ -1,7 +1,1 @@
-import { Section } from "../movieList/components/Footer/styled";
-
-export default () => (
-    <Section>
-        Test site without content
-    </Section>
-)
+export default () => <>Test site without content</>;

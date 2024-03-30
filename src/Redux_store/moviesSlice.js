@@ -12,21 +12,32 @@ const moviesSlice = createSlice({
       state.movies = action.payload;
     },
 
-    nextPage: ({ pageNr }) => {
-      pageNr++;
+    nextPage: (state) => {
+      state.pageNr++;
     },
-    previousPage: ({ pageNr }) => {
-      pageNr--;
+    previousPage: (state) => {
+      state.pageNr--;
     },
-
+    setLastPage: (state) => {
+      state.pageNr = 500;
+    },
+    setFirstPage: (state) => {
+      state.pageNr = 1;
+    },
     updateState: (state, { payload: newState }) => {
       state.state = newState;
     },
   },
 });
 
-export const { nextPage, previousPage, addMovies, updateState } =
-  moviesSlice.actions;
+export const {
+  nextPage,
+  previousPage,
+  setLastPage,
+  setFirstPage,
+  addMovies,
+  updateState,
+} = moviesSlice.actions;
 
 export const selectMoviesState = (state) => state.movies;
 export const selectMovies = (state) => selectMoviesState(state).movies;

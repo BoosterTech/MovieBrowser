@@ -2,11 +2,11 @@ import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
 import MovieList from "./core/MovieList";
 import People from "./features/personList";
 import { toMovieListPage, toPeople } from "./routes";
-import { Header } from "./common/Header";
+import { Navigation } from "./common/Navigation";
 
 export default () => (
   <HashRouter>
-    <Header />
+    <Navigation />
     <Switch>
       <Route path={toPeople()}>
         <People />

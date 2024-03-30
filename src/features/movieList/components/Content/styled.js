@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+export const showin = keyframes`
+  0% {
+   opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+`;
 
 export const ContentWrapper = styled.section`
   max-width: 1368px;
@@ -21,6 +30,7 @@ export const ContentHeader = styled.h1`
   color: #18181b;
   margin: 0;
   padding: 0;
+  animation: ${showin} 1s ease;
 `;
 
 export const TilesContainer = styled.div`

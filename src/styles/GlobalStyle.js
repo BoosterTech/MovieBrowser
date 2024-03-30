@@ -19,5 +19,6 @@ body {
    padding: 0px;
    font-family: Poppins;
    margin: 0;
+   overflow-y: scroll;
 };
 `;

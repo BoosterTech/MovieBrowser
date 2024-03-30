@@ -3,6 +3,7 @@ import { LoadingSpinner } from "./components/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectMovieStateValue,
+  selectMoviesPageNr,
   updateState,
 } from "../../../../Redux_store/moviesSlice";
 import MovieTile from "./components/MovieTile";
@@ -12,6 +13,7 @@ import { moviesGenres_ids } from "../../../../assets/moviesGenre_ids";
 
 export const Content = () => {
   const [moviesData, setMoviesData] = useState(null);
+  const moviePage = useSelector(selectMoviesPageNr);
 
   const state = useSelector(selectMovieStateValue);
   const dispatch = useDispatch();
@@ -19,7 +21,7 @@ export const Content = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const responseMovies = await fetch(`${apiMoviePopular}1`, {
+        const responseMovies = await fetch(`${apiMoviePopular}${moviePage}`, {
           headers: {
             Authorization:
               "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYjI2MDE5NmJjOWJiYjBkZjdiZDc0N2NmMDEzNTdjMCIsInN1YiI6IjY2MDAwZmZjNjJmMzM1MDE2NDUxNWJhZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.j5BdMVijb7g_8sAaxu9WLzzFLGen6qB1lNYLha-96Tw",
@@ -41,9 +43,8 @@ export const Content = () => {
       }
     };
 
-    const timeOutId = setTimeout(fetchMovies, 1500);
-    return () => clearTimeout(timeOutId);
-  }, [dispatch]);
+    fetchMovies();
+  }, [dispatch, moviePage]);
 
   return (
     <ContentWrapper>

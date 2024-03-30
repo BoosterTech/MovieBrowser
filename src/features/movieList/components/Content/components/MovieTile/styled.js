@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { showin } from "../../styled";
 
 export const Wrapper = styled.div`
   max-width: 324px;
@@ -7,6 +8,13 @@ export const Wrapper = styled.div`
   padding: 16px;
   box-shadow: 0px 4px 12px 0px #bac7d580;
   background-color: #ffffff;
+  transition: transform 0.5s ease;
+  animation: ${showin} 1s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
 `;
 
 export const TileImage = styled.img`
@@ -37,6 +45,10 @@ export const MovieTitle = styled.h2`
   line-height: 28.6px;
   text-align: left;
   color: #18181b;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const MovieYear = styled.p`

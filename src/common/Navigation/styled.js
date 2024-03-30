@@ -15,51 +15,42 @@ export const StyledHeader = styled.section`
 `;
 
 export const StyledUnit = styled.div`
-  max-width: 1600px;
+  max-width: 1368px;
   height: 94px;
-  margin: 0 293px auto;
-  display: grid;
-  grid-template-columns: auto 1fr;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-
-  @media (max-width: ${({ theme }) => theme.media.tablet}) {
-    display: grid;
-    grid-template-columns: 1fr;
-    padding: 0px;
-    height: 142px;
-    align-items: center;
-    margin: 0 20px;
-  }
 `;
 
 export const StyledItems = styled.div`
   height: 70px;
-  display: grid;
-  grid-template-columns: auto 1fr 1fr;
-  grid-gap: 80px;
-  align-items: center;
-
-  @media (max-width: ${({ theme }) => theme.media.tablet}) {
-    display: flex;
-    justify-content: space-between;
-    grid-gap: 6px;
-  }
-`;
-
-export const StyledSearch = styled.div`
-  height: 70px;
   display: flex;
+  gap: 80px;
   align-items: center;
-  flex-direction: row-reverse;
 `;
 
-export const StyledContainerLink = styled.div`
+export const StyledContainerLink = styled(NavLink)`
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
   grid-gap: 12px;
   max-width: 220px;
   height: 48px;
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  line-height: 40px;
+  letter-spacing: -1.5px;
+  font-weight: 500;
+
+  &:hover {
+    color: #e0e0e0;
+  }
+`;
+
+export const StyledSearch = styled.div`
+  position: relative;
 `;
 
 export const StyledLogo = styled.svg`
@@ -92,47 +83,33 @@ export const Styledlink = styled.a`
   &:hover {
     cursor: pointer;
   }
-
-  @media (max-width: ${({ theme }) => theme.media.tablet}) {
-    font-size: 18px;
-    margin-right: 0px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.media.phone}) {
-    font-size: 12px;
-    margin-right: 0px;
-  }
 `;
 export const StyledContainerButton = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 16px;
-
-  @media (max-width: ${({ theme }) => theme.media.tablet}) {
-    grid-gap: 0px;
-  }
 `;
 
 export const StyledButton = styled.button`
-  border: solid 1px transparent;
-  max-width: 120px;
+  border: none;
+  width: 98px;
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
   height: 48px;
-  padding: 8px 24px 8px 24px;
+  padding: 8px 22px;
   border-radius: 24px;
   background-color: transparent;
   color: white;
-  margin: 10px;
 
   &:hover {
     cursor: pointer;
-    text-decoration: underline;
+    border: 1px solid white;
+    color: grey;
   }
 
   &:active {
-    border: solid 1px;
+    border: 1px solid white;
   }
 
   @media (max-width: ${({ theme }) => theme.media.tablet}) {
@@ -142,11 +119,52 @@ export const StyledButton = styled.button`
   }
 `;
 
-export const StyledNavLink = styled(NavLink)`
+export const StyledNavLink1 = styled(NavLink)`
   color: white;
   text-decoration: none;
 
   &.active {
-    font-weight: bold;
+    color: #61bded;
   }
+`;
+
+export const StyledNavLink2 = styled(StyledNavLink1)``;
+
+export const SearchWrapper = styled.div`
+  display: inline-block;
+  padding: 12px;
+  width: 432px;
+  height: 48px;
+  border-radius: 33px;
+  opacity: 0px;
+  margin-left: auto;
+  align-items: center;
+  position: relative;
+`;
+
+export const Input = styled.input`
+  padding: 12px 0 12px 72px;
+  width: 360px;
+  height: 24px;
+  border-radius: 33px;
+  opacity: 0px;
+  margin-left: auto;
+  outline: none;
+
+  @media (max-width: ${({ theme }) => theme.media.tablet}) {
+    margin: auto;
+    width: 100%;
+    height: 44px;
+    padding: 0 15px;
+  }
+`;
+
+export const Icon = styled.svg`
+  position: absolute;
+  left: 40px;
+  top: 53%;
+  transform: translateY(-50%);
+  fill: none;
+  width: 24px;
+  height: 24px;
 `;
