@@ -1,0 +1,30 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const peopleSlice = createSlice({
+  name: "People",
+  initialState: {
+    pageNr: 1,
+  },
+  reducers: {
+    nextPage: (state) => {
+      state.pageNr++;
+    },
+    previousPage: (state) => {
+      state.pageNr--;
+    },
+    setLastPage: (state) => {
+      state.pageNr = 500;
+    },
+    setFirstPage: (state) => {
+      state.pageNr = 1;
+    },
+  },
+});
+
+export const { nextPage, previousPage, setFirstPage, setLastPage } =
+  peopleSlice.actions;
+
+export const selectPeopleState = (state) => state.people;
+export const selectPeoplePageNr = (state) => selectPeopleState(state).pageNr;
+
+export default peopleSlice.reducer;
