@@ -1,16 +1,14 @@
 {
   "files": {
-    "main.js": "/MovieBrowser/static/js/main.a7e253d5.js",
-    "static/js/453.11d5da13.chunk.js": "/MovieBrowser/static/js/453.11d5da13.chunk.js",
-    "static/media/testPoster.png": "/MovieBrowser/static/media/testPoster.4482b8f0db75ec1c9e1e.png",
-    "static/media/star.svg": "/MovieBrowser/static/media/star.4f2011363333ab2b47242d91b179296c.svg",
-    "index.html": "/MovieBrowser/index.html",
-    "static/media/Vector1.svg": "/MovieBrowser/static/media/Vector1.95a980d03aa24878b4b68139a4fd2714.svg",
-    "static/media/icon.svg": "/MovieBrowser/static/media/icon.0d167e4e17cdf83e6fd05446cc6403f3.svg",
-    "main.a7e253d5.js.map": "/MovieBrowser/static/js/main.a7e253d5.js.map",
-    "453.11d5da13.chunk.js.map": "/MovieBrowser/static/js/453.11d5da13.chunk.js.map"
+    "main.js": "/BoosterTech/MovieBrowser.git/static/js/main.d52203fc.js",
+    "static/js/453.11d5da13.chunk.js": "/BoosterTech/MovieBrowser.git/static/js/453.11d5da13.chunk.js",
+    "static/media/star.svg": "/BoosterTech/MovieBrowser.git/static/media/star.4f2011363333ab2b47242d91b179296c.svg",
+    "index.html": "/BoosterTech/MovieBrowser.git/index.html",
+    "static/media/Vector1.svg": "/BoosterTech/MovieBrowser.git/static/media/Vector1.95a980d03aa24878b4b68139a4fd2714.svg",
+    "main.d52203fc.js.map": "/BoosterTech/MovieBrowser.git/static/js/main.d52203fc.js.map",
+    "453.11d5da13.chunk.js.map": "/BoosterTech/MovieBrowser.git/static/js/453.11d5da13.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.a7e253d5.js"
+    "static/js/main.d52203fc.js"
   ]
 }
