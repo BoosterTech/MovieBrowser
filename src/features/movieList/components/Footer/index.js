@@ -7,7 +7,8 @@ import {
   Number,
   VectorLeft,
   VectorRight,
-  Section,
+  SectionLeft,
+  SectionRight,
   DisabledText,
 } from "./styled";
 import {
@@ -55,34 +56,32 @@ export const Footer = () => {
   return (
     state !== "loading" && (
       <Wrapper>
-        <Container>
-          <Section>
-            <Button disabled={page === 1} onClick={handleFirstPage}>
-              <VectorLeft />
-              First
-            </Button>
-            <Button disabled={page === 1} onClick={handlePreviousPage}>
-              <VectorLeft />
-              Previous
-            </Button>
-          </Section>
-          <PageChange>
-            <DisabledText>Page</DisabledText>
-            <Number>{page}</Number>
-            <DisabledText>of</DisabledText>
-            <Number>500</Number>
-          </PageChange>
-          <Section>
-            <Button disabled={page === 500} onClick={handleNextPage}>
-              Next
-              <VectorRight />
-            </Button>
-            <Button disabled={page === 500} onClick={handleLastPage}>
-              Last
-              <VectorRight />
-            </Button>
-          </Section>
-        </Container>
+        <SectionLeft>
+          <Button disabled={page === 1} onClick={handleFirstPage}>
+            <VectorLeft />
+            First
+          </Button>
+          <Button disabled={page === 1} onClick={handlePreviousPage}>
+            <VectorLeft />
+            Previous
+          </Button>
+        </SectionLeft>
+        <PageChange>
+          <DisabledText>Page</DisabledText>
+          <Number>{page}</Number>
+          <DisabledText>of</DisabledText>
+          <Number>500</Number>
+        </PageChange>
+        <SectionRight>
+          <Button disabled={page === 500} onClick={handleNextPage}>
+            Next
+            <VectorRight />
+          </Button>
+          <Button disabled={page === 500} onClick={handleLastPage}>
+            Last
+            <VectorRight />
+          </Button>
+        </SectionRight>
       </Wrapper>
     )
   );
