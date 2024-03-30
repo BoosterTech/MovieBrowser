@@ -7,17 +7,21 @@ export const Wrapper = styled.div`
   justify-content: center;
   left: 0;
   bottom: 0;
-  position: relative;
-`;
-
-export const Container = styled.div`
-  display: flex;
-  justify-content: center;
   align-items: center;
 `;
 
-export const Section = styled.div`
-  margin: 0 12px 0 12px;
+export const SectionLeft = styled.div`
+  margin: 0 12px;
+  position: absolute;
+  left: 36%;
+  right: 45%;
+`;
+
+export const SectionRight = styled.div`
+  margin: 0 12px;
+  position: absolute;
+  left: 54%;
+  right: 30%;
 `;
 
 export const Button = styled.button`
@@ -31,35 +35,38 @@ export const Button = styled.button`
   font-weight: 400;
   transition: all 0.1s linear;
 
-  &:hover {
+  &:not(:disabled):hover {
     cursor: pointer;
     font-weight: bold;
   }
 
   &:disabled {
     background: ${({ theme }) => theme.color.Mystic};
-    color: black;
+    color: grey;
     border: 1px solid ${({ theme }) => theme.color.Mystic};
   }
 `;
 
 export const PageChange = styled.p`
-  margin: 0 12px 0 12px;
+  margin: 0 12px;
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 16px;
   font-weight: 400;
+  position: absolute;
+  justify-content: center;
+  left: 50%;
+  right: 50%;
 `;
 
 export const DisabledText = styled.p`
   color: ${({ theme }) => theme.color.Waterloo};
   font-weight: 400;
-  position: relative;
 `;
 
 export const Number = styled.div`
-  margin: 0;
+  margin: auto;
   font-weight: 600;
 `;
 
