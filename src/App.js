@@ -1,8 +1,8 @@
 import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
-import MovieList from "./core/MovieList";
 import People from "./features/personList";
 import { toMovieListPage, toPeople } from "./routes";
 import { Navigation } from "./common/Navigation";
+import { MovieListPage } from "./features/movieList";
 
 export default () => (
   <HashRouter>
@@ -12,7 +12,7 @@ export default () => (
         <People />
       </Route>
       <Route path={toMovieListPage()}>
-        <MovieList />
+        <MovieListPage />
       </Route>
       <Route path="/">
         <Redirect to={toMovieListPage()} />
