@@ -3,13 +3,14 @@ import People from "./features/personList";
 import { toMovieListPage, toPeople } from "./routes";
 import { Navigation } from "./common/Navigation";
 import { MovieListPage } from "./features/movieList";
+import PersonList from "./features/personList";
 
 export default () => (
   <HashRouter>
     <Navigation />
     <Switch>
       <Route path={toPeople()}>
-        <People />
+        <PersonList />
       </Route>
       <Route path={toMovieListPage()}>
         <MovieListPage />
