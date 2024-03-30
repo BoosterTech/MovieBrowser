@@ -7,7 +7,7 @@ import {
   updateState,
 } from "../../Redux_store/moviesSlice";
 import MovieTile from "./components/MovieTile";
-import { apiMoviePopular } from "../../assets/API_URL";
+import { APIAuthorization, apiMoviePopular } from "../../assets/API_URL";
 import { useEffect, useState } from "react";
 import { moviesGenres_ids } from "../../assets/moviesGenre_ids";
 
@@ -24,7 +24,7 @@ export const MovieListPage = () => {
         const responseMovies = await fetch(`${apiMoviePopular}${moviePage}`, {
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYjI2MDE5NmJjOWJiYjBkZjdiZDc0N2NmMDEzNTdjMCIsInN1YiI6IjY2MDAwZmZjNjJmMzM1MDE2NDUxNWJhZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.j5BdMVijb7g_8sAaxu9WLzzFLGen6qB1lNYLha-96Tw",
+              {APIAuthorization},
             Accept: "application/json",
           },
         });
