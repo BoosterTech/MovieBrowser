@@ -10,23 +10,14 @@ export const Wrapper = styled.div`
   align-items: center;
 `;
 
-export const SectionLeft = styled.div`
+export const Section = styled.div`
   margin: 0 12px;
-  position: absolute;
-  left: 36%;
-  right: 45%;
 `;
 
-export const SectionRight = styled.div`
-  margin: 0 12px;
-  position: absolute;
-  left: 54%;
-  right: 30%;
-`;
-
-export const Button = styled.button`
+export const ButtonFirst = styled.button`
   background: ${({ theme }) => theme.color.PattensBlue};
-  padding: 8px 16px 8px 16px;
+
+  padding: auto;
   border: 1px solid ${({ theme }) => theme.color.PattensBlue};
   border-radius: 5px;
   text-align: center;
@@ -34,6 +25,8 @@ export const Button = styled.button`
   font-size: 14px;
   font-weight: 400;
   transition: all 0.1s linear;
+  width: 76px;
+  height: 36px;
 
   &:not(:disabled):hover {
     cursor: pointer;
@@ -47,17 +40,27 @@ export const Button = styled.button`
   }
 `;
 
+export const ButtonPrevious = styled(ButtonFirst)`
+  width: 106px;
+  height: 36px;
+`;
+export const ButtonNext = styled(ButtonFirst)`
+  width: 78px;
+  height: 36px;
+`;
+export const ButtonLast = styled(ButtonFirst)`
+  width: 75px;
+  height: 36px;
+`;
+
 export const PageChange = styled.p`
-  margin: 0 12px;
+  margin: 6px 24px;
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 16px;
-  font-weight: 400;
-  position: absolute;
+  font-weight: 600;
   justify-content: center;
-  left: 50%;
-  right: 50%;
 `;
 
 export const DisabledText = styled.p`

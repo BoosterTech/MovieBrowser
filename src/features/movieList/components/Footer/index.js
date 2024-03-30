@@ -1,15 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   Wrapper,
-  Container,
-  Button,
   PageChange,
   Number,
   VectorLeft,
   VectorRight,
-  SectionLeft,
-  SectionRight,
+  Section,
   DisabledText,
+  ButtonFirst,
+  ButtonPrevious,
+  ButtonNext,
+  ButtonLast,
 } from "./styled";
 import {
   nextPage,
@@ -56,32 +57,32 @@ export const Footer = () => {
   return (
     state !== "loading" && (
       <Wrapper>
-        <SectionLeft>
-          <Button disabled={page === 1} onClick={handleFirstPage}>
+        <Section>
+          <ButtonFirst disabled={page === 1} onClick={handleFirstPage}>
             <VectorLeft />
             First
-          </Button>
-          <Button disabled={page === 1} onClick={handlePreviousPage}>
+          </ButtonFirst>
+          <ButtonPrevious disabled={page === 1} onClick={handlePreviousPage}>
             <VectorLeft />
             Previous
-          </Button>
-        </SectionLeft>
+          </ButtonPrevious>
+        </Section>
         <PageChange>
           <DisabledText>Page</DisabledText>
           <Number>{page}</Number>
           <DisabledText>of</DisabledText>
           <Number>500</Number>
         </PageChange>
-        <SectionRight>
-          <Button disabled={page === 500} onClick={handleNextPage}>
+        <Section>
+          <ButtonNext disabled={page === 500} onClick={handleNextPage}>
             Next
             <VectorRight />
-          </Button>
-          <Button disabled={page === 500} onClick={handleLastPage}>
+          </ButtonNext>
+          <ButtonLast disabled={page === 500} onClick={handleLastPage}>
             Last
             <VectorRight />
-          </Button>
-        </SectionRight>
+          </ButtonLast>
+        </Section>
       </Wrapper>
     )
   );
