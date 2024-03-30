@@ -1,11 +1,11 @@
 import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
-import People from "./features/personList";
 import { toMovieListPage, toPeople } from "./routes";
 import { Navigation } from "./common/Navigation";
 import { MovieListPage } from "./features/movieList";
 import PersonList from "./features/personList";
+import Footer from "./common/Footer";
 
-export default () => (
+const App = () => (
   <HashRouter>
     <Navigation />
     <Switch>
@@ -19,5 +19,8 @@ export default () => (
         <Redirect to={toMovieListPage()} />
       </Route>
     </Switch>
+    <Footer />
   </HashRouter>
 );
+
+export default App;
