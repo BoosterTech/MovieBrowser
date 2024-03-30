@@ -43,8 +43,7 @@ export const Content = () => {
       }
     };
 
-    const timeOutId = setTimeout(fetchMovies, 1500);
-    return () => clearTimeout(timeOutId);
+    fetchMovies();
   }, [dispatch, moviePage]);
 
   return (
