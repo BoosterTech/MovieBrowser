@@ -16,7 +16,6 @@ export const Section = styled.div`
 
 export const ButtonFirst = styled.button`
   background: ${({ theme }) => theme.color.PattensBlue};
-
   padding: auto;
   border: 1px solid ${({ theme }) => theme.color.PattensBlue};
   border-radius: 5px;
