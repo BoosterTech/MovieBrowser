@@ -1,11 +1,11 @@
+import ImageDefault from "../ImageDefault";
 import { PersonName, TileImage, TileWrapper } from "./styled";
-import defaultpersonImage from "./defaultPersonImage2.jpg";
 
-export const PersonTile = () => {
+export const PersonTile = ({ imageSrc, name }) => {
   return (
     <TileWrapper>
-      <TileImage src={defaultpersonImage} />
-      <PersonName>I mokrego dyngusa</PersonName>
+      {imageSrc ? <TileImage src={imageSrc} /> : <ImageDefault />}
+      <PersonName>{name}</PersonName>
     </TileWrapper>
   );
 };
