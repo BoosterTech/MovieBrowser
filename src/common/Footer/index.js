@@ -20,9 +20,9 @@ import {
   setFirstPage,
   setLastPage,
   updateState,
-} from "../../../../Redux_store/moviesSlice";
+} from "../../Redux_store/moviesSlice";
 
-export const Footer = () => {
+const Footer = () => {
   const state = useSelector(selectMovieStateValue);
   const page = useSelector(selectMoviesPageNr);
   const dispatch = useDispatch();
@@ -87,3 +87,5 @@ export const Footer = () => {
     )
   );
 };
+
+export default Footer;
