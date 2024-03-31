@@ -12,11 +12,16 @@ import {
 } from "./styled";
 
 import { ReactComponent as Star } from "./star.svg";
+import ImageDefault from "../ImageDefault";
 
-export const MovieTile = ({ image, title, year, category, rate, vote }) => {
+export const MovieTile = ({ imageSrc, title, year, category, rate, vote }) => {
   return (
     <Wrapper>
-      <TileImage src={image} alt="TileImage" />
+      {imageSrc ? (
+        <TileImage src={imageSrc} alt="TileImage" />
+      ) : (
+        <ImageDefault />
+      )}
       <DescriptionContainer>
         <MovieTitle>{title}</MovieTitle>
         <MovieYear>{year}</MovieYear>
