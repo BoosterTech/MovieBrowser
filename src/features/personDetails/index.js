@@ -1,21 +1,15 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  selectSettingPageStateValue,
-  setPageState,
-} from "../../Redux_store/settingSlice";
+import { useDispatch } from "react-redux";
+import { setLoadingState } from "../../Redux_store/settingSlice";
 
 const PersonDetails = () => {
-  const pageState = useSelector(selectSettingPageStateValue);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (pageState != "loading") dispatch(setLoadingState("loading"));
-    dispatch(setPageState("profile"));
+    dispatch(setLoadingState("loading"));
   }, []);
 
-  return <p> Person details page</p>;
+  return <>Person details page</>;
 };
 
 export default PersonDetails;
