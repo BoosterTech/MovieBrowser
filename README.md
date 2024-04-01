@@ -1,4 +1,4 @@
-#  ![Logo](src/assets/readme_topIcon.svg) Movie Browser App
+#  ![Logo](src/assets/images/readme_topIcon.svg) Movie Browser App
 
 Welcome to Movie Browser, your go-to destination for exploring movies, actors, and crew members!
 
@@ -6,7 +6,7 @@ Welcome to Movie Browser, your go-to destination for exploring movies, actors, a
 **Note:** This project is currently in active development, with ongoing improvements and features being added. Please check back regularly for updates.
 ###  [->See Demo on GH-Pages<-](https://boostertech.github.io/MovieBrowser/)
 
-![DemoGif](src/assets/readme_gifMain.gif)
+![DemoGif](src/assets/images/readme_gifMain.gif)
 
 ## Features
 
@@ -35,7 +35,7 @@ Big Thanx to all contributors:
 The Movie Browser app is developed and maintained by all contributors.
 
  Special thanks to 
- [![TMDB_Logo](src/assets/readme_tmdbLogo.svg)](https://www.themoviedb.org/) for providing access to their movie database API.
+ [![TMDB_Logo](src/assets/images/readme_tmdbLogo.svg)](https://www.themoviedb.org/) for providing access to their movie database API.
 
 ## License
 
