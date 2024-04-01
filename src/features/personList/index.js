@@ -22,7 +22,7 @@ const PersonList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (pageState != "loading") dispatch(setLoadingState("loading"));
+    dispatch(setLoadingState("loading"));
     dispatch(setPageState("people"));
   }, []);
 
@@ -50,7 +50,7 @@ const PersonList = () => {
       }
     };
     fetchPeople();
-  }, [dispatch, pageNr]);
+  }, [pageNr]);
 
   return (
     pageState === "people" && (
@@ -67,10 +67,7 @@ const PersonList = () => {
             peopleData &&
             peopleData.map((person) => {
               return (
-                <NavLink
-                  to={toProfile({ id: person.id })}
-                  key={person.id}
-                >
+                <NavLink to={toProfile({ id: person.id })} key={person.id}>
                   <PersonTile
                     imageSrc={
                       person.profile_path
