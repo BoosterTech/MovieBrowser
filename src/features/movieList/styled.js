@@ -11,7 +11,7 @@ export const showin = keyframes`
 
 export const ContentWrapper = styled.section`
   max-width: 1368px;
-  max-height: auto;
+  min-height: 750px;
   top: 150px;
   left: 276px;
   color: ${({ theme }) => theme.color.Black};
