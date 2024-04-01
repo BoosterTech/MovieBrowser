@@ -2,9 +2,9 @@ import { ContentHeader, ContentWrapper, TilesContainer } from "./styled";
 import { LoadingSpinner } from "../../common/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import MovieTile from "./components/MovieTile";
-import { APIAuthorization, apiMoviePopularURL } from "../../assets/API_URL";
+import { APIAuthorization, apiMoviePopularURL } from "../../common/API_URL";
 import { useEffect, useState } from "react";
-import { moviesGenres_ids } from "../../assets/moviesGenre_ids";
+import { moviesGenres_ids } from "../../common/moviesGenre_ids";
 import {
   selectSettingLoadingValue,
   selectSettingPageStateValue,

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { PersonTile } from "./components/PersonTile";
 import { ContentWrapper, ContentHeader, TilesWrapper } from "./styled";
-import { APIAuthorization, apiPeoplePopularURL } from "../../assets/API_URL";
+import { APIAuthorization, apiPeoplePopularURL } from "../../common/API_URL";
 import { useDispatch, useSelector } from "react-redux";
 import { LoadingSpinner } from "../../common/Loader";
 import {
