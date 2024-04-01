@@ -7,20 +7,22 @@ import { LoadingSpinner } from "../../common/Loader";
 import {
   selectSettingLoadingValue,
   selectSettingPageStateValue,
-  selectsettingPageNrValue,
+  selectSettingPeoplePageNrValue,
   setLoadingState,
   setPageState,
 } from "../../Redux_store/settingSlice";
 
 const PersonList = () => {
   const [peopleData, setPeopleData] = useState(null);
-  const pageNr = useSelector(selectsettingPageNrValue);
+  const pageNr = useSelector(selectSettingPeoplePageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
   const pageState = useSelector(selectSettingPageStateValue);
   const dispatch = useDispatch();
 
-  // dispatch(setLoadingState("loading"));
-  dispatch(setPageState("people"));
+  useEffect(() => {
+    if (pageState != "loading") dispatch(setLoadingState("loading"));
+    dispatch(setPageState("people"));
+  }, []);
 
   useEffect(() => {
     const fetchPeople = async () => {

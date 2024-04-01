@@ -8,19 +8,22 @@ import { moviesGenres_ids } from "../../assets/moviesGenre_ids";
 import {
   selectSettingLoadingValue,
   selectSettingPageStateValue,
-  selectsettingPageNrValue,
+  selectSettingMoviePageNrValue,
   setLoadingState,
   setPageState,
 } from "../../Redux_store/settingSlice";
 
 export const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
-  const pageNr = useSelector(selectsettingPageNrValue);
+  const pageNr = useSelector(selectSettingMoviePageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
   const pageState = useSelector(selectSettingPageStateValue);
   const dispatch = useDispatch();
 
-  dispatch(setPageState("movies"));
+  useEffect(() => {
+    if (pageState != "loading") dispatch(setLoadingState("loading"));
+    dispatch(setPageState("movies"));
+  }, []);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -35,19 +38,16 @@ export const MovieListPage = () => {
         if (!responseMovies.ok) {
           throw new Error(responseMovies.statusText());
         }
-
         const { results } = await responseMovies.json();
         setMoviesData(results);
-
         dispatch(setLoadingState("success"));
       } catch (error) {
         dispatch(setLoadingState("error"));
         console.error("Error fetching movies:", error);
       }
     };
-
     fetchMovies();
-  }, [dispatch, pageNr]);
+  }, [pageNr]);
 
   return (
     pageState === "movies" && (
