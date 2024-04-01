@@ -3,12 +3,13 @@ import { toMovieListPage, toPeople } from "./routes";
 import { Navigation } from "./common/Navigation";
 import { MovieListPage } from "./features/movieList";
 import PersonList from "./features/personList";
-import Footer from "./common/Footer";
+
 import {
   selectSettingLoadingValue,
   selectSettingPageStateValue,
 } from "./Redux_store/settingSlice";
 import { useSelector } from "react-redux";
+import Pagination from "./common/Pagination";
 
 const App = () => {
   const pageState = useSelector(selectSettingPageStateValue);
@@ -29,7 +30,7 @@ const App = () => {
         </Route>
       </Switch>
       {(pageState === "movies" || pageState === "people") &&
-        loadingState !== "loading" && <Footer />}
+        loadingState === "success" && <Pagination />}
     </HashRouter>
   );
   p;

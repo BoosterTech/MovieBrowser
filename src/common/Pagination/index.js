@@ -25,7 +25,7 @@ import {
   setPreviousPage,
 } from "../../Redux_store/settingSlice";
 
-const Footer = () => {
+const Pagination = () => {
   const loadingState = useSelector(selectSettingLoadingValue);
   const moviesPageNr = useSelector(selectSettingMoviePageNrValue);
   const peoplePageNr = useSelector(selectSettingPeoplePageNrValue);
@@ -95,4 +95,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Pagination;
