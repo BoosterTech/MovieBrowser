@@ -3,22 +3,31 @@ import { createSlice } from "@reduxjs/toolkit";
 const settingSlice = createSlice({
   name: "setting",
   initialState: {
-    pageNr: 1,
+    moviesPageNr: 1,
+    peoplePageNr: 1,
     pageState: "movies", //switch between movies & people
     loadingState: "loading",
   },
   reducers: {
     setNextPage: (state) => {
-      state.pageNr++;
+      state.pageState === "movies"
+        ? state.moviesPageNr++
+        : state.peoplePageNr++;
     },
     setPreviousPage: (state) => {
-      state.pageNr--;
+      state.pageState === "movies"
+        ? state.moviesPageNr--
+        : state.peoplePageNr--;
     },
     setLastPage: (state) => {
-      state.pageNr = 500;
+      state.pageState === "movies"
+        ? (state.moviesPageNr = 500)
+        : state.peoplePageNr = 500;
     },
     setFirstPage: (state) => {
-      state.pageNr = 1;
+      state.pageState === "movies"
+        ? (state.moviesPageNr = 1)
+        : (state.peoplePageNr = 1);
     },
     setPageState: (state, { payload: newState }) => {
       state.pageState = newState;
@@ -43,6 +52,9 @@ export const selectSettingPageStateValue = (state) =>
   selectState(state).pageState;
 export const selectSettingLoadingValue = (state) =>
   selectState(state).loadingState;
-export const selectsettingPageNrValue = (state) => selectState(state).pageNr;
+export const selectSettingMoviePageNrValue = (state) =>
+  selectState(state).moviesPageNr;
+export const selectSettingPeoplePageNrValue = (state) =>
+  selectState(state).peoplePageNr;
 
 export default settingSlice.reducer;

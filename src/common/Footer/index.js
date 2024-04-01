@@ -15,7 +15,9 @@ import {
 
 import {
   selectSettingLoadingValue,
-  selectsettingPageNrValue,
+  selectSettingMoviePageNrValue,
+  selectSettingPageStateValue,
+  selectSettingPeoplePageNrValue,
   setFirstPage,
   setLastPage,
   setLoadingState,
@@ -25,7 +27,11 @@ import {
 
 const Footer = () => {
   const loadingState = useSelector(selectSettingLoadingValue);
-  const page = useSelector(selectsettingPageNrValue);
+  const moviesPageNr = useSelector(selectSettingMoviePageNrValue);
+  const peoplePageNr = useSelector(selectSettingPeoplePageNrValue);
+  const pageState = useSelector(selectSettingPageStateValue);
+  const page = pageState === "movies" ? moviesPageNr : peoplePageNr;
+
   const dispatch = useDispatch();
 
   const handleNextPage = () => {
