@@ -15,7 +15,7 @@ const App = () => {
   const loadingState = useSelector(selectSettingLoadingValue);
 
   return (
-    <HashRouter>
+    <HashRouter basename="/MovieBrowser">
       <Navigation />
       <Switch>
         <Route path={toPeople()}>
