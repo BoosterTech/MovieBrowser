@@ -6,7 +6,7 @@ import PersonList from "./features/personList";
 import Footer from "./common/Footer";
 
 const App = () => (
-  <HashRouter>
+  <HashRouter basename="/MovieBrowser">
     <Navigation />
     <Switch>
       <Route path={toPeople()}>
