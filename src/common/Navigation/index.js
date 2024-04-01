@@ -12,8 +12,8 @@ import {
 } from "./styled";
 import { Input } from "./styled";
 import { toMovieListPage, toPeople } from "../../routes";
-import { ReactComponent as SearchIcon } from "../../assets/SearchIcon.svg";
-import { ReactComponent as VideoIcon } from "../../assets/NavVideoIcon.svg";
+import { ReactComponent as SearchIcon } from "../../assets/images/SearchIcon.svg";
+import { ReactComponent as VideoIcon } from "../../assets/images/NavVideoIcon.svg";
 
 export const Navigation = () => {
   return (

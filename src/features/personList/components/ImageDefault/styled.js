@@ -5,8 +5,8 @@ export const DefaultImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   background-color: grey;
-  width: 292px;
-  height: 434px;
+  width: 176px;
+  height: 231px;
   margin: auto;
   border-radius: 5px;
 `;

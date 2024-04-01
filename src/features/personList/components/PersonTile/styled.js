@@ -9,6 +9,7 @@ export const TileWrapper = styled.div`
   height: 339x;
   width: 208px;
   margin: 0 0 24px 0;
+  border-radius: 5px;
   color: black;
   box-shadow: 0px 4px 12px 0px #bac7d580;
   animation: ${showin} 1s ease;
@@ -23,15 +24,15 @@ export const TileWrapper = styled.div`
 export const TileImage = styled.img`
   width: 176px;
   height: 231px;
-  margin: 16px 16px 12px 16px;
+  margin: auto;
   border-radius: 5px;
 `;
 
 export const PersonName = styled.div`
   width: 176px;
   height: 74px;
-  margin: 0;
-  padding-top: 0;
+  margin:  12px auto;
+  padding-top: 8px;
   text-align: center;
   font-weight: 500;
 `;

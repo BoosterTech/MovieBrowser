@@ -2,8 +2,10 @@ import styled from "styled-components";
 import { showin } from "../../styled";
 
 export const Wrapper = styled.div`
-  max-width: 324px;
-  max-height: 650px;
+display: flex;
+flex-direction: column;
+  width: 324px;
+  height: 650px;
   border-radius: 5px;
   padding: 16px;
   box-shadow: 0px 4px 12px 0px #bac7d580;
@@ -20,8 +22,6 @@ export const Wrapper = styled.div`
 export const TileImage = styled.img`
   max-width: 292px;
   max-height: 434px;
-  top: 16px;
-  left: 16px;
   margin: auto;
   border-radius: 5px;
 `;
@@ -31,8 +31,6 @@ export const DescriptionContainer = styled.div`
   flex-direction: column;
   max-width: 292px;
   max-height: 105px;
-  top: 466px;
-  left: 16px;
   margin-top: 16px;
 `;
 
