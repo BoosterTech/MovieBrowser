@@ -30,7 +30,7 @@ const App = () => {
         </Route>
       </Switch>
       {(pageState === "movies" || pageState === "people") &&
-        loadingState !== "loading" && <Pagination />}
+        loadingState === "success" && <Pagination />}
     </HashRouter>
   );
   p;
