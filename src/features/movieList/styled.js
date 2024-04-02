@@ -12,15 +12,13 @@ export const showin = keyframes`
 export const ContentWrapper = styled.section`
   max-width: 1368px;
   min-height: 750px;
-  top: 150px;
-  left: 276px;
   color: ${({ theme }) => theme.color.Black};
   padding: 0;
   margin: 56px auto 40px auto;
 `;
 
 export const ContentHeader = styled.h1`
-  max-width: 285px;
+  width: 285px;
   max-height: 43px;
   font-family: Poppins;
   font-size: 36px;
@@ -36,8 +34,8 @@ export const ContentHeader = styled.h1`
 export const TilesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 22px;
   height: auto;
-  max-width: 368px;
+  max-width: 1368px;
   margin: 24px 0;
 `;
