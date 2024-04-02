@@ -14,17 +14,25 @@ import { Input } from "./styled";
 import { toMovieListPage, toPeople } from "../../routes";
 import { ReactComponent as SearchIcon } from "../../assets/images/SearchIcon.svg";
 import { ReactComponent as VideoIcon } from "../../assets/images/NavVideoIcon.svg";
-import { selectSettingPageStateValue } from "../../Redux_store/settingSlice";
-import { useSelector } from "react-redux";
+import {
+  selectSettingPageStateValue,
+  setBothPages,
+} from "../../Redux_store/settingSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Navigation = () => {
   const pageState = useSelector(selectSettingPageStateValue);
+  const dispatch = useDispatch();
+
+  const handleOnClick = () => {
+    dispatch(setBothPages());
+  };
 
   return (
     <StyledHeader>
       <StyledUnit>
         <StyledItems>
-          <StyledContainerLink to={toMovieListPage()}>
+          <StyledContainerLink onClick={handleOnClick} to={toMovieListPage()}>
             <VideoIcon />
             Movies Browser
           </StyledContainerLink>

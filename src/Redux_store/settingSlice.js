@@ -22,13 +22,18 @@ const settingSlice = createSlice({
     setLastPage: (state) => {
       state.pageState === "movies"
         ? (state.moviesPageNr = 500)
-        : state.peoplePageNr = 500;
+        : (state.peoplePageNr = 500);
     },
     setFirstPage: (state) => {
       state.pageState === "movies"
         ? (state.moviesPageNr = 1)
         : (state.peoplePageNr = 1);
     },
+    setBothPages: (state) => {
+      state.moviesPageNr = 1;
+      state.peoplePageNr = 1;
+    },
+
     setPageState: (state, { payload: newState }) => {
       state.pageState = newState;
     },
@@ -43,6 +48,7 @@ export const {
   setPreviousPage,
   setLastPage,
   setFirstPage,
+  setBothPages,
   setPageState,
   setLoadingState,
 } = settingSlice.actions;
