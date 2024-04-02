@@ -2,10 +2,10 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledHeader = styled.section`
-  background-color: ${({ theme }) => theme.color.black};
+  background-color: ${({ theme }) => theme.color.Black};
   max-width: 100%;
   height: 94px;
-  color: white;
+  color: ${({ theme }) => theme.color.White};
   padding: 0 15px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
@@ -85,7 +85,7 @@ export const StyledContainerLink = styled(NavLink)`
     }
 
   &:hover {
-    color: #e0e0e0;
+    color: ${({ theme }) => theme.color.Alto};
   }
 `;
 
@@ -106,7 +106,7 @@ export const StyledLogo = styled.svg`
   width: 40px;
   height: 40px;
   fill: none;
-  stroke: #ffffff;
+  stroke: ${({ theme }) => theme.color.Black};
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1;
@@ -132,6 +132,7 @@ export const Styledlink = styled.a`
     cursor: pointer;
   }
 `;
+
 export const StyledContainerButton = styled.div`
   display: grid;
   grid-template-columns: auto auto;
@@ -157,16 +158,16 @@ export const StyledButton = styled.button`
   padding: 8px 22px;
   border-radius: 24px;
   background-color: transparent;
-  color: white;
+  color: ${({ theme }) => theme.color.White};
 
   &:hover {
     cursor: pointer;
-    border: 1px solid white;
-    color: grey;
+    border: 1px solid ${({ theme }) => theme.color.White};
+    color: ${({ theme }) => theme.color.Gray};
   }
 
   &:active {
-    border: 1px solid white;
+    border: 1px solid ${({ theme }) => theme.color.White};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
@@ -195,11 +196,11 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledNavLink1 = styled(NavLink)`
-  color: white;
+  color: ${({ theme }) => theme.color.White};
   text-decoration: none;
 
   &.active {
-    color: #61bded;
+    color: ${({ theme }) => theme.color.PictonBlue};
   }
 `;
 
@@ -237,7 +238,6 @@ export const SearchWrapper = styled.div`
     margin: 0 auto;
     width: 280px;
     margin: 0 auto;
-
   }
 `;
 

@@ -1,13 +1,19 @@
 export const theme = {
   color: {
-    Light_grey: "#F5F5FA", // body background
+    LightGrey: "#F5F5FA", // body background
     Woodsmoke: "#18181B", // MovieList content's text
     Mystic: "#E4E6F0",
     Waterloo: "#7E839A",
     PattensBlue: "#D6E4FF",
     ScienceBlue: "#0044CC",
-    black: "#000000",
-    darkergray: "rgba(126, 131, 154, 1)",
+    Black: "#000000",
+    DarkerGray: "rgba(126, 131, 154, 1)",
+    White: "#ffffff",
+    Heather: "rgba(186, 199, 213, 0.5)",
+    Whisper: "#F5F5FA",
+    Alto: "#E0E0E0",
+    PictonBlue: "#61BDED",
+    Gray: "#808080",
   },
   breakpoints: {
     mobileMin: 390,
