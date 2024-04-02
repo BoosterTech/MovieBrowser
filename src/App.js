@@ -3,9 +3,8 @@ import { toMovieListPage, toPeople, toProfile } from "./routes";
 import { Navigation } from "./common/Navigation";
 import { MovieListPage } from "./features/movieList";
 import PersonList from "./features/personList";
-
 import Pagination from "./common/Pagination";
-import PersonDetails from "./features/personDetails";
+import ProfileDetails from "./features/personDetails";
 
 const App = () => {
   return (
@@ -21,7 +20,7 @@ const App = () => {
           <Pagination />
         </Route>
         <Route exact path={toProfile()}>
-          <PersonDetails />
+          <ProfileDetails />
         </Route>
         <Route exact path="/">
           <Redirect to={toMovieListPage()} />
