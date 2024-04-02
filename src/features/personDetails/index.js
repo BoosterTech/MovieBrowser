@@ -11,7 +11,7 @@ import {
   Paragraph,
   TopTileWrapper,
 } from "./styled";
-import { MovieTile } from "./components/MovieTile";
+import { MovieTile } from "../movieList/components/MovieTile";
 import profileDefaultImage from "./profileDefaultImage.png";
 import { TilesContainer } from "../movieList/styled";
 
@@ -52,7 +52,7 @@ const ProfileDetails = () => {
           <MovieTile />
           <MovieTile />
           <MovieTile />
-          <MovieTile />   
+          <MovieTile />
           <MovieTile />
           <MovieTile />
           <MovieTile />
