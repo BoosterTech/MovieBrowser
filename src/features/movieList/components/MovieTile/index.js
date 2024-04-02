@@ -2,25 +2,25 @@ import {
   CategoryTag,
   CategoryTagWrapper,
   DescriptionContainer,
+  MovieTileWrapper,
   MovieTitle,
   MovieYear,
   RateContainer,
   RatingWrapper,
   TileImage,
   VoteContainer,
-  Wrapper,
 } from "./styled";
 
-import { ReactComponent as Star } from "./star.svg";
-import ImageDefault from "../ImageDefault";
+import { ReactComponent as Star } from "./../../../../assets/images/star.svg";
+import ImageDefaultMovie from "../../../../common/ImageDefaultMovie";
 
 export const MovieTile = ({ imageSrc, title, year, category, rate, vote }) => {
   return (
-    <Wrapper>
+    <MovieTileWrapper>
       {imageSrc ? (
         <TileImage src={imageSrc} alt="TileImage" />
       ) : (
-        <ImageDefault />
+        <ImageDefaultMovie />
       )}
       <DescriptionContainer>
         <MovieTitle>{title}</MovieTitle>
@@ -38,7 +38,7 @@ export const MovieTile = ({ imageSrc, title, year, category, rate, vote }) => {
           {vote} {vote > 1 ? "votes" : "vote"}
         </VoteContainer>
       </RatingWrapper>
-    </Wrapper>
+    </MovieTileWrapper>
   );
 };
 
