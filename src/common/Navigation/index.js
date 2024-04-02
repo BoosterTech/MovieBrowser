@@ -40,6 +40,7 @@ export const Navigation = () => {
         <SearchWrapper>
           <Input
             type="text"
+            name="search"
             placeholder={
               pageState === "movies"
                 ? "            Search for movies..."

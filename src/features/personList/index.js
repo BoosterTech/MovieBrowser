@@ -11,6 +11,8 @@ import {
   setLoadingState,
   setPageState,
 } from "../../Redux_store/settingSlice";
+import { toProfile } from "../../routes";
+import { NavLink } from "react-router-dom";
 
 const PersonList = () => {
   const [peopleData, setPeopleData] = useState(null);
@@ -20,7 +22,7 @@ const PersonList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (pageState != "loading") dispatch(setLoadingState("loading"));
+    dispatch(setLoadingState("loading"));
     dispatch(setPageState("people"));
   }, []);
 
@@ -48,7 +50,7 @@ const PersonList = () => {
       }
     };
     fetchPeople();
-  }, [dispatch, pageNr]);
+  }, [pageNr]);
 
   return (
     pageState === "people" && (
@@ -65,15 +67,16 @@ const PersonList = () => {
             peopleData &&
             peopleData.map((person) => {
               return (
-                <PersonTile
-                  imageSrc={
-                    person.profile_path
-                      ? `https://image.tmdb.org/t/p/w400${person.profile_path}`
-                      : null
-                  }
-                  key={person.id}
-                  name={person.name}
-                />
+                <NavLink to={toProfile({ id: person.id })} key={person.id}>
+                  <PersonTile
+                    imageSrc={
+                      person.profile_path
+                        ? `https://image.tmdb.org/t/p/w400${person.profile_path}`
+                        : null
+                    }
+                    name={person.name}
+                  />
+                </NavLink>
               );
             })
           )}

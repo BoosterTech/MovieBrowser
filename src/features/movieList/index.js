@@ -21,7 +21,7 @@ export const MovieListPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (pageState != "loading") dispatch(setLoadingState("loading"));
+    dispatch(setLoadingState("loading"));
     dispatch(setPageState("movies"));
   }, []);
 
