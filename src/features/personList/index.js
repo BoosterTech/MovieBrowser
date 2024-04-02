@@ -67,7 +67,8 @@ const PersonList = () => {
             peopleData &&
             peopleData.map((person) => {
               return (
-                <NavLink to={toProfile({ id: person.id })} key={person.id}>
+                // <NavLink to={toProfile({ id: person.id })} key={person.id}>
+                <NavLink to={toProfile()}>
                   <PersonTile
                     imageSrc={
                       person.profile_path
