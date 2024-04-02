@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { showin } from "../../styled";
 
-export const Wrapper = styled.div`
+export const MovieTileWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 294px;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   box-shadow: 0px 4px 12px 0px #bac7d580;
   background-color: #ffffff;
   transition: transform 0.5s ease;
-  animation: ${showin} .3s ease;
+  animation: ${showin} 0.3s ease;
 
   &:hover {
     transform: scale(1.05);
@@ -52,7 +52,7 @@ export const MovieTitle = styled.h2`
 `;
 
 export const MovieYear = styled.p`
-  width: 39px;
+  min-width: 39px;
   height: 24px;
   margin: 8px 0 8px 0;
   color: #7e839a;
