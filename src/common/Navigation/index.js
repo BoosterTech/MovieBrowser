@@ -45,8 +45,8 @@ export const Navigation = () => {
             name="search"
             placeholder={
               pageState === "movies"
-                ? "            Search for movies..."
-                : "            Search for people..."
+                ? "Search for movies..."
+                : "Search for people..."
             }
           />
           <Icon as={SearchIcon} />

@@ -24,6 +24,7 @@ import {
   setNextPage,
   setPreviousPage,
 } from "../../Redux_store/settingSlice";
+import { useEffect, useState } from "react";
 
 const Pagination = () => {
   const loadingState = useSelector(selectSettingLoadingValue);

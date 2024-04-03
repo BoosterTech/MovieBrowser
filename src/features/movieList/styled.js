@@ -38,7 +38,8 @@ export const ContentHeader = styled.h1`
     }
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    font-size: 26px;
+    font-size: 18px;
+    margin: 24px 0 12px 16px;
     }
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {

@@ -2,10 +2,8 @@ import styled from "styled-components";
 import { showin } from "../../styled";
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 294px;
-  height: 650px;
+  max-height: 700px;
   border-radius: 5px;
   padding: 16px;
   box-shadow: 0px 4px 12px 0px #bac7d580;
@@ -25,7 +23,8 @@ export const Wrapper = styled.div`
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: grid;
     grid-template-columns: auto 1fr;
-    width: 320px;
+    width: 288px;
+    max-height: 300px;
   }
 `;
 
@@ -45,16 +44,19 @@ export const TileImage = styled.img`
 
 export const DescriptionContainer = styled.div`
   max-width: 292px;
-  max-height: 105px;
+  max-height: 285px;
   margin-top: 16px;
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    padding: 0 16px;
+    padding: 0 0 0 16px;
+    margin-top: 0px;
+    max-height: 220px;
+    max-width: 160px;
   }
 `;
 
 export const MovieTitle = styled.h2`
-  max-width: 292px;
+  max-width: 160px;
   height: auto;
   margin: 0;
   font-size: 22px;
@@ -62,6 +64,7 @@ export const MovieTitle = styled.h2`
   line-height: 28.6px;
   text-align: left;
   color: #18181b;
+  word-wrap: break-word;
 
   &:hover {
     cursor: pointer;
@@ -90,21 +93,11 @@ export const MovieYear = styled.p`
 `;
 
 export const CategoryTagWrapper = styled.div`
-  /* display: flex;
-  max-width: 279px;
-  max-height: 36px;
-  height: auto; 
-  gap: 8px;
+  list-style: none;
+  display:flex;
+  flex-wrap: wrap;
+  padding-left: 0;
   font-size: 13px; 
-  flex-wrap: wrap; */
-
-    list-style: none;
-    display:flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    /* margin: 16px -8px; */
-    font-size: 13px; 
-
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 10px;
@@ -118,22 +111,21 @@ export const CategoryTag = styled.div`
   border-radius: 5px;
   background: #e4e6f0;
   white-space: nowrap;
-  margin: 4px 4px 4px 0;
+  margin: 0 4px 10px 0;
 
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    margin: 0 4px 8px 0;
+    }
 `;
 
 export const RatingWrapper = styled.div`
   display: grid;
-  grid-template-columns: 30px 40px 40px 70px;
+  grid-template-columns: 25px 30px 40px 70px;
   align-items: center;
-
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    /* margin-top: 30px; */
-
-  }
+  grid-gap: 12px;
 `;
 
-export const RateContainer = styled.p`
+export const RateContainer = styled.div`
   width: auto;
   max-height: 24px;
   font-size: 16px;
@@ -145,11 +137,10 @@ export const RateContainer = styled.p`
     max-height: 17px;
     font-size: 13px;
     line-height: 16.9px;
-
   }
 `;
 
-export const VoteContainer = styled.p`
+export const VoteContainer = styled.div`
   max-width: 68px;
   white-space: nowrap;
   max-height: 24px;
