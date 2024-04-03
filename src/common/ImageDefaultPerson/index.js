@@ -1,7 +1,7 @@
 import { ReactComponent as Icon } from "./defaultIcon.svg";
 import { DefaultImageWrapper } from "./styled";
 
-const ImageDefault = () => {
+const ImageDefaultPerson = () => {
   return (
     <DefaultImageWrapper>
       <Icon />
@@ -9,4 +9,4 @@ const ImageDefault = () => {
   );
 };
 
-export default ImageDefault;
+export default ImageDefaultPerson;

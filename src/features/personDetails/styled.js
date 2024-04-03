@@ -7,7 +7,7 @@ export const TopTileWrapper = styled.div`
   max-width: 1288px;
   max-height: 644px;
   padding: 40px;
-  margin: 56px auto 64px auto;
+  margin: 56px auto 0 auto;
 `;
 
 export const DescriptionWrapper = styled.div`
@@ -24,7 +24,7 @@ export const Image = styled.img`
   border-radius: 5px;
 `;
 
-export const ProfileName = styled.h1`
+export const Header = styled.h1`
   height: 43px;
   font-weight: 600;
   font-size: 36px;
@@ -56,4 +56,12 @@ export const Paragraph = styled.p`
       line-height:32px;
       font-size:20px;
   `}
+`;
+
+export const CastCrewWrapper = styled.div`
+  min-height: 717px;
+  width: 1368px;
+  margin: 64px auto;
+
+  ${(props) => props.second && `margin-bottom:220px;`}
 `;
