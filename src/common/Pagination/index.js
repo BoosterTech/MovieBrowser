@@ -12,47 +12,53 @@ import {
   ButtonNext,
   ButtonLast,
 } from "./styled";
+
 import {
-  nextPage,
-  previousPage,
-  selectMovieStateValue,
-  selectMoviesPageNr,
+  selectSettingLoadingValue,
+  selectSettingMoviePageNrValue,
+  selectSettingPageStateValue,
+  selectSettingPeoplePageNrValue,
   setFirstPage,
   setLastPage,
-  updateState,
-} from "../../../../Redux_store/moviesSlice";
-import { useEffect, useRef, useState } from "react";
+  setLoadingState,
+  setNextPage,
+  setPreviousPage,
+} from "../../Redux_store/settingSlice";
 
-export const Footer = () => {
-  const state = useSelector(selectMovieStateValue);
-  const page = useSelector(selectMoviesPageNr);
+const Pagination = () => {
+  const loadingState = useSelector(selectSettingLoadingValue);
+  const moviesPageNr = useSelector(selectSettingMoviePageNrValue);
+  const peoplePageNr = useSelector(selectSettingPeoplePageNrValue);
+  const pageState = useSelector(selectSettingPageStateValue);
+  const page = pageState === "movies" ? moviesPageNr : peoplePageNr;
+
   const dispatch = useDispatch();
 
   const handleNextPage = () => {
     if (page === 500) {
       return;
     } else {
-      dispatch(nextPage());
-      dispatch(updateState("loading"));
+      dispatch(setNextPage());
+      dispatch(setLoadingState("loading"));
     }
   };
   const handlePreviousPage = () => {
     if (page == 1) {
       return;
     } else {
-      dispatch(previousPage());
-      dispatch(updateState("loading"));
+      dispatch(setPreviousPage());
+      dispatch(setLoadingState("loading"));
     }
   };
 
   const handleLastPage = () => {
     dispatch(setLastPage());
-    dispatch(updateState("loading"));
+    dispatch(setLoadingState("loading"));
   };
 
   const handleFirstPage = () => {
     dispatch(setFirstPage());
-    dispatch(updateState("loading"));
+    dispatch(setLoadingState("loading"));
   };
 
 
@@ -72,7 +78,7 @@ export const Footer = () => {
 
 
   return (
-    state !== "loading" && (
+    loadingState != "loading" && (
       <Wrapper>
         <Section>
           <ButtonFirst disabled={page === 1} onClick={handleFirstPage}>
@@ -138,3 +144,5 @@ export const Footer = () => {
     )
   );
 };
+
+export default Pagination;

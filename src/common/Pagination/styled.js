@@ -26,7 +26,6 @@ export const Section = styled.div`
 
 export const ButtonFirst = styled.button`
   background: ${({ theme }) => theme.color.PattensBlue};
-
   padding: auto;
   border: 1px solid ${({ theme }) => theme.color.PattensBlue};
   border-radius: 5px;
@@ -86,7 +85,7 @@ export const ButtonLast = styled(ButtonFirst)`
   }
 `;
 
-export const PageChange = styled.p`
+export const PageChange = styled.div`
   margin: 6px 24px;
   display: flex;
   align-items: center;
@@ -108,7 +107,7 @@ export const DisabledText = styled.p`
   font-weight: 400;
 `;
 
-export const Number = styled.div`
+export const Number = styled.p`
   margin: auto;
   font-weight: 600;
 
