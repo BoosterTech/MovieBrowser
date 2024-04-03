@@ -37,5 +37,5 @@ export const TilesContainer = styled.div`
   gap: 22px;
   height: auto;
   max-width: 1368px;
-  margin: 24px 0;
+  margin: 24px 0 0 0;
 `;

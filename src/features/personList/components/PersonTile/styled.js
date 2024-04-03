@@ -25,6 +25,7 @@ export const TileImage = styled.img`
   width: 176px;
   height: 231px;
   margin: auto;
+  margin-top: 16px;
   border-radius: 5px;
 `;
 
