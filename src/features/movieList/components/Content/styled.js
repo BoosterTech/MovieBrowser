@@ -11,7 +11,6 @@ export const showin = keyframes`
 
 export const ContentWrapper = styled.section`
   max-width: 1368px;
-  max-height: auto;
   top: 150px;
   left: 276px;
   color: ${({ theme }) => theme.color.Woodsmoke};
@@ -40,6 +39,10 @@ export const ContentHeader = styled.h1`
     }
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 26px;
+    }
+
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     font-size: 18px;
     }
 `;
