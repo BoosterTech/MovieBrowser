@@ -114,7 +114,7 @@ export const CategoryTag = styled.div`
   margin: 0 4px 10px 0;
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin: 0 4px 8px 0;
+    margin: 0 4px 8px 0; 
     }
 `;
 
