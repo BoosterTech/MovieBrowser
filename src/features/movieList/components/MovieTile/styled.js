@@ -45,12 +45,7 @@ export const TileImage = styled.img`
 
 export const DescriptionContainer = styled.div`
   max-width: 292px;
-<<<<<<< HEAD:src/features/movieList/components/Content/components/MovieTile/styled.js
-  top: 466px;
-  left: 16px;
-=======
   max-height: 105px;
->>>>>>> 320e7f29da2562f1098c776b97d0732a56fc1b05:src/features/movieList/components/MovieTile/styled.js
   margin-top: 16px;
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
@@ -119,11 +114,7 @@ export const CategoryTagWrapper = styled.div`
 export const CategoryTag = styled.div`
   max-width: auto;
   max-height: 36px;
-<<<<<<< HEAD:src/features/movieList/components/Content/components/MovieTile/styled.js
   padding: 8px 16px 8px 16px;
-=======
-  padding: 5px 10px 4px 10px;
->>>>>>> 320e7f29da2562f1098c776b97d0732a56fc1b05:src/features/movieList/components/MovieTile/styled.js
   border-radius: 5px;
   background: #e4e6f0;
   white-space: nowrap;
@@ -132,7 +123,6 @@ export const CategoryTag = styled.div`
 `;
 
 export const RatingWrapper = styled.div`
-<<<<<<< HEAD:src/features/movieList/components/Content/components/MovieTile/styled.js
   display: grid;
   grid-template-columns: 30px 40px 40px 70px;
   align-items: center;
@@ -141,13 +131,6 @@ export const RatingWrapper = styled.div`
     /* margin-top: 30px; */
 
   }
-=======
-  display: flex;
-  max-width: 140px;
-  max-height: 24px;
-  gap: 12px;
-  margin: auto 0 0 0;
->>>>>>> 320e7f29da2562f1098c776b97d0732a56fc1b05:src/features/movieList/components/MovieTile/styled.js
 `;
 
 export const RateContainer = styled.p`
