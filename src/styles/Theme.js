@@ -23,9 +23,4 @@ export const theme = {
     tabletHorizontalMax: 1199,
     desktopMini: 1368,
   },
-  size: {
-    maxwidth: "1200px",
-  },
-
-
 };
