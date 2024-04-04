@@ -18,7 +18,11 @@ export const Wrapper = styled.div`
 
   @media(max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: 0 auto;
+
+    &:hover {
+    transform: scale(1);
     }
+  }
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: grid;
@@ -32,7 +36,7 @@ export const TileImage = styled.img`
   max-width: 292px;
   height: 427px;
   margin: auto;
-  margin-top: 0;
+  margin-top: 16;
   margin-bottom: 0;
   border-radius: 5px;
 
@@ -106,8 +110,8 @@ export const CategoryTagWrapper = styled.div`
 
 export const CategoryTag = styled.div`
   max-width: auto;
-  max-height: 36px;
-  padding: 8px 16px 8px 16px;
+  max-height: 19px;
+  padding: 4px 8px 4px 8px;
   border-radius: 5px;
   background: #e4e6f0;
   white-space: nowrap;
@@ -122,7 +126,7 @@ export const RatingWrapper = styled.div`
   display: grid;
   grid-template-columns: 25px 30px 40px 70px;
   align-items: center;
-  grid-gap: 12px;
+  grid-gap: 4px;
 `;
 
 export const RateContainer = styled.div`

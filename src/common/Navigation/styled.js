@@ -3,17 +3,22 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.section`
   background-color: ${({ theme }) => theme.color.Black};
-  max-width: 100%;
-  height: 94px;
+  width: 100%;
+  max-height: 94px;
   color: ${({ theme }) => theme.color.White};
   padding: 0 15px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    padding: 10px;
+    padding: 0px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    height: 142px;
+    max-height: 180px;
+    padding: 0px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+    height: 150px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
@@ -32,6 +37,7 @@ export const StyledUnit = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     flex-wrap: wrap;
     justify-content: center;
+    margin: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
@@ -40,7 +46,6 @@ export const StyledUnit = styled.div`
 `;
 
 export const StyledItems = styled.div`
-  height: 70px;
   display: flex;
   align-items: center;
   gap: 80px;
@@ -51,7 +56,12 @@ export const StyledItems = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     gap: 0;
-    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    gap: 0;
+    margin: 16px 0 10px 0;
+  }
 `;
 
 export const StyledContainerLink = styled(NavLink)`
@@ -70,18 +80,19 @@ export const StyledContainerLink = styled(NavLink)`
   margin-left: 30px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    font-size: 20px;
-    margin-left: 20px;
+    font-size: 17px;
+    margin-left: 30px;
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 16px;
-    margin-left: 20px;
+    margin-left: 16px;
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
-    font-size: 14px;
-    margin-left: 0px;
+    font-size: 13px;
+    margin-left: 16px;
+    grid-gap: 8px;
     }
 
   &:hover {
@@ -139,12 +150,15 @@ export const StyledContainerButton = styled.div`
   grid-gap: 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    grid-gap: 0;
+    grid-gap: 16px;
+    margin-left: 19px;
+
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
-    grid-gap: 0;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    grid-gap: 12px;
     padding: 0;
+    margin-left: 19px;
   }
 `;
 
@@ -156,7 +170,7 @@ export const StyledButton = styled.button`
   line-height: 21px;
   height: 48px;
   padding: 8px 22px;
-  border-radius: 24px;
+  border-radius: 29px;
   background-color: transparent;
   color: ${({ theme }) => theme.color.White};
 
@@ -174,24 +188,27 @@ export const StyledButton = styled.button`
     margin: 0px;
     font-size: 14px;
     line-height: 18px;
+    padding: 0;
+
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin: 0px;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 10px;
+    width: 70px;
+    font-weight: 600;
+    line-height: 21px;
+    height: 34px;
+    border-radius: 24px;
+    padding: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
-    margin: 5px;
     font-size: 12px;
-    line-height: 10px;
-    padding: 0 12px;
-    width: 68px;
-    font-weight: 600;
-    line-height: 21px;
-    height: 48px;
+    width: 70px;
+    height: 34px;
     border-radius: 24px;
+    padding: 0;
   }
 `;
 
@@ -208,7 +225,6 @@ export const StyledNavLink2 = styled(StyledNavLink1)``;
 
 export const SearchWrapper = styled.div`
   display: inline-block;
-  padding: 12px;
   width: 432px;
   height: 48px;
   border-radius: 33px;
@@ -221,23 +237,26 @@ export const SearchWrapper = styled.div`
     display: flex;
     align-items: center;
     width: 390px;
+    margin: 0 16px 0 0;
+
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     display: flex;
     align-items: center;
-    width: 300px;
+    width: 326px;
+    margin: 0 16px 0 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin: 0 auto;
-    width: 360px;
+    margin: 16px 12px 12px 20px;
+    width: 310px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
-    margin: 0 auto;
-    width: 280px;
-    margin: 0 auto;
+    margin: 0 12px 12px 12px;
+    width: 288px;
+    height: 44px;
   }
 `;
 
@@ -246,20 +265,21 @@ export const Input = styled.input`
   width: 360px;
   height: 24px;
   border-radius: 33px;
-  opacity: 0px;
   margin-left: auto;
   outline: none;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    width: 200px;
+    width: 330px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    width: 288px;
+    width: 310px;
+    padding: 12px 0 12px 50px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
-    width: 260px;
+    width: 288px;
+    margin: 0;
   }
 `;
 
@@ -273,14 +293,17 @@ export const Icon = styled.svg`
   height: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    margin-left: 50px;
+    margin-left: 20px;
+    transform: translateY(-60%);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin-left: 30px;
+    margin-left: 15px;
+    transform: translateY(-60%);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     margin-left: 15px;
+    transform: translateY(-60%);
   }
 `;

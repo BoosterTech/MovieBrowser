@@ -27,12 +27,12 @@ export const Navigation = () => {
       <StyledUnit>
         <StyledItems>
           <StyledContainerLink to={toMovieListPage()}>
-            <VideoIconSet as={VideoIcon}/>
+            <VideoIconSet as={VideoIcon} />
             Movies Browser
           </StyledContainerLink>
           <StyledContainerButton>
             <StyledButton>
-              <StyledNavLink1 to={toMovieListPage()}>MOVIE</StyledNavLink1>
+              <StyledNavLink1 to={toMovieListPage()}>MOVIES</StyledNavLink1>
             </StyledButton>
             <StyledButton>
               <StyledNavLink2 to={toPeople()}>PEOPLE</StyledNavLink2>

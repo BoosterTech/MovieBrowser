@@ -33,13 +33,21 @@ export const ContentHeader = styled.h1`
   padding: 0;
   animation: ${showin} 1s ease;
 
+  @media(max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
+    margin: 20px 25px;
+  }
+
   @media(max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
-    margin: 20px 15px;
+    margin: 20px 30px;
     }
+
+  @media(max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    margin: 20px 0 20px 90px;
+  }
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 18px;
-    margin: 24px 0 12px 16px;
+    margin: 0 auto;
     }
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
@@ -54,6 +62,12 @@ export const TilesContainer = styled.div`
   height: auto;
   max-width: 1368px;
   margin: 24px 0;
+
+  @media(max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 24px 0 24px 24px;
+  }
 
   @media(max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     display: grid;
