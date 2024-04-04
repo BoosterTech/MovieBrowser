@@ -12,6 +12,8 @@ import {
   setLoadingState,
   setPageState,
 } from "../../Redux_store/settingSlice";
+import { toMovieDetails } from "../../routes";
+import { NavLink } from "react-router-dom";
 
 export const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
@@ -67,19 +69,25 @@ export const MovieListPage = () => {
                 (id) => moviesGenres_ids[id]
               );
               return (
-                <MovieTile
-                  key={movie.id}
-                  title={movie.title}
-                  imageSrc={
-                    movie.poster_path
-                      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                      : null
-                  }
-                  category={movieGenres}
-                  year={movie.release_date.substring(0, 4)}
-                  rate={movie.vote_average}
-                  vote={movie.vote_count}
-                />
+                <NavLink
+                  to={toMovieDetails()}
+                  key={moviesData.id}
+                  style={{ textDecoration: "none" }}
+                >
+                  <MovieTile
+                    key={movie.id}
+                    title={movie.title}
+                    imageSrc={
+                      movie.poster_path
+                        ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                        : null
+                    }
+                    category={movieGenres}
+                    year={movie.release_date.substring(0, 4)}
+                    rate={movie.vote_average}
+                    vote={movie.vote_count}
+                  />
+                </NavLink>
               );
             })
           )}
