@@ -170,7 +170,7 @@ export const StyledButton = styled.button`
   line-height: 21px;
   height: 48px;
   padding: 8px 22px;
-  border-radius: 29px;
+  border-radius: 24px;
   background-color: transparent;
   color: ${({ theme }) => theme.color.White};
 
@@ -199,7 +199,7 @@ export const StyledButton = styled.button`
     font-weight: 600;
     line-height: 21px;
     height: 34px;
-    border-radius: 24px;
+    border-radius: 29px;
     padding: 0;
   }
 
