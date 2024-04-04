@@ -18,6 +18,7 @@ export const ContentWrapper = styled.section`
 
   @media(max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
       margin: 15px ;
+      height: auto;
     }
 `;
 
