@@ -40,7 +40,7 @@ export const TilesContainer = styled.div`
   margin: 24px 0 0 0;
 
   ${(props) =>
-    props.personTile &&
+    props.persontile &&
     `
   grid-template-columns: repeat(6, 1fr);
   `}

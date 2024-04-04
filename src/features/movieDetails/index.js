@@ -22,7 +22,7 @@ const MovieDetails = () => {
 
       <CastCrewWrapper>
         <Header>Cast</Header>
-        <TilesContainer personTile>
+        <TilesContainer persontile>
           <NavLink to={toProfile()} style={{ textDecoration: "none" }}>
             <PersonTile />
           </NavLink>
