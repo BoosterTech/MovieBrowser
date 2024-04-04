@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { showin } from "../../styled";
 
 export const MovieTileWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 294px;
   max-height: 700px;
   border-radius: 5px;
