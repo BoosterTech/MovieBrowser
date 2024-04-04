@@ -48,13 +48,6 @@ export const MovieTile = ({
           </VoteContainer>
         </RatingWrapper>
       </DescriptionContainer>
-      <RatingWrapper>
-        <Star />
-        <RateContainer>{rate.toFixed(1)}</RateContainer>
-        <VoteContainer>
-          {vote} {vote > 1 ? "votes" : "vote"}
-        </VoteContainer>
-      </RatingWrapper>
     </MovieTileWrapper>
   );
 };
