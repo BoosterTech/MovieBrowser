@@ -38,4 +38,10 @@ export const TilesContainer = styled.div`
   height: auto;
   max-width: 1368px;
   margin: 24px 0 0 0;
+
+  ${(props) =>
+    props.personTile &&
+    `
+  grid-template-columns: repeat(6, 1fr);
+  `}
 `;
