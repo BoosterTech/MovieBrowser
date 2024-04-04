@@ -2,6 +2,7 @@ import {
   CategoryTag,
   CategoryTagWrapper,
   DescriptionContainer,
+  MovieTileWrapper,
   MovieTitle,
   MovieYear,
   RateContainer,
@@ -12,16 +13,24 @@ import {
   IconStar,
 } from "./styled";
 
-import { ReactComponent as Star } from "./star.svg";
-import ImageDefault from "../ImageDefault";
+import { ReactComponent as Star } from "./../../../../assets/images/star.svg";
+import ImageDefaultMovie from "../../../../common/ImageDefaultMovie";
+import defaultTileImage from "../../../personDetails/defaultTileImage.png";
 
-export const MovieTile = ({ imageSrc, title, year, category, rate, vote }) => {
+export const MovieTile = ({
+  imageSrc = defaultTileImage,
+  title = "Mulan",
+  year = "Director (2020)",
+  category = ["action", "fantasy", " thiller"],
+  rate = 7.8,
+  vote = 3876,
+}) => {
   return (
-    <Wrapper>
+    <MovieTileWrapper>
       {imageSrc ? (
         <TileImage src={imageSrc} alt="TileImage" />
       ) : (
-        <ImageDefault />
+        <ImageDefaultMovie />
       )}
       <DescriptionContainer>
         <MovieTitle>{title}</MovieTitle>
@@ -39,7 +48,14 @@ export const MovieTile = ({ imageSrc, title, year, category, rate, vote }) => {
           </VoteContainer>
         </RatingWrapper>
       </DescriptionContainer>
-    </Wrapper>
+      <RatingWrapper>
+        <Star />
+        <RateContainer>{rate.toFixed(1)}</RateContainer>
+        <VoteContainer>
+          {vote} {vote > 1 ? "votes" : "vote"}
+        </VoteContainer>
+      </RatingWrapper>
+    </MovieTileWrapper>
   );
 };
 

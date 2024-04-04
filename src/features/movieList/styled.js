@@ -91,4 +91,11 @@ export const TilesContainer = styled.div`
     justify-content: center;
     margin: 10px 84px;
   }
+  margin: 24px 0 0 0;
+
+  ${(props) =>
+    props.personTile &&
+    `
+  grid-template-columns: repeat(6, 1fr);
+  `}
 `;

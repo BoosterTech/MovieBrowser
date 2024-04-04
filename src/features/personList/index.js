@@ -68,8 +68,13 @@ const PersonList = () => {
             peopleData.map((person) => {
               return (
                 // <NavLink to={toProfile({ id: person.id })} key={person.id}>
-                <NavLink to={toProfile()}>
+                <NavLink
+                  to={toProfile()}
+                  key={person.id}
+                  style={{ textDecoration: "none" }}
+                >
                   <PersonTile
+                    key={person.id}
                     imageSrc={
                       person.profile_path
                         ? `https://image.tmdb.org/t/p/w400${person.profile_path}`
