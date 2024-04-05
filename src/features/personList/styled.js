@@ -29,6 +29,11 @@ export const ContentHeader = styled.h1`
   color: #18181b;
   margin: 0 auto 24px 0;
   animation: ${showin} 1s ease;
+
+  @media(max-width:${({theme}) => theme.breakpoints.mobileMax}px){
+    
+    
+  }
 `;
 
 export const TilesWrapper = styled.div`
