@@ -10,6 +10,7 @@ export const showin = keyframes`
 `;
 
 export const ContentWrapper = styled.section`
+  border: 1px solid;
   max-width: 1368px;
   min-height: 750px;
   color: ${({ theme }) => theme.color.Black};
@@ -37,4 +38,8 @@ export const TilesWrapper = styled.div`
   height: auto;
   max-width: 368px;
   margin: 24px 0;
+
+  @media(max-width: ${({theme}) => theme.media.phone}){
+    grid-template-columns: repeat(2,1fr);
+  }
 `;
