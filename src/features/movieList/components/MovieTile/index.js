@@ -9,6 +9,7 @@ import {
   RatingWrapper,
   TileImage,
   VoteContainer,
+  IconStar,
 } from "./styled";
 
 import { ReactComponent as Star } from "./../../../../assets/images/star.svg";
@@ -39,13 +40,13 @@ export const MovieTile = ({
           ))}
         </CategoryTagWrapper>
       </DescriptionContainer>
-      <RatingWrapper>
-        <Star />
-        <RateContainer>{rate.toFixed(1)}</RateContainer>
-        <VoteContainer>
-          {vote} {vote > 1 ? "votes" : "vote"}
-        </VoteContainer>
-      </RatingWrapper>
+        <RatingWrapper>
+          <IconStar as={Star} />
+          <RateContainer>{rate.toFixed(1)}</RateContainer>
+          <VoteContainer>
+            {vote} {vote > 1 ? "votes" : "vote"}
+          </VoteContainer>
+        </RatingWrapper>
     </MovieTileWrapper>
   );
 };
