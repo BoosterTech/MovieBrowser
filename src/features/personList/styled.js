@@ -10,12 +10,16 @@ export const showin = keyframes`
 `;
 
 export const ContentWrapper = styled.section`
-  border: 1px solid;
+
   max-width: 1368px;
   min-height: 750px;
   color: ${({ theme }) => theme.color.Black};
   padding: 0;
   margin: 56px auto 40px auto;
+
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
+    margin: 0px;
+  }
 `;
 
 export const ContentHeader = styled.h1`
@@ -30,19 +34,13 @@ export const ContentHeader = styled.h1`
   margin: 0 auto 24px 0;
   animation: ${showin} 1s ease;
 
-  @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
-    font-size: 20px;
-    margin-bottom: 12px;
+  @media(max-width: ${({theme}) => theme.breakpoints.desktopMini}px){
+    margin: 0 0 12px 16px;
   }
 
-  @media(max-width:${({theme}) => theme.breakpoints.mobileMedium}px){
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
     font-size: 20px;
-    margin-bottom: 12px;
-  }
-  
-  @media(max-width:${({theme}) => theme.breakpoints.mobileMin}px){
-    font-size: 20px;
-    margin-bottom: 12px;
+    margin: 24px 0 12px 16px;
   }
 `;
 
