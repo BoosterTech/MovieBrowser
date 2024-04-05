@@ -53,6 +53,11 @@ export const TilesWrapper = styled.div`
     grid-template-columns: repeat(2,1fr);
     text-align: center;
     gap: 16px
+  }
 
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMedium}px){
+    grid-template-columns: repeat(3,1fr);
+    text-align: center;
+    gap: 16px
   }
 `;
