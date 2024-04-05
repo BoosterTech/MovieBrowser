@@ -10,7 +10,7 @@ export const showin = keyframes`
 `;
 
 export const ContentWrapper = styled.section`
-  // border: 1px solid;
+  //border: 1px solid;
   max-width: 1368px;
   min-height: 750px;
   color: ${({ theme }) => theme.color.Black};
@@ -19,6 +19,14 @@ export const ContentWrapper = styled.section`
   
   @media(max-width: ${({theme}) => theme.breakpoints.desktopMini}px){
     max-width: 1145px;
+  }
+
+  @media(max-width: ${({theme}) => theme.breakpoints.tabletHorizontalMax}px){
+    max-width: 911px;
+  }
+
+  @media(max-width: ${({theme}) => theme.breakpoints.tabletVerticalMax}px){
+    max-width: 914px;
   }
   
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMedium}px){
@@ -42,6 +50,7 @@ export const ContentHeader = styled.h1`
   margin: 0 auto 24px 0;
   animation: ${showin} 1s ease;
 
+  
   @media(max-width:${({theme}) => theme.breakpoints.mobileMedium}px){
     font-size: 20px;
     margin-bottom: 12px;
@@ -67,16 +76,14 @@ export const TilesWrapper = styled.div`
 
   @media(max-width: ${({theme}) => theme.breakpoints.tabletHorizontalMax}px){
     grid-template-columns: repeat(4,1fr);
+    text-align: center;
+   
   }
 
-  @media(max-width: ${({theme}) => theme.breakpoints.tabletHorizontalMax}px){
-    grid-template-columns: repeat(4,1fr);
-  }
-
-  @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
+  @media(max-width: ${({theme}) => theme.breakpoints.tabletVerticalMax}px){
     grid-template-columns: repeat(3,1fr);
     text-align: center;
-    gap: 16px;
+    gap: 16px
   }
 
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){

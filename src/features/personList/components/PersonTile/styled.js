@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { showin } from "../../styled";
 
 export const TileWrapper = styled.div`
-  //  border: 1px solid;
+  //border: 1px solid;
   display: flex;
   flex-direction: column;
   align-items: center;
