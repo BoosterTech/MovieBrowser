@@ -71,7 +71,7 @@ export const MovieListPage = () => {
               return (
                 <NavLink
                   to={toMovieDetails()}
-                  key={moviesData.id}
+                  key={movie.id}
                   style={{ textDecoration: "none" }}
                 >
                   <MovieTile
