@@ -19,8 +19,8 @@ export const MovieTileWrapper = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: ${({ theme }) =>
-      theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ( ${({ theme }) =>
+      theme.breakpoints.tabletHorizontalMax}px)) {
     margin: 0 auto;
 
     &:hover {
@@ -69,7 +69,7 @@ export const DescriptionContainer = styled.div`
 
 export const MovieTitle = styled.h2`
   max-width: 292px;
-  margin: 0 0 8px 0;
+  margin: 0;
   font-size: 22px;
   font-weight: 500;
   line-height: 28.6px;
@@ -83,6 +83,10 @@ export const MovieTitle = styled.h2`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 16px;
     line-height: 20.8px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    margin-bottom: 4px;
   }
 `;
 
@@ -118,7 +122,7 @@ export const CategoryTagWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 10px;
-    margin: 8px 0;
+    margin: px 0;
   }
 `;
 
@@ -136,16 +140,14 @@ export const CategoryTag = styled.div`
 export const RatingWrapper = styled.div`
   display: grid;
   grid-template-columns: 16px 22px 40px;
-  grid-gap: 12px;
-  margin: 4px 0;
-
+  gap: 12px;
+  margin: auto auto 0 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     grid-gap: 4px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     grid-gap: 4px;
-    
   }
 `;
 
