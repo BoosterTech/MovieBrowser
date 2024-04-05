@@ -19,8 +19,7 @@ export const MovieTileWrapper = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: ${({ theme }) =>
-      theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: 0 auto;
 
     &:hover {
@@ -139,13 +138,11 @@ export const RatingWrapper = styled.div`
   grid-gap: 12px;
   margin: 4px 0;
 
-
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     grid-gap: 4px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     grid-gap: 4px;
-    
   }
 `;
 

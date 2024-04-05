@@ -17,11 +17,11 @@ export const theme = {
   },
   breakpoints: {
     mobileMin: 390,
+    mobilePeopleMedium: 452,
     mobileMedium: 675,
     mobileMax: 767,
     tabletVerticalMax: 991,
     tabletHorizontalMax: 1199,
     desktopMini: 1368,
-    mobilePeopleMedium: 452,
   },
 };
