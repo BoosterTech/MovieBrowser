@@ -24,6 +24,7 @@ import {
   setNextPage,
   setPreviousPage,
 } from "../../Redux_store/settingSlice";
+import { useEffect, useState } from "react";
 
 const Pagination = () => {
   const loadingState = useSelector(selectSettingLoadingValue);
@@ -61,17 +62,50 @@ const Pagination = () => {
     dispatch(setLoadingState("loading"));
   };
 
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+
   return (
     loadingState != "loading" && (
       <Wrapper>
         <Section>
           <ButtonFirst disabled={page === 1} onClick={handleFirstPage}>
-            <VectorLeft />
-            First
+            {windowWidth >= 767 ? (
+              <>
+                <VectorLeft />
+                First
+              </>
+            ) : (
+              <>
+                <VectorLeft />
+                <VectorLeft />
+              </>
+            )}
           </ButtonFirst>
           <ButtonPrevious disabled={page === 1} onClick={handlePreviousPage}>
-            <VectorLeft />
-            Previous
+            {windowWidth >= 767 ? (
+              <>
+                <VectorLeft />
+                Previous
+              </>
+            ) : (
+              <>
+                <VectorLeft />
+              </>
+            )}
           </ButtonPrevious>
         </Section>
         <PageChange>
@@ -82,12 +116,29 @@ const Pagination = () => {
         </PageChange>
         <Section>
           <ButtonNext disabled={page === 500} onClick={handleNextPage}>
-            Next
-            <VectorRight />
+            {windowWidth >= 767 ? (
+              <>
+                Next
+                <VectorRight />
+              </>
+            ) : (
+              <>
+                <VectorRight />
+              </>
+            )}
           </ButtonNext>
           <ButtonLast disabled={page === 500} onClick={handleLastPage}>
-            Last
-            <VectorRight />
+            {windowWidth >= 767 ? (
+              <>
+                Last
+                <VectorRight />
+              </>
+            ) : (
+              <>
+                <VectorRight />
+                <VectorRight />
+              </>
+            )}
           </ButtonLast>
         </Section>
       </Wrapper>

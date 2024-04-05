@@ -26,7 +26,7 @@ html{
 }
 
 body {
-   background-color:#F5F5FA;
+   background-color: ${({ theme }) => theme.color.Whisper};
    padding: 0px;
    font-family: Poppins;
    margin: 0;

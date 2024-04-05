@@ -9,6 +9,7 @@ import {
   Icon,
   StyledNavLink2,
   StyledNavLink1,
+  VideoIconSet,
 } from "./styled";
 import { Input } from "./styled";
 import { toMovieListPage, toPeople } from "../../routes";
@@ -19,6 +20,7 @@ import {
   setBothPages,
 } from "../../Redux_store/settingSlice";
 import { useDispatch, useSelector } from "react-redux";
+
 
 export const Navigation = () => {
   const pageState = useSelector(selectSettingPageStateValue);
@@ -32,13 +34,13 @@ export const Navigation = () => {
     <StyledHeader>
       <StyledUnit>
         <StyledItems>
-          <StyledContainerLink onClick={handleOnClick} to={toMovieListPage()}>
-            <VideoIcon />
+          <StyledContainerLink to={toMovieListPage()}>
+            <VideoIconSet as={VideoIcon} />
             Movies Browser
           </StyledContainerLink>
           <StyledContainerButton>
             <StyledButton>
-              <StyledNavLink1 to={toMovieListPage()}>MOVIE</StyledNavLink1>
+              <StyledNavLink1 to={toMovieListPage()}>MOVIES</StyledNavLink1>
             </StyledButton>
             <StyledButton>
               <StyledNavLink2 to={toPeople()}>PEOPLE</StyledNavLink2>
@@ -51,8 +53,8 @@ export const Navigation = () => {
             name="search"
             placeholder={
               pageState === "movies"
-                ? "            Search for movies..."
-                : "            Search for people..."
+                ? "Search for movies..."
+                : "Search for people..."
             }
           />
           <Icon as={SearchIcon} />

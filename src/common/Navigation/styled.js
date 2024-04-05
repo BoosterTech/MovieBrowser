@@ -2,15 +2,27 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledHeader = styled.section`
-  background-color: ${({ theme }) => theme.color.black};
-  max-width: 100%;
-  height: 94px;
-  color: white;
+  background-color: ${({ theme }) => theme.color.Black};
+  width: 100%;
+  max-height: 94px;
+  color: ${({ theme }) => theme.color.White};
   padding: 0 15px;
 
-  @media (max-width: ${({ theme }) => theme.media.tablet}) {
-    height: 142px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     padding: 0px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    max-height: 180px;
+    padding: 0px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+    height: 150px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    height: 142px;
   }
 `;
 
@@ -21,13 +33,35 @@ export const StyledUnit = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    height: 142px;
+  }
 `;
 
 export const StyledItems = styled.div`
-  height: 70px;
   display: flex;
-  gap: 80px;
   align-items: center;
+  gap: 80px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+    grid-gap: 60px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    gap: 0;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    gap: 0;
+    margin: 16px 0 10px 0;
+  }
 `;
 
 export const StyledContainerLink = styled(NavLink)`
@@ -43,9 +77,34 @@ export const StyledContainerLink = styled(NavLink)`
   line-height: 40px;
   letter-spacing: -1.5px;
   font-weight: 500;
+  margin-left: 30px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    font-size: 17px;
+    margin-left: 30px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 16px;
+    margin-left: 16px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    font-size: 13px;
+    margin-left: 16px;
+    grid-gap: 8px;
+    }
 
   &:hover {
-    color: #e0e0e0;
+    color: ${({ theme }) => theme.color.Alto};
+  }
+`;
+
+export const VideoIconSet = styled.svg`
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    width: 20px;
+    height: 20px;
   }
 `;
 
@@ -58,17 +117,17 @@ export const StyledLogo = styled.svg`
   width: 40px;
   height: 40px;
   fill: none;
-  stroke: #ffffff;
+  stroke: ${({ theme }) => theme.color.Black};
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1;
 
-  @media (max-width: ${({ theme }) => theme.media.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     width: 30px;
     height: 30px;
   }
 
-  @media (max-width: ${({ theme }) => theme.media.phone}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 17px;
     height: 17px;
   }
@@ -84,10 +143,23 @@ export const Styledlink = styled.a`
     cursor: pointer;
   }
 `;
+
 export const StyledContainerButton = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    grid-gap: 16px;
+    margin-left: 19px;
+
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    grid-gap: 12px;
+    padding: 0;
+    margin-left: 19px;
+  }
 `;
 
 export const StyledButton = styled.button`
@@ -100,31 +172,52 @@ export const StyledButton = styled.button`
   padding: 8px 22px;
   border-radius: 24px;
   background-color: transparent;
-  color: white;
+  color: ${({ theme }) => theme.color.White};
 
   &:hover {
     cursor: pointer;
-    border: 1px solid white;
-    color: grey;
+    border: 1px solid ${({ theme }) => theme.color.White};
+    color: ${({ theme }) => theme.color.Gray};
   }
 
   &:active {
-    border: 1px solid white;
+    border: 1px solid ${({ theme }) => theme.color.White};
   }
 
-  @media (max-width: ${({ theme }) => theme.media.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     margin: 0px;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 18px;
+    padding: 0;
+
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 12px;
+    line-height: 10px;
+    width: 70px;
+    font-weight: 600;
+    line-height: 21px;
+    height: 34px;
+    border-radius: 29px;
+    padding: 0;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    font-size: 12px;
+    width: 70px;
+    height: 34px;
+    border-radius: 24px;
+    padding: 0;
   }
 `;
 
 export const StyledNavLink1 = styled(NavLink)`
-  color: white;
+  color: ${({ theme }) => theme.color.White};
   text-decoration: none;
 
   &.active {
-    color: #61bded;
+    color: ${({ theme }) => theme.color.PictonBlue};
   }
 `;
 
@@ -132,7 +225,6 @@ export const StyledNavLink2 = styled(StyledNavLink1)``;
 
 export const SearchWrapper = styled.div`
   display: inline-block;
-  padding: 12px;
   width: 432px;
   height: 48px;
   border-radius: 33px;
@@ -140,6 +232,32 @@ export const SearchWrapper = styled.div`
   margin-left: auto;
   align-items: center;
   position: relative;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+    display: flex;
+    align-items: center;
+    width: 390px;
+    margin: 0 16px 0 0;
+
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    display: flex;
+    align-items: center;
+    width: 326px;
+    margin: 0 16px 0 0;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    margin: 16px 12px 12px 20px;
+    width: 310px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    margin: 0 12px 12px 12px;
+    width: 288px;
+    height: 44px;
+  }
 `;
 
 export const Input = styled.input`
@@ -147,24 +265,45 @@ export const Input = styled.input`
   width: 360px;
   height: 24px;
   border-radius: 33px;
-  opacity: 0px;
   margin-left: auto;
   outline: none;
 
-  @media (max-width: ${({ theme }) => theme.media.tablet}) {
-    margin: auto;
-    width: 100%;
-    height: 44px;
-    padding: 0 15px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    width: 330px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    width: 310px;
+    padding: 12px 0 12px 50px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    width: 288px;
+    margin: 0;
   }
 `;
 
 export const Icon = styled.svg`
   position: absolute;
-  left: 40px;
+  margin-left: 30px;
   top: 53%;
   transform: translateY(-50%);
   fill: none;
   width: 24px;
   height: 24px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    margin-left: 20px;
+    transform: translateY(-60%);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    margin-left: 15px;
+    transform: translateY(-60%);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    margin-left: 15px;
+    transform: translateY(-60%);
+  }
 `;

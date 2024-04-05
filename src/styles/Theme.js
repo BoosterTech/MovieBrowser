@@ -1,25 +1,26 @@
 export const theme = {
   color: {
-    Light_grey: "#F5F5FA", // body background
-    Black: "#18181B", // MovieList content's text
+    LightGrey: "#F5F5FA", // body background
+    Woodsmoke: "#18181B", // MovieList content's text
     Mystic: "#E4E6F0",
     Waterloo: "#7E839A",
     PattensBlue: "#D6E4FF",
     ScienceBlue: "#0044CC",
-    black: "#000000",
-    darkergray: "rgba(126, 131, 154, 1)",
+    Black: "#000000",
+    DarkerGray: "rgba(126, 131, 154, 1)",
+    White: "#ffffff",
+    Heather: "rgba(186, 199, 213, 0.5)",
+    Whisper: "#F5F5FA",
+    Alto: "#E0E0E0",
+    PictonBlue: "#61BDED",
+    Gray: "#808080",
   },
-  breakpoint: {
-    mobile: "320px",
-    tablet: "1024px",
-    phone: "767px",
+  breakpoints: {
+    mobileMin: 390,
+    mobileMedium: 664,
+    mobileMax: 767,
+    tabletVerticalMax: 991,
+    tabletHorizontalMax: 1199,
+    desktopMini: 1368,
   },
-  size: {
-    maxwidth: "1200px",
-  },
-  media: {
-    phone: "767px",
-    tablet: "1024px",
-},
-
 };
