@@ -18,7 +18,6 @@ export const ContentWrapper = styled.section`
   margin: 56px auto 40px auto;
   
   @media(max-width: ${({theme}) => theme.breakpoints.desktopMini}px){
-    margin: 24px auto;
     max-width: 1145px;
   }
   
@@ -66,10 +65,13 @@ export const TilesWrapper = styled.div`
     text-align: center;
   }
 
+  @media(max-width: ${({theme}) => theme.breakpoints.tabletHorizontalMax}px){
+
+  }
+
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
     grid-template-columns: repeat(3,1fr);
     text-align: center;
-    max-width: 368px;
     gap: 16px;
   }
 
