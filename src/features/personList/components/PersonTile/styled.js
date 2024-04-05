@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { showin } from "../../styled";
 
 export const TileWrapper = styled.div`
-  border: solid;
+  // border: 1px solid;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,8 +22,9 @@ export const TileWrapper = styled.div`
   }
 
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
-    max-width: 136px;
-    height: 245px
+    width: 136px;
+    height: 245px;
+    margin: auto;
   }
 `;
 
@@ -35,8 +36,9 @@ export const TileImage = styled.img`
   border-radius: 5px;
 
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
-    max-width: 120px;
+    width: 120px;
     height: 178px;
+    margin: 8px 8px -10px 8px;
   }
 `;
 
@@ -51,5 +53,6 @@ export const PersonName = styled.div`
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
     font-size: 14px;
     line-height: 18.2px;
+    max-width: 120px;
   }
 `;

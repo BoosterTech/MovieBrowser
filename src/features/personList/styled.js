@@ -10,15 +10,15 @@ export const showin = keyframes`
 `;
 
 export const ContentWrapper = styled.section`
-  border: 1px solid;
+  // border: 1px solid;
   max-width: 1368px;
   min-height: 750px;
   color: ${({ theme }) => theme.color.Black};
   padding: 0;
   margin: 56px auto 40px auto;
 
-  @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}){
-    
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
+    margin: 24px 16px;
   }
 
 `;
@@ -37,7 +37,7 @@ export const ContentHeader = styled.h1`
 
   @media(max-width:${({theme}) => theme.breakpoints.mobileMin}px){
     font-size: 20px;
-    
+    margin-bottom: 12px;
   }
 `;
 
@@ -51,6 +51,8 @@ export const TilesWrapper = styled.div`
 
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
     grid-template-columns: repeat(2,1fr);
-    align-items: center;
+    text-align: center;
+    gap: 16px
+
   }
 `;
