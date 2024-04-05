@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { showin } from "../../styled";
 
 export const TileWrapper = styled.div`
-  // border: 1px solid;
+   border: 1px solid;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,11 @@ export const TileWrapper = styled.div`
     transform: scale(1.05);
     cursor: pointer;
   }
-  
+  @media(max-width: ${({theme}) => theme.breakpoints.desktopMini}px){
+    justify-content: center;
+    align-items: center;
+  }
+
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMedium}px){
     width: 136px;
     height: 245px;
@@ -41,6 +45,7 @@ export const TileImage = styled.img`
   margin-top: 16px;
   border-radius: 5px;
   
+
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMedium}px){
     width: 120px;
     height: 178px;
