@@ -39,6 +39,10 @@ export const ContentHeader = styled.h1`
     font-size: 20px;
     margin-bottom: 12px;
   }
+  @media(max-width:${({theme}) => theme.breakpoints.mobileMedium}px){
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
 `;
 
 export const TilesWrapper = styled.div`
