@@ -62,7 +62,6 @@ const Pagination = () => {
     dispatch(setLoadingState("loading"));
   };
 
-
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -75,8 +74,7 @@ const Pagination = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
-
+  }, [window.innerWidth]);
 
   return (
     loadingState != "loading" && (

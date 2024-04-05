@@ -62,7 +62,6 @@ export const TilesContainer = styled.div`
   gap: 22px;
   height: auto;
   max-width: 1368px;
-  margin: 24px 0;
 
   @media(max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
     display: grid;

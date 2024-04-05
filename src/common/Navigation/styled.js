@@ -13,12 +13,12 @@ export const StyledHeader = styled.section`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    max-height: 180px;
     padding: 0px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
-    height: 150px;
+    height: 175px;
+    max-height: 200px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
@@ -62,6 +62,12 @@ export const StyledItems = styled.div`
     gap: 0;
     margin: 16px 0 10px 0;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    gap: 0;
+    margin: 24px 0 10px 0;
+    height: 34px;   
+  }
 `;
 
 export const StyledContainerLink = styled(NavLink)`
@@ -77,7 +83,7 @@ export const StyledContainerLink = styled(NavLink)`
   line-height: 40px;
   letter-spacing: -1.5px;
   font-weight: 500;
-  margin-left: 30px;
+  margin-left: -10px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     font-size: 17px;
@@ -150,8 +156,8 @@ export const StyledContainerButton = styled.div`
   grid-gap: 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    grid-gap: 16px;
-    margin-left: 19px;
+    grid-gap: 5px;
+    margin-left: 10px;
 
   }
 
@@ -225,10 +231,10 @@ export const StyledNavLink2 = styled(StyledNavLink1)``;
 
 export const SearchWrapper = styled.div`
   display: inline-block;
+  padding: 0 32px 0 0;
   width: 432px;
   height: 48px;
   border-radius: 33px;
-  opacity: 0px;
   margin-left: auto;
   align-items: center;
   position: relative;
@@ -238,14 +244,14 @@ export const SearchWrapper = styled.div`
     align-items: center;
     width: 390px;
     margin: 0 16px 0 0;
-
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     display: flex;
     align-items: center;
-    width: 326px;
+    width: 320px;
     margin: 0 16px 0 0;
+    padding: 12px 12px 12px 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
@@ -254,9 +260,10 @@ export const SearchWrapper = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
-    margin: 0 12px 12px 12px;
+    margin: 14px 12px 12px 12px;
     width: 288px;
     height: 44px;
+    padding: 0;
   }
 `;
 

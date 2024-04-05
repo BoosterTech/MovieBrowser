@@ -41,10 +41,14 @@ const MovieDetails = () => {
       </CastCrewWrapper>
       <CastCrewWrapper second={`${true}`}>
         <Header>Crew</Header>
-        <TilesContainer personTile>
+        <TilesContainer persontile={`${true}`}>
           <NavLink to={toProfile()} style={{ textDecoration: "none" }}>
             <PersonTile />
           </NavLink>
+          <PersonTile />
+          <PersonTile />
+          <PersonTile />
+          <PersonTile />
           <PersonTile />
           <PersonTile />
           <PersonTile />
