@@ -16,6 +16,8 @@ export const ContentWrapper = styled.section`
   color: ${({ theme }) => theme.color.Black};
   padding: 0;
   margin: 56px auto 40px auto;
+
+  
 `;
 
 export const ContentHeader = styled.h1`
@@ -31,7 +33,7 @@ export const ContentHeader = styled.h1`
   animation: ${showin} 1s ease;
 
   @media(max-width:${({theme}) => theme.breakpoints.mobileMax}px){
-    
+    font-size: 20px;
     
   }
 `;
