@@ -16,14 +16,14 @@ export const ContentWrapper = styled.section`
   color: ${({ theme }) => theme.color.Black};
   padding: 0;
   margin: 56px auto 40px auto;
-
-  @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
-    margin: 24px 16px;
-  }
+  
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMedium}px){
     margin: 24px 16px;
   }
-
+  
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
+    margin: 24px 16px;
+  }
 `;
 
 export const ContentHeader = styled.h1`
@@ -38,11 +38,12 @@ export const ContentHeader = styled.h1`
   margin: 0 auto 24px 0;
   animation: ${showin} 1s ease;
 
-  @media(max-width:${({theme}) => theme.breakpoints.mobileMin}px){
+  @media(max-width:${({theme}) => theme.breakpoints.mobileMedium}px){
     font-size: 20px;
     margin-bottom: 12px;
   }
-  @media(max-width:${({theme}) => theme.breakpoints.mobileMedium}px){
+  
+  @media(max-width:${({theme}) => theme.breakpoints.mobileMin}px){
     font-size: 20px;
     margin-bottom: 12px;
   }
@@ -55,6 +56,18 @@ export const TilesWrapper = styled.div`
   height: auto;
   max-width: 368px;
   margin: 24px 0;
+  
+  @media(max-width: ${({theme}) => theme.breakpoints.desktopMini}px){
+    grid-template-columns: repeat(5,1fr);
+    text-align: center;
+    gap: 16px
+  }
+
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
+    grid-template-columns: repeat(3,1fr);
+    text-align: center;
+    gap: 16px
+  }
 
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
     grid-template-columns: repeat(2,1fr);
@@ -62,9 +75,5 @@ export const TilesWrapper = styled.div`
     gap: 16px
   }
 
-  @media(max-width: ${({theme}) => theme.breakpoints.mobileMedium}px){
-    grid-template-columns: repeat(3,1fr);
-    text-align: center;
-    gap: 16px
-  }
+
 `;
