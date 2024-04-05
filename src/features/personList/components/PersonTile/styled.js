@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { showin } from "../../styled";
 
 export const TileWrapper = styled.div`
+  border: solid;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,6 +19,11 @@ export const TileWrapper = styled.div`
   &:hover {
     transform: scale(1.05);
     cursor: pointer;
+  }
+
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
+    max-width: 136px;
+    height: 245px
   }
 `;
 
