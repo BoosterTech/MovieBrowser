@@ -63,12 +63,6 @@ export const TilesWrapper = styled.div`
     grid-template-columns: repeat(3,1fr);
     gap: 16px
   }
-
-  @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
-    grid-template-columns: repeat(3,1fr);
-    gap: 16px
-  }
-
   @media(max-width: ${({theme}) => theme.breakpoints.mobilePeopleMedium}px){
     grid-template-columns: repeat(2,1fr);
   }

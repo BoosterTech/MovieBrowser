@@ -23,18 +23,10 @@ export const TileWrapper = styled.div`
   @media(max-width: ${({theme}) => theme.breakpoints.desktopMini}px){
     margin: auto;
   }
-  @media(max-width: ${({theme}) => theme.breakpoints.mobileMedium}px){
-    width: 136px;
-    height: 245px;
-  }
-  
-  @media(max-width: ${({theme}) => theme.breakpoints.tabletVerticalMax}px){
-    margin: auto;
-  }
+
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
     width: 136px;
     height: 245px;
-    margin: auto;
   }
 `;
 
@@ -46,18 +38,6 @@ export const TileImage = styled.img`
   border-radius: 5px;
   
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
-    width: 120px;
-    height: 178px;
-    margin: 8px;
-  }
-
-  @media(max-width: ${({theme}) => theme.breakpoints.mobileMedium}px){
-    width: 120px;
-    height: 178px;
-    margin: 8px;
-  }
-
-  @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
     width: 120px;
     height: 178px;
     margin: 8px;
@@ -79,8 +59,4 @@ export const PersonName = styled.div`
     margin-top: 0px;
     padding-top: 0px;
   }
-
-
-
-
 `;
