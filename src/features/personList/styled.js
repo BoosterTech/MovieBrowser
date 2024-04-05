@@ -39,7 +39,8 @@ export const TilesWrapper = styled.div`
   max-width: 368px;
   margin: 24px 0;
 
-  @media(max-width: ${({theme}) => theme.media.phone}){
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
     grid-template-columns: repeat(2,1fr);
+    align-items: center;
   }
 `;
