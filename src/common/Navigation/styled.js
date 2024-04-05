@@ -83,7 +83,7 @@ export const StyledContainerLink = styled(NavLink)`
   line-height: 40px;
   letter-spacing: -1.5px;
   font-weight: 500;
-  margin-left: 30px;
+  margin-left: -10px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     font-size: 17px;
