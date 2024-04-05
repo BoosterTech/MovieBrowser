@@ -26,6 +26,12 @@ export const TileWrapper = styled.div`
     height: 245px;
     margin: auto;
   }
+
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMedium}px){
+    width: 136px;
+    height: 245px;
+    margin: auto;
+  }
 `;
 
 export const TileImage = styled.img`
