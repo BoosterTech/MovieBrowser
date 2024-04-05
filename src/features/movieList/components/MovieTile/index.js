@@ -39,7 +39,7 @@ export const MovieTile = ({
             <CategoryTag key={index}>{item}</CategoryTag>
           ))}
         </CategoryTagWrapper>
-      </DescriptionContainer>
+      
         <RatingWrapper>
           <IconStar as={Star} />
           <RateContainer>{rate.toFixed(1)}</RateContainer>
@@ -47,6 +47,7 @@ export const MovieTile = ({
             {vote} {vote > 1 ? "votes" : "vote"}
           </VoteContainer>
         </RatingWrapper>
+        </DescriptionContainer>
     </MovieTileWrapper>
   );
 };

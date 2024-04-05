@@ -2,14 +2,17 @@ import styled from "styled-components";
 import { showin } from "../../styled";
 
 export const MovieTileWrapper = styled.div`
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   width: 294px;
-  height: 650px;
+  max-height: 650px;
   border-radius: 5px;
   padding: 16px;
   box-shadow: 0px 4px 12px 0px ${({ theme }) => theme.color.Heather};
   background-color: ${({ theme }) => theme.color.White};
   transition: transform 0.5s ease;
   animation: ${showin} 0.3s ease;
+  color: ${({ theme }) => theme.color.Woodsmoke};
 
   &:hover {
     transform: scale(1.05);
@@ -26,11 +29,10 @@ export const MovieTileWrapper = styled.div`
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr 1fr auto;
+    grid-template-rows: auto;
     margin: auto;
     width: 256px;
-    min-height: 150px;
-    height: auto;
   }
 `;
 
@@ -51,12 +53,16 @@ export const DescriptionContainer = styled.div`
   max-width: 292px;
   max-height: 285px;
   margin-top: 16px;
+  display: grid;
+  grid-template-rows: repeat(3, auto) 1fr auto;  
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     padding: 0 0 0 16px;
     margin-top: 0px;
-    height: 128px;
+    max-height: 250px;
     width: 126px;
+    display: grid;
+    grid-template-rows: repeat(3, auto) 1fr auto;  
   }
 `;
 
@@ -113,7 +119,6 @@ export const CategoryTagWrapper = styled.div`
 `;
 
 export const CategoryTag = styled.div`
-  max-width: auto;
   max-height: 19px;
   padding: 4px 8px;
   border-radius: 5px;
@@ -128,6 +133,8 @@ export const RatingWrapper = styled.div`
   display: grid;
   grid-template-columns: 16px 22px 40px;
   grid-gap: 12px;
+  grid-row-start: 5;
+  grid-row-end: 6;
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     grid-gap: 4px;
