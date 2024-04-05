@@ -33,6 +33,11 @@ export const TileImage = styled.img`
   margin: auto;
   margin-top: 16px;
   border-radius: 5px;
+
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
+    max-width: 120px;
+    height: 178px;
+  }
 `;
 
 export const PersonName = styled.div`
@@ -42,4 +47,9 @@ export const PersonName = styled.div`
   padding-top: 8px;
   text-align: center;
   font-weight: 500;
+
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
+    font-size: 14px;
+    line-height: 18.2px;
+  }
 `;
