@@ -10,7 +10,7 @@ export const showin = keyframes`
 `;
 
 export const ContentWrapper = styled.section`
- // border: 1px solid;
+  // border: 1px solid;
   max-width: 1368px;
   min-height: 750px;
   color: ${({ theme }) => theme.color.Black};
@@ -19,7 +19,7 @@ export const ContentWrapper = styled.section`
   
   @media(max-width: ${({theme}) => theme.breakpoints.desktopMini}px){
     margin: 24px auto;
-    max-width: 1113px;
+    max-width: 1145px;
   }
   
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMedium}px){
@@ -59,18 +59,16 @@ export const TilesWrapper = styled.div`
   grid-template-columns: repeat(6, 1fr);
   gap: 24px;
   height: auto;
-  max-width: 368px;
   margin: 24px 0;
   
   @media(max-width: ${({theme}) => theme.breakpoints.desktopMini}px){
     grid-template-columns: repeat(5,1fr);
-    align-items: center;
-    gap: 16px;
+    text-align: center;
   }
 
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
     grid-template-columns: repeat(3,1fr);
-    align-items: center;
+    text-align: center;
     max-width: 368px;
     gap: 16px;
   }
