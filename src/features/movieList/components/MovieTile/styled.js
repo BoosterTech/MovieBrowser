@@ -137,11 +137,15 @@ export const RatingWrapper = styled.div`
   display: grid;
   grid-template-columns: 16px 22px 40px;
   grid-gap: 12px;
-  grid-row-start: 5;
-  grid-row-end: 6;
+  margin: 4px 0;
+
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     grid-gap: 4px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    grid-gap: 4px;
+    
   }
 `;
 
