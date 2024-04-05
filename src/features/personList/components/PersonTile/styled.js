@@ -46,6 +46,12 @@ export const TileImage = styled.img`
     height: 178px;
     margin: 8px;
   }
+
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMEdium}px){
+    width: 120px;
+    height: 178px;
+    margin: 8px;
+  }
 `;
 
 export const PersonName = styled.div`
