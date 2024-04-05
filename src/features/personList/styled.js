@@ -20,6 +20,9 @@ export const ContentWrapper = styled.section`
   @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
     margin: 24px 16px;
   }
+  @media(max-width: ${({theme}) => theme.breakpoints.monileMedium}px){
+    margin: 24px 16px;
+  }
 
 `;
 
