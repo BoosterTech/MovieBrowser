@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const MessageParagraph = styled.h1`
-  width: auto;
+  min-width: 674px;
   height: 43px;
   font-weight: 600;
   font-size:36px;
