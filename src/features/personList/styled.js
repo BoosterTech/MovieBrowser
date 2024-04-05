@@ -10,32 +10,12 @@ export const showin = keyframes`
 `;
 
 export const ContentWrapper = styled.section`
-  //border: 1px solid;
+  border: 1px solid;
   max-width: 1368px;
   min-height: 750px;
   color: ${({ theme }) => theme.color.Black};
   padding: 0;
   margin: 56px auto 40px auto;
-  
-  @media(max-width: ${({theme}) => theme.breakpoints.desktopMini}px){
-    max-width: 1145px;
-  }
-
-  @media(max-width: ${({theme}) => theme.breakpoints.tabletHorizontalMax}px){
-    max-width: 911px;
-  }
-
-  @media(max-width: ${({theme}) => theme.breakpoints.tabletVerticalMax}px){
-    max-width: 914px;
-  }
-  
-  @media(max-width: ${({theme}) => theme.breakpoints.mobileMedium}px){
-    margin: 24px 16px;
-  }
-  
-  @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
-    margin: 24px 16px;
-  }
 `;
 
 export const ContentHeader = styled.h1`
@@ -50,7 +30,11 @@ export const ContentHeader = styled.h1`
   margin: 0 auto 24px 0;
   animation: ${showin} 1s ease;
 
-  
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
   @media(max-width:${({theme}) => theme.breakpoints.mobileMedium}px){
     font-size: 20px;
     margin-bottom: 12px;
@@ -71,24 +55,23 @@ export const TilesWrapper = styled.div`
   
   @media(max-width: ${({theme}) => theme.breakpoints.desktopMini}px){
     grid-template-columns: repeat(5,1fr);
-    text-align: center;
   }
 
   @media(max-width: ${({theme}) => theme.breakpoints.tabletHorizontalMax}px){
     grid-template-columns: repeat(4,1fr);
-    text-align: center;
-   
   }
 
   @media(max-width: ${({theme}) => theme.breakpoints.tabletVerticalMax}px){
     grid-template-columns: repeat(3,1fr);
-    text-align: center;
     gap: 16px
   }
 
-  @media(max-width: ${({theme}) => theme.breakpoints.mobileMin}px){
-    grid-template-columns: repeat(2,1fr);
-    text-align: center;
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
+    grid-template-columns: repeat(3,1fr);
     gap: 16px
+  }
+
+  @media(max-width: ${({theme}) => theme.breakpoints.mobilePeopleMedium}px){
+    grid-template-columns: repeat(2,1fr);
   }
 `;

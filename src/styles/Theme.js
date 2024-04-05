@@ -22,5 +22,6 @@ export const theme = {
     tabletVerticalMax: 991,
     tabletHorizontalMax: 1199,
     desktopMini: 1368,
+    mobilePeopleMedium: 452,
   },
 };
