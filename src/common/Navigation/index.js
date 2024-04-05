@@ -21,7 +21,6 @@ import {
 } from "../../Redux_store/settingSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-
 export const Navigation = () => {
   const pageState = useSelector(selectSettingPageStateValue);
   const dispatch = useDispatch();
@@ -34,7 +33,7 @@ export const Navigation = () => {
     <StyledHeader>
       <StyledUnit>
         <StyledItems>
-          <StyledContainerLink to={toMovieListPage()}>
+          <StyledContainerLink to={toMovieListPage()} onClick={handleOnClick}>
             <VideoIconSet as={VideoIcon} />
             Movies Browser
           </StyledContainerLink>
