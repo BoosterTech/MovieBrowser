@@ -67,10 +67,9 @@ const PersonList = () => {
             peopleData &&
             peopleData.map((person) => {
               return (
-                // <NavLink to={toProfile({ id: person.id })} key={person.id}>
                 <NavLink
-                  to={toProfile()}
                   key={person.id}
+                  to={toProfile({ id: person.id })}
                   style={{ textDecoration: "none" }}
                 >
                   <PersonTile
