@@ -87,7 +87,7 @@ export const MovieTitle = styled.h2`
 
 export const MovieYear = styled.p`
   min-width: 39px;
-  height: 24px;
+  min-height: 24px;
   margin: 8px 0;
   color: ${({ theme }) => theme.color.Waterloo};
   font-size: 16px;
