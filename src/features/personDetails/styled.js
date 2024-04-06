@@ -5,14 +5,14 @@ export const TopTileWrapper = styled.div`
   color: black;
   background-color: #ffffff;
   max-width: 1288px;
-  max-height: 644px;
+  min-height: 644px;
   padding: 40px;
   margin: 56px auto 0 auto;
 `;
 
 export const DescriptionWrapper = styled.div`
   width: 849px;
-  height: 255px;
+  min-height: 255px;
   padding: 8px 0;
   margin: 0;
   margin-left: 40px;
