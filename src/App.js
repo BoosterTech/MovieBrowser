@@ -14,6 +14,7 @@ import Pagination from "./common/Pagination";
 import ProfileDetails from "./features/personDetails";
 import MovieDetails from "./features/movieDetails";
 import NoResultPage from "./common/noResult";
+import ErrorPage from "./common/Error";
 
 const App = () => {
   return (
@@ -37,7 +38,9 @@ const App = () => {
         <Route exact path={toNoResult()}>
           <NoResultPage />
         </Route>
-        <Route exact path={toError()}></Route>
+        <Route exact path={toError()}>
+          <ErrorPage />
+        </Route>
         <Route path="/">
           <Redirect to={toMovieListPage()} />
           <Pagination />
