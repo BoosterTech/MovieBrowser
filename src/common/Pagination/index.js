@@ -44,7 +44,7 @@ const Pagination = () => {
     }
   };
   const handlePreviousPage = () => {
-    if (page == 1) {
+    if (page === 1) {
       return;
     } else {
       dispatch(setPreviousPage());
@@ -74,10 +74,10 @@ const Pagination = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [window.innerWidth]);
-
+  }, []);
+  // [window.innerWidth]
   return (
-    loadingState != "loading" && (
+    loadingState !== "loading" && (
       <Wrapper>
         <Section>
           <ButtonFirst disabled={page === 1} onClick={handleFirstPage}>
