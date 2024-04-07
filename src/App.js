@@ -40,6 +40,9 @@ const App = () => {
         <Route exact path={toSearch()}>
           <SearchPage />
         </Route>
+        <Route exact path={toNoResult()}>
+          <NoResultPage />
+        </Route>
         <Route exact path={toError()}>
           <ErrorPage />
         </Route>
