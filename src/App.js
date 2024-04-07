@@ -6,6 +6,7 @@ import {
   toNoResult,
   toPeople,
   toProfile,
+  toSearch,
 } from "./routes";
 import { Navigation } from "./common/Navigation";
 import { MovieListPage } from "./features/movieList";
@@ -52,7 +53,6 @@ const App = () => {
       </Switch>
     </HashRouter>
   );
-  p;
 };
 
 export default App;
