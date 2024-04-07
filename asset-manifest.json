@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/MovieBrowser/static/js/main.4eec630d.js",
+    "main.js": "/MovieBrowser/static/js/main.670d030a.js",
     "static/js/453.11d5da13.chunk.js": "/MovieBrowser/static/js/453.11d5da13.chunk.js",
     "static/media/profileDefaultImage.png": "/MovieBrowser/static/media/profileDefaultImage.20c073a8bc1e23680978.png",
     "static/media/defaultTileImage.png": "/MovieBrowser/static/media/defaultTileImage.1080e7e081d7feeb6789.png",
     "static/media/star.svg": "/MovieBrowser/static/media/star.4f2011363333ab2b47242d91b179296c.svg",
-    "static/media/defaultIcon.svg": "/MovieBrowser/static/media/defaultIcon.1cc0505b0a0d4e169ed9d9305ea585bc.svg",
     "index.html": "/MovieBrowser/index.html",
+    "static/media/defaultIcon.svg": "/MovieBrowser/static/media/defaultIcon.1cc0505b0a0d4e169ed9d9305ea585bc.svg",
     "static/media/NavVideoIcon.svg": "/MovieBrowser/static/media/NavVideoIcon.9a233e4a7469913bb440e800c63a5d85.svg",
     "static/media/Vector1.svg": "/MovieBrowser/static/media/Vector1.95a980d03aa24878b4b68139a4fd2714.svg",
     "static/media/SearchIcon.svg": "/MovieBrowser/static/media/SearchIcon.8424b78946fdf221ba6a49ce59ed3b45.svg",
-    "main.4eec630d.js.map": "/MovieBrowser/static/js/main.4eec630d.js.map",
+    "main.670d030a.js.map": "/MovieBrowser/static/js/main.670d030a.js.map",
     "453.11d5da13.chunk.js.map": "/MovieBrowser/static/js/453.11d5da13.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.4eec630d.js"
+    "static/js/main.670d030a.js"
   ]
 }
