@@ -1,11 +1,11 @@
+import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
 import {
-  HashRouter,
-  Route,
-  Redirect,
-  Switch,
-  useParams,
-} from "react-router-dom";
-import { toMovieDetails, toMovieListPage, toPeople, toProfile, toSearch } from "./routes";
+  toMovieDetails,
+  toMovieListPage,
+  toPeople,
+  toProfile,
+  toSearch,
+} from "./routes";
 import {
   toError,
   toMovieDetails,
@@ -29,7 +29,7 @@ const App = () => {
     <HashRouter basename="/MovieBrowser">
       <Navigation />
       <Switch>
-        <Route exact path="people/:id">
+        <Route exact path={toProfile()}>
           <ProfileDetails />
         </Route>
         <Route exact path={toMovieListPage()}>
@@ -43,12 +43,18 @@ const App = () => {
         <Route exact path={toMovieDetails()}>
           <MovieDetails />
         </Route>
+        <Route exact path={toSearch()}>
+          <SearchPage />
+        </Route>
+        <Route exact path={toError()}>
+          <ErrorPage />
+        </Route>
+        <Route exact path={toNoResult()}>
+          <NoResultPage />
+        </Route>
         <Route exact path="/">
           <Redirect to={toMovieListPage()} />
           <Pagination />
-        </Route>
-        <Route exact path={toMovieDetails()}>
-          <MovieDetails />
         </Route>
       </Switch>
     </HashRouter>
