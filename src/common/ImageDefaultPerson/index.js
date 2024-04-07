@@ -1,4 +1,4 @@
-import { ReactComponent as Icon } from "./defaultIcon.svg";
+import { ReactComponent as Icon } from "../../assets/images/defaultIconPerson.svg";
 import { DefaultImageWrapper } from "./styled";
 
 const ImageDefaultPerson = () => {
