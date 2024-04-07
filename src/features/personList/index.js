@@ -64,7 +64,7 @@ const PersonList = () => {
               return (
                 <NavLink
                   key={person.id}
-                  to={`/people/${person.id }`}
+                  to={toProfile(person.id)}
                   style={{ textDecoration: "none" }}
                 >
                   <PersonTile
