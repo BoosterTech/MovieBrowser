@@ -1,4 +1,10 @@
-import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
+import {
+  HashRouter,
+  Route,
+  Redirect,
+  Switch,
+  useParams,
+} from "react-router-dom";
 import { toMovieDetails, toMovieListPage, toPeople, toProfile } from "./routes";
 import { Navigation } from "./common/Navigation";
 import { MovieListPage } from "./features/movieList";
@@ -9,9 +15,12 @@ import MovieDetails from "./features/movieDetails";
 
 const App = () => {
   return (
-    <HashRouter exact basename="/MovieBrowser">
+    <HashRouter basename="/MovieBrowser">
       <Navigation />
       <Switch>
+        <Route exact path="people/:id">
+          <ProfileDetails />
+        </Route>
         <Route exact path={toMovieListPage()}>
           <MovieListPage />
           <Pagination />
@@ -20,15 +29,12 @@ const App = () => {
           <PersonList />
           <Pagination />
         </Route>
-        <Route exact path={toProfile()}>
-          <ProfileDetails />
+        <Route exact path={toMovieDetails()}>
+          <MovieDetails />
         </Route>
         <Route exact path="/">
           <Redirect to={toMovieListPage()} />
           <Pagination />
-        </Route>
-        <Route exact path={toMovieDetails()}>
-          <MovieDetails />
         </Route>
       </Switch>
     </HashRouter>
