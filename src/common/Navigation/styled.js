@@ -178,6 +178,7 @@ export const StyledButton = styled.button`
   padding: 8px 22px;
   border-radius: 24px;
   background-color: transparent;
+  border: 1px solid transparent;
   color: ${({ theme }) => theme.color.White};
 
   &:hover {
