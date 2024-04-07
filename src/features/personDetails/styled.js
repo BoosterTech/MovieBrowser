@@ -5,7 +5,7 @@ export const TopTileWrapper = styled.div`
   color: black;
   background-color: #ffffff;
   max-width: 1288px;
-  min-height: 644px;
+  min-height: 570px;
   padding: 40px;
   margin: 56px auto 0 auto;
 `;
