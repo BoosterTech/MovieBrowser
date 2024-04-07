@@ -1,12 +1,5 @@
 import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
 import {
-  toMovieDetails,
-  toMovieListPage,
-  toPeople,
-  toProfile,
-  toSearch,
-} from "./routes";
-import {
   toError,
   toMovieDetails,
   toMovieListPage,
