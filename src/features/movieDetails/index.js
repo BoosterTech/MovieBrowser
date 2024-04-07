@@ -13,7 +13,7 @@ const MovieDetails = () => {
 
   useEffect(() => {
     dispatch(setLoadingState("loading"));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

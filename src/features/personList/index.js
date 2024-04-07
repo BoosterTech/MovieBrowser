@@ -24,7 +24,7 @@ const PersonList = () => {
   useEffect(() => {
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("people"));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const fetchPeople = async () => {
@@ -50,7 +50,7 @@ const PersonList = () => {
       }
     };
     fetchPeople();
-  }, [pageNr]);
+  }, [dispatch, pageNr]);
 
   return loadingState === "loading" ? (
     <LoadingSpinner />
@@ -64,7 +64,7 @@ const PersonList = () => {
               return (
                 <NavLink
                   key={person.id}
-                  to={toProfile(person.id)}
+                  to={toProfile({ id: person.id })}
                   style={{ textDecoration: "none" }}
                 >
                   <PersonTile
