@@ -10,7 +10,6 @@ import {
   CastCrewWrapper,
   DescriptionWrapper,
   Header,
-  Image,
   Paragraph,
   TopTileWrapper,
 } from "./styled";
@@ -103,7 +102,7 @@ const ProfileDetails = () => {
                     : [];
                   return (
                     <MovieTile
-                      key={`people-cast-${castMember.id}`}
+                      key={`${castMember.name}${castMember.id}`}
                       imageSrc={
                         castMember.poster_path
                           ? `https://image.tmdb.org/t/p/w500${castMember.poster_path}`
@@ -141,7 +140,7 @@ const ProfileDetails = () => {
                     : [];
                   return (
                     <MovieTile
-                      key={`${crewMember.id}-${crewMember.job}`}
+                      key={`${crewMember.id}${crewMember.job}`}
                       imageSrc={
                         crewMember.poster_path
                           ? `https://image.tmdb.org/t/p/w500${crewMember.poster_path}`
