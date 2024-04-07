@@ -5,3 +5,6 @@ export const toPeople = () => "/people";
 export const toProfile = () => "/profile";
 export const toMovieDetails = () => "/movieDetails";
 export const toSearch = () => "/searching";
+export const toNoResult = () => "/noResult";
+export const toError = () => "/error";
+
