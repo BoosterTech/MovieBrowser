@@ -1,4 +1,5 @@
 import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
+import { toMovieDetails, toMovieListPage, toPeople, toProfile, toSearch } from "./routes";
 import {
   toError,
   toMovieDetails,
@@ -13,6 +14,7 @@ import PersonList from "./features/personList";
 import Pagination from "./common/Pagination";
 import ProfileDetails from "./features/personDetails";
 import MovieDetails from "./features/movieDetails";
+import SearchPage from "./common/SearchPage";
 import NoResultPage from "./common/noResult";
 import ErrorPage from "./common/Error";
 
@@ -35,6 +37,7 @@ const App = () => {
         <Route exact path={toMovieDetails()}>
           <MovieDetails />
         </Route>
+        <Route exact path={toSearch()}>
         <Route exact path={toNoResult()}>
           <NoResultPage />
         </Route>

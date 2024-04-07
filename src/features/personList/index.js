@@ -52,19 +52,14 @@ const PersonList = () => {
     fetchPeople();
   }, [pageNr]);
 
-  return (
+  return loadingState === "loading" ? (
+    <LoadingSpinner />
+  ) : (
     pageState === "people" && (
       <ContentWrapper>
-        {loadingState === "loading" ? (
-          ""
-        ) : (
-          <ContentHeader>Popular People</ContentHeader>
-        )}
+        <ContentHeader>Popular People</ContentHeader>
         <TilesWrapper>
-          {loadingState === "loading" ? (
-            <LoadingSpinner />
-          ) : (
-            peopleData &&
+          {peopleData &&
             peopleData.map((person) => {
               return (
                 // <NavLink to={toProfile({ id: person.id })} key={person.id}>
@@ -84,11 +79,11 @@ const PersonList = () => {
                   />
                 </NavLink>
               );
-            })
-          )}
+            })}
         </TilesWrapper>
       </ContentWrapper>
     )
   );
 };
+
 export default PersonList;
