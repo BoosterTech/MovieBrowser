@@ -5,7 +5,3 @@ export const apiMoviePopularURL =
   "https://api.themoviedb.org/3/movie/popular?language=en-US&page=";
 export const apiPeoplePopularURL =
   "https://api.themoviedb.org/3/person/popular?language=en-US&page=";
-export const apiProfileDetails = (
-  personId
-) => `https://api.themoviedb.org/3/person/${personId}/movie_credits?language=en-US\
-  `;
