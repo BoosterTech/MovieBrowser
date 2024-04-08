@@ -19,8 +19,7 @@ export const MovieTileWrapper = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: ${({ theme }) =>
-      theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) =>theme.breakpoints.tabletHorizontalMax}px) {
     margin: 0 auto;
 
     &:hover {
