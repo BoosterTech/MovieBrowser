@@ -12,6 +12,7 @@ import {
   Header,
   Paragraph,
   TopTileWrapper,
+  ForDesktop,
 } from "./styled";
 import { MovieTile } from "../movieList/components/MovieTile";
 import { TilesContainer } from "../movieList/styled";
@@ -65,6 +66,11 @@ const ProfileDetails = () => {
   ) : (
     profileData && (
       <>
+        
+        
+        
+        
+        <ForDesktop>
         <TopTileWrapper>
           <ImageProfile
             imageSrc={
@@ -72,7 +78,7 @@ const ProfileDetails = () => {
                 ? `https://image.tmdb.org/t/p/w500${profileData.profile_path}`
                 : null
             }
-          />
+          />{" "}
           <DescriptionWrapper>
             <Header>{profileData.name}</Header>
             <BirthInfoContainer>
@@ -85,9 +91,12 @@ const ProfileDetails = () => {
                 <Paragraph>{profileData.place_of_birth}</Paragraph>
               </BirthInfo>
             </BirthInfoContainer>
-            <Paragraph biography={`${true}`}>{profileData.biography}</Paragraph>
+              <Paragraph biography={`${true}`}>
+                {profileData.biography}
+              </Paragraph>
           </DescriptionWrapper>
         </TopTileWrapper>
+        </ForDesktop>
 
         {profileData.movie_credits.cast.length && (
           <CastCrewWrapper>

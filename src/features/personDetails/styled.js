@@ -10,9 +10,9 @@ export const TopTileWrapper = styled.div`
   padding: 40px;
   margin: 56px auto 0 auto;
 
-  @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
-    display: flex;
-    justify-content: center;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 `;
 
@@ -23,6 +23,11 @@ export const DescriptionWrapper = styled.div`
   padding: 8px 0;
   margin: 0;
   margin-left: 40px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Image = styled.img`
@@ -61,6 +66,10 @@ export const Paragraph = styled.p`
   margin: 0;
   border: solid;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    max-width: 100%
+  }
+
   ${(props) => props.grey && `color: grey;`}
   ${(props) =>
     props.biography &&
@@ -76,4 +85,13 @@ export const CastCrewWrapper = styled.div`
   margin: 64px auto;
 
   ${(props) => props.second && `margin-bottom:220px;`}
+`;
+
+export const ForDesktop = styled.div`
+  @media(max-width: 768px){
+    display: none;
+  }
+
+  
+  border: solid red;
 `;
