@@ -91,7 +91,4 @@ export const ForDesktop = styled.div`
   @media(max-width: 768px){
     display: none;
   }
-
-  
-  border: solid red;
 `;
