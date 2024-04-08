@@ -25,7 +25,7 @@ export const MovieListPage = () => {
   useEffect(() => {
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("movies"));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -66,7 +66,7 @@ export const MovieListPage = () => {
               return (
                 <NavLink
                   to={toMovieDetails(movie.id)} // Assuming toMovieDetails expects an ID parameter
-                  key={movie.id}
+                  key={`movie-${movie.id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <MovieTile

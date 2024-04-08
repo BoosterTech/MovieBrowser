@@ -66,7 +66,7 @@ export const StyledItems = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     gap: 0;
     margin: 24px 0 10px 0;
-    height: 34px;   
+    height: 34px;
   }
 `;
 
@@ -88,18 +88,18 @@ export const StyledContainerLink = styled(NavLink)`
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     font-size: 17px;
     margin-left: 30px;
-    }
+  }
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 16px;
     margin-left: 16px;
-    }
+  }
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     font-size: 13px;
     margin-left: 16px;
     grid-gap: 8px;
-    }
+  }
 
   &:hover {
     color: ${({ theme }) => theme.color.Alto};
@@ -107,7 +107,6 @@ export const StyledContainerLink = styled(NavLink)`
 `;
 
 export const VideoIconSet = styled.svg`
-
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 20px;
     height: 20px;
@@ -158,7 +157,6 @@ export const StyledContainerButton = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     grid-gap: 5px;
     margin-left: 10px;
-
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
@@ -169,7 +167,6 @@ export const StyledContainerButton = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  border: none;
   width: 98px;
   font-size: 14px;
   font-weight: 600;
@@ -178,6 +175,7 @@ export const StyledButton = styled.button`
   padding: 8px 22px;
   border-radius: 24px;
   background-color: transparent;
+  border: 1px solid transparent;
   color: ${({ theme }) => theme.color.White};
 
   &:hover {
@@ -195,7 +193,6 @@ export const StyledButton = styled.button`
     font-size: 14px;
     line-height: 18px;
     padding: 0;
-
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
@@ -239,7 +236,8 @@ export const SearchWrapper = styled.div`
   align-items: center;
   position: relative;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) =>
+      theme.breakpoints.tabletHorizontalMax}px) {
     display: flex;
     align-items: center;
     width: 390px;

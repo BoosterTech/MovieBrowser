@@ -23,6 +23,9 @@ const App = () => {
     <HashRouter basename="/MovieBrowser">
       <Navigation />
       <Switch>
+        <Route exact path={toProfile()}>
+          <ProfileDetails />
+        </Route>
         <Route exact path={toMovieListPage()}>
           <MovieListPage />
           <Pagination />
@@ -30,9 +33,6 @@ const App = () => {
         <Route exact path={toPeople()}>
           <PersonList />
           <Pagination />
-        </Route>
-        <Route exact path={toProfile()}>
-          <ProfileDetails />
         </Route>
         <Route exact path={toMovieDetails()}>
           <MovieDetails />
@@ -46,7 +46,10 @@ const App = () => {
         <Route exact path={toError()}>
           <ErrorPage />
         </Route>
-        <Route path="/">
+        <Route exact path={toNoResult()}>
+          <NoResultPage />
+        </Route>
+        <Route exact path="/">
           <Redirect to={toMovieListPage()} />
           <Pagination />
         </Route>

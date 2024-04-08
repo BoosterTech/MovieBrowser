@@ -9,7 +9,7 @@ export const theme = {
     Black: "#000000",
     DarkerGray: "rgba(126, 131, 154, 1)",
     White: "#ffffff",
-    Heather: "rgba(186, 199, 213, 0.5)",
+    Heather: "#BAC7D580",
     Whisper: "#F5F5FA",
     Alto: "#E0E0E0",
     PictonBlue: "#61BDED",
