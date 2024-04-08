@@ -49,33 +49,27 @@ export const MovieListPage = () => {
       }
     };
     fetchMovies();
-  }, [pageNr]);
+  }, [pageNr, dispatch]);
 
-  return (
+  return loadingState === "loading" ? (
+    <LoadingSpinner />
+  ) : (
     pageState === "movies" && (
       <ContentWrapper>
-        {loadingState === "loading" ? (
-          ""
-        ) : (
-          <ContentHeader>Popular Movies</ContentHeader>
-        )}
+        <ContentHeader>Popular Movies</ContentHeader>
         <TilesContainer>
-          {loadingState === "loading" ? (
-            <LoadingSpinner />
-          ) : (
-            moviesData &&
+          {moviesData &&
             moviesData.map((movie) => {
               const movieGenres = movie.genre_ids.map(
                 (id) => moviesGenres_ids[id]
               );
               return (
                 <NavLink
-                  to={toMovieDetails()}
+                  to={toMovieDetails(movie.id)} // Assuming toMovieDetails expects an ID parameter
                   key={movie.id}
                   style={{ textDecoration: "none" }}
                 >
                   <MovieTile
-                    key={movie.id}
                     title={movie.title}
                     imageSrc={
                       movie.poster_path
@@ -89,8 +83,7 @@ export const MovieListPage = () => {
                   />
                 </NavLink>
               );
-            })
-          )}
+            })}
         </TilesContainer>
       </ContentWrapper>
     )
