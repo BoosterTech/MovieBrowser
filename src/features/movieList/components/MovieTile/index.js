@@ -14,10 +14,9 @@ import {
 
 import { ReactComponent as Star } from "./../../../../assets/images/star.svg";
 import ImageDefaultMovie from "../../../../common/ImageDefaultMovie";
-import defaultTileImage from "../../../personDetails/defaultTileImage.png";
 
 export const MovieTile = ({
-  imageSrc = defaultTileImage,
+  imageSrc,
   title = "Mulan",
   year = "Director (2020)",
   category = ["action", "fantasy", " thiller"],
@@ -39,7 +38,7 @@ export const MovieTile = ({
             <CategoryTag key={index}>{item}</CategoryTag>
           ))}
         </CategoryTagWrapper>
-      
+
         <RatingWrapper>
           <IconStar as={Star} />
           <RateContainer>{rate.toFixed(1)}</RateContainer>
@@ -47,7 +46,7 @@ export const MovieTile = ({
             {vote} {vote > 1 ? "votes" : "vote"}
           </VoteContainer>
         </RatingWrapper>
-        </DescriptionContainer>
+      </DescriptionContainer>
     </MovieTileWrapper>
   );
 };

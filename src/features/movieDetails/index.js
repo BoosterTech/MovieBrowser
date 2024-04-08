@@ -13,7 +13,7 @@ const MovieDetails = () => {
 
   useEffect(() => {
     dispatch(setLoadingState("loading"));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -22,7 +22,7 @@ const MovieDetails = () => {
 
       <CastCrewWrapper>
         <Header>Cast</Header>
-        <TilesContainer persontile>
+        <TilesContainer persontile="true">
           <NavLink to={toProfile()} style={{ textDecoration: "none" }}>
             <PersonTile />
           </NavLink>
@@ -40,7 +40,7 @@ const MovieDetails = () => {
       </CastCrewWrapper>
       <CastCrewWrapper second={`${true}`}>
         <Header>Crew</Header>
-        <TilesContainer persontile={`${true}`}>
+        <TilesContainer persontile="true">
           <NavLink to={toProfile()} style={{ textDecoration: "none" }}>
             <PersonTile />
           </NavLink>
