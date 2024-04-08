@@ -22,6 +22,7 @@ import {
   DataContainer,
   BirthInfoMobile,
   ParagraphMobile,
+  ParagraphContainer,
 } from "./styledMobile";
 import { MovieTile } from "../movieList/components/MovieTile";
 import { TilesContainer } from "../movieList/styled";
@@ -75,6 +76,7 @@ const ProfileDetails = () => {
   ) : (
     profileData && (
       <>
+
         <ForMobile>
           <TopTileWrapperMedia>
             <PersonImageDataContainer>
@@ -88,17 +90,25 @@ const ProfileDetails = () => {
               <DataContainer>
                 <HeaderMobile>{profileData.name}</HeaderMobile>
                 <BirthInfoMobile>
-                  <ParagraphMobile grey={true.toString()}>Birth</ParagraphMobile>
+                  <ParagraphMobile grey={true.toString()}>
+                    Birth
+                  </ParagraphMobile>
                   <ParagraphMobile> {profileData.birthday}</ParagraphMobile>
                 </BirthInfoMobile>
                 <BirthInfoMobile>
-                  <ParagraphMobile grey={true.toString()}>Place of birth:</ParagraphMobile>
-                  <ParagraphMobile>{profileData.place_of_birth}</ParagraphMobile>
+                  <ParagraphMobile grey={true.toString()}>
+                    Place of birth:
+                  </ParagraphMobile>
+                  <ParagraphMobile>
+                    {profileData.place_of_birth}
+                  </ParagraphMobile>
                 </BirthInfoMobile>
               </DataContainer>
             </PersonImageDataContainer>
+            <ParagraphContainer biography={`${true}`}>{profileData.biography}</ParagraphContainer>
           </TopTileWrapperMedia>
         </ForMobile>
+
 
         <ForDesktop>
           <TopTileWrapper>

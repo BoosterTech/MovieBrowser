@@ -8,16 +8,14 @@ export const ForMobile = styled.div`
 
 export const TopTileWrapperMedia = styled.div`
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto auto;
+  background-color: #ffffff;
   max-width: 450px;
   height: auto;
-  //height: 365px;
   margin: 23px auto 24px;
-  border: solid;
 `;
 
 export const PersonImageDataContainer = styled.div`
-  border: solid;
   display: grid;
   gap: 16px;
   margin: 16px;
@@ -54,3 +52,9 @@ export const ParagraphMobile = styled.p`
       font-size:20px;
   `}
 `;
+
+export const ParagraphContainer = styled.div`
+    margin: 0 17px 16px 17px;
+    font-size: 14px;
+    line-height: 22.4px;
+`
