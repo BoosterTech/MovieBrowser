@@ -88,7 +88,7 @@ const ProfileDetails = () => {
               <DataContainer>
                 <HeaderMobile>{profileData.name}</HeaderMobile>
                 <BirthInfoMobile>
-                  <ParagraphMobile grey={true.toString()}>Date of birth</ParagraphMobile>
+                  <ParagraphMobile grey={true.toString()}>Birth</ParagraphMobile>
                   <ParagraphMobile> {profileData.birthday}</ParagraphMobile>
                 </BirthInfoMobile>
                 <BirthInfoMobile>

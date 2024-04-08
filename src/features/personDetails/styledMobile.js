@@ -28,15 +28,11 @@ export const DataContainer = styled.div``;
 
 export const BirthInfoMobile = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
   margin: 0px 0px;
   align-items: center;
-
-  @media(max-width: 400px){
-    display: grid;
-    grid-template-columns: auto;
-  }
-`;
+  `
 
 export const HeaderMobile = styled.h1`
   font-size: 14px;
