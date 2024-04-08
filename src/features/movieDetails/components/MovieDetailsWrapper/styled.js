@@ -27,6 +27,7 @@ export const Title = styled.div`
     font-weight: 600px;
     font-size: 36px;
     margin-bottom: 24px;
+    font-weight: 600;
 `;
 
 export const Year = styled.div`
@@ -38,13 +39,13 @@ export const NameBlock = styled.div`
     display: grid;
     align-items: center;
     grid-template-columns: auto 1fr;
-    margin: 10px 0 10px 0;
+    margin: 24px 0;
     grid-gap: 10px;
 `;
 
 export const GreyName = styled.p`
     font-size: 18px;
-    color: ${({ theme }) => theme.color.stormgray};
+    color: ${({ theme }) => theme.color.StormGray};
     margin: 0;
 
 `;
@@ -64,7 +65,7 @@ export const Tags = styled.div`
     display:flex;
     flex-wrap: wrap;
     padding-left: 0;
-    margin: 16px -8px;
+    margin: 24px -8px;
 `;
 
 export const Tag = styled.div`
@@ -86,14 +87,15 @@ export const ImageSvg = styled.img`
     height: 22.87px;
 `;
 
-export const VotesBlockScore = styled.p`
+export const VotesBlockScore = styled.div`
     font-weight: 500;
     font-size: 22px;
 `;
 
-export const VotesBlockRest = styled.p`
+export const VotesBlockRest = styled.div`
     font-weight: 400;
     font-size: 14px;
+    height: 10px;
 `;
 
 export const Description = styled.div`
