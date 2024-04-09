@@ -10,7 +10,7 @@ import {
     RateContainer,
     VoteContainer,
     ScoreLimit,
-    ShadowContainer,
+    // ShadowContainer,
 } from "./styled";
 
 export const TopTileContainer = ({
@@ -21,7 +21,7 @@ export const TopTileContainer = ({
 }) => {
     return (
         <Wrapper>
-            <ShadowContainer>
+            {/* <ShadowContainer> */}
                 <IconPoster as={Poster} />
                 <Title>{title}</Title>
                 <RatingWrapper>
@@ -34,7 +34,7 @@ export const TopTileContainer = ({
                         {vote} {vote > 1 ? "votes" : "vote"}
                     </VoteContainer>
                 </RatingWrapper>
-            </ShadowContainer>
+            {/* </ShadowContainer> */}
         </Wrapper>
     )
 };
