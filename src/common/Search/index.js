@@ -1,10 +1,13 @@
-import { Input } from "../Navigation/styled";
+import { selectSettingPageStateValue } from "../../Redux_store/settingSlice";
+import { Input, SearchWrapper } from "../Navigation/styled";
 import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
 import searchQueryParamName from "./searchQueryParamName";
+import { useSelector } from "react-redux";
 
 const Search = () => {
   const query = useQueryParameter(searchQueryParamName);
   const replaceQueryParameter = useReplaceQueryParameter();
+  const pageState = useSelector(selectSettingPageStateValue);
 
   const onInputChange = ({ target }) => {
     replaceQueryParameter({
@@ -14,14 +17,18 @@ const Search = () => {
   };
 
   return (
-    <Wrapper>
+    <SearchWrapper>
       <Input
         type="text"
-        placeholder="Filtruj zadania"
+        placeholder={
+          pageState === "movies"
+            ? "Search for movies..."
+            : "Search for people..."
+        }
         value={query || ""}
         onChange={onInputChange}
       />
-    </Wrapper>
+    </SearchWrapper>
   );
 };
 

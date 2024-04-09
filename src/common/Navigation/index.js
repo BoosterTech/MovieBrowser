@@ -18,11 +18,10 @@ import {
   selectSettingPageStateValue,
   setBothPages,
 } from "../../Redux_store/settingSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import Search from "../Search";
 
 export const Navigation = () => {
-  const pageState = useSelector(selectSettingPageStateValue);
   const dispatch = useDispatch();
 
   const handleOnClick = () => {
