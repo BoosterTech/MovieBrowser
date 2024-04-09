@@ -1,6 +1,5 @@
 import { ReactComponent as Star } from "./../../../../assets/images/star.svg";
 import { ReactComponent as Poster } from "./../../../../assets/images/Poster_big.svg";
-// import { ReactComponent as Pleksa } from "./../../../../assets/images/Pleksa.svg";
 import {
     Wrapper,
     ScoreWrapper,
