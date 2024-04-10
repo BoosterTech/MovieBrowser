@@ -25,7 +25,7 @@ import {
   setPreviousPage,
 } from "../../Redux_store/settingSlice";
 import { useEffect, useState } from "react";
-import {  useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Pagination = () => {
   const history = useHistory();
