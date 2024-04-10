@@ -41,7 +41,7 @@ export const MovieTile = ({
 
         <RatingWrapper>
           <IconStar as={Star} />
-          <RateContainer>{rate.toFixed(1)}</RateContainer>
+          <RateContainer>{rate.toFixed(1).replace(".", ",")}</RateContainer>
           <VoteContainer>
             {vote} {vote > 1 ? "votes" : "vote"}
           </VoteContainer>
