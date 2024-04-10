@@ -13,11 +13,11 @@ export const TileWrapper = styled.div`
   color: black;
   box-shadow: 0px 4px 12px 0px #bac7d580;
   animation: ${showin} 1s ease;
-  transition: transform 0.5s ease;
+  transition: all 0.5s ease;
   padding: 0;
 
   &:hover {
-    transform: scale(1.05);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.75); // 50% darker on hover
     cursor: pointer;
   }
 
