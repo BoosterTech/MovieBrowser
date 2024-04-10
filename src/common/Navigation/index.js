@@ -20,11 +20,16 @@ import {
   setBothPages,
 } from "../../Redux_store/settingSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 
 export const Navigation = () => {
+  const [activeButton, setActiveButton] = useState(null);
   const pageState = useSelector(selectSettingPageStateValue);
   const dispatch = useDispatch();
 
+  const handleClick = (buttonId) => {
+    setActiveButton(buttonId);
+  };
   const handleOnClick = () => {
     dispatch(setBothPages());
   };
@@ -38,12 +43,22 @@ export const Navigation = () => {
             Movies Browser
           </StyledContainerLink>
           <StyledContainerButton>
-            <StyledButton>
-              <StyledNavLink1 to={toMovieListPage()}>MOVIES</StyledNavLink1>
-            </StyledButton>
-            <StyledButton>
-              <StyledNavLink2 to={toPeople()}>PEOPLE</StyledNavLink2>
-            </StyledButton>
+            <StyledNavLink1
+              to={toMovieListPage()}
+              onClick={() => handleClick("button1")}
+            >
+              <StyledButton id="button1" active={activeButton === "button1"}>
+                MOVIES
+              </StyledButton>
+            </StyledNavLink1>
+            <StyledNavLink2
+              to={toPeople()}
+              onClick={() => handleClick("button2")}
+            >
+              <StyledButton id="button2" active={activeButton === "button2"}>
+                PEOPLE
+              </StyledButton>
+            </StyledNavLink2>
           </StyledContainerButton>
         </StyledItems>
         <SearchWrapper>
