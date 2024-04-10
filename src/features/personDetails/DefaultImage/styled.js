@@ -20,4 +20,9 @@ export const ProfileImage = styled.img`
     max-width: 116px;
     max-height: 163px;
   }
+
+  @media(max-width: ${({theme}) => theme.breakpoints.tabletHorizontalMax}px){
+    max-width:  180px;
+    max-height: 260px;
+  }
 `;
