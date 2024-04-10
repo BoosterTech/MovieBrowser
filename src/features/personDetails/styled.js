@@ -75,7 +75,6 @@ export const Paragraph = styled.p`
 `;
 
 export const CastCrewWrapper = styled.div`
-  border: solid;
   min-height: 750px;
   max-width: 1368px;
   margin: 64px auto;

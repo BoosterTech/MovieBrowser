@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { showin } from "../../styled";
 
 export const MovieTileWrapper = styled.div`
-  border: solid;
   display: grid;
   grid-template-rows: 1fr 1fr;
   max-width: 294px;
