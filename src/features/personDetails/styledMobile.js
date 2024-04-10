@@ -37,9 +37,6 @@ export const BirthInfoMobile = styled.div`
   gap: 4px;
   margin: 0px 0px;
   align-items: center;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}px) {
-  }
 `;
 
 export const HeaderMobile = styled.h1`
@@ -54,7 +51,6 @@ export const HeaderMobile = styled.h1`
     font-weight: 500;
     margin: 0 0 16px 0;
     line-height: 18.2px;
-    
   }
 `;
 
