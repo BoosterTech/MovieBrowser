@@ -172,21 +172,15 @@ export const StyledButton = styled.button`
   font-weight: 600;
   line-height: 21px;
   height: 48px;
-  padding: 8px 22px;
   border-radius: 24px;
   background-color: transparent;
-  border: 1px solid transparent;
   color: ${({ theme }) => theme.color.White};
 
   &:hover {
     cursor: pointer;
     border: 1px solid ${({ theme }) => theme.color.White};
-    color: ${({ theme }) => theme.color.Gray};
   }
-
-  &:active {
-    border: 1px solid ${({ theme }) => theme.color.White};
-  }
+  border: ${({ active }) => (active ? "1px solid white" : "none")};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     margin: 0px;
@@ -218,10 +212,6 @@ export const StyledButton = styled.button`
 export const StyledNavLink1 = styled(NavLink)`
   color: ${({ theme }) => theme.color.White};
   text-decoration: none;
-
-  &.active {
-    color: ${({ theme }) => theme.color.PictonBlue};
-  }
 `;
 
 export const StyledNavLink2 = styled(StyledNavLink1)``;
