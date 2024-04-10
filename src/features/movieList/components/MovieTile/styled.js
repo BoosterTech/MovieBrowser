@@ -2,9 +2,10 @@ import styled from "styled-components";
 import { showin } from "../../styled";
 
 export const MovieTileWrapper = styled.div`
+  border: solid;
   display: grid;
   grid-template-rows: 1fr 1fr;
-  width: 294px;
+  max-width: 294px;
   max-height: 650px;
   border-radius: 5px;
   padding: 16px;
@@ -19,7 +20,7 @@ export const MovieTileWrapper = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
     margin: 0 auto;
 
     &:hover {
@@ -29,7 +30,7 @@ export const MovieTileWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     margin: auto;
     width: 256px;

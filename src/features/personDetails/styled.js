@@ -69,11 +69,14 @@ export const Paragraph = styled.p`
 `;
 
 export const CastCrewWrapper = styled.div`
+  border: solid;
   min-height: 717px;
   width: 1368px;
   margin: 64px auto;
 
   ${(props) => props.second && `margin-bottom:220px;`}
+
+
 `;
 
 export const ForDesktop = styled.div`
