@@ -67,7 +67,7 @@ const PersonList = () => {
                   to={toProfile({ id: person.id })}
                   style={{ textDecoration: "none" }}
                 >
-                  <PersonTile
+                  <PersonTile 
                     key={person.id}
                     imageSrc={
                       person.profile_path

@@ -102,6 +102,7 @@ const ProfileDetails = () => {
                     : [];
                   return (
                     <MovieTile
+                      noHover={true}
                       key={`${castMember.name}${castMember.id}`}
                       imageSrc={
                         castMember.poster_path
@@ -140,6 +141,7 @@ const ProfileDetails = () => {
                     : [];
                   return (
                     <MovieTile
+                      noHover={true}
                       key={`${crewMember.id}${crewMember.job}`}
                       imageSrc={
                         crewMember.poster_path
