@@ -23,7 +23,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 export const Navigation = () => {
-  const [activeButton, setActiveButton] = useState(null);
+  const [activeButton, setActiveButton] = useState("button1");
   const pageState = useSelector(selectSettingPageStateValue);
   const dispatch = useDispatch();
 
