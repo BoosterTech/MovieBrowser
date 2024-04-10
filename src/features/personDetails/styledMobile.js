@@ -14,8 +14,8 @@ export const TopTileWrapperMedia = styled.div`
   height: auto;
   margin: 23px auto 24px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobilrPeopleMedium}px) {
-    max-width: 450px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    margin: 23px 16px;
   }
 `;
 
@@ -81,7 +81,7 @@ export const ParagraphContainer = styled.div`
   font-size: 14px;
   line-height: 22.4px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobilrPeopleMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}px) {
     font-size: 14px;
     line-height: 22.4px;
   }
