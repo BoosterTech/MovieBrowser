@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 import { setLoadingState } from "../../Redux_store/settingSlice";
 import { CastCrewWrapper, Header } from "../personDetails/styled";
 import { TilesContainer } from "../movieList/styled";
-import { MovieDetailsWrapper, TopTileContainer } from "./styled";
+import { TopTileContainer } from "./components/TopTileContainer";
+import { MovieDetailsWrapper } from "./components/MovieDetailsWrapper";
 import { PersonTile } from "../personList/components/PersonTile";
 import { NavLink } from "react-router-dom";
 import { toProfile } from "../../routes";
@@ -44,10 +45,6 @@ const MovieDetails = () => {
           <NavLink to={toProfile()} style={{ textDecoration: "none" }}>
             <PersonTile />
           </NavLink>
-          <PersonTile />
-          <PersonTile />
-          <PersonTile />
-          <PersonTile />
           <PersonTile />
           <PersonTile />
           <PersonTile />
