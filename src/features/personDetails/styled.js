@@ -40,6 +40,12 @@ export const Header = styled.h1`
   font-size: 36px;
   line-height: 43.2px;
   margin: 0 0 24px 0;
+
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px) {
+    font-size: 20px;
+    line-height: 24px;
+    margin: -41px 0 -7px 16px;
+  }
 `;
 
 export const BirthInfoContainer = styled.div`
@@ -69,14 +75,11 @@ export const Paragraph = styled.p`
 `;
 
 export const CastCrewWrapper = styled.div`
-  border: solid;
-  min-height: 717px;
-  width: 1368px;
+  min-height: 750px;
+  max-width: 1368px;
   margin: 64px auto;
 
   ${(props) => props.second && `margin-bottom:220px;`}
-
-
 `;
 
 export const ForDesktop = styled.div`
