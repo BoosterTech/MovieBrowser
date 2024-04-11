@@ -68,7 +68,7 @@ export const CastCrewWrapper = styled.div`
 `;
 
 export const ForDesktop = styled.div`
-  @media(max-width: 1198.99px){
+  @media(max-width: 1367.99px){
     display: none;
   }
 `;

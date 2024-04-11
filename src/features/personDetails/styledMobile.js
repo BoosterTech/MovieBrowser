@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const ForMobile = styled.div`
-  @media (min-width: ${({ theme }) =>theme.breakpoints.tabletHorizontalMax}px) {
+  @media (min-width: ${({ theme }) =>theme.breakpoints.desktopMini}px) {
     display: none;
   }
 `;
