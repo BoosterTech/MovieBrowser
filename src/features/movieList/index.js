@@ -65,7 +65,7 @@ export const MovieListPage = () => {
               );
               return (
                 <NavLink
-                  to={toMovieDetails(movie.id)} // Assuming toMovieDetails expects an ID parameter
+                  to={toMovieDetails({ id: movie.id})} // Assuming toMovieDetails expects an ID parameter
                   key={`movie-${movie.id}`}
                   style={{ textDecoration: "none" }}
                 >
