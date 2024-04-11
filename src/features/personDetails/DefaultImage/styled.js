@@ -16,7 +16,7 @@ export const ProfileImage = styled.img`
   width: 399px;
   height: 564px;
   
-  @media(max-width: 1198.99px){
+  @media(max-width: 1367.99px){
     max-width:  180px;
     max-height: 260px;
   }
