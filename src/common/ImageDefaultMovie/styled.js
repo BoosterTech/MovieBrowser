@@ -11,4 +11,9 @@ export const DefaultImageWrapper = styled.div`
   margin-top: 0;
   margin-bottom: 0;
   border-radius: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    width: 114px;
+    height: 169px;
+  }
 `;

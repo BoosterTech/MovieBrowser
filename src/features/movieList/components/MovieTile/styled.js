@@ -4,7 +4,7 @@ import { showin } from "../../styled";
 export const MovieTileWrapper = styled.div`
   display: grid;
   grid-template-rows: 1fr 1fr;
-  width: 294px;
+  max-width: 294px;
   max-height: 650px;
   border-radius: 5px;
   padding: 16px;
@@ -29,7 +29,7 @@ export const MovieTileWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     margin: auto;
     width: 256px;

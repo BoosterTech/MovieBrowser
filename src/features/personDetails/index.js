@@ -12,7 +12,18 @@ import {
   Header,
   Paragraph,
   TopTileWrapper,
+  ForDesktop,
 } from "./styled";
+import {
+  ForMobile,
+  TopTileWrapperMedia,
+  PersonImageDataContainer,
+  HeaderMobile,
+  DataContainer,
+  BirthInfoMobile,
+  ParagraphMobile,
+  ParagraphContainer,
+} from "./styledMobile";
 import { MovieTile } from "../movieList/components/MovieTile";
 import { TilesContainer } from "../movieList/styled";
 import { LoadingSpinner } from "../../common/Loader";
@@ -65,29 +76,67 @@ const ProfileDetails = () => {
   ) : (
     profileData && (
       <>
-        <TopTileWrapper>
-          <ImageProfile
-            imageSrc={
-              profileData.profile_path
-                ? `https://image.tmdb.org/t/p/w500${profileData.profile_path}`
-                : null
-            }
-          />
-          <DescriptionWrapper>
-            <Header>{profileData.name}</Header>
-            <BirthInfoContainer>
-              <BirthInfo>
-                <Paragraph grey={true.toString()}>Date of birth</Paragraph>
-                <Paragraph> {profileData.birthday}</Paragraph>
-              </BirthInfo>
-              <BirthInfo>
-                <Paragraph grey={true.toString()}>Place of birth:</Paragraph>
-                <Paragraph>{profileData.place_of_birth}</Paragraph>
-              </BirthInfo>
-            </BirthInfoContainer>
-            <Paragraph biography={`${true}`}>{profileData.biography}</Paragraph>
-          </DescriptionWrapper>
-        </TopTileWrapper>
+
+        <ForMobile>
+          <TopTileWrapperMedia>
+            <PersonImageDataContainer>
+              <ImageProfile
+                imageSrc={
+                  profileData.profile_path
+                    ? `https://image.tmdb.org/t/p/w500${profileData.profile_path}`
+                    : null
+                }
+              />{" "}
+              <DataContainer>
+                <HeaderMobile>{profileData.name}</HeaderMobile>
+                <BirthInfoMobile>
+                  <ParagraphMobile grey={true.toString()}>
+                    Birth:
+                  </ParagraphMobile>
+                  <ParagraphMobile> {profileData.birthday}</ParagraphMobile>
+                </BirthInfoMobile>
+                <BirthInfoMobile>
+                  <ParagraphMobile grey={true.toString()}>
+                    Place of birth:
+                  </ParagraphMobile>
+                  <ParagraphMobile>
+                    {profileData.place_of_birth}
+                  </ParagraphMobile>
+                </BirthInfoMobile>
+              </DataContainer>
+            </PersonImageDataContainer>
+            <ParagraphContainer biography={`${true}`}>{profileData.biography}</ParagraphContainer>
+          </TopTileWrapperMedia>
+        </ForMobile>
+
+
+        <ForDesktop>
+          <TopTileWrapper>
+            <ImageProfile
+              imageSrc={
+                profileData.profile_path
+                  ? `https://image.tmdb.org/t/p/w500${profileData.profile_path}`
+                  : null
+              }
+            />{" "}
+            <DescriptionWrapper>
+              <Header>{profileData.name}</Header>
+              <BirthInfoContainer>
+                <BirthInfo>
+                  <Paragraph grey={true.toString()}>Date of birth</Paragraph>
+                  <Paragraph> {profileData.birthday}</Paragraph>
+                </BirthInfo>
+                <BirthInfo>
+                  <Paragraph grey={true.toString()}>Place of birth:</Paragraph>
+                  <Paragraph>{profileData.place_of_birth}</Paragraph>
+                </BirthInfo>
+              </BirthInfoContainer>
+              <Paragraph biography={`${true}`}>
+                {profileData.biography}
+              </Paragraph>
+            </DescriptionWrapper>
+          </TopTileWrapper>
+        </ForDesktop>
 
         {profileData.movie_credits.cast.length && (
           <CastCrewWrapper>
