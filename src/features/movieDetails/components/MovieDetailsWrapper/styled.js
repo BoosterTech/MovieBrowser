@@ -34,7 +34,6 @@ export const Year = styled.div`
     font-size: 22px;
 `;
 
-
 export const NameBlock = styled.div`
     display: grid;
     align-items: center;
@@ -47,7 +46,6 @@ export const GreyName = styled.p`
     font-size: 18px;
     color: ${({ theme }) => theme.color.StormGray};
     margin: 0;
-
 `;
 
 export const DescriptionName = styled.p`
@@ -78,7 +76,7 @@ export const Tag = styled.div`
 
 export const VotesBlock = styled.div`   
     display: grid;
-    grid-template-columns: 30px 40px 40px 70px;
+    grid-template-columns: 30px 40px 30px 80px;
     align-items: center;
 `;
 
