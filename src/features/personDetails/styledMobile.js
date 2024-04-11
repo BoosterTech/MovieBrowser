@@ -10,9 +10,9 @@ export const TopTileWrapperMedia = styled.div`
   display: grid;
   grid-template-rows: auto auto;
   background-color: #ffffff;
-  max-width: 1045px;
+  //max-width: 1045px;
   height: auto;
-  margin: 23px auto 24px;
+  margin: 23px 16px 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobilrPeopleMedium}px) {
     max-width: 450px;
@@ -74,10 +74,10 @@ export const ParagraphMobile = styled.p`
 
 export const ParagraphContainer = styled.div`
   margin: 0 17px 16px 17px;
-  font-size: 14px;
-  line-height: 22.4px;
+  font-size: 20px;
+  line-height: 32px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobilrPeopleMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 14px;
     line-height: 22.4px;
   }
