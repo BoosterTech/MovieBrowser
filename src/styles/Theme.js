@@ -14,6 +14,7 @@ export const theme = {
     Alto: "#E0E0E0",
     PictonBlue: "#61BDED",
     Gray: "#808080",
+    StormGray: "#74788B",
   },
   breakpoints: {
     mobileMin: 390,
