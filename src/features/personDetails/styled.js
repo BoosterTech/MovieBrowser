@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 
 export const TopTileWrapper = styled.div`
-  border: solid;
   display: flex;
   color: black;
   background-color: #ffffff;

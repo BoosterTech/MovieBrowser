@@ -10,7 +10,6 @@ export const TopTileWrapperMedia = styled.div`
   display: grid;
   grid-template-rows: auto auto;
   background-color: #ffffff;
-  //max-width: 1045px;
   height: auto;
   margin: 23px 16px 24px;
 
