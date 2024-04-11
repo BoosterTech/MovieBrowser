@@ -44,7 +44,8 @@ export const Header = styled.h1`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 20px;
     line-height: 24px;
-    margin: -41px 0 -7px 16px;
+    margin: 0 0 16px 0;
+    height: 20px;
   }
 `;
 
@@ -80,6 +81,10 @@ export const CastCrewWrapper = styled.div`
   margin: 64px auto;
 
   ${(props) => props.second && `margin-bottom:220px;`}
+
+  @media(max-width: ${({theme}) => theme.breakpoints.desktopMini}px){
+    margin: 24px 16px;
+  }
 `;
 
 export const ForDesktop = styled.div`
