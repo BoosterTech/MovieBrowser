@@ -253,7 +253,7 @@ export const SearchWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     margin: 16px 12px 12px 20px;
-    width: 297px;
+    width: 296px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
