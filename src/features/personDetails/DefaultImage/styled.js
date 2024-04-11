@@ -15,4 +15,15 @@ export const DefaultImageWrapper = styled.div`
 export const ProfileImage = styled.img`
   width: 399px;
   height: 564px;
+  
+  @media(max-width: 1198px){
+    max-width:  180px;
+    max-height: 260px;
+  }
+
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
+    max-width: 116px;
+    max-height: 163px;
+  }
+
 `;

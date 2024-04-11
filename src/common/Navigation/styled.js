@@ -226,8 +226,7 @@ export const SearchWrapper = styled.div`
   align-items: center;
   position: relative;
 
-  @media (max-width: ${({ theme }) =>
-      theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     display: flex;
     align-items: center;
     width: 390px;
@@ -244,7 +243,7 @@ export const SearchWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     margin: 16px 12px 12px 20px;
-    width: 310px;
+    width: 296px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
@@ -268,7 +267,7 @@ export const Input = styled.input`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    width: 310px;
+    width: 300px;
     padding: 12px 0 12px 50px;
   }
 
