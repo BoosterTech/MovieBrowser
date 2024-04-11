@@ -1,5 +1,5 @@
 import { ReactComponent as Star } from "./../../../../assets/images/star.svg";
-import { ReactComponent as Poster } from "./../../../../assets/images/Poster_big.svg";
+// import { ReactComponent as Poster } from "./../../../../assets/images/Poster_big.svg";
 import {
     Wrapper,
     ScoreWrapper,
@@ -15,14 +15,15 @@ import {
 
 export const TopTileContainer = ({
 
-    title = "Mulan long title",
-    rate = 7.8,
-    vote = 3876,
+    imageSrc,
+    title,
+    rate,
+    vote,
 }) => {
     return (
         <Wrapper>
             {/* <ShadowContainer> */}
-                <IconPoster as={Poster} />
+            {imageSrc ? <IconPoster src={imageSrc} alt=""/>: null}
                 <Title>{title}</Title>
                 <RatingWrapper>
                     <ScoreWrapper>

@@ -1,7 +1,4 @@
-import poster from "../../../../assets/images/poster.svg";
 import star from "../../../../assets/images/star.svg";
-
-
 
 import {
     Wrapper,
@@ -25,38 +22,45 @@ import {
 
 export const MovieDetailsWrapper = ({
 
-    title = "Mulan long title",
-    rate = 7.8,
-    vote = 3876,
+    imageSrc,
+    title,
+    yearShort,
+    production,
+    yearFull,
+    categories,
+    rate,
+    vote,
+    description,
+
 }) => {
     return (
         <Wrapper>
             <Tile>
-                <Image src={poster} alt="" />
+                {imageSrc ? <Image src={imageSrc} alt="" /> : null}
                 <Content>
-                    <Title>Mulan</Title>
-                    <Year>2020</Year>
+                    <Title>{title}</Title>
+                    <Year>{yearShort}</Year>
                     <NameBlock>
                         <GreyName>Production:</GreyName>
-                        <DescriptionNamePro>China, United States of America</DescriptionNamePro>
+                        <DescriptionNamePro>
+                            {production}
+                        </DescriptionNamePro>
                         <GreyName>Release date:</GreyName>
-                        <DescriptionName>24.10.2020</DescriptionName>
+                        <DescriptionName>{yearFull}</DescriptionName>
                     </NameBlock>
                     <Tags>
-                        <Tag>Action</Tag>
-                        <Tag>Adventure</Tag>
-                        <Tag>Drama</Tag>
+                        {categories.map((category, index) => (
+                            <Tag key={index}>{category}</Tag>
+                        ))}
                     </Tags>
                     <VotesBlock>
                         <ImageSvg src={star} />
-                        <VotesBlockScore>7,8</VotesBlockScore>
+                        <VotesBlockScore>{rate.toFixed(1)}</VotesBlockScore>
                         <VotesBlockRest>/10</VotesBlockRest>
-                        <VotesBlockRest>335 votes</VotesBlockRest>
+                        <VotesBlockRest>{vote} votes</VotesBlockRest>
                     </VotesBlock>
                     <Description>
-                        A young Chinese maiden disguises herself as a male warrior in order to save her father.
-                        Disguises herself as a male warrior in order to save her father.
-                        A young Chinese maiden disguises herself as a male warrior in order to save her father.
+                        {description}
                     </Description>
                 </Content>
             </Tile>
