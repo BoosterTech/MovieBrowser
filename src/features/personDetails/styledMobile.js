@@ -62,7 +62,7 @@ export const ParagraphMobile = styled.p`
   margin: 0 0 8px 0;
   line-height: 14.4px;
 
-  ${(props) => props.grey && `color: grey;`}
+  ${(props) => props.$grey && `color: grey;`}
   ${(props) =>
     props.biography &&
     ` font-weight:400;

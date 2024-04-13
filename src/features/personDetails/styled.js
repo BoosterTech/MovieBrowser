@@ -72,14 +72,14 @@ export const Paragraph = styled.span`
   white-space: nowrap;
 
   ${(props) =>
-    props.grey &&
+    props.$grey &&
     `
      width: auto;
      color: grey;
   `}
 
   ${(props) =>
-    props.biography &&
+    props.$biography &&
     ` font-weight:400;
       line-height:32px;
       font-size:20px;
@@ -93,7 +93,7 @@ export const CastCrewWrapper = styled.div`
   max-width: 1368px;
   margin: 64px auto;
 
-  ${(props) => props.second && `margin-bottom:220px;`}
+  ${(props) => props.$second && `margin-bottom:220px;`}
 
   @media(max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
     margin: 24px 16px;
