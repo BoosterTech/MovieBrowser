@@ -160,6 +160,7 @@ const ProfileDetails = () => {
                     <NavLink
                       to={toMovieDetails({ id: castMember.id })} // Assuming toMovieDetails expects an ID parameter`}
                       key={`${castMember.name}${castMember.id}`}
+                      style={{ textDecoration: "none" }}
                     >
                       <MovieTile
                         key={`${castMember.name}${castMember.id}`}
