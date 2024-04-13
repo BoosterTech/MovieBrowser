@@ -180,7 +180,7 @@ export const StyledButton = styled.button`
     cursor: pointer;
     border: 1px solid ${({ theme }) => theme.color.White};
   }
-  border: ${({ active }) => (active ? "1px solid white" : "none")};
+  border: ${(props) => (props.$active ? "1px solid white" : "none")};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     margin: 0px;
