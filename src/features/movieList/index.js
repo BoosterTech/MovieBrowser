@@ -39,7 +39,6 @@ export const MovieListPage = () => {
       dispatch(setPageNr(1));
     }
   }, [pageNr]);
-  
 
   useEffect(() => {
     const newPath = `?page=${pageNr}`;
