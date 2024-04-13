@@ -15,7 +15,7 @@ export const MovieTileWrapper = styled.div`
   color: ${({ theme }) => theme.color.Woodsmoke};
 
   &:hover {
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.75); // 50% darker on hover
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.95); // 50% darker on hover
     cursor: pointer;
   }
 
