@@ -38,7 +38,7 @@ export const MovieListPage = () => {
     } else if (path.includes("/movies")) {
       dispatch(setPageNr(1));
     }
-  }, [pageNr]);
+  }, [pageNr, dispatch]);
 
   useEffect(() => {
     const newPath = `?page=${pageNr}`;
