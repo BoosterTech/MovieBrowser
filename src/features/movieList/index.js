@@ -33,11 +33,10 @@ export const MovieListPage = () => {
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("movies"));
 
-    if (page && path.includes("/movies")) {
-      dispatch(setPageNr(Number(page)));
-    } else if (path.includes("/movies")) {
-      dispatch(setPageNr(1));
-    }
+    if (page && path.includes("/movies")) dispatch(setPageNr(Number(page)));
+
+    sessionStorage.setItem("pageState", "movies");
+    sessionStorage.setItem("moviesPageNr", pageNr);
   }, [pageNr, dispatch]);
 
   useEffect(() => {
