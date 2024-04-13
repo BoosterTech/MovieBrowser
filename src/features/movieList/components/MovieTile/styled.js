@@ -10,14 +10,18 @@ export const MovieTileWrapper = styled.div`
   padding: 16px;
   box-shadow: 0px 4px 12px 0px ${({ theme }) => theme.color.Heather};
   background-color: ${({ theme }) => theme.color.White};
-  transition: transform 0.5s ease;
+  transition: all 0.5s ease;
   animation: ${showin} 0.3s ease;
   color: ${({ theme }) => theme.color.Woodsmoke};
 
+  ${({ noHover }) =>
+    !noHover &&
+    `
   &:hover {
-    transform: scale(1.05);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.75); // 50% darker on hover
     cursor: pointer;
   }
+  `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: 0 auto;

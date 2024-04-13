@@ -9,6 +9,11 @@ const settingSlice = createSlice({
     loadingState: "loading",
   },
   reducers: {
+    setPageNr: (state, { payload: number }) => {
+      state.pageState === "movies"
+        ? (state.moviesPageNr = number)
+        : (state.peoplePageNr = number);
+    },
     setNextPage: (state) => {
       state.pageState === "movies"
         ? state.moviesPageNr++
@@ -44,6 +49,7 @@ const settingSlice = createSlice({
 });
 
 export const {
+  setPageNr,
   setNextPage,
   setPreviousPage,
   setLastPage,

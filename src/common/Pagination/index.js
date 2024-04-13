@@ -25,8 +25,10 @@ import {
   setPreviousPage,
 } from "../../Redux_store/settingSlice";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Pagination = () => {
+  const history = useHistory();
   const loadingState = useSelector(selectSettingLoadingValue);
   const moviesPageNr = useSelector(selectSettingMoviePageNrValue);
   const peoplePageNr = useSelector(selectSettingPeoplePageNrValue);
@@ -41,6 +43,11 @@ const Pagination = () => {
     } else {
       dispatch(setNextPage());
       dispatch(setLoadingState("loading"));
+      history.push(
+        pageState === "movies"
+          ? `/movies?page=${moviesPageNr + 1}`
+          : `/people?page=${peoplePageNr + 1}`
+      );
     }
   };
   const handlePreviousPage = () => {
@@ -49,17 +56,26 @@ const Pagination = () => {
     } else {
       dispatch(setPreviousPage());
       dispatch(setLoadingState("loading"));
+      history.push(
+        pageState === "movies"
+          ? `/movies?page=${moviesPageNr - 1}`
+          : `/people?page=${peoplePageNr - 1}`
+      );
     }
   };
 
   const handleLastPage = () => {
     dispatch(setLastPage());
     dispatch(setLoadingState("loading"));
+    history.push(
+      pageState === "movies" ? `/movies?page=500` : `/people?page=500`
+    );
   };
 
   const handleFirstPage = () => {
     dispatch(setFirstPage());
     dispatch(setLoadingState("loading"));
+    history.push(pageState === "movies" ? `/movies?page=1` : `/people?page=1`);
   };
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
