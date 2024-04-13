@@ -9,15 +9,14 @@ export const Wrapper = styled.div`
   bottom: 0;
   align-items: center;
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
   }
 `;
 
 export const Section = styled.div`
   margin: 0 12px;
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: flex;
     justify-content: center;
     margin: 0 4px;
@@ -39,7 +38,7 @@ export const ButtonFirst = styled.button`
 
   &:not(:disabled):hover {
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 425;
   }
 
   &:disabled {
@@ -48,10 +47,10 @@ export const ButtonFirst = styled.button`
     border: 1px solid ${({ theme }) => theme.color.Mystic};
   }
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 38px;
     height: 23px;
-    margin: 4px ;
+    margin: 4px;
   }
 `;
 
@@ -59,7 +58,7 @@ export const ButtonPrevious = styled(ButtonFirst)`
   width: 106px;
   height: 36px;
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 38px;
     height: 23px;
   }
@@ -69,7 +68,7 @@ export const ButtonNext = styled(ButtonFirst)`
   width: 78px;
   height: 36px;
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 38px;
     height: 23px;
   }
@@ -79,7 +78,7 @@ export const ButtonLast = styled(ButtonFirst)`
   width: 75px;
   height: 36px;
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 38px;
     height: 23px;
   }
@@ -94,13 +93,12 @@ export const PageChange = styled.div`
   font-weight: 600;
   justify-content: center;
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 10px;
     margin: 6px 0;
     gap: 2px;
   }
 `;
-
 
 export const DisabledText = styled.p`
   color: ${({ theme }) => theme.color.Waterloo};
@@ -111,7 +109,7 @@ export const Number = styled.p`
   margin: auto;
   font-weight: 600;
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 10px;
   }
 `;
@@ -121,7 +119,7 @@ export const VectorLeft = styled(Vector1)`
   padding-right: 5px;
   color: ${({ theme }) => theme.color.Waterloo};
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     padding-right: 2px;
   }
 `;
@@ -132,7 +130,7 @@ export const VectorRight = styled(Vector1)`
   padding-right: 5px;
   color: ${({ theme }) => theme.color.ScienceBlue};
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     padding-right: 2px;
   }
 `;

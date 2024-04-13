@@ -13,8 +13,8 @@ export const TopTileWrapperMedia = styled.div`
   height: auto;
   margin: 23px 16px 24px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobilrPeopleMedium}px) {
-    max-width: 450px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    margin: 23px 16px;
   }
 `;
 
@@ -76,7 +76,11 @@ export const ParagraphContainer = styled.div`
   font-size: 20px;
   line-height: 32px;
 
+<<<<<<< HEAD
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+=======
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}px) {
+>>>>>>> b9072f4cff0a024523df3c9effaeb490e6668838
     font-size: 14px;
     line-height: 22.4px;
   }

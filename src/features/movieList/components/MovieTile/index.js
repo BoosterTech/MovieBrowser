@@ -22,9 +22,10 @@ export const MovieTile = ({
   category = ["action", "fantasy", " thiller"],
   rate = 7.8,
   vote = 3876,
+  noHover = false,
 }) => {
   return (
-    <MovieTileWrapper>
+    <MovieTileWrapper noHover={noHover}>
       {imageSrc ? (
         <TileImage src={imageSrc} alt="TileImage" />
       ) : (
@@ -41,7 +42,7 @@ export const MovieTile = ({
 
         <RatingWrapper>
           <IconStar as={Star} />
-          <RateContainer>{rate.toFixed(1)}</RateContainer>
+          <RateContainer>{rate.toFixed(1).replace(".", ",")}</RateContainer>
           <VoteContainer>
             {vote} {vote > 1 ? "votes" : "vote"}
           </VoteContainer>

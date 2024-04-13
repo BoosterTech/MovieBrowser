@@ -30,6 +30,13 @@ export const Header = styled.h1`
   font-size: 36px;
   line-height: 43.2px;
   margin: 0 0 24px 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0 0 16px 0;
+    height: 20px;
+  }
 `;
 
 export const BirthInfoContainer = styled.div`
@@ -48,7 +55,7 @@ export const BirthInfo = styled.div`
 
 export const Paragraph = styled.p`
   margin: 0;
-  
+
   ${(props) => props.grey && `color: grey;`}
   ${(props) =>
     props.biography &&
@@ -59,15 +66,23 @@ export const Paragraph = styled.p`
 `;
 
 export const CastCrewWrapper = styled.div`
-  min-height: 717px;
-  width: 1368px;
+  min-height: 750px;
+  max-width: 1368px;
   margin: 64px auto;
 
   ${(props) => props.second && `margin-bottom:220px;`}
+
+  @media(max-width: ${({theme}) => theme.breakpoints.desktopMini}px){
+    margin: 24px 16px;
+  }
 `;
 
 export const ForDesktop = styled.div`
+<<<<<<< HEAD
   @media(max-width: 1367.99px){
+=======
+  @media (max-width: 1198px) {
+>>>>>>> b9072f4cff0a024523df3c9effaeb490e6668838
     display: none;
   }
 `;
