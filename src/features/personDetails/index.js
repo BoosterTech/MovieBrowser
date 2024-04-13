@@ -90,13 +90,13 @@ const ProfileDetails = () => {
               <DataContainer>
                 <HeaderMobile>{profileData.name}</HeaderMobile>
                 <BirthInfoMobile>
-                  <ParagraphMobile grey={true.toString()}>
+                  <ParagraphMobile $grey={true.toString()}>
                     Birth:
                   </ParagraphMobile>
                   <ParagraphMobile> {profileData.birthday}</ParagraphMobile>
                 </BirthInfoMobile>
                 <BirthInfoMobile>
-                  <ParagraphMobile grey={true.toString()}>
+                  <ParagraphMobile $grey={true.toString()}>
                     Place of birth:
                   </ParagraphMobile>
                   <ParagraphMobile>
@@ -105,7 +105,7 @@ const ProfileDetails = () => {
                 </BirthInfoMobile>
               </DataContainer>
             </PersonImageDataContainer>
-            <ParagraphContainer biography={`${true}`}>
+            <ParagraphContainer $biography={`${true}`}>
               {profileData.biography}
             </ParagraphContainer>
           </TopTileWrapperMedia>
@@ -125,20 +125,20 @@ const ProfileDetails = () => {
               <BirthInfoContainer>
                 <BirthInfo>
                   {profileData.birthday && (
-                    <Paragraph grey={true.toString()}>Date of birth:</Paragraph>
+                    <Paragraph $grey={true.toString()}>Date of birth:</Paragraph>
                   )}
                   <Paragraph> {profileData.birthday}</Paragraph>
                 </BirthInfo>
                 <BirthInfo>
                   {profileData.place_of_birth && (
-                    <Paragraph grey={true.toString()}>
+                    <Paragraph $grey={true.toString()}>
                       Place of birth:
                     </Paragraph>
                   )}
                   <Paragraph>{profileData.place_of_birth}</Paragraph>
                 </BirthInfo>
               </BirthInfoContainer>
-              <Paragraph biography={`${true}`}>
+              <Paragraph $biography={`${true}`}>
                 {profileData.biography}
               </Paragraph>
             </DescriptionWrapper>
@@ -190,7 +190,7 @@ const ProfileDetails = () => {
         )}
 
         {profileData.movie_credits.crew.length && (
-          <CastCrewWrapper second={`${true}`}>
+          <CastCrewWrapper $second={`${true}`}>
             <Header>
               Movies - crew ({profileData.movie_credits.crew.length})
             </Header>

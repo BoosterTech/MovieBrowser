@@ -76,9 +76,6 @@ export const Paragraph = styled.span`
     `
      width: auto;
      color: grey;
-   
-     
-     
   `}
 
   ${(props) =>

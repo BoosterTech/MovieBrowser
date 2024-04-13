@@ -28,15 +28,22 @@ const PersonList = () => {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const page = params.get("page");
+    const path = location.pathname;
 
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("people"));
-    dispatch(setPageNr(page ? Number(page) : 1));
-  }, [dispatch, location]);
+
+    if (page && path === "/people") {
+      dispatch(setPageNr(Number(page)));
+    } else if (path === "/people") {
+      dispatch(setPageNr(1));
+    }
+  }, []);
 
   useEffect(() => {
-    history.push(`?page=${pageNr}`);
-  }, [history, pageNr]);
+    const newPath = `?page=${pageNr}`;
+    if (location.search !== newPath) history.push(newPath);
+  }, [location, history, pageNr]);
 
   useEffect(() => {
     const fetchPeople = async () => {
@@ -62,7 +69,7 @@ const PersonList = () => {
       }
     };
     fetchPeople();
-  }, [dispatch, pageNr]);
+  }, [pageNr]);
 
   return loadingState === "loading" ? (
     <LoadingSpinner />
