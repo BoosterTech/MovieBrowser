@@ -38,7 +38,7 @@ const PersonList = () => {
     } else if (path === "/people") {
       dispatch(setPageNr(1));
     }
-  }, []);
+  }, [pageNr, dispatch]);
 
   useEffect(() => {
     const newPath = `?page=${pageNr}`;
@@ -46,6 +46,20 @@ const PersonList = () => {
   }, [location, history, pageNr]);
 
   useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const page = params.get("page");
+    const path = location.pathname;
+
+    dispatch(setLoadingState("loading"));
+    dispatch(setPageState("people"));
+
+    if (page && path === "/people") {
+      dispatch(setPageNr(Number(page)));
+    } else if (path === "/people") {
+      dispatch(setPageNr(1));
+    }
+
+
     const fetchPeople = async () => {
       try {
         const responsePeople = await fetch(`${apiPeoplePopularURL}${pageNr}`, {
