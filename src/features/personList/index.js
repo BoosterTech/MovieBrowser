@@ -9,10 +9,12 @@ import {
   selectSettingPageStateValue,
   selectSettingPeoplePageNrValue,
   setLoadingState,
+  setPageNr,
   setPageState,
 } from "../../Redux_store/settingSlice";
 import { toProfile } from "../../routes";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const PersonList = () => {
   const [peopleData, setPeopleData] = useState(null);
@@ -20,11 +22,21 @@ const PersonList = () => {
   const loadingState = useSelector(selectSettingLoadingValue);
   const pageState = useSelector(selectSettingPageStateValue);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const history = useHistory();
 
   useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const page = params.get("page");
+
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("people"));
-  }, [dispatch]);
+    dispatch(setPageNr(page ? Number(page) : 1));
+  }, [dispatch, location]);
+
+  useEffect(() => {
+    history.push(`?page=${pageNr}`);
+  }, [history, pageNr]);
 
   useEffect(() => {
     const fetchPeople = async () => {
@@ -67,7 +79,7 @@ const PersonList = () => {
                   to={toProfile({ id: person.id })}
                   style={{ textDecoration: "none" }}
                 >
-                  <PersonTile 
+                  <PersonTile
                     key={person.id}
                     imageSrc={
                       person.profile_path
