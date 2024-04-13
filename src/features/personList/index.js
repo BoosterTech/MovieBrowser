@@ -33,15 +33,15 @@ const PersonList = () => {
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("people"));
 
-    if (page && path === "/people") {
-      dispatch(setPageNr(Number(page)));
-    } else if (path === "/people") {
-      dispatch(setPageNr(1));
-    }
-  }, [pageNr, dispatch]);
+    if (page && path === "/people") dispatch(setPageNr(Number(page)));
+
+    sessionStorage.setItem("pageState", "people");
+    sessionStorage.setItem("peoplePageNr", pageNr);
+  }, [pageNr, dispatch, location.pathname]);
 
   useEffect(() => {
     const newPath = `?page=${pageNr}`;
+
     if (location.search !== newPath) history.push(newPath);
   }, [location, history, pageNr]);
 
@@ -53,12 +53,9 @@ const PersonList = () => {
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("people"));
 
-    if (page && path === "/people") {
-      dispatch(setPageNr(Number(page)));
-    } else if (path === "/people") {
-      dispatch(setPageNr(1));
+    if (page && path === "people" && Number(page) !== pageNr) {
+      history.push(`?page=${pageNr}`);
     }
-
 
     const fetchPeople = async () => {
       try {
@@ -75,7 +72,6 @@ const PersonList = () => {
 
         const { results } = await responsePeople.json();
         setPeopleData(results);
-
         dispatch(setLoadingState("success"));
       } catch (error) {
         dispatch(setLoadingState("error"));
