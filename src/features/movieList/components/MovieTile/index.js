@@ -22,10 +22,9 @@ export const MovieTile = ({
   category = ["action", "fantasy", " thiller"],
   rate = 7.8,
   vote = 3876,
-  noHover = false,
 }) => {
   return (
-    <MovieTileWrapper noHover={noHover}>
+    <MovieTileWrapper>
       {imageSrc ? (
         <TileImage src={imageSrc} alt="TileImage" />
       ) : (
