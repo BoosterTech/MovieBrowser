@@ -124,11 +124,17 @@ const ProfileDetails = () => {
               <Header>{profileData.name}</Header>
               <BirthInfoContainer>
                 <BirthInfo>
-                  <Paragraph grey={true.toString()}>Date of birth</Paragraph>
+                  {profileData.birthday && (
+                    <Paragraph grey={true.toString()}>Date of birth:</Paragraph>
+                  )}
                   <Paragraph> {profileData.birthday}</Paragraph>
                 </BirthInfo>
                 <BirthInfo>
-                  <Paragraph grey={true.toString()}>Place of birth:</Paragraph>
+                  {profileData.place_of_birth && (
+                    <Paragraph grey={true.toString()}>
+                      Place of birth:
+                    </Paragraph>
+                  )}
                   <Paragraph>{profileData.place_of_birth}</Paragraph>
                 </BirthInfo>
               </BirthInfoContainer>
