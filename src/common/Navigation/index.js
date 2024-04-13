@@ -24,7 +24,9 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 export const Navigation = () => {
-  const [activeButton, setActiveButton] = useState("button1");
+  const [activeButton, setActiveButton] = useState(
+    sessionStorage.getItem("buttonState") || "button1"
+  );
   const pageState = useSelector(selectSettingPageStateValue);
   const dispatch = useDispatch();
   const location = useLocation();
@@ -33,16 +35,24 @@ export const Navigation = () => {
     setActiveButton(buttonId);
   };
   const handleOnClick = () => {
-    dispatch(setBothPages());
+    dispatch(setBothPages(1));
     setActiveButton("button1");
+    sessionStorage.setItem("buttonState", "button1");
+    sessionStorage.setItem("moviesPageNr", 1);
+    sessionStorage.setItem("peoplePageNr", 1);
   };
 
   useEffect(() => {
     const path = location.pathname;
-    path.includes("people")
-      ? setActiveButton("button2")
-      : setActiveButton("button1");
-  }, []);
+
+    if (path.includes("people")) {
+      setActiveButton("button2");
+      sessionStorage.setItem("buttonState", "button2");
+    } else {
+      setActiveButton("button1");
+      sessionStorage.setItem("buttonState", "button1");
+    }
+  }, [location.pathname]);
 
   return (
     <StyledHeader>
