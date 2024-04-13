@@ -18,6 +18,7 @@ import { useHistory } from "react-router-dom";
 
 const PersonList = () => {
   const [peopleData, setPeopleData] = useState(null);
+  const [isFirstEffect, setIsFirstEffect] = useState(true);
   const pageNr = useSelector(selectSettingPeoplePageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
   const pageState = useSelector(selectSettingPageStateValue);
@@ -33,30 +34,21 @@ const PersonList = () => {
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("people"));
 
-    if (page && path === "/people") dispatch(setPageNr(Number(page)));
+    if (page && path.includes("/people")) dispatch(setPageNr(Number(page)));
 
     sessionStorage.setItem("pageState", "people");
     sessionStorage.setItem("peoplePageNr", pageNr);
-  }, [pageNr, dispatch, location.pathname]);
+
+    setIsFirstEffect(false);
+  }, [pageNr, dispatch]);
 
   useEffect(() => {
     const newPath = `?page=${pageNr}`;
 
-    if (location.search !== newPath) history.push(newPath);
-  }, [location, history, pageNr]);
+    if (location.search !== newPath && !isFirstEffect) history.push(newPath);
+  }, [pageNr, location.search, isFirstEffect]);
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const page = params.get("page");
-    const path = location.pathname;
-
-    dispatch(setLoadingState("loading"));
-    dispatch(setPageState("people"));
-
-    if (page && path === "people" && Number(page) !== pageNr) {
-      history.push(`?page=${pageNr}`);
-    }
-
     const fetchPeople = async () => {
       try {
         const responsePeople = await fetch(`${apiPeoplePopularURL}${pageNr}`, {

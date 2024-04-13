@@ -18,6 +18,7 @@ import { NavLink, useHistory, useLocation } from "react-router-dom";
 
 export const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
+  const [isFirstEffect, setIsFirstEffect] = useState(true);
   const pageNr = useSelector(selectSettingMoviePageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
   const pageState = useSelector(selectSettingPageStateValue);
@@ -37,12 +38,15 @@ export const MovieListPage = () => {
 
     sessionStorage.setItem("pageState", "movies");
     sessionStorage.setItem("moviesPageNr", pageNr);
+
+    setIsFirstEffect(false);
   }, [pageNr, dispatch]);
 
   useEffect(() => {
     const newPath = `?page=${pageNr}`;
-    if (location.search !== newPath) history.push(newPath);
-  }, [pageNr, location, history]);
+
+    if (location.search !== newPath && !isFirstEffect) history.push(newPath);
+  }, [pageNr, location.search, isFirstEffect]);
 
   useEffect(() => {
     const fetchMovies = async () => {
