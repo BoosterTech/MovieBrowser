@@ -76,7 +76,6 @@ const ProfileDetails = () => {
   ) : (
     profileData && (
       <>
-
         <ForMobile>
           <TopTileWrapperMedia>
             <PersonImageDataContainer>
@@ -105,10 +104,11 @@ const ProfileDetails = () => {
                 </BirthInfoMobile>
               </DataContainer>
             </PersonImageDataContainer>
-            <ParagraphContainer biography={`${true}`}>{profileData.biography}</ParagraphContainer>
+            <ParagraphContainer biography={`${true}`}>
+              {profileData.biography}
+            </ParagraphContainer>
           </TopTileWrapperMedia>
         </ForMobile>
-
 
         <ForDesktop>
           <TopTileWrapper>
@@ -151,7 +151,6 @@ const ProfileDetails = () => {
                     : [];
                   return (
                     <MovieTile
-                      noHover={true}
                       key={`${castMember.name}${castMember.id}`}
                       imageSrc={
                         castMember.poster_path
