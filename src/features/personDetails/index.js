@@ -28,9 +28,10 @@ import { MovieTile } from "../movieList/components/MovieTile";
 import { TilesContainer } from "../movieList/styled";
 import { LoadingSpinner } from "../../common/Loader";
 import { moviesGenres_ids } from "../../common/moviesGenre_ids";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { APIAuthorization } from "../../common/API_URL";
 import ImageProfile from "./DefaultImage";
+import { toMovieDetails } from "../../routes";
 
 const ProfileDetails = () => {
   const { id } = useParams();
@@ -150,26 +151,31 @@ const ProfileDetails = () => {
                     ? castMember.genre_ids.map((id) => moviesGenres_ids[id])
                     : [];
                   return (
-                    <MovieTile
+                    <NavLink
+                      to={toMovieDetails({ id: castMember.id })} // Assuming toMovieDetails expects an ID parameter`}
                       key={`${castMember.name}${castMember.id}`}
-                      imageSrc={
-                        castMember.poster_path
-                          ? `https://image.tmdb.org/t/p/w500${castMember.poster_path}`
-                          : null
-                      }
-                      title={castMember.original_title}
-                      character={castMember.character}
-                      year={
-                        castMember.release_date
-                          ? `${
-                              castMember.character
-                            } (${castMember.release_date.substring(0, 4)})`
-                          : castMember.character
-                      }
-                      category={movieGenres}
-                      rate={castMember.vote_average}
-                      vote={castMember.vote_count}
-                    />
+                    >
+                      <MovieTile
+                        key={`${castMember.name}${castMember.id}`}
+                        imageSrc={
+                          castMember.poster_path
+                            ? `https://image.tmdb.org/t/p/w500${castMember.poster_path}`
+                            : null
+                        }
+                        title={castMember.original_title}
+                        character={castMember.character}
+                        year={
+                          castMember.release_date
+                            ? `${
+                                castMember.character
+                              } (${castMember.release_date.substring(0, 4)})`
+                            : castMember.character
+                        }
+                        category={movieGenres}
+                        rate={castMember.vote_average}
+                        vote={castMember.vote_count}
+                      />
+                    </NavLink>
                   );
                 })}
             </TilesContainer>
