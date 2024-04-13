@@ -3,10 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const settingSlice = createSlice({
   name: "setting",
   initialState: {
-    moviesPageNr: 1,
-    peoplePageNr: 1,
-    pageState: "movies", //switch between movies & people
-    loadingState: "loading",
+    moviesPageNr: sessionStorage.getItem("moviesPageNr") || 1,
+    peoplePageNr: sessionStorage.getItem("peoplePageNr") || 1,
+    pageState: sessionStorage.getItem("pageState") || "movies",
   },
   reducers: {
     setPageNr: (state, { payload: number }) => {
