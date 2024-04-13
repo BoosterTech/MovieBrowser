@@ -8,7 +8,7 @@ export const TileWrapper = styled.div`
   justify-content: flex-start;
   height: 339px;
   width: 208px;
-  margin: 24px 0 24px 0;
+  margin: 0 0 0 0;
   border-radius: 5px;
   color: black;
   box-shadow: 0px 4px 12px 0px #bac7d580;
