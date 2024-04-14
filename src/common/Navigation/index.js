@@ -11,14 +11,11 @@ import {
   StyledNavLink1,
   VideoIconSet,
 } from "./styled";
-import { Input } from "./styled";
 import { toMovieListPage, toPeople } from "../../routes";
 import { ReactComponent as SearchIcon } from "../../assets/images/SearchIcon.svg";
 import { ReactComponent as VideoIcon } from "../../assets/images/NavVideoIcon.svg";
-import {
-  selectSettingPageStateValue,
-  setBothPages,
-} from "../../Redux_store/settingSlice";
+import { setBothPages } from "../../Redux_store/settingSlice";
+import Search from "../Search";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
@@ -82,15 +79,7 @@ export const Navigation = () => {
           </StyledContainerButton>
         </StyledItems>
         <SearchWrapper>
-          <Input
-            type="text"
-            name="search"
-            placeholder={
-              pageState === "movies"
-                ? "Search for movies..."
-                : "Search for people..."
-            }
-          />
+          <Search />
           <Icon as={SearchIcon} />
         </SearchWrapper>
       </StyledUnit>

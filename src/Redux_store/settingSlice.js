@@ -6,8 +6,14 @@ const settingSlice = createSlice({
     moviesPageNr: sessionStorage.getItem("moviesPageNr") || 1,
     peoplePageNr: sessionStorage.getItem("peoplePageNr") || 1,
     pageState: sessionStorage.getItem("pageState") || "movies",
+    loadingState: "loading",
+    searchState: false,
   },
   reducers: {
+    setSearchState: (state, { payload: newState }) => {
+      state.searchState = newState;
+    },
+
     setPageNr: (state, { payload: number }) => {
       state.pageState === "movies"
         ? (state.moviesPageNr = number)
@@ -48,6 +54,7 @@ const settingSlice = createSlice({
 });
 
 export const {
+  setSearchState,
   setPageNr,
   setNextPage,
   setPreviousPage,
