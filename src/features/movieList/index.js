@@ -13,8 +13,8 @@ import {
   setPageState,
 } from "../../Redux_store/settingSlice";
 import { toMovieDetails } from "../../routes";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useLocation } from "react-router-dom";
+import searchQueryParamName from "../../common/Search/searchQueryParamName";
 
 export const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
@@ -22,6 +22,10 @@ export const MovieListPage = () => {
   const loadingState = useSelector(selectSettingLoadingValue);
   const pageState = useSelector(selectSettingPageStateValue);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const myQuery = new URLSearchParams(location.search).get(
+    searchQueryParamName
+  );
 
   useEffect(() => {
     dispatch(setLoadingState("loading"));
@@ -31,12 +35,17 @@ export const MovieListPage = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const responseMovies = await fetch(`${apiMoviePopularURL}${pageNr}`, {
-          headers: {
-            Authorization: APIAuthorization,
-            Accept: "application/json",
-          },
-        });
+        const responseMovies = await fetch(
+          pageState ===
+            "movies"// ? `${apiMoviePopularURL}${pageNr}`
+            `https://api.themoviedb.org/3/search/movie?query=kung&include_adult=false&language=en-US&page=1`,
+          {
+            headers: {
+              Authorization: APIAuthorization,
+              Accept: "application/json",
+            },
+          }
+        );
 
         if (!responseMovies.ok) {
           throw new Error(responseMovies.statusText());
@@ -66,7 +75,7 @@ export const MovieListPage = () => {
               );
               return (
                 <NavLink
-                  to={toMovieDetails({ id: movie.id})} // Assuming toMovieDetails expects an ID parameter
+                  to={toMovieDetails({ id: movie.id })} // Assuming toMovieDetails expects an ID parameter
                   key={`movie-${movie.id}`}
                   style={{ textDecoration: "none" }}
                 >
