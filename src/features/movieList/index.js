@@ -12,6 +12,7 @@ import {
   setLoadingState,
   setPageState,
   setPageNr,
+  selectSettingSearchValue,
 } from "../../Redux_store/settingSlice";
 import { toMovieDetails } from "../../routes";
 import { NavLink, useHistory, useLocation } from "react-router-dom";
@@ -21,44 +22,43 @@ export const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
   const pageNr = useSelector(selectSettingMoviePageNrValue);
-  const loadingState = useSelector(selectSettingLoadingValue);
   const pageState = useSelector(selectSettingPageStateValue);
-  const dispatch = useDispatch();
+  const loadingState = useSelector(selectSettingLoadingValue);
+  const searchState = useSelector(selectSettingSearchValue);
   const location = useLocation();
   const history = useHistory();
   const myQuery = new URLSearchParams(location.search).get(
     searchQueryParamName
   );
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const page = params.get("page");
+    const params = new URLSearchParams(location.search).get("page");
     const path = location.pathname;
 
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("movies"));
 
-    if (page && path.includes("/movies")) dispatch(setPageNr(Number(page)));
+    if (params && path.includes("/movies")) dispatch(setPageNr(Number(params)));
 
     sessionStorage.setItem("pageState", "movies");
     sessionStorage.setItem("moviesPageNr", pageNr);
-
     setIsFirstEffect(false);
-  }, [pageNr, dispatch]);
+  }, [pageNr]);
 
   useEffect(() => {
     const newPath = `?page=${pageNr}`;
 
     if (location.search !== newPath && !isFirstEffect) history.push(newPath);
-  }, [pageNr, location.search, isFirstEffect]);
+  }, [pageNr, isFirstEffect, dispatch]);
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
         const responseMovies = await fetch(
-          pageState ===
-            "movies"// ? `${apiMoviePopularURL}${pageNr}`
-            `https://api.themoviedb.org/3/search/movie?query=kung&include_adult=false&language=en-US&page=1`,
+          searchState && myQuery !== null
+            ? `https://api.themoviedb.org/3/search/movie?query=${myQuery}&include_adult=false&language=en-US&page=1`
+            : `${apiMoviePopularURL}${pageNr}`,
           {
             headers: {
               Authorization: APIAuthorization,
@@ -79,7 +79,7 @@ export const MovieListPage = () => {
       }
     };
     fetchMovies();
-  }, [pageNr, dispatch]);
+  }, [pageNr, dispatch, myQuery]);
 
   return loadingState === "loading" ? (
     <LoadingSpinner />
