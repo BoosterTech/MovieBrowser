@@ -74,5 +74,7 @@ export const selectSettingMoviePageNrValue = (state) =>
   selectState(state).moviesPageNr;
 export const selectSettingPeoplePageNrValue = (state) =>
   selectState(state).peoplePageNr;
+export const selectSettingSearchValue = (state) =>
+  selectState(state).searchState;
 
 export default settingSlice.reducer;
