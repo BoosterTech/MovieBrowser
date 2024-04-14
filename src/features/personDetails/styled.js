@@ -89,7 +89,7 @@ export const Paragraph = styled.span`
 `;
 
 export const CastCrewWrapper = styled.div`
-  min-height: 750px;
+  height: auto;
   max-width: 1368px;
   margin: 64px auto;
 
