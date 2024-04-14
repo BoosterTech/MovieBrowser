@@ -11,22 +11,42 @@ import {
   selectSettingMoviePageNrValue,
   setLoadingState,
   setPageState,
+  setPageNr,
 } from "../../Redux_store/settingSlice";
 import { toMovieDetails } from "../../routes";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 
 export const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
+  const [isFirstEffect, setIsFirstEffect] = useState(true);
   const pageNr = useSelector(selectSettingMoviePageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
   const pageState = useSelector(selectSettingPageStateValue);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const history = useHistory();
 
   useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const page = params.get("page");
+    const path = location.pathname;
+
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("movies"));
-  }, [dispatch]);
+
+    if (page && path.includes("/movies")) dispatch(setPageNr(Number(page)));
+
+    sessionStorage.setItem("pageState", "movies");
+    sessionStorage.setItem("moviesPageNr", pageNr);
+
+    setIsFirstEffect(false);
+  }, [pageNr, dispatch]);
+
+  useEffect(() => {
+    const newPath = `?page=${pageNr}`;
+
+    if (location.search !== newPath && !isFirstEffect) history.push(newPath);
+  }, [pageNr, location.search, isFirstEffect]);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -66,7 +86,7 @@ export const MovieListPage = () => {
               );
               return (
                 <NavLink
-                  to={toMovieDetails({ id: movie.id})} // Assuming toMovieDetails expects an ID parameter
+                  to={toMovieDetails({ id: movie.id })} // Assuming toMovieDetails expects an ID parameter
                   key={`movie-${movie.id}`}
                   style={{ textDecoration: "none" }}
                 >

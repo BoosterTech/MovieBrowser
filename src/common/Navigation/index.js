@@ -20,19 +20,39 @@ import {
   setBothPages,
 } from "../../Redux_store/settingSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export const Navigation = () => {
-  const [activeButton, setActiveButton] = useState("button1");
+  const [activeButton, setActiveButton] = useState(
+    sessionStorage.getItem("buttonState") || "button1"
+  );
   const pageState = useSelector(selectSettingPageStateValue);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const handleClick = (buttonId) => {
     setActiveButton(buttonId);
   };
   const handleOnClick = () => {
-    dispatch(setBothPages());
+    dispatch(setBothPages(1));
+    setActiveButton("button1");
+    sessionStorage.setItem("buttonState", "button1");
+    sessionStorage.setItem("moviesPageNr", 1);
+    sessionStorage.setItem("peoplePageNr", 1);
   };
+
+  useEffect(() => {
+    const path = location.pathname;
+
+    if (path.includes("people")) {
+      setActiveButton("button2");
+      sessionStorage.setItem("buttonState", "button2");
+    } else {
+      setActiveButton("button1");
+      sessionStorage.setItem("buttonState", "button1");
+    }
+  }, [location.pathname]);
 
   return (
     <StyledHeader>
@@ -47,7 +67,7 @@ export const Navigation = () => {
               to={toMovieListPage()}
               onClick={() => handleClick("button1")}
             >
-              <StyledButton id="button1" active={activeButton === "button1"}>
+              <StyledButton id="button1" $active={activeButton === "button1"}>
                 MOVIES
               </StyledButton>
             </StyledNavLink1>
@@ -55,7 +75,7 @@ export const Navigation = () => {
               to={toPeople()}
               onClick={() => handleClick("button2")}
             >
-              <StyledButton id="button2" active={activeButton === "button2"}>
+              <StyledButton id="button2" $active={activeButton === "button2"}>
                 PEOPLE
               </StyledButton>
             </StyledNavLink2>

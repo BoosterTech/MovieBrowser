@@ -9,22 +9,44 @@ import {
   selectSettingPageStateValue,
   selectSettingPeoplePageNrValue,
   setLoadingState,
+  setPageNr,
   setPageState,
 } from "../../Redux_store/settingSlice";
 import { toProfile } from "../../routes";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const PersonList = () => {
   const [peopleData, setPeopleData] = useState(null);
+  const [isFirstEffect, setIsFirstEffect] = useState(true);
   const pageNr = useSelector(selectSettingPeoplePageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
   const pageState = useSelector(selectSettingPageStateValue);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const history = useHistory();
 
   useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const page = params.get("page");
+    const path = location.pathname;
+
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("people"));
-  }, [dispatch]);
+
+    if (page && path.includes("/people")) dispatch(setPageNr(Number(page)));
+
+    sessionStorage.setItem("pageState", "people");
+    sessionStorage.setItem("peoplePageNr", pageNr);
+
+    setIsFirstEffect(false);
+  }, [pageNr, dispatch]);
+
+  useEffect(() => {
+    const newPath = `?page=${pageNr}`;
+
+    if (location.search !== newPath && !isFirstEffect) history.push(newPath);
+  }, [pageNr, location.search, isFirstEffect]);
 
   useEffect(() => {
     const fetchPeople = async () => {
@@ -42,7 +64,6 @@ const PersonList = () => {
 
         const { results } = await responsePeople.json();
         setPeopleData(results);
-
         dispatch(setLoadingState("success"));
       } catch (error) {
         dispatch(setLoadingState("error"));
@@ -50,7 +71,7 @@ const PersonList = () => {
       }
     };
     fetchPeople();
-  }, [dispatch, pageNr]);
+  }, [pageNr]);
 
   return loadingState === "loading" ? (
     <LoadingSpinner />
@@ -67,7 +88,7 @@ const PersonList = () => {
                   to={toProfile({ id: person.id })}
                   style={{ textDecoration: "none" }}
                 >
-                  <PersonTile 
+                  <PersonTile
                     key={person.id}
                     imageSrc={
                       person.profile_path

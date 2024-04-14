@@ -14,14 +14,10 @@ export const MovieTileWrapper = styled.div`
   animation: ${showin} 0.3s ease;
   color: ${({ theme }) => theme.color.Woodsmoke};
 
-  ${({ noHover }) =>
-    !noHover &&
-    `
   &:hover {
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.75); // 50% darker on hover
     cursor: pointer;
   }
-  `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     margin: 0 auto;

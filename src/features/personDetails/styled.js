@@ -63,15 +63,28 @@ export const BirthInfo = styled.div`
   justify-content: flex-start;
 `;
 
-export const Paragraph = styled.p`
+export const Paragraph = styled.span`
+  display: block;
   margin: 0;
+  font-weight: 400;
+  font-size: 18px;
+  height: 22px;
+  white-space: nowrap;
 
-  ${(props) => props.grey && `color: grey;`}
   ${(props) =>
-    props.biography &&
+    props.$grey &&
+    `
+     width: auto;
+     color: grey;
+  `}
+
+  ${(props) =>
+    props.$biography &&
     ` font-weight:400;
       line-height:32px;
       font-size:20px;
+      margin-top:24px;
+      white-space:wrap;
   `}
 `;
 
@@ -80,9 +93,9 @@ export const CastCrewWrapper = styled.div`
   max-width: 1368px;
   margin: 64px auto;
 
-  ${(props) => props.second && `margin-bottom:220px;`}
+  ${(props) => props.$second && `margin-bottom:220px;`}
 
-  @media(max-width: ${({theme}) => theme.breakpoints.desktopMini}px){
+  @media(max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
     margin: 24px 16px;
   }
 `;

@@ -28,9 +28,10 @@ import { MovieTile } from "../movieList/components/MovieTile";
 import { TilesContainer } from "../movieList/styled";
 import { LoadingSpinner } from "../../common/Loader";
 import { moviesGenres_ids } from "../../common/moviesGenre_ids";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { APIAuthorization } from "../../common/API_URL";
 import ImageProfile from "./DefaultImage";
+import { toMovieDetails } from "../../routes";
 
 const ProfileDetails = () => {
   const { id } = useParams();
@@ -76,7 +77,6 @@ const ProfileDetails = () => {
   ) : (
     profileData && (
       <>
-
         <ForMobile>
           <TopTileWrapperMedia>
             <PersonImageDataContainer>
@@ -90,13 +90,13 @@ const ProfileDetails = () => {
               <DataContainer>
                 <HeaderMobile>{profileData.name}</HeaderMobile>
                 <BirthInfoMobile>
-                  <ParagraphMobile grey={true.toString()}>
+                  <ParagraphMobile $grey={true.toString()}>
                     Birth:
                   </ParagraphMobile>
                   <ParagraphMobile> {profileData.birthday}</ParagraphMobile>
                 </BirthInfoMobile>
                 <BirthInfoMobile>
-                  <ParagraphMobile grey={true.toString()}>
+                  <ParagraphMobile $grey={true.toString()}>
                     Place of birth:
                   </ParagraphMobile>
                   <ParagraphMobile>
@@ -105,10 +105,11 @@ const ProfileDetails = () => {
                 </BirthInfoMobile>
               </DataContainer>
             </PersonImageDataContainer>
-            <ParagraphContainer biography={`${true}`}>{profileData.biography}</ParagraphContainer>
+            <ParagraphContainer $biography={`${true}`}>
+              {profileData.biography}
+            </ParagraphContainer>
           </TopTileWrapperMedia>
         </ForMobile>
-
 
         <ForDesktop>
           <TopTileWrapper>
@@ -123,15 +124,21 @@ const ProfileDetails = () => {
               <Header>{profileData.name}</Header>
               <BirthInfoContainer>
                 <BirthInfo>
-                  <Paragraph grey={true.toString()}>Date of birth</Paragraph>
+                  {profileData.birthday && (
+                    <Paragraph $grey={true.toString()}>Date of birth:</Paragraph>
+                  )}
                   <Paragraph> {profileData.birthday}</Paragraph>
                 </BirthInfo>
                 <BirthInfo>
-                  <Paragraph grey={true.toString()}>Place of birth:</Paragraph>
+                  {profileData.place_of_birth && (
+                    <Paragraph $grey={true.toString()}>
+                      Place of birth:
+                    </Paragraph>
+                  )}
                   <Paragraph>{profileData.place_of_birth}</Paragraph>
                 </BirthInfo>
               </BirthInfoContainer>
-              <Paragraph biography={`${true}`}>
+              <Paragraph $biography={`${true}`}>
                 {profileData.biography}
               </Paragraph>
             </DescriptionWrapper>
@@ -150,27 +157,32 @@ const ProfileDetails = () => {
                     ? castMember.genre_ids.map((id) => moviesGenres_ids[id])
                     : [];
                   return (
-                    <MovieTile
-                      noHover={true}
+                    <NavLink
+                      to={toMovieDetails({ id: castMember.id })} // Assuming toMovieDetails expects an ID parameter`}
                       key={`${castMember.name}${castMember.id}`}
-                      imageSrc={
-                        castMember.poster_path
-                          ? `https://image.tmdb.org/t/p/w500${castMember.poster_path}`
-                          : null
-                      }
-                      title={castMember.original_title}
-                      character={castMember.character}
-                      year={
-                        castMember.release_date
-                          ? `${
-                              castMember.character
-                            } (${castMember.release_date.substring(0, 4)})`
-                          : castMember.character
-                      }
-                      category={movieGenres}
-                      rate={castMember.vote_average}
-                      vote={castMember.vote_count}
-                    />
+                      style={{ textDecoration: "none" }}
+                    >
+                      <MovieTile
+                        key={`${castMember.name}${castMember.id}`}
+                        imageSrc={
+                          castMember.poster_path
+                            ? `https://image.tmdb.org/t/p/w500${castMember.poster_path}`
+                            : null
+                        }
+                        title={castMember.original_title}
+                        character={castMember.character}
+                        year={
+                          castMember.release_date
+                            ? `${
+                                castMember.character
+                              } (${castMember.release_date.substring(0, 4)})`
+                            : castMember.character
+                        }
+                        category={movieGenres}
+                        rate={castMember.vote_average}
+                        vote={castMember.vote_count}
+                      />
+                    </NavLink>
                   );
                 })}
             </TilesContainer>
@@ -178,7 +190,7 @@ const ProfileDetails = () => {
         )}
 
         {profileData.movie_credits.crew.length && (
-          <CastCrewWrapper second={`${true}`}>
+          <CastCrewWrapper $second={`${true}`}>
             <Header>
               Movies - crew ({profileData.movie_credits.crew.length})
             </Header>

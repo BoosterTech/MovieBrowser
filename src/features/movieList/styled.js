@@ -31,6 +31,7 @@ export const ContentHeader = styled.h1`
   text-align: left;
   color: ${({ theme }) => theme.color.Woodsmoke};
   margin: 0;
+  margin-bottom: 24px;
   padding: 0;
   animation: ${showin} 1s ease;
 
@@ -66,9 +67,8 @@ export const TilesContainer = styled.div`
     max-width: 1037px;
     margin: 0px auto;
     grid-template-columns: repeat(3, 1fr);
-
   }
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     grid-template-columns: repeat(1, 1fr);
     max-width: 1000px;
@@ -83,7 +83,6 @@ export const TilesContainer = styled.div`
     justify-content: center;
     margin: 10px 84px;
   }
-
 
   ${(props) =>
     props.persontile &&
