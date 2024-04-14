@@ -1,11 +1,12 @@
 import ImageDefaultPerson from "../../../../common/ImageDefaultPerson";
-import { PersonName, TileImage, TileWrapper } from "./styled";
+import { PersonName, TileImage, TileWrapper, PersonCharacter } from "./styled";
 
-export const PersonTile = ({ imageSrc, name, noHover = false }) => {
+export const PersonTile = ({ imageSrc, name, character }) => {
   return (
-    <TileWrapper noHover={noHover}>
+    <TileWrapper>
       {imageSrc ? <TileImage src={imageSrc} /> : <ImageDefaultPerson />}
       <PersonName>{name}</PersonName>
+      <PersonCharacter>{character}</PersonCharacter>
     </TileWrapper>
   );
 };

@@ -15,6 +15,7 @@ import {
 import { toMovieDetails } from "../../routes";
 import { NavLink } from "react-router-dom";
 
+
 export const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
   const pageNr = useSelector(selectSettingMoviePageNrValue);
@@ -65,7 +66,7 @@ export const MovieListPage = () => {
               );
               return (
                 <NavLink
-                  to={toMovieDetails(movie.id)} // Assuming toMovieDetails expects an ID parameter
+                  to={toMovieDetails({ id: movie.id})} // Assuming toMovieDetails expects an ID parameter
                   key={`movie-${movie.id}`}
                   style={{ textDecoration: "none" }}
                 >
