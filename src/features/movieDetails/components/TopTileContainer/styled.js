@@ -72,8 +72,8 @@ export const RatingWrapper = styled.div`
 
 export const ScoreWrapper = styled.div`
   display: grid;
-  align-items: center;
-  grid-template-columns: 50px 30px 20px ;
+  align-items: end;
+  grid-template-columns: 50px 50px 30px ;
   margin: 24px 0 16px 0;
 `;
 
@@ -83,6 +83,7 @@ export const IconStar = styled.div`
 `;
 
 export const RateContainer = styled.div`
+  font-size: 30px;
 `;
 
 export const VoteContainer = styled.div`
@@ -90,4 +91,5 @@ export const VoteContainer = styled.div`
 `;
 
 export const ScoreLimit = styled.div`
+  margin-bottom: 3px;
 `;

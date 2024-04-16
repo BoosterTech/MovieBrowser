@@ -29,7 +29,7 @@ export const TopTileContainer = ({
                     <ScoreWrapper>
                         <IconStar as={Star} />
                         <RateContainer>{rate.toFixed(1)}</RateContainer>
-                        <ScoreLimit>/10</ScoreLimit>
+                        <ScoreLimit>/ 10</ScoreLimit>
                     </ScoreWrapper>
                     <VoteContainer>
                         {vote} {vote > 1 ? "votes" : "vote"}
