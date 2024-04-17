@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   selectSettingPageStateValue,
   setSearchState,
@@ -10,11 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Search = () => {
   const query = useQueryParameter(searchQueryParamName);
-  const replaceQueryParameter = useReplaceQueryParameter();
   const pageState = useSelector(selectSettingPageStateValue);
-  const [placeholder, setPlaceholder] = useState(
-    pageState === "movies" ? "Search for movies..." : "Search for people..."
-  );
+  const replaceQueryParameter = useReplaceQueryParameter();
   const dispatch = useDispatch();
 
   const onInputChange = ({ target }) => {
@@ -25,18 +21,16 @@ const Search = () => {
     });
   };
 
-  const updatePlaceholder = () => {
-    dispatch(setSearchState(false));
-    setPlaceholder(placeholder);
-  };
-
   return (
     <SearchWrapper>
       <Input
         type="text"
-        placeholder={placeholder}
+        placeholder={
+          pageState === "movies"
+            ? "Search for movies..."
+            : "Search for people..."
+        }
         onChange={onInputChange}
-        onBlur={updatePlaceholder}
         value={query || ""}
       />
     </SearchWrapper>
