@@ -23,7 +23,7 @@ export const ContentWrapper = styled.section`
 `;
 
 export const ContentHeader = styled.h1`
-  width: 285px;
+  width: auto;
   max-height: 43px;
   font-size: 36px;
   font-weight: 600;
