@@ -1,10 +1,10 @@
 import { LoadingSpinner } from "../Loader";
 import { MessageHeader } from "./styled";
 
-const SearchPage = () => {
+const SearchPage = (searchQuery) => {
   return (
     <>
-      <MessageHeader>Search results for “SearchQuery”</MessageHeader>
+      <MessageHeader>Search results for “{searchQuery}”</MessageHeader>
       <LoadingSpinner />
     </>
   );
