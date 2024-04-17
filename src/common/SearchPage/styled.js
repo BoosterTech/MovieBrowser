@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const MessageHeader = styled.h1`
-  width: 602px;
+  width: auto;
   height: 43px;
   font-size: 36px;
   font-weight: 600;
