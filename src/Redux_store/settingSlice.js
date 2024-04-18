@@ -67,5 +67,8 @@ export const selectSettingMoviePageNrValue = (state) =>
   selectState(state).moviesPageNr;
 export const selectSettingPeoplePageNrValue = (state) =>
   selectState(state).peoplePageNr;
+  //
+// export const selectMovieDetailsData = (state) => state.setting.data;
+
 
 export default settingSlice.reducer;
