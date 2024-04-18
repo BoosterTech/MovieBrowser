@@ -23,6 +23,7 @@ export const theme = {
     mobileMax: 767,
     tabletVerticalMax: 991,
     tabletHorizontalMax: 1199,
+    disabled: 1367.99,
     desktopMini: 1368,
   },
 };
