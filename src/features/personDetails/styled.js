@@ -4,15 +4,10 @@ export const TopTileWrapper = styled.div`
   display: flex;
   color: black;
   background-color: #ffffff;
-  max-width: 1288px;
+  max-width: 1368px;
   min-height: 570px;
   padding: 40px;
   margin: 56px auto 0 auto;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
 `;
 
 export const DescriptionWrapper = styled.div`
@@ -21,11 +16,6 @@ export const DescriptionWrapper = styled.div`
   padding: 8px 0;
   margin: 0;
   margin-left: 40px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
 `;
 
 export const Image = styled.img`
@@ -101,7 +91,7 @@ export const CastCrewWrapper = styled.div`
 `;
 
 export const ForDesktop = styled.div`
-  @media (max-width: 1198px) {
+  @media(max-width: ${({theme}) => theme.breakpoints.disabled}px){
     display: none;
   }
 `;
