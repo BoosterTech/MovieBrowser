@@ -70,7 +70,7 @@ export const MovieListPage = () => {
         );
 
         if (!responseMovies.ok) {
-          throw new Error(responseMovies.statusText());
+          errorPage();
         }
 
         const { results } = await responseMovies.json();
