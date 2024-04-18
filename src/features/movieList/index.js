@@ -19,6 +19,7 @@ import { NavLink, useHistory, useLocation } from "react-router-dom";
 import searchQueryParamName from "../../common/Search/searchQueryParamName";
 import SearchPage from "../../common/SearchPage";
 import NoResultPage from "../../common/noResult";
+import ErrorPage from "../../common/Error";
 
 export const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
@@ -70,7 +71,7 @@ export const MovieListPage = () => {
         );
 
         if (!responseMovies.ok) {
-          errorPage();
+          throw new Error("Response not OK");
         }
 
         const { results } = await responseMovies.json();
@@ -80,11 +81,14 @@ export const MovieListPage = () => {
       } catch (error) {
         dispatch(setLoadingState("error"));
         console.error("Error fetching movies:", error);
-        <errorPage />;
       }
     };
     fetchMovies();
   }, [pageNr, dispatch, myQuery]);
+
+  if (loadingState === "error") {
+    return <ErrorPage />;
+  }
 
   return loadingState === "loading" ? (
     searchState ? (
