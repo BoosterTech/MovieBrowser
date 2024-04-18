@@ -18,6 +18,7 @@ import {
   selectSettingMoviePageNrValue,
   selectSettingPageStateValue,
   selectSettingPeoplePageNrValue,
+  selectSettingSearchValue,
   setFirstPage,
   setLastPage,
   setLoadingState,
@@ -33,6 +34,7 @@ const Pagination = () => {
   const moviesPageNr = useSelector(selectSettingMoviePageNrValue);
   const peoplePageNr = useSelector(selectSettingPeoplePageNrValue);
   const pageState = useSelector(selectSettingPageStateValue);
+  const searchState = useSelector(selectSettingSearchValue);
   const page = pageState === "movies" ? moviesPageNr : peoplePageNr;
 
   const dispatch = useDispatch();
@@ -93,7 +95,9 @@ const Pagination = () => {
   }, []);
   // [window.innerWidth]
   return (
-    loadingState !== "loading" && (
+    loadingState !== "loading" &&
+    loadingState !== "error" &&
+    searchState !== true && (
       <Wrapper>
         <Section>
           <ButtonFirst disabled={page === 1} onClick={handleFirstPage}>
