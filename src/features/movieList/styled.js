@@ -85,7 +85,7 @@ export const TilesContainer = styled.div`
   }
 
   ${(props) =>
-    props.persontile &&
+    props.$persontile &&
     `
   grid-template-columns: repeat(6, 1fr);
   `}
