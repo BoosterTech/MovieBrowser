@@ -96,4 +96,5 @@ export const VoteContainer = styled.div`
 `;
 
 export const ScoreLimit = styled.div`
+  padding-top: 14px;
 `;
