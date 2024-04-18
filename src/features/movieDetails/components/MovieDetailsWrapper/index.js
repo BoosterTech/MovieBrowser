@@ -9,7 +9,6 @@ import {
     Year,
     NameBlock,
     GreyName,
-    DescriptionNamePro,
     DescriptionName,
     Tags,
     Tag,
@@ -18,6 +17,7 @@ import {
     VotesBlockScore,
     VotesBlockRest,
     Description,
+    YearBlock,
 } from "./styled";
 
 export const MovieDetailsWrapper = ({
@@ -42,11 +42,11 @@ export const MovieDetailsWrapper = ({
                     <Year>{yearShort}</Year>
                     <NameBlock>
                         <GreyName>Production:</GreyName>
-                        <DescriptionNamePro>
+                        <DescriptionName>
                             {production}
-                        </DescriptionNamePro>
+                        </DescriptionName>
                         <GreyName>Release date:</GreyName>
-                        <DescriptionName>{yearFull}</DescriptionName>
+                        <YearBlock>{yearFull}</YearBlock>
                     </NameBlock>
                     <Tags>
                         {categories.map((category, index) => (

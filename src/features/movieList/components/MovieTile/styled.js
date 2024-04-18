@@ -29,10 +29,12 @@ export const MovieTileWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-rows: auto;
     margin: auto;
-    width: 256px;
+    width: 324px;
+    max-width: 294px;
+    height: 210px;
   }
 `;
 
@@ -59,10 +61,10 @@ export const DescriptionContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     padding: 0 0 0 16px;
     margin-top: 0px;
-    max-height: 250px;
-    width: 126px;
+    max-width: 190px;
     display: grid;
     grid-template-rows: repeat(3, auto) 1fr auto;
+    max-height: 300px;
   }
 `;
 
@@ -121,7 +123,7 @@ export const CategoryTagWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 10px;
-    margin: px 0;
+    margin: 8px 0;
   }
 `;
 

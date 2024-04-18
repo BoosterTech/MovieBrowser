@@ -175,10 +175,11 @@ export const StyledButton = styled.button`
   border-radius: 24px;
   background-color: transparent;
   color: ${({ theme }) => theme.color.White};
+  transition: 0.3s;
 
   &:hover {
     cursor: pointer;
-    border: 1px solid ${({ theme }) => theme.color.White};
+    color: ${({ theme }) => theme.color.Gray};
   }
   border: ${(props) => (props.$active ? "1px solid white" : "none")};
 
