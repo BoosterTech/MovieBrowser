@@ -87,13 +87,12 @@ const MovieDetails = () => {
             <Header>Cast</Header>
             <TilesContainer persontile="true">
               {movieData.credits.cast &&
-                movieData.credits.cast.map((castMember) => {
+                movieData.credits.cast.map((castMember, index) => {
                   return (
                     <NavLink
-                      key={castMember.id}
+                      key={`${castMember.id}-${index}`}
                       to={toProfile({ id: castMember.id })}
                       style={{ textDecoration: "none" }}
-
                     >
                       <PersonTile
                         imageSrc={
@@ -101,7 +100,6 @@ const MovieDetails = () => {
                             ? `https://image.tmdb.org/t/p/w500${castMember.profile_path}`
                             : null
                         }
-                        key={`${castMember.name}`}
                         character={castMember.character}
                         name={castMember.name}
                       />
@@ -114,10 +112,10 @@ const MovieDetails = () => {
             <Header>Crew</Header>
             <TilesContainer persontile="true">
               {movieData.credits.crew &&
-                movieData.credits.crew.map((crewMember) => {
+                movieData.credits.crew.map((crewMember, index) => {
                   return (
                     <NavLink
-                      key={crewMember.id}
+                      key={`${crewMember.id}-${index}`}
                       to={toProfile({ id: crewMember.id })}
                       style={{ textDecoration: "none" }}
                     >
@@ -127,7 +125,6 @@ const MovieDetails = () => {
                             ? `https://image.tmdb.org/t/p/w500${crewMember.profile_path}`
                             : null
                         }
-                        key={`${crewMember.name}`}
                         character={crewMember.job}
                         name={crewMember.name}
                       />

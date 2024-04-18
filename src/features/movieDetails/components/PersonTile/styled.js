@@ -6,7 +6,7 @@ export const TileWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 360px;
+  width: 176px;
   padding: 16px;
   border-radius: 5px;
   color: ${({ theme }) => theme.color.Black};
@@ -33,7 +33,7 @@ export const TileWrapper = styled.div`
 
 export const TileImage = styled.img`
   width: 177px;
-  height: 231px;
+  max-height: 264px;
   margin-bottom: 12px;
   border-radius: 5px;
 
