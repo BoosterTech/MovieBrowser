@@ -31,7 +31,7 @@ export const TileWrapper = styled.div`
 `;
 
 export const TileImage = styled.img`
-  width: 177px;
+  width: 176px;
   height: 231px;
   border-radius: 5px;
 
