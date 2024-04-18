@@ -56,7 +56,7 @@ export const MovieDetailsWrapper = ({
                     <VotesBlock>
                         <ImageSvg src={star} />
                         <VotesBlockScore>{rate.toFixed(1)}</VotesBlockScore>
-                        <VotesBlockRest>/10</VotesBlockRest>
+                        <VotesBlockRest>/ 10</VotesBlockRest>
                         <VotesBlockRest>{vote} votes</VotesBlockRest>
                     </VotesBlock>
                     <Description>

@@ -18,7 +18,6 @@ export const TileWrapper = styled.div`
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.75); // 50% darker on hover
     cursor: pointer;
     transition: 0.3s;
-    transform: scale(105%);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
