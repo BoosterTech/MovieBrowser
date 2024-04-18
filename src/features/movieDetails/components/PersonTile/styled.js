@@ -6,10 +6,10 @@ export const TileWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 339px;
-  width: 208px;
+  width: 176px;
+  padding: 16px;
   border-radius: 5px;
-  color: black;
+  color: ${({ theme }) => theme.color.Black};
   box-shadow: 0px 4px 12px 0px ${({ theme }) => theme.color.Heather};
   animation: ${showin} 1s ease;
   transition: all 0.5s ease;
@@ -17,6 +17,8 @@ export const TileWrapper = styled.div`
   &:hover {
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.75); // 50% darker on hover
     cursor: pointer;
+    transition: 0.3s;
+    transform: scale(105%);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
@@ -30,10 +32,9 @@ export const TileWrapper = styled.div`
 `;
 
 export const TileImage = styled.img`
-  width: 176px;
-  height: 231px;
-  margin: 16px;
-  margin-top: 16px;
+  width: 177px;
+  max-height: 264px;
+  margin-bottom: 12px;
   border-radius: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
@@ -47,6 +48,7 @@ export const PersonName = styled.div`
   margin: 0 0 8px 0;
   text-align: center;
   font-weight: 500;
+  font-size: 22px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 14px;
@@ -62,4 +64,5 @@ export const PersonCharacter = styled.div`
   color: ${({ theme }) => theme.color.StormGray};
   margin-bottom: 16px;
   text-align: center;
+  font-weight: 400;
 `;

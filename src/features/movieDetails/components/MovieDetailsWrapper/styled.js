@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  width: 1288px;
+  width: 1368px;
   height: 544px;
-  padding: 40px;
   margin: 64px auto;
 `;
 
@@ -19,9 +18,12 @@ export const Tile = styled.article`
 export const Image = styled.img`
     width: 312px;
     height: 464px;
+    border-radius: 5px;
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+    padding: 8px 0;
+`;
 
 export const Title = styled.div`
     font-weight: 600px;
@@ -32,6 +34,7 @@ export const Title = styled.div`
 
 export const Year = styled.div`
     font-size: 22px;
+    font-weight: 400;
 `;
 
 export const NameBlock = styled.div`
@@ -46,16 +49,19 @@ export const GreyName = styled.p`
     font-size: 18px;
     color: ${({ theme }) => theme.color.StormGray};
     margin: 0;
+    font-weight: 400;
+`;
+
+export const YearBlock = styled.p`
+    font-size: 18px;
+    margin: 0;
+    font-weight: 400;
 `;
 
 export const DescriptionName = styled.p`
     font-size: 18px;
-    margin: 0;
-`;
-
-export const DescriptionNamePro = styled.p`
-    font-size: 18px;
     margin: -16px;
+    font-weight: 400;
 `;
 
 export const Tags = styled.div`
@@ -72,11 +78,12 @@ export const Tag = styled.div`
     font-size: 14px;
     margin: 8px;
     border-radius: 5px;
+    font-weight: 400;
 `;
 
 export const VotesBlock = styled.div`   
     display: grid;
-    grid-template-columns: 30px 40px 30px 80px;
+    grid-template-columns: 32px 40px 30px 80px;
     align-items: center;
 `;
 
@@ -88,6 +95,7 @@ export const ImageSvg = styled.img`
 export const VotesBlockScore = styled.div`
     font-weight: 500;
     font-size: 22px;
+    margin-top: 1px;
 `;
 
 export const VotesBlockRest = styled.div`
@@ -100,6 +108,7 @@ export const Description = styled.div`
     font-size: 20px;
     margin-top: 24px;
     line-height: 1.6;
+    font-weight: 400;
 `;
 
 
