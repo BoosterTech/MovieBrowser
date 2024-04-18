@@ -32,7 +32,7 @@ export const TileWrapper = styled.div`
 
 export const TileImage = styled.img`
   width: 177px;
-  max-height: 264px;
+  height: 231px;
   border-radius: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
