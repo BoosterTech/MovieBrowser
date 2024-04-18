@@ -33,7 +33,6 @@ export const TileWrapper = styled.div`
 export const TileImage = styled.img`
   width: 177px;
   max-height: 264px;
-  margin-bottom: 12px;
   border-radius: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
@@ -44,7 +43,7 @@ export const TileImage = styled.img`
 `;
 
 export const PersonName = styled.div`
-  margin: 0 0 8px 0;
+  margin: 12px 0 8px 0;
   text-align: center;
   font-weight: 500;
   font-size: 22px;
