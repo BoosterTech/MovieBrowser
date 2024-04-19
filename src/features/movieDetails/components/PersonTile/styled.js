@@ -5,8 +5,9 @@ export const TileWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 176px;
+  min-height: 339px;
   padding: 16px;
   border-radius: 5px;
   color: ${({ theme }) => theme.color.Black};
