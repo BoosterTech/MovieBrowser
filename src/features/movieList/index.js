@@ -14,6 +14,7 @@ import {
   setPageNr,
   selectSettingSearchValue,
   selectSettingSearchPageNrValue,
+  setSearchMaxPageNr,
 } from "../../Redux_store/settingSlice";
 import { toMovieDetails } from "../../routes";
 import { NavLink, useHistory, useLocation } from "react-router-dom";
@@ -52,6 +53,7 @@ export const MovieListPage = () => {
   const myQuery = new URLSearchParams(location.search).get(
     searchQueryParamName
   );
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -59,24 +61,31 @@ export const MovieListPage = () => {
     const path = location.pathname;
 
     dispatch(setLoadingState("loading"));
-    if (!searchState) dispatch(setPageState("movies"));
+    dispatch(setPageState("movies"));
 
     if (params && path.includes("/movies")) dispatch(setPageNr(Number(params)));
 
     sessionStorage.setItem("pageState", "movies");
     sessionStorage.setItem("moviesPageNr", pageNr);
     setIsFirstEffect(false);
-  }, [pageNr]);
+  }, [pageNr, searchPageNr]);
 
   useEffect(() => {
-    const newPath = `?page=${pageNr}`;
+    const searchQuery = new URLSearchParams(location.search).get("search");
+    const newPath = `?page=${pageNr}${
+      searchQuery ? `&search=${searchQuery}` : ""
+    }`;
 
-    if (location.search !== newPath && !isFirstEffect) history.push(newPath);
-  }, [pageNr, isFirstEffect, dispatch]);
+    if (location.search !== newPath && !isFirstEffect) {
+      history.push(newPath);
+    }
+  }, [pageNr, myQuery, searchPageNr, isFirstEffect, dispatch]);
 
   useEffect(() => {
     if (searchState === true && (!moviesData || moviesData.length === 0)) {
       dispatch(setPageState("noResult"));
+    } else {
+      dispatch(setPageState("movies"));
     }
   }, [searchState, moviesData, dispatch]);
 
@@ -101,9 +110,10 @@ export const MovieListPage = () => {
           throw new Error("Response not OK");
         }
 
-        const { results } = await responseMovies.json();
+        const { results, total_pages } = await responseMovies.json();
 
         setMoviesData(results);
+        dispatch(setSearchMaxPageNr(total_pages));
         dispatch(setLoadingState("success"));
       } catch (error) {
         dispatch(setLoadingState("error"));
@@ -111,7 +121,7 @@ export const MovieListPage = () => {
       }
     };
     fetchMovies();
-  }, [pageNr, dispatch, debouncedQuery]);
+  }, [pageNr, searchPageNr, debouncedQuery]);
 
   if (loadingState === "error") {
     return <ErrorPage />;

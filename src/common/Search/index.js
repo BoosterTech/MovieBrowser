@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
 import {
+  selectSettingMoviePageNrValue,
   selectSettingPageStateValue,
+  setPageNr,
   setSearchState,
 } from "../../Redux_store/settingSlice";
 import { Input, SearchWrapper } from "../Navigation/styled";
 import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
 import searchQueryParamName from "./searchQueryParamName";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 const Search = () => {
   const query = useQueryParameter(searchQueryParamName);
   const pageState = useSelector(selectSettingPageStateValue);
+  const pageNr = useSelector(selectSettingMoviePageNrValue);
   const replaceQueryParameter = useReplaceQueryParameter();
+
+  const history = useHistory();
   const dispatch = useDispatch();
   const [placeholder, setPlaceholder] = useState("");
 
@@ -21,12 +27,18 @@ const Search = () => {
       placeholder === "Search for people..." ||
       placeholder === ""
     ) {
+      dispatch(setPageNr(1));
       dispatch(setSearchState(false));
+
+      const newPath = `?page=${pageNr}`;
+      history.push(newPath);
     }
   }, [placeholder, dispatch]);
 
   const onInputChange = ({ target }) => {
     dispatch(setSearchState(true));
+    dispatch(setPageNr(1));
+
     setPlaceholder(target.value);
 
     replaceQueryParameter({

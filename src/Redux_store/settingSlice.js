@@ -10,6 +10,7 @@ const settingSlice = createSlice({
     pageState: sessionStorage.getItem("pageState") || "movies",
     loadingState: "loading",
     searchState: false,
+    query: "",
   },
   reducers: {
     setSearchState: (state, { payload: newState }) => {
@@ -20,29 +21,39 @@ const settingSlice = createSlice({
       state.searchMaxPageNr = number;
     },
     setPageNr: (state, { payload: number }) => {
-      if (state.pageState === "movies") state.moviesPageNr = number;
-      else if (state.pageState === "people") state.peoplePageNr = number;
-      else if (state.searchState === true) state.searchPageNr = number;
+      if (state.searchState) state.searchPageNr = number;
+      else {
+        if (state.pageState === "movies") state.moviesPageNr = number;
+        if (state.pageState === "people") state.peoplePageNr = number;
+      }
     },
     setNextPage: (state) => {
-      if (state.pageState === "movies") state.moviesPageNr++;
-      else if (state.pageState === "people") state.peoplePageNr++;
-      else if (state.searchState === true) state.searchPageNr++;
+      if (state.searchState) state.searchPageNr++;
+      else {
+        if (state.pageState === "movies") state.moviesPageNr++;
+        if (state.pageState === "people") state.peoplePageNr++;
+      }
     },
     setPreviousPage: (state) => {
-      if (state.pageState === "movies") state.moviesPageNr--;
-      else if (state.pageState === "people") state.peoplePageNr--;
-      else if (state.searchState === true) state.searchPageNr--;
+      if (state.searchState === true) state.searchPageNr--;
+      else {
+        if (state.pageState === "movies") state.moviesPageNr--;
+        if (state.pageState === "people") state.peoplePageNr--;
+      }
     },
     setLastPage: (state, { payload: maxNumber = 500 }) => {
-      if (state.pageState === "movies") state.moviesPageNr = maxNumber;
-      else if (state.pageState === "people") state.peoplePageNr = maxNumber;
-      else if (state.searchState === true) state.searchPageNr = maxNumber;
+      if (state.searchState === true) state.searchPageNr = maxNumber;
+      else {
+        if (state.pageState === "movies") state.moviesPageNr = maxNumber;
+        if (state.pageState === "people") state.peoplePageNr = maxNumber;
+      }
     },
     setFirstPage: (state) => {
-      if (state.pageState === "movies") state.moviesPageNr = 1;
-      else if (state.pageState === "people") state.peoplePageNr = 1;
-      else if (state.searchState === true) state.searchPageNr = 1;
+      if (state.searchState === true) state.searchPageNr = 1;
+      else {
+        if (state.pageState === "movies") state.moviesPageNr = 1;
+        if (state.pageState === "people") state.peoplePageNr = 1;
+      }
     },
     setBothPages: (state) => {
       state.moviesPageNr = 1;
@@ -56,10 +67,14 @@ const settingSlice = createSlice({
     setLoadingState: (state, { payload: newState }) => {
       state.loadingState = newState;
     },
+    setQuery: (state, { payload: query }) => {
+      state.query = query;
+    },
   },
 });
 
 export const {
+  setQuery,
   setSearchState,
   setSearchMaxPageNr,
   setPageNr,
@@ -87,5 +102,6 @@ export const selectSettingSearchPageNrValue = (state) =>
   selectState(state).searchPageNr;
 export const selectSettingSearchMaxPageNrValue = (state) =>
   selectState(state).searchMaxPageNr;
+export const selectSettingQueryValue = (state) => selectState(state).query;
 
 export default settingSlice.reducer;
