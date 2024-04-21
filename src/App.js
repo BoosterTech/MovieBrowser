@@ -39,15 +39,13 @@ const App = () => {
         </Route>
         <Route exact path={toSearch()}>
           <SearchPage />
+          <Pagination />
         </Route>
         <Route exact path={toNoResult()}>
           <NoResultPage />
         </Route>
         <Route exact path={toError()}>
           <ErrorPage />
-        </Route>
-        <Route exact path={toNoResult()}>
-          <NoResultPage />
         </Route>
         <Route exact path="/">
           <Redirect to={toMovieListPage()} />
