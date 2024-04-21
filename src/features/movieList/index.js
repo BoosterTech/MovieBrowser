@@ -13,6 +13,7 @@ import {
   setPageState,
   setPageNr,
   selectSettingSearchValue,
+  selectSettingSearchPageNrValue,
 } from "../../Redux_store/settingSlice";
 import { toMovieDetails } from "../../routes";
 import { NavLink, useHistory, useLocation } from "react-router-dom";
@@ -21,11 +22,29 @@ import SearchPage from "../../common/SearchPage";
 import NoResultPage from "../../common/noResult";
 import ErrorPage from "../../common/Error";
 
+const useDebounce = (value, delay) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setLoadingState("loading"));
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+};
+
 export const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
   const pageNr = useSelector(selectSettingMoviePageNrValue);
   const pageState = useSelector(selectSettingPageStateValue);
+  const searchPageNr = useSelector(selectSettingSearchPageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
   const searchState = useSelector(selectSettingSearchValue);
   const location = useLocation();
@@ -34,20 +53,6 @@ export const MovieListPage = () => {
     searchQueryParamName
   );
   const dispatch = useDispatch();
-
-  const useDebounce = (value, delay) => {
-    const [debouncedValue, setDebouncedValue] = useState(value);
-    useEffect(() => {
-      dispatch(setLoadingState("loading"));
-      const handler = setTimeout(() => {
-        setDebouncedValue(value);
-      }, delay);
-      return () => {
-        clearTimeout(handler);
-      };
-    }, [value, delay]);
-    return debouncedValue;
-  };
 
   useEffect(() => {
     const params = new URLSearchParams(location.search).get("page");
@@ -69,6 +74,12 @@ export const MovieListPage = () => {
     if (location.search !== newPath && !isFirstEffect) history.push(newPath);
   }, [pageNr, isFirstEffect, dispatch]);
 
+  useEffect(() => {
+    if (searchState === true && (!moviesData || moviesData.length === 0)) {
+      dispatch(setPageState("noResult"));
+    }
+  }, [searchState, moviesData, dispatch]);
+
   const debouncedQuery = useDebounce(myQuery, 500);
 
   useEffect(() => {
@@ -76,7 +87,7 @@ export const MovieListPage = () => {
       try {
         const responseMovies = await fetch(
           searchState && debouncedQuery !== null
-            ? `https://api.themoviedb.org/3/search/movie?query=${myQuery}&include_adult=false&language=en-US&page=1`
+            ? `https://api.themoviedb.org/3/search/movie?query=${myQuery}&include_adult=false&language=en-US&page=${searchPageNr}`
             : `${apiMoviePopularURL}${pageNr}`,
           {
             headers: {
@@ -115,7 +126,6 @@ export const MovieListPage = () => {
   ) : (
     (pageState === "movies" || searchState === true) &&
       (searchState === true && (!moviesData || moviesData.length === 0) ? (
-        dispatch(setLoadingState("noResult")),
         NoResultPage(debouncedQuery)
       ) : (
         <ContentWrapper>
