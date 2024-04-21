@@ -8,7 +8,6 @@ export const MessageHeader = styled.h1`
   font-weight: 600;
   line-height: 43.2px;
   text-align: left;
-  color: black;
-  margin: 57px auto auto 276px;
-  animation: ${showin} 0.5s ease-in-out;
+  color: ${({ theme }) => theme.color.Black};
+  margin: 80px auto auto 276px;
 `;

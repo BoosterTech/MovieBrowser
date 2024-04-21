@@ -2,8 +2,8 @@ import { styled } from "styled-components";
 
 export const TopTileWrapper = styled.div`
   display: flex;
-  color: black;
-  background-color: #ffffff;
+  color: ${({ theme }) => theme.color.Black};
+  background-color: ${({ theme }) => theme.color.White};
   max-width: 1368px;
   min-height: 570px;
   padding: 40px;
@@ -65,7 +65,7 @@ export const Paragraph = styled.span`
     props.$grey &&
     `
      width: auto;
-     color: grey;
+     color: ${({ theme }) => theme.color.Gray};
   `}
 
   ${(props) =>

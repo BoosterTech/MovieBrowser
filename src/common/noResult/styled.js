@@ -6,6 +6,6 @@ export const MessageParagraph = styled.h1`
   font-weight: 600;
   font-size:36px;
   line-height: 43.2px;
-  color: black;
+  color: ${({ theme }) => theme.color.Black};
   margin: 56px auto auto 276px;
 `;

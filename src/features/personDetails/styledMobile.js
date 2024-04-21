@@ -9,7 +9,7 @@ export const ForMobile = styled.div`
 export const TopTileWrapperMedia = styled.div`
   display: grid;
   grid-template-rows: auto auto;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.color.White};
   height: auto;
   margin: 23px 16px 24px;
 
@@ -57,7 +57,7 @@ export const ParagraphMobile = styled.p`
   margin: 0 0 8px 0;
   line-height: 14.4px;
 
-  ${(props) => props.$grey && `color: grey;`}
+  ${(props) => props.$grey && `color: ${({ theme }) => theme.color.Gray};`}
   ${(props) =>
     props.biography &&
     ` font-weight:400;

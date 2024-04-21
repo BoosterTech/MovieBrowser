@@ -36,8 +36,8 @@ export const ErrorButton = styled.button`
   height: 51px;
   padding: 16px 24px;
   border-radius: 5px;
-  background-color: #0044cc;
-  color: white;
+  background-color: ${({ theme }) => theme.color.ScienceBlue};
+  color: ${({ theme }) => theme.color.White};
   margin: 0 auto;
   border: none;
 `;
