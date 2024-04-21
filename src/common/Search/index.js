@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   selectSettingPageStateValue,
   setSearchState,
@@ -12,9 +13,22 @@ const Search = () => {
   const pageState = useSelector(selectSettingPageStateValue);
   const replaceQueryParameter = useReplaceQueryParameter();
   const dispatch = useDispatch();
+  const [placeholder, setPlaceholder] = useState("");
+
+  useEffect(() => {
+    if (
+      placeholder === "Search for movies..." ||
+      placeholder === "Search for people..." ||
+      placeholder === ""
+    ) {
+      dispatch(setSearchState(false));
+    }
+  }, [placeholder, dispatch]);
 
   const onInputChange = ({ target }) => {
     dispatch(setSearchState(true));
+    setPlaceholder(target.value);
+
     replaceQueryParameter({
       key: searchQueryParamName,
       value: target.value.trim() !== "" ? target.value : undefined,
