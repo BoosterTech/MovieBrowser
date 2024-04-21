@@ -17,8 +17,8 @@ export const StyledHeader = styled.section`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
-    height: 175px;
-    max-height: 200px;
+    height: 150px;
+    max-height: 170px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
@@ -78,7 +78,7 @@ export const StyledContainerLink = styled(NavLink)`
   max-width: 220px;
   height: 48px;
   text-decoration: none;
-  color: white;
+  color: ${({ theme }) => theme.color.White};
   font-size: 24px;
   line-height: 40px;
   letter-spacing: -1.5px;
@@ -118,7 +118,7 @@ export const StyledSearch = styled.div`
 `;
 
 export const StyledLogo = styled.svg`
-  color: white;
+  color: ${({ theme }) => theme.color.White};
   width: 40px;
   height: 40px;
   fill: none;
@@ -244,15 +244,21 @@ export const SearchWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     margin: 16px 12px 12px 20px;
-    width: 296px;
+    width: 306px;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+    margin: 0px 12px 12px 20px;
+    
+  }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     margin: 14px 12px 12px 12px;
     width: 288px;
     height: 44px;
     padding: 0;
   }
+
+  
 `;
 
 export const Input = styled.input`

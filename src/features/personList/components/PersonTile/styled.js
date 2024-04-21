@@ -10,8 +10,8 @@ export const TileWrapper = styled.div`
   width: 208px;
   margin: 0 0 0 0;
   border-radius: 5px;
-  color: black;
-  box-shadow: 0px 4px 12px 0px #bac7d580;
+  color: ${({ theme }) => theme.color.Black};
+  box-shadow: 0px 4px 12px 0px ${({ theme }) => theme.color.Heather};
   animation: ${showin} 1s ease;
   transition: all 0.5s ease;
   padding: 0;

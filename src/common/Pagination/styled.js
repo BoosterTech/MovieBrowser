@@ -43,7 +43,7 @@ export const ButtonFirst = styled.button`
 
   &:disabled {
     background: ${({ theme }) => theme.color.Mystic};
-    color: grey;
+    color: ${({ theme }) => theme.color.Gray};
     border: 1px solid ${({ theme }) => theme.color.Mystic};
   }
 

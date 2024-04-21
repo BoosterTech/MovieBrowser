@@ -7,6 +7,6 @@ export const MessageHeader = styled.h1`
   font-weight: 600;
   line-height: 43.2px;
   text-align: left;
-  color: black;
+  color: ${({ theme }) => theme.color.Black};
   margin: 80px auto auto 276px;
 `;

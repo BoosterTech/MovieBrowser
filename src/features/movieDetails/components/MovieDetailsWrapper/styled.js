@@ -7,9 +7,9 @@ export const Wrapper = styled.div`
 `;
 
 export const Tile = styled.article`
-    background: ${({ theme }) => theme.color.white};
+    background: ${({ theme }) => theme.color.White};
     padding: 40px;
-    box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+    box-shadow: 0px 4px 12px ${({ theme }) => theme.color.Heather};
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: 40px;
