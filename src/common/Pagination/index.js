@@ -95,8 +95,8 @@ const Pagination = () => {
   }, []);
   return (
     loadingState !== "loading" &&
-    loadingState !== "error" &&
-    loadingState !== "noResult" && (
+    pageState !== "error" &&
+    pageState !== "noResult" && (
       <Wrapper>
         <Section>
           <ButtonFirst disabled={page === 1} onClick={handleFirstPage}>
