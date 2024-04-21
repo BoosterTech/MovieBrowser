@@ -35,6 +35,20 @@ export const MovieListPage = () => {
   );
   const dispatch = useDispatch();
 
+  const useDebounce = (value, delay) => {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+    useEffect(() => {
+      dispatch(setLoadingState("loading"));
+      const handler = setTimeout(() => {
+        setDebouncedValue(value);
+      }, delay);
+      return () => {
+        clearTimeout(handler);
+      };
+    }, [value, delay]);
+    return debouncedValue;
+  };
+
   useEffect(() => {
     const params = new URLSearchParams(location.search).get("page");
     const path = location.pathname;
@@ -55,11 +69,13 @@ export const MovieListPage = () => {
     if (location.search !== newPath && !isFirstEffect) history.push(newPath);
   }, [pageNr, isFirstEffect, dispatch]);
 
+  const debouncedQuery = useDebounce(myQuery, 500);
+
   useEffect(() => {
     const fetchMovies = async () => {
       try {
         const responseMovies = await fetch(
-          searchState && myQuery !== null
+          searchState && debouncedQuery !== null
             ? `https://api.themoviedb.org/3/search/movie?query=${myQuery}&include_adult=false&language=en-US&page=1`
             : `${apiMoviePopularURL}${pageNr}`,
           {
@@ -84,7 +100,7 @@ export const MovieListPage = () => {
       }
     };
     fetchMovies();
-  }, [pageNr, dispatch, myQuery]);
+  }, [pageNr, dispatch, debouncedQuery]);
 
   if (loadingState === "error") {
     return <ErrorPage />;
@@ -99,7 +115,7 @@ export const MovieListPage = () => {
   ) : (
     (pageState === "movies" || searchState === true) &&
       (searchState === true && (!moviesData || moviesData.length === 0) ? (
-        NoResultPage(myQuery)
+        NoResultPage(debouncedQuery)
       ) : (
         <ContentWrapper>
           <ContentHeader>
