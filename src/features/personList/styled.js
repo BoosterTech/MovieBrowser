@@ -29,7 +29,7 @@ export const ContentHeader = styled.h1`
   font-weight: 600;
   line-height: 43.2px;
   text-align: left;
-  color: #18181b;
+  color: ${({ theme }) => theme.color.Woodsmoke};
   margin: 24px 0;
 
   animation: ${showin} 1s ease;
