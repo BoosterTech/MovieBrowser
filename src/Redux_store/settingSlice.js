@@ -5,7 +5,8 @@ const settingSlice = createSlice({
   initialState: {
     moviesPageNr: sessionStorage.getItem("moviesPageNr") || 1,
     peoplePageNr: sessionStorage.getItem("peoplePageNr") || 1,
-    searchPageNr: sessionStorage.getItem("searchPageNr") || 1,
+    searchPageNr: 1,
+    searchMaxPageNr: 1,
     pageState: sessionStorage.getItem("pageState") || "movies",
     loadingState: "loading",
     searchState: false,
@@ -15,6 +16,9 @@ const settingSlice = createSlice({
       state.searchState = newState;
     },
 
+    setSearchMaxPageNr: (state, { payload: number }) => {
+      state.searchMaxPageNr = number;
+    },
     setPageNr: (state, { payload: number }) => {
       if (state.pageState === "movies") state.moviesPageNr = number;
       else if (state.pageState === "people") state.peoplePageNr = number;
@@ -33,12 +37,12 @@ const settingSlice = createSlice({
     setLastPage: (state, { payload: maxNumber = 500 }) => {
       if (state.pageState === "movies") state.moviesPageNr = maxNumber;
       else if (state.pageState === "people") state.peoplePageNr = maxNumber;
-      else state.searchPageNr = maxNumber;
+      else if (state.searchState === true) state.searchPageNr = maxNumber;
     },
     setFirstPage: (state) => {
       if (state.pageState === "movies") state.moviesPageNr = 1;
       else if (state.pageState === "people") state.peoplePageNr = 1;
-      else state.searchPageNr = 1;
+      else if (state.searchState === true) state.searchPageNr = 1;
     },
     setBothPages: (state) => {
       state.moviesPageNr = 1;
@@ -57,6 +61,7 @@ const settingSlice = createSlice({
 
 export const {
   setSearchState,
+  setSearchMaxPageNr,
   setPageNr,
   setNextPage,
   setPreviousPage,
@@ -80,5 +85,7 @@ export const selectSettingSearchValue = (state) =>
   selectState(state).searchState;
 export const selectSettingSearchPageNrValue = (state) =>
   selectState(state).searchPageNr;
+export const selectSettingSearchMaxPageNrValue = (state) =>
+  selectState(state).searchMaxPageNr;
 
 export default settingSlice.reducer;
