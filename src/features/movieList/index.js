@@ -115,6 +115,7 @@ export const MovieListPage = () => {
   ) : (
     (pageState === "movies" || searchState === true) &&
       (searchState === true && (!moviesData || moviesData.length === 0) ? (
+        dispatch(setLoadingState("noResult")),
         NoResultPage(debouncedQuery)
       ) : (
         <ContentWrapper>

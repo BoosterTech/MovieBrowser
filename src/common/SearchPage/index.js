@@ -4,7 +4,7 @@ import { MessageHeader } from "./styled";
 const SearchPage = (searchQuery) => {
   return (
     <>
-      <MessageHeader>Search results for “{searchQuery}”</MessageHeader>
+      <MessageHeader>Search Results for “{searchQuery}”</MessageHeader>
       <LoadingSpinner />
     </>
   );

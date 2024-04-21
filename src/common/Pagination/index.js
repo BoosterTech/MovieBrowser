@@ -93,11 +93,10 @@ const Pagination = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  // [window.innerWidth]
   return (
     loadingState !== "loading" &&
     loadingState !== "error" &&
-    searchState !== true && (
+    loadingState !== "noResult" && (
       <Wrapper>
         <Section>
           <ButtonFirst disabled={page === 1} onClick={handleFirstPage}>
