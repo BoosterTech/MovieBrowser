@@ -43,7 +43,7 @@ const useDebounce = (value, delay) => {
 export const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
-  const pageNr = useSelector(selectSettingMoviePageNrValue);
+  const moviePageNr = useSelector(selectSettingMoviePageNrValue);
   const pageState = useSelector(selectSettingPageStateValue);
   const searchPageNr = useSelector(selectSettingSearchPageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
@@ -66,20 +66,20 @@ export const MovieListPage = () => {
     if (params && path.includes("/movies")) dispatch(setPageNr(Number(params)));
 
     sessionStorage.setItem("pageState", "movies");
-    sessionStorage.setItem("moviesPageNr", pageNr);
+    sessionStorage.setItem("moviesPageNr", moviePageNr);
     setIsFirstEffect(false);
-  }, [pageNr, searchPageNr]);
+  }, [moviePageNr, searchPageNr]);
 
   useEffect(() => {
     const searchQuery = new URLSearchParams(location.search).get("search");
-    const newPath = `?page=${pageNr}${
+    const newPath = `?page=${searchState ? searchPageNr : moviePageNr}${
       searchQuery ? `&search=${searchQuery}` : ""
     }`;
 
     if (location.search !== newPath && !isFirstEffect) {
       history.push(newPath);
     }
-  }, [pageNr, myQuery, searchPageNr, isFirstEffect, dispatch]);
+  }, [moviePageNr, myQuery, searchPageNr, isFirstEffect, dispatch]);
 
   useEffect(() => {
     if (searchState === true && (!moviesData || moviesData.length === 0)) {
@@ -97,7 +97,7 @@ export const MovieListPage = () => {
         const responseMovies = await fetch(
           searchState && debouncedQuery !== null
             ? `https://api.themoviedb.org/3/search/movie?query=${myQuery}&include_adult=false&language=en-US&page=${searchPageNr}`
-            : `${apiMoviePopularURL}${pageNr}`,
+            : `${apiMoviePopularURL}${moviePageNr}`,
           {
             headers: {
               Authorization: APIAuthorization,
@@ -121,7 +121,7 @@ export const MovieListPage = () => {
       }
     };
     fetchMovies();
-  }, [pageNr, searchPageNr, debouncedQuery]);
+  }, [moviePageNr, searchPageNr, debouncedQuery]);
 
   if (loadingState === "error") {
     return <ErrorPage />;
