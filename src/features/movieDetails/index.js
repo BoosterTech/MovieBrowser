@@ -108,7 +108,7 @@ const MovieDetails = () => {
         <Content>
           <CastCrewWrapper>
             <Header>Cast</Header>
-            <TilesContainer persontile="true">
+            <TilesContainer $persontile="true">
               {movieData.credits.cast &&
                 movieData.credits.cast.map((castMember, index) => {
                   return (
@@ -131,9 +131,9 @@ const MovieDetails = () => {
                 })}
             </TilesContainer>
           </CastCrewWrapper>
-          <CastCrewWrapper second={`${true}`}>
+          <CastCrewWrapper $second={`${true}`}>
             <Header>Crew</Header>
-            <TilesContainer persontile="true">
+            <TilesContainer $persontile="true">
               {movieData.credits.crew &&
                 movieData.credits.crew.map((crewMember, index) => {
                   return (
