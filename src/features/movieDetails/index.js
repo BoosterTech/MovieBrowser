@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 import {
   selectSettingLoadingValue,
+  selectSettingMoviePageNrValue,
+  selectSettingSearchValue,
   setLoadingState,
 } from "../../Redux_store/settingSlice";
 import { NavLink } from "react-router-dom";
@@ -14,13 +16,26 @@ import { PersonTile } from "./components/PersonTile";
 import { TopTileBox } from "./components/TopTileBox";
 import { MovieDetailsWrapper } from "./components/MovieDetailsWrapper";
 import { TopTileContainer, Content } from "./styled";
-
+import searchQueryParamName from "../../common/Search/searchQueryParamName";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movieData, setMovieData] = useState(null);
   const loadingState = useSelector(selectSettingLoadingValue);
+  const searchState = useSelector(selectSettingSearchValue);
+  const moviePageNr = useSelector(selectSettingMoviePageNrValue);
+  const history = useHistory();
   const dispatch = useDispatch();
+  const location = useLocation();
+  const myQuery = new URLSearchParams(location.search).get(
+    searchQueryParamName
+  );
+
+  useEffect(() => {
+    if (searchState && myQuery !== null) {
+      history.push(`/movies?page=${moviePageNr}&search=${myQuery}`);
+    }
+  }, [searchState, myQuery]);
 
   useEffect(() => {
     dispatch(setLoadingState("loading"));
@@ -62,14 +77,16 @@ const MovieDetails = () => {
     movieData && (
       <>
         <TopTileContainer>
-          {movieData.backdrop_path ?
+          {movieData.backdrop_path ? (
             <TopTileBox
               title={movieData.original_title}
               rate={movieData.vote_average || 0}
               vote={movieData.vote_count || 0}
-              imageSrc={"https://image.tmdb.org/t/p/original" + movieData.backdrop_path}
+              imageSrc={
+                "https://image.tmdb.org/t/p/original" + movieData.backdrop_path
+              }
             />
-            : null}
+          ) : null}
         </TopTileContainer>
         <MovieDetailsWrapper
           imageSrc={
