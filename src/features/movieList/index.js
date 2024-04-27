@@ -71,6 +71,10 @@ export const MovieListPage = () => {
   }, [moviePageNr, searchPageNr]);
 
   useEffect(() => {
+    dispatch(setPageNr(1));
+  }, [myQuery]);
+
+  useEffect(() => {
     const searchQuery = new URLSearchParams(location.search).get("search");
     const newPath = `?page=${searchState ? searchPageNr : moviePageNr}${
       searchQuery ? `&search=${searchQuery}` : ""
@@ -79,7 +83,7 @@ export const MovieListPage = () => {
     if (location.search !== newPath && !isFirstEffect) {
       history.push(newPath);
     }
-  }, [moviePageNr, myQuery, searchPageNr, isFirstEffect, dispatch]);
+  }, [moviePageNr, myQuery, searchPageNr, isFirstEffect, location.search]);
 
   useEffect(() => {
     if (searchState === true && (!moviesData || moviesData.length === 0)) {
