@@ -31,7 +31,7 @@ const Search = () => {
       dispatch(setSearchState(false));
 
       const newPath = `?page=${pageNr}`;
-      history.push(newPath);
+      if (history.location.search !== newPath) history.push(newPath);
     }
   }, [placeholder, dispatch]);
 
