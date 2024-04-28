@@ -45,9 +45,12 @@ const ProfileDetails = () => {
     searchQueryParamName
   );
   const dispatch = useDispatch();
- 
-  
 
+  useEffect(() => {
+    if (searchState && myQuery !== null) {
+      history.push(`/people?page=${personPageNr}&search=${myQuery}`);
+    }
+  }, [searchState, myQuery]);
 
   useEffect(() => {
     dispatch(setLoadingState("loading"));
