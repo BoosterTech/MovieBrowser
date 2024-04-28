@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectSettingLoadingValue,
+  selectSettingPeoplePageNrValue,
+  selectSettingSearchValue,
   setLoadingState,
 } from "../../Redux_store/settingSlice";
 import {
@@ -32,6 +34,7 @@ import { NavLink, useHistory, useLocation, useParams } from "react-router-dom";
 import { APIAuthorization } from "../../common/API_URL";
 import ImageProfile from "./DefaultImage";
 import { toMovieDetails } from "../../routes";
+import searchQueryParamName from "../../common/Search/searchQueryParamName";
 
 const ProfileDetails = () => {
   const { id } = useParams();
