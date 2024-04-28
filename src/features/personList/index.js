@@ -70,10 +70,23 @@ const PersonList = () => {
   }, [myQuery]);
 
   useEffect(() => {
-    const newPath = `?page=${peoplePageNr}`;
+    const searchQuery = new URLSearchParams(location.search).get("search");
+    const newPath = `?page=${searchState ? searchPageNr : peoplePageNr}${
+      searchQuery ? `search=${searchQuery}` : ""
+    }`;
 
     if (location.search !== newPath && !isFirstEffect) history.push(newPath);
-  }, [peoplePageNr, location.search, isFirstEffect]);
+  }, [peoplePageNr, myQuery, searchPageNr, location.search, isFirstEffect]);
+
+  useEffect(() => {
+    if (searchState === true && (!peopleData || peopleData.length === 0)) {
+      dispatch(setPageState("noResult"));
+    } else {
+      dispatch(setPageState("people"));
+    }
+  }, [searchState, peopleData, dispatch]);
+
+  const debouncedQuery = useDebounce(myQuery, 500);
 
   useEffect(() => {
     const fetchPeople = async () => {
