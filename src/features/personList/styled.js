@@ -22,7 +22,8 @@ export const ContentWrapper = styled.section`
 `;
 
 export const ContentHeader = styled.h1`
-  max-width: 285px;
+  /* max-width: 285px; */
+  width: auto;
   max-height: 43px;
   font-family: Poppins;
   font-size: 36px;
@@ -55,7 +56,8 @@ export const TilesWrapper = styled.div`
     grid-template-columns: repeat(5, 1fr);
   }
 
-  @media (max-width: ${({ theme }) =>theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) =>
+      theme.breakpoints.tabletHorizontalMax}px) {
     grid-template-columns: repeat(4, 1fr);
   }
 
