@@ -16,6 +16,24 @@ import { toProfile } from "../../routes";
 import { NavLink, useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
+const useDebounce = (value, delay) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setLoadingState("loading"));
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+};
+
+
 const PersonList = () => {
   const [peopleData, setPeopleData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
