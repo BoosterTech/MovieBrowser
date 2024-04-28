@@ -7,9 +7,9 @@ import { LoadingSpinner } from "../../common/Loader";
 import {
   selectSettingLoadingValue,
   selectSettingPageStateValue,
-  selectSettingPeoplePageNrValue,
+  selectSettingPeoplepeoplePageNrValue,
   setLoadingState,
-  setPageNr,
+  setpeoplePageNr,
   setPageState,
 } from "../../Redux_store/settingSlice";
 import { toProfile } from "../../routes";
@@ -37,7 +37,7 @@ const useDebounce = (value, delay) => {
 const PersonList = () => {
   const [peopleData, setPeopleData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
-  const pageNr = useSelector(selectSettingPeoplePageNrValue);
+  const peoplePageNr = useSelector(selectSettingPeoplepeoplePageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
   const pageState = useSelector(selectSettingPageStateValue);
   const dispatch = useDispatch();
@@ -52,24 +52,24 @@ const PersonList = () => {
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("people"));
 
-    if (page && path.includes("/people")) dispatch(setPageNr(Number(page)));
+    if (page && path.includes("/people")) dispatch(setpeoplePageNr(Number(page)));
 
     sessionStorage.setItem("pageState", "people");
-    sessionStorage.setItem("peoplePageNr", pageNr);
+    sessionStorage.setItem("peoplePageNr", peoplePageNr);
 
     setIsFirstEffect(false);
-  }, [pageNr, dispatch]);
+  }, [peoplePageNr, dispatch]);
 
   useEffect(() => {
-    const newPath = `?page=${pageNr}`;
+    const newPath = `?page=${peoplePageNr}`;
 
     if (location.search !== newPath && !isFirstEffect) history.push(newPath);
-  }, [pageNr, location.search, isFirstEffect]);
+  }, [peoplePageNr, location.search, isFirstEffect]);
 
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const responsePeople = await fetch(`${apiPeoplePopularURL}${pageNr}`, {
+        const responsePeople = await fetch(`${apiPeoplePopularURL}${peoplePageNr}`, {
           headers: {
             Authorization: APIAuthorization,
             accept: "application/json",
@@ -89,7 +89,7 @@ const PersonList = () => {
       }
     };
     fetchPeople();
-  }, [pageNr]);
+  }, [peoplePageNr]);
 
   return loadingState === "loading" ? (
     <LoadingSpinner />
