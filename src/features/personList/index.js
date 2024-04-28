@@ -11,10 +11,12 @@ import {
   setLoadingState,
   setpeoplePageNr,
   setPageState,
+  setPageNr,
 } from "../../Redux_store/settingSlice";
 import { toProfile } from "../../routes";
 import { NavLink, useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import searchQueryParamName from "../../common/Search/searchQueryParamName";
 
 const useDebounce = (value, delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
@@ -33,32 +35,39 @@ const useDebounce = (value, delay) => {
   return debouncedValue;
 };
 
-
 const PersonList = () => {
   const [peopleData, setPeopleData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
   const peoplePageNr = useSelector(selectSettingPeoplepeoplePageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
   const pageState = useSelector(selectSettingPageStateValue);
-  const dispatch = useDispatch();
+  const searchPageNr = useSelector(selectSettingSearchPageNrValue);
+  const searchState = useSelector(selectSettingSearchValue);
   const location = useLocation();
   const history = useHistory();
+  const myQuery = new URLSearchParams(location.search).get(
+    searchQueryParamName
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const page = params.get("page");
+    const params = new URLSearchParams(location.search).get("page");
     const path = location.pathname;
 
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("people"));
 
-    if (page && path.includes("/people")) dispatch(setpeoplePageNr(Number(page)));
+    if (page && path.includes("/people"))
+      dispatch(setpeoplePageNr(Number(page)));
 
     sessionStorage.setItem("pageState", "people");
     sessionStorage.setItem("peoplePageNr", peoplePageNr);
-
     setIsFirstEffect(false);
-  }, [peoplePageNr, dispatch]);
+  }, [peoplePageNr, searchPageNr]);
+
+  useEffect(() => {
+    dispatch(setPageNr(1));
+  }, [myQuery]);
 
   useEffect(() => {
     const newPath = `?page=${peoplePageNr}`;
@@ -69,12 +78,15 @@ const PersonList = () => {
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const responsePeople = await fetch(`${apiPeoplePopularURL}${peoplePageNr}`, {
-          headers: {
-            Authorization: APIAuthorization,
-            accept: "application/json",
-          },
-        });
+        const responsePeople = await fetch(
+          `${apiPeoplePopularURL}${peoplePageNr}`,
+          {
+            headers: {
+              Authorization: APIAuthorization,
+              accept: "application/json",
+            },
+          }
+        );
 
         if (!responsePeople.ok) {
           throw new Error(responsePeople.statusText());
