@@ -76,11 +76,13 @@ const PersonList = () => {
   useEffect(() => {
     const searchQuery = new URLSearchParams(location.search).get("search");
     const newPath = `?page=${searchState ? searchPageNr : peoplePageNr}${
-      searchQuery ? `search=${searchQuery}` : ""
+      searchQuery ? `&search=${searchQuery}` : ""
     }`;
 
-    if (location.search !== newPath && !isFirstEffect) history.push(newPath);
-  }, [peoplePageNr, myQuery, searchPageNr, location.search, isFirstEffect]);
+    if (location.search !== newPath && !isFirstEffect) {
+      history.push(newPath);
+    }
+  }, [peoplePageNr, myQuery, searchPageNr, isFirstEffect, location.search, ]);
 
   useEffect(() => {
     if (searchState === true && (!peopleData || peopleData.length === 0)) {
