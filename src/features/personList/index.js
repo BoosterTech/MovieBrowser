@@ -7,16 +7,21 @@ import { LoadingSpinner } from "../../common/Loader";
 import {
   selectSettingLoadingValue,
   selectSettingPageStateValue,
-  selectSettingPeoplepeoplePageNrValue,
   setLoadingState,
-  setpeoplePageNr,
   setPageState,
   setPageNr,
+  setSearchMaxPageNr,
+  selectSettingPeoplePageNrValue,
+  selectSettingSearchPageNrValue,
+  selectSettingSearchValue,
 } from "../../Redux_store/settingSlice";
 import { toProfile } from "../../routes";
 import { NavLink, useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import searchQueryParamName from "../../common/Search/searchQueryParamName";
+import ErrorPage from "../../common/Error";
+import SearchPage from "../../common/SearchPage";
+import NoResultPage from "../../common/noResult";
 
 const useDebounce = (value, delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
@@ -38,7 +43,7 @@ const useDebounce = (value, delay) => {
 const PersonList = () => {
   const [peopleData, setPeopleData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
-  const peoplePageNr = useSelector(selectSettingPeoplepeoplePageNrValue);
+  const peoplePageNr = useSelector(selectSettingPeoplePageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
   const pageState = useSelector(selectSettingPageStateValue);
   const searchPageNr = useSelector(selectSettingSearchPageNrValue);
@@ -57,8 +62,7 @@ const PersonList = () => {
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("people"));
 
-    if (page && path.includes("/people"))
-      dispatch(setpeoplePageNr(Number(page)));
+    if (params && path.includes("/people")) dispatch(setPageNr(Number(params)));
 
     sessionStorage.setItem("pageState", "people");
     sessionStorage.setItem("peoplePageNr", peoplePageNr);
@@ -107,8 +111,10 @@ const PersonList = () => {
           throw new Error(responsePeople.statusText());
         }
 
-        const { results } = await responsePeople.json();
+        const { results, total_pages } = await responsePeople.json();
+
         setPeopleData(results);
+        dispatch(setSearchMaxPageNr(total_pages));
         dispatch(setLoadingState("success"));
       } catch (error) {
         dispatch(setLoadingState("error"));
@@ -116,38 +122,53 @@ const PersonList = () => {
       }
     };
     fetchPeople();
-  }, [peoplePageNr]);
+  }, [peoplePageNr, searchPageNr, debouncedQuery]);
+
+  if (loadingState === "error") {
+    return <ErrorPage />;
+  }
 
   return loadingState === "loading" ? (
-    <LoadingSpinner />
-  ) : (
-    pageState === "people" && (
-      <ContentWrapper>
-        <ContentHeader>Popular People</ContentHeader>
-        <TilesWrapper>
-          {peopleData &&
-            peopleData.map((person) => {
-              return (
-                <NavLink
-                  key={person.id}
-                  to={toProfile({ id: person.id })}
-                  style={{ textDecoration: "none" }}
-                >
-                  <PersonTile
-                    key={person.id}
-                    imageSrc={
-                      person.profile_path
-                        ? `https://image.tmdb.org/t/p/w400${person.profile_path}`
-                        : null
-                    }
-                    name={person.name}
-                  />
-                </NavLink>
-              );
-            })}
-        </TilesWrapper>
-      </ContentWrapper>
+    searchState ? (
+      SearchPage(myQuery)
+    ) : (
+      <LoadingSpinner />
     )
+  ) : (
+    (pageState === "people" || searchState === true) &&
+      (searchState === true && (!peopleData || peopleData.length === 0) ? (
+        NoResultPage(debouncedQuery)
+      ) : (
+        <ContentWrapper>
+          <ContentHeader>
+            {!searchState || myQuery === null
+              ? "Popular People"
+              : `Search result for "${myQuery}"`}
+          </ContentHeader>
+          <TilesWrapper>
+            {peopleData &&
+              peopleData.map((person) => {
+                return (
+                  <NavLink
+                    key={person.id}
+                    to={toProfile({ id: person.id })}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <PersonTile
+                      key={person.id}
+                      imageSrc={
+                        person.profile_path
+                          ? `https://image.tmdb.org/t/p/w400${person.profile_path}`
+                          : null
+                      }
+                      name={person.name}
+                    />
+                  </NavLink>
+                );
+              })}
+          </TilesWrapper>
+        </ContentWrapper>
+      ))
   );
 };
 
