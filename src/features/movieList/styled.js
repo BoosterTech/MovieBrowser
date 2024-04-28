@@ -39,7 +39,7 @@ export const ContentWrapper = styled.section`
 `;
 
 export const ContentHeader = styled.h1`
-  width: 285px;
+  width: auto;
   max-height: 43px;
   font-size: 36px;
   font-weight: 600;
@@ -101,7 +101,7 @@ export const TilesContainer = styled.div`
   }
 
   ${(props) =>
-    props.persontile &&
+    props.$persontile &&
     `
   grid-template-columns: repeat(6, 1fr);
   `}

@@ -125,7 +125,9 @@ const ProfileDetails = () => {
               <BirthInfoContainer>
                 <BirthInfo>
                   {profileData.birthday && (
-                    <Paragraph $grey={true.toString()}>Date of birth:</Paragraph>
+                    <Paragraph $grey={true.toString()}>
+                      Date of birth:
+                    </Paragraph>
                   )}
                   <Paragraph> {profileData.birthday}</Paragraph>
                 </BirthInfo>
@@ -201,30 +203,36 @@ const ProfileDetails = () => {
                     ? crewMember.genre_ids.map((id) => moviesGenres_ids[id])
                     : [];
                   return (
-                    <MovieTile
-                      noHover={true}
-                      key={`${crewMember.id}${crewMember.job}`}
-                      imageSrc={
-                        crewMember.poster_path
-                          ? `https://image.tmdb.org/t/p/w500${crewMember.poster_path}`
-                          : null
-                      }
-                      title={
-                        crewMember.original_title
-                          ? crewMember.original_title
-                          : crewMember.original_name
-                      }
-                      year={
-                        crewMember.release_date
-                          ? `${
-                              crewMember.job
-                            } (${crewMember.release_date.substring(0, 4)})`
-                          : crewMember.job
-                      }
-                      category={movieGenres}
-                      rate={crewMember.vote_average}
-                      vote={crewMember.vote_count}
-                    />
+                    <NavLink
+                      to={toMovieDetails({ id: crewMember.id })} // Assuming toMovieDetails expects an ID parameter`}
+                      key={`${crewMember.name}${crewMember.id}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <MovieTile
+                        noHover={true}
+                        key={`${crewMember.id}${crewMember.job}`}
+                        imageSrc={
+                          crewMember.poster_path
+                            ? `https://image.tmdb.org/t/p/w500${crewMember.poster_path}`
+                            : null
+                        }
+                        title={
+                          crewMember.original_title
+                            ? crewMember.original_title
+                            : crewMember.original_name
+                        }
+                        year={
+                          crewMember.release_date
+                            ? `${
+                                crewMember.job
+                              } (${crewMember.release_date.substring(0, 4)})`
+                            : crewMember.job
+                        }
+                        category={movieGenres}
+                        rate={crewMember.vote_average}
+                        vote={crewMember.vote_count}
+                      />
+                    </NavLink>
                   );
                 })}
             </TilesContainer>

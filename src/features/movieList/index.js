@@ -12,57 +12,112 @@ import {
   setLoadingState,
   setPageState,
   setPageNr,
+  selectSettingSearchValue,
+  selectSettingSearchPageNrValue,
+  setSearchMaxPageNr,
 } from "../../Redux_store/settingSlice";
 import { toMovieDetails } from "../../routes";
 import { NavLink, useHistory, useLocation } from "react-router-dom";
+import searchQueryParamName from "../../common/Search/searchQueryParamName";
+import SearchPage from "../../common/SearchPage";
+import NoResultPage from "../../common/noResult";
+import ErrorPage from "../../common/Error";
+
+const useDebounce = (value, delay) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setLoadingState("loading"));
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+};
 
 export const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
-  const pageNr = useSelector(selectSettingMoviePageNrValue);
-  const loadingState = useSelector(selectSettingLoadingValue);
+  const moviePageNr = useSelector(selectSettingMoviePageNrValue);
   const pageState = useSelector(selectSettingPageStateValue);
-  const dispatch = useDispatch();
+  const searchPageNr = useSelector(selectSettingSearchPageNrValue);
+  const loadingState = useSelector(selectSettingLoadingValue);
+  const searchState = useSelector(selectSettingSearchValue);
   const location = useLocation();
   const history = useHistory();
+  const myQuery = new URLSearchParams(location.search).get(
+    searchQueryParamName
+  );
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const page = params.get("page");
+    const params = new URLSearchParams(location.search).get("page");
     const path = location.pathname;
 
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("movies"));
 
-    if (page && path.includes("/movies")) dispatch(setPageNr(Number(page)));
+    if (params && path.includes("/movies")) dispatch(setPageNr(Number(params)));
 
     sessionStorage.setItem("pageState", "movies");
-    sessionStorage.setItem("moviesPageNr", pageNr);
-
+    sessionStorage.setItem("moviesPageNr", moviePageNr);
     setIsFirstEffect(false);
-  }, [pageNr, dispatch]);
+  }, [moviePageNr, searchPageNr]);
 
   useEffect(() => {
-    const newPath = `?page=${pageNr}`;
+    dispatch(setPageNr(1));
+  }, [myQuery]);
 
-    if (location.search !== newPath && !isFirstEffect) history.push(newPath);
-  }, [pageNr, location.search, isFirstEffect]);
+  useEffect(() => {
+    const searchQuery = new URLSearchParams(location.search).get("search");
+    const newPath = `?page=${searchState ? searchPageNr : moviePageNr}${
+      searchQuery ? `&search=${searchQuery}` : ""
+    }`;
+
+    if (location.search !== newPath && !isFirstEffect) {
+      history.push(newPath);
+    }
+  }, [moviePageNr, myQuery, searchPageNr, isFirstEffect, location.search]);
+
+  useEffect(() => {
+    if (searchState === true && (!moviesData || moviesData.length === 0)) {
+      dispatch(setPageState("noResult"));
+    } else {
+      dispatch(setPageState("movies"));
+    }
+  }, [searchState, moviesData, dispatch]);
+
+  const debouncedQuery = useDebounce(myQuery, 500);
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const responseMovies = await fetch(`${apiMoviePopularURL}${pageNr}`, {
-          headers: {
-            Authorization: APIAuthorization,
-            Accept: "application/json",
-          },
-        });
+        const responseMovies = await fetch(
+          searchState && debouncedQuery !== null
+            ? `https://api.themoviedb.org/3/search/movie?query=${myQuery}&include_adult=false&language=en-US&page=${searchPageNr}`
+            : `${apiMoviePopularURL}${moviePageNr}`,
+          {
+            headers: {
+              Authorization: APIAuthorization,
+              Accept: "application/json",
+            },
+          }
+        );
 
         if (!responseMovies.ok) {
-          throw new Error(responseMovies.statusText());
+          throw new Error("Response not OK");
         }
-        const { results } = await responseMovies.json();
+
+        const { results, total_pages } = await responseMovies.json();
+
         setMoviesData(results);
+        dispatch(setSearchMaxPageNr(total_pages));
         dispatch(setLoadingState("success"));
       } catch (error) {
         dispatch(setLoadingState("error"));
@@ -70,43 +125,58 @@ export const MovieListPage = () => {
       }
     };
     fetchMovies();
-  }, [pageNr, dispatch]);
+  }, [moviePageNr, searchPageNr, debouncedQuery]);
+
+  if (loadingState === "error") {
+    return <ErrorPage />;
+  }
 
   return loadingState === "loading" ? (
-    <LoadingSpinner />
-  ) : (
-    pageState === "movies" && (
-      <ContentWrapper>
-        <ContentHeader>Popular Movies</ContentHeader>
-        <TilesContainer>
-          {moviesData &&
-            moviesData.map((movie) => {
-              const movieGenres = movie.genre_ids.map(
-                (id) => moviesGenres_ids[id]
-              );
-              return (
-                <NavLink
-                  to={toMovieDetails({ id: movie.id })} // Assuming toMovieDetails expects an ID parameter
-                  key={`movie-${movie.id}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <MovieTile
-                    title={movie.title}
-                    imageSrc={
-                      movie.poster_path
-                        ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                        : null
-                    }
-                    category={movieGenres}
-                    year={movie.release_date.substring(0, 4)}
-                    rate={movie.vote_average}
-                    vote={movie.vote_count}
-                  />
-                </NavLink>
-              );
-            })}
-        </TilesContainer>
-      </ContentWrapper>
+    searchState ? (
+      SearchPage(myQuery)
+    ) : (
+      <LoadingSpinner />
     )
+  ) : (
+    (pageState === "movies" || searchState === true) &&
+      (searchState === true && (!moviesData || moviesData.length === 0) ? (
+        NoResultPage(debouncedQuery)
+      ) : (
+        <ContentWrapper>
+          <ContentHeader>
+            {!searchState || myQuery === null
+              ? "Popular Movies"
+              : `Search Results for "${myQuery}"`}
+          </ContentHeader>
+          <TilesContainer>
+            {moviesData &&
+              moviesData.map((movie) => {
+                const movieGenres = movie.genre_ids.map(
+                  (id) => moviesGenres_ids[id]
+                );
+                return (
+                  <NavLink
+                    to={toMovieDetails({ id: movie.id })}
+                    key={`movie-${movie.id}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <MovieTile
+                      title={movie.title}
+                      imageSrc={
+                        movie.poster_path
+                          ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                          : null
+                      }
+                      category={movieGenres}
+                      year={movie.release_date.substring(0, 4)}
+                      rate={movie.vote_average}
+                      vote={movie.vote_count}
+                    />
+                  </NavLink>
+                );
+              })}
+          </TilesContainer>
+        </ContentWrapper>
+      ))
   );
 };
