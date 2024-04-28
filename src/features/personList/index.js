@@ -92,7 +92,9 @@ const PersonList = () => {
     const fetchPeople = async () => {
       try {
         const responsePeople = await fetch(
-          `${apiPeoplePopularURL}${peoplePageNr}`,
+          searchState && debouncedQuery !== null
+            ? `https://api.themoviedb.org/3/search/person?query=${myQuery}&include_adult=false&language=en-US&page=${searchPageNr}`
+            : `${apiPeoplePopularURL}${peoplePageNr}`,
           {
             headers: {
               Authorization: APIAuthorization,
