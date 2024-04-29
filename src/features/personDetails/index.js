@@ -26,7 +26,7 @@ import {
   ParagraphMobile,
   ParagraphContainer,
 } from "./styledMobile";
-import { MovieTile } from "../movieList/components/MovieTile";
+import MovieTile from "../movieList/components/MovieTile";
 import { TilesContainer } from "../movieList/styled";
 import { LoadingSpinner } from "../../common/Loader";
 import { moviesGenres_ids } from "../../common/moviesGenre_ids";
