@@ -50,8 +50,7 @@ export const StyledItems = styled.div`
   align-items: center;
   gap: 80px;
 
-  @media (max-width: ${({ theme }) =>
-      theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     grid-gap: 60px;
   }
 
