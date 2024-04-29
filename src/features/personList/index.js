@@ -22,23 +22,7 @@ import searchQueryParamName from "../../common/Search/searchQueryParamName";
 import ErrorPage from "../../common/Error";
 import SearchPage from "../../common/SearchPage";
 import NoResultPage from "../../common/noResult";
-
-const useDebounce = (value, delay) => {
-  const [debouncedValue, setDebouncedValue] = useState(value);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(setLoadingState("loading"));
-    const handler = setTimeout(() => {
-      setDebouncedValue(value);
-    }, delay);
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [value, delay]);
-
-  return debouncedValue;
-};
+import useDebounce from "../../hooks/useDebounce";
 
 const PersonList = () => {
   const [peopleData, setPeopleData] = useState(null);
@@ -82,7 +66,7 @@ const PersonList = () => {
     if (location.search !== newPath && !isFirstEffect) {
       history.push(newPath);
     }
-  }, [peoplePageNr, myQuery, searchPageNr, isFirstEffect, location.search, ]);
+  }, [peoplePageNr, myQuery, searchPageNr, isFirstEffect, location.search]);
 
   useEffect(() => {
     if (searchState === true && (!peopleData || peopleData.length === 0)) {

@@ -22,23 +22,7 @@ import searchQueryParamName from "../../common/Search/searchQueryParamName";
 import SearchPage from "../../common/SearchPage";
 import NoResultPage from "../../common/noResult";
 import ErrorPage from "../../common/Error";
-
-const useDebounce = (value, delay) => {
-  const [debouncedValue, setDebouncedValue] = useState(value);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(setLoadingState("loading"));
-    const handler = setTimeout(() => {
-      setDebouncedValue(value);
-    }, delay);
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [value, delay]);
-
-  return debouncedValue;
-};
+import useDebounce from "../../hooks/useDebounce";
 
 export const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
