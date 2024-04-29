@@ -58,7 +58,8 @@ export const Paragraph = styled.span`
   margin: 0;
   font-weight: 400;
   font-size: 18px;
-  height: 22px;
+  min-height: 22px;
+
   white-space: nowrap;
 
   ${(props) =>
@@ -91,7 +92,7 @@ export const CastCrewWrapper = styled.div`
 `;
 
 export const ForDesktop = styled.div`
-  @media(max-width: ${({theme}) => theme.breakpoints.disabled}px){
+  @media (max-width: ${({ theme }) => theme.breakpoints.disabled}px) {
     display: none;
   }
 `;

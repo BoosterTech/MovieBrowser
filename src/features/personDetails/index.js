@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectSettingLoadingValue,
+  selectSettingPeoplePageNrValue,
+  selectSettingSearchValue,
   setLoadingState,
 } from "../../Redux_store/settingSlice";
 import {
@@ -28,16 +30,30 @@ import { MovieTile } from "../movieList/components/MovieTile";
 import { TilesContainer } from "../movieList/styled";
 import { LoadingSpinner } from "../../common/Loader";
 import { moviesGenres_ids } from "../../common/moviesGenre_ids";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useHistory, useLocation, useParams } from "react-router-dom";
 import { APIAuthorization } from "../../common/API_URL";
 import ImageProfile from "./DefaultImage";
 import { toMovieDetails } from "../../routes";
+import searchQueryParamName from "../../common/Search/searchQueryParamName";
 
 const ProfileDetails = () => {
   const { id } = useParams();
   const [profileData, setProfileData] = useState(null);
   const loadingState = useSelector(selectSettingLoadingValue);
+  const searchState = useSelector(selectSettingSearchValue);
+  const personPageNr = useSelector(selectSettingPeoplePageNrValue);
+  const history = useHistory();
+  const location = useLocation();
+  const myQuery = new URLSearchParams(location.search).get(
+    searchQueryParamName
+  );
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (searchState && myQuery !== null) {
+      history.push(`/people?page=${personPageNr}&search=${myQuery}`);
+    }
+  }, [searchState, myQuery]);
 
   useEffect(() => {
     dispatch(setLoadingState("loading"));

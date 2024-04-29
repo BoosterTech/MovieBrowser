@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {
   selectSettingMoviePageNrValue,
   selectSettingPageStateValue,
+  selectSettingPeoplePageNrValue,
   setPageNr,
   setSearchState,
 } from "../../Redux_store/settingSlice";
@@ -14,7 +15,8 @@ import { useHistory } from "react-router-dom";
 const Search = () => {
   const query = useQueryParameter(searchQueryParamName);
   const pageState = useSelector(selectSettingPageStateValue);
-  const pageNr = useSelector(selectSettingMoviePageNrValue);
+  const moviePageNr = useSelector(selectSettingMoviePageNrValue);
+  const peoplePageNr = useSelector(selectSettingPeoplePageNrValue);
   const replaceQueryParameter = useReplaceQueryParameter();
 
   const history = useHistory();
@@ -30,7 +32,10 @@ const Search = () => {
       dispatch(setPageNr(1));
       dispatch(setSearchState(false));
 
-      const newPath = `?page=${pageNr}`;
+      const newPath =
+        pageState === "movies"
+          ? `?page=${moviePageNr}`
+          : `?page=${peoplePageNr}`;
       if (history.location.search !== newPath) history.push(newPath);
     }
   }, [placeholder, dispatch]);

@@ -7,63 +7,116 @@ import { LoadingSpinner } from "../../common/Loader";
 import {
   selectSettingLoadingValue,
   selectSettingPageStateValue,
-  selectSettingPeoplePageNrValue,
   setLoadingState,
-  setPageNr,
   setPageState,
+  setPageNr,
+  setSearchMaxPageNr,
+  selectSettingPeoplePageNrValue,
+  selectSettingSearchPageNrValue,
+  selectSettingSearchValue,
 } from "../../Redux_store/settingSlice";
 import { toProfile } from "../../routes";
 import { NavLink, useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import searchQueryParamName from "../../common/Search/searchQueryParamName";
+import ErrorPage from "../../common/Error";
+import SearchPage from "../../common/SearchPage";
+import NoResultPage from "../../common/noResult";
+
+const useDebounce = (value, delay) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setLoadingState("loading"));
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+};
 
 const PersonList = () => {
   const [peopleData, setPeopleData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
-  const pageNr = useSelector(selectSettingPeoplePageNrValue);
+  const peoplePageNr = useSelector(selectSettingPeoplePageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
   const pageState = useSelector(selectSettingPageStateValue);
-  const dispatch = useDispatch();
+  const searchPageNr = useSelector(selectSettingSearchPageNrValue);
+  const searchState = useSelector(selectSettingSearchValue);
   const location = useLocation();
   const history = useHistory();
+  const myQuery = new URLSearchParams(location.search).get(
+    searchQueryParamName
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const page = params.get("page");
+    const params = new URLSearchParams(location.search).get("page");
     const path = location.pathname;
 
     dispatch(setLoadingState("loading"));
     dispatch(setPageState("people"));
 
-    if (page && path.includes("/people")) dispatch(setPageNr(Number(page)));
+    if (params && path.includes("/people")) dispatch(setPageNr(Number(params)));
 
     sessionStorage.setItem("pageState", "people");
-    sessionStorage.setItem("peoplePageNr", pageNr);
-
+    sessionStorage.setItem("peoplePageNr", peoplePageNr);
     setIsFirstEffect(false);
-  }, [pageNr, dispatch]);
+  }, [peoplePageNr, searchPageNr]);
 
   useEffect(() => {
-    const newPath = `?page=${pageNr}`;
+    dispatch(setPageNr(1));
+  }, [myQuery]);
 
-    if (location.search !== newPath && !isFirstEffect) history.push(newPath);
-  }, [pageNr, location.search, isFirstEffect]);
+  useEffect(() => {
+    const searchQuery = new URLSearchParams(location.search).get("search");
+    const newPath = `?page=${searchState ? searchPageNr : peoplePageNr}${
+      searchQuery ? `&search=${searchQuery}` : ""
+    }`;
+
+    if (location.search !== newPath && !isFirstEffect) {
+      history.push(newPath);
+    }
+  }, [peoplePageNr, myQuery, searchPageNr, isFirstEffect, location.search, ]);
+
+  useEffect(() => {
+    if (searchState === true && (!peopleData || peopleData.length === 0)) {
+      dispatch(setPageState("noResult"));
+    } else {
+      dispatch(setPageState("people"));
+    }
+  }, [searchState, peopleData, dispatch]);
+
+  const debouncedQuery = useDebounce(myQuery, 500);
 
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const responsePeople = await fetch(`${apiPeoplePopularURL}${pageNr}`, {
-          headers: {
-            Authorization: APIAuthorization,
-            accept: "application/json",
-          },
-        });
+        const responsePeople = await fetch(
+          searchState && debouncedQuery !== null
+            ? `https://api.themoviedb.org/3/search/person?query=${myQuery}&include_adult=false&language=en-US&page=${searchPageNr}`
+            : `${apiPeoplePopularURL}${peoplePageNr}`,
+          {
+            headers: {
+              Authorization: APIAuthorization,
+              accept: "application/json",
+            },
+          }
+        );
 
         if (!responsePeople.ok) {
           throw new Error(responsePeople.statusText());
         }
 
-        const { results } = await responsePeople.json();
+        const { results, total_pages } = await responsePeople.json();
+
         setPeopleData(results);
+        dispatch(setSearchMaxPageNr(total_pages));
         dispatch(setLoadingState("success"));
       } catch (error) {
         dispatch(setLoadingState("error"));
@@ -71,38 +124,53 @@ const PersonList = () => {
       }
     };
     fetchPeople();
-  }, [pageNr]);
+  }, [peoplePageNr, searchPageNr, debouncedQuery]);
+
+  if (loadingState === "error") {
+    return <ErrorPage />;
+  }
 
   return loadingState === "loading" ? (
-    <LoadingSpinner />
-  ) : (
-    pageState === "people" && (
-      <ContentWrapper>
-        <ContentHeader>Popular People</ContentHeader>
-        <TilesWrapper>
-          {peopleData &&
-            peopleData.map((person) => {
-              return (
-                <NavLink
-                  key={person.id}
-                  to={toProfile({ id: person.id })}
-                  style={{ textDecoration: "none" }}
-                >
-                  <PersonTile
-                    key={person.id}
-                    imageSrc={
-                      person.profile_path
-                        ? `https://image.tmdb.org/t/p/w400${person.profile_path}`
-                        : null
-                    }
-                    name={person.name}
-                  />
-                </NavLink>
-              );
-            })}
-        </TilesWrapper>
-      </ContentWrapper>
+    searchState ? (
+      SearchPage(myQuery)
+    ) : (
+      <LoadingSpinner />
     )
+  ) : (
+    (pageState === "people" || searchState === true) &&
+      (searchState === true && (!peopleData || peopleData.length === 0) ? (
+        NoResultPage(debouncedQuery)
+      ) : (
+        <ContentWrapper>
+          <ContentHeader>
+            {!searchState || myQuery === null
+              ? "Popular People"
+              : `Search result for "${myQuery}"`}
+          </ContentHeader>
+          <TilesWrapper>
+            {peopleData &&
+              peopleData.map((person) => {
+                return (
+                  <NavLink
+                    key={person.id}
+                    to={toProfile({ id: person.id })}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <PersonTile
+                      key={person.id}
+                      imageSrc={
+                        person.profile_path
+                          ? `https://image.tmdb.org/t/p/w400${person.profile_path}`
+                          : null
+                      }
+                      name={person.name}
+                    />
+                  </NavLink>
+                );
+              })}
+          </TilesWrapper>
+        </ContentWrapper>
+      ))
   );
 };
 
