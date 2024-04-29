@@ -19,7 +19,7 @@ export const MovieTileWrapper = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) =>theme.breakpoints.tabletHorizontalMax}px) {
     margin: 0 auto;
 
     &:hover {
@@ -40,8 +40,8 @@ export const MovieTileWrapper = styled.div`
 
 export const TileImage = styled.img`
   max-width: 292px;
+  width: 292px;
   height: 427px;
-  margin-top: 16;
   margin-bottom: 0;
   border-radius: 5px;
 
