@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { showin } from "../../styled";
+import { showin } from "../../../../common/showin_animation";
 
 export const MovieTileWrapper = styled.div`
   display: grid;
@@ -11,7 +11,7 @@ export const MovieTileWrapper = styled.div`
   box-shadow: 0px 4px 12px 0px ${({ theme }) => theme.color.Heather};
   background-color: ${({ theme }) => theme.color.White};
   transition: all 0.5s ease;
-  animation: ${showin} 0.3s ease;
+  animation: ${showin} 1s ease;
   color: ${({ theme }) => theme.color.Woodsmoke};
 
   &:hover {
