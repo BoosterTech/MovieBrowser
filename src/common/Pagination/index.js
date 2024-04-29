@@ -25,6 +25,7 @@ import {
   setLastPage,
   setLoadingState,
   setNextPage,
+  setPreviousPage,
 } from "../../Redux_store/settingSlice";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
@@ -75,7 +76,7 @@ const Pagination = () => {
       if (page === 1) {
         return;
       } else {
-        dispatch(setNextPage());
+        dispatch(setPreviousPage());
         dispatch(setLoadingState("loading"));
         history.push(
           pageState === "movies"
