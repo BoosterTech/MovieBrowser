@@ -50,7 +50,8 @@ export const StyledItems = styled.div`
   align-items: center;
   gap: 80px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) =>
+      theme.breakpoints.tabletHorizontalMax}px) {
     grid-gap: 60px;
   }
 
@@ -227,7 +228,7 @@ export const SearchWrapper = styled.div`
   align-items: center;
   position: relative;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) =>theme.breakpoints.tabletHorizontalMax}px) {
     display: flex;
     align-items: center;
     width: 390px;
@@ -249,7 +250,6 @@ export const SearchWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
     margin: 0px 12px 12px 20px;
-    
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     margin: 14px 12px 12px 12px;
@@ -257,8 +257,6 @@ export const SearchWrapper = styled.div`
     height: 44px;
     padding: 0;
   }
-
-  
 `;
 
 export const Input = styled.input`
