@@ -16,7 +16,7 @@ import { PersonTile } from "./components/PersonTile";
 import { TopTileBox } from "./components/TopTileBox";
 import { MovieDetailsWrapper } from "./components/MovieDetailsWrapper";
 import { TopTileContainer, Content } from "./styled";
-import searchQueryParamName from "../../common/Search/searchQueryParamName";
+import searchQueryParamName from "../../common/Navigation/components/Search/searchQueryParamName";
 
 const MovieDetails = () => {
   const { id } = useParams();

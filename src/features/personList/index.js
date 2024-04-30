@@ -18,7 +18,7 @@ import {
 import { toProfile } from "../../routes";
 import { NavLink, useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import searchQueryParamName from "../../common/Search/searchQueryParamName";
+import searchQueryParamName from "../../common/Navigation/components/Search/searchQueryParamName";
 import ErrorPage from "../../common/Error";
 import SearchPage from "../../common/SearchPage";
 import NoResultPage from "../../common/noResult";

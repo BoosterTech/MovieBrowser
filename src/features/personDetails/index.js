@@ -34,7 +34,7 @@ import { NavLink, useHistory, useLocation, useParams } from "react-router-dom";
 import { APIAuthorization } from "../../common/API_URL";
 import ImageProfile from "./DefaultImage";
 import { toMovieDetails } from "../../routes";
-import searchQueryParamName from "../../common/Search/searchQueryParamName";
+import searchQueryParamName from "../../common/Navigation/components/Search/searchQueryParamName";
 
 const ProfileDetails = () => {
   const { id } = useParams();
