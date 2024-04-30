@@ -27,18 +27,20 @@ import useDebounce from "../../hooks/useDebounce";
 export const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
-  const moviePageNr = useSelector(selectSettingMoviePageNrValue);
-  const pageState = useSelector(selectSettingPageStateValue);
-  const searchPageNr = useSelector(selectSettingSearchPageNrValue);
-  const loadingState = useSelector(selectSettingLoadingValue);
-  const searchState = useSelector(selectSettingSearchValue);
+  const dispatch = useDispatch();
+  const { moviePageNr, pageState, searchPageNr, loadingState, searchState } =
+    useSelector((state) => ({
+      moviePageNr: selectSettingMoviePageNrValue(state),
+      pageState: selectSettingPageStateValue(state),
+      searchPageNr: selectSettingSearchPageNrValue(state),
+      loadingState: selectSettingLoadingValue(state),
+      searchState: selectSettingSearchValue(state),
+    }));
   const location = useLocation();
   const history = useHistory();
   const myQuery = new URLSearchParams(location.search).get(
     searchQueryParamName
   );
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const params = new URLSearchParams(location.search).get("page");
