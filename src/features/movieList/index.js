@@ -17,7 +17,7 @@ import {
 } from "../../Redux_store/settingSlice";
 import { toMovieDetails } from "../../routes";
 import { NavLink, useHistory, useLocation } from "react-router-dom";
-import searchQueryParamName from "../../common/Search/searchQueryParamName";
+import searchQueryParamName from "../../common/Navigation/components/Search/searchQueryParamName";
 import SearchPage from "../../common/SearchPage";
 import NoResultPage from "../../common/noResult";
 import ErrorPage from "../../common/Error";
@@ -42,7 +42,7 @@ const MovieListPage = () => {
   const searchPageNr = useSelector(selectSettingSearchPageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
   const searchState = useSelector(selectSettingSearchValue);
-  
+
   const location = useLocation();
   const history = useHistory();
   const myQuery = new URLSearchParams(location.search).get(

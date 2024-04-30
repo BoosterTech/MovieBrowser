@@ -5,8 +5,8 @@ import {
   selectSettingPeoplePageNrValue,
   setPageNr,
   setSearchState,
-} from "../../Redux_store/settingSlice";
-import { Input, SearchWrapper } from "../Navigation/styled";
+} from "../../../../Redux_store/settingSlice";
+import { Input, SearchWrapper } from "../../styled";
 import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
 import searchQueryParamName from "./searchQueryParamName";
 import { useDispatch, useSelector } from "react-redux";
