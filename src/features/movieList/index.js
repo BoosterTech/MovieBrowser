@@ -2,7 +2,6 @@ import { ContentHeader, ContentWrapper, TilesContainer } from "./styled";
 import { LoadingSpinner } from "../../common/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import MovieTile from "./components/MovieTile";
-import { APIAuthorization, apiMoviePopularURL } from "../../common/API_URL";
 import { useEffect, useState } from "react";
 import { moviesGenres_ids } from "../../common/moviesGenre_ids";
 import {
@@ -24,18 +23,26 @@ import NoResultPage from "../../common/noResult";
 import ErrorPage from "../../common/Error";
 import useDebounce from "../../hooks/useDebounce";
 
-export const MovieListPage = () => {
+const API_MOVIE_POPULAR_URL =
+  "https://api.themoviedb.org/3/movie/popular?language=en-US&page=";
+const API_AUTHORIZATION =
+  "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYjI2MDE5NmJjOWJiYjBkZjdiZDc0N2NmMDEzNTdjMCIsInN1YiI6IjY2MDAwZmZjNjJmMzM1MDE2NDUxNWJhZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.j5BdMVijb7g_8sAaxu9WLzzFLGen6qB1lNYLha-96Tw";
+const DEFAULT_DEBOUNCE_TIME = 500;
+const DEFAULT_PAGE_STATE = "movies";
+const POPULAR_MOVIES_TITLE = "Popular Movies";
+const SEARCH_RESULTS_TITLE = "Search Results for";
+
+const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
   const dispatch = useDispatch();
-  const { moviePageNr, pageState, searchPageNr, loadingState, searchState } =
-    useSelector((state) => ({
-      moviePageNr: selectSettingMoviePageNrValue(state),
-      pageState: selectSettingPageStateValue(state),
-      searchPageNr: selectSettingSearchPageNrValue(state),
-      loadingState: selectSettingLoadingValue(state),
-      searchState: selectSettingSearchValue(state),
-    }));
+
+  const moviePageNr = useSelector(selectSettingMoviePageNrValue);
+  const pageState = useSelector(selectSettingPageStateValue);
+  const searchPageNr = useSelector(selectSettingSearchPageNrValue);
+  const loadingState = useSelector(selectSettingLoadingValue);
+  const searchState = useSelector(selectSettingSearchValue);
+  
   const location = useLocation();
   const history = useHistory();
   const myQuery = new URLSearchParams(location.search).get(
@@ -47,11 +54,11 @@ export const MovieListPage = () => {
     const path = location.pathname;
 
     dispatch(setLoadingState("loading"));
-    dispatch(setPageState("movies"));
+    dispatch(setPageState(DEFAULT_PAGE_STATE));
 
     if (params && path.includes("/movies")) dispatch(setPageNr(Number(params)));
 
-    sessionStorage.setItem("pageState", "movies");
+    sessionStorage.setItem("pageState", DEFAULT_PAGE_STATE);
     sessionStorage.setItem("moviesPageNr", moviePageNr);
     setIsFirstEffect(false);
   }, [moviePageNr, searchPageNr]);
@@ -75,11 +82,11 @@ export const MovieListPage = () => {
     if (searchState === true && (!moviesData || moviesData.length === 0)) {
       dispatch(setPageState("noResult"));
     } else {
-      dispatch(setPageState("movies"));
+      dispatch(setPageState(DEFAULT_PAGE_STATE));
     }
   }, [searchState, moviesData, dispatch]);
 
-  const debouncedQuery = useDebounce(myQuery, 500);
+  const debouncedQuery = useDebounce(myQuery, DEFAULT_DEBOUNCE_TIME);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -87,10 +94,10 @@ export const MovieListPage = () => {
         const responseMovies = await fetch(
           searchState && debouncedQuery !== null
             ? `https://api.themoviedb.org/3/search/movie?query=${myQuery}&include_adult=false&language=en-US&page=${searchPageNr}`
-            : `${apiMoviePopularURL}${moviePageNr}`,
+            : `${API_MOVIE_POPULAR_URL}${moviePageNr}`,
           {
             headers: {
-              Authorization: APIAuthorization,
+              Authorization: API_AUTHORIZATION,
               Accept: "application/json",
             },
           }
@@ -124,15 +131,15 @@ export const MovieListPage = () => {
       <LoadingSpinner />
     )
   ) : (
-    (pageState === "movies" || searchState === true) &&
+    (pageState === DEFAULT_PAGE_STATE || searchState === true) &&
       (searchState === true && (!moviesData || moviesData.length === 0) ? (
         NoResultPage(debouncedQuery)
       ) : (
         <ContentWrapper>
           <ContentHeader>
             {!searchState || myQuery === null
-              ? "Popular Movies"
-              : `Search Results for "${myQuery}"`}
+              ? POPULAR_MOVIES_TITLE
+              : `${SEARCH_RESULTS_TITLE} "${myQuery}"`}
           </ContentHeader>
           <TilesContainer>
             {moviesData &&
@@ -166,3 +173,5 @@ export const MovieListPage = () => {
       ))
   );
 };
+
+export default MovieListPage;
