@@ -9,7 +9,7 @@ import {
   toSearch,
 } from "./routes";
 import { Navigation } from "./common/Navigation";
-import { MovieListPage } from "./features/movieList";
+import MovieListPage from "./features/movieList";
 import PersonList from "./features/personList";
 import Pagination from "./common/Pagination";
 import ProfileDetails from "./features/personDetails";
