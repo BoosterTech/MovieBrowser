@@ -25,12 +25,13 @@ export const ContentWrapper = styled.section`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin: 20px auto 40px auto;
+    margin: 20px 70px 40px 70px;
     max-width: 670px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
     max-width: 320px;
+    margin: 24px auto 40px auto;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
