@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    margin: 16px 0;
   }
 `;
 
