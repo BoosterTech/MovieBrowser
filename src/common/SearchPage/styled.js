@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { showin } from "../../features/movieList/styled";
+import { showin } from "../showin_animation";
 
 export const MessageHeader = styled.h1`
   width: auto;
@@ -10,4 +10,5 @@ export const MessageHeader = styled.h1`
   text-align: left;
   color: ${({ theme }) => theme.color.Black};
   margin: 56px auto auto 276px;
+  animation: ${showin} 0.3s ease;
 `;
