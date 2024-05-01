@@ -32,9 +32,17 @@ export const MovieTileWrapper = styled.div`
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto;
     margin: auto;
-    width: 324px;
+    width: 256px;
     max-width: 294px;
     height: 210px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+    height: auto;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileUltraMin}px) {
+    width: 240px;
   }
 `;
 
@@ -64,7 +72,6 @@ export const DescriptionContainer = styled.div`
     max-width: 190px;
     display: grid;
     grid-template-rows: repeat(3, auto) 1fr auto;
-    max-height: 300px;
   }
 `;
 
