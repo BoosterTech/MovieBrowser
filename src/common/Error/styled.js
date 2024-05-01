@@ -62,6 +62,12 @@ export const ErrorButton = styled.button`
   color: ${({ theme }) => theme.color.White};
   margin: 0 auto;
   border: none;
+  transition: filter 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1.09);
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
     font-size: 18px;
