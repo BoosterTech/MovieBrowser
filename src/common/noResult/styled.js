@@ -16,14 +16,12 @@ export const MessageParagraph = styled.h1`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 30px;
     margin: 40px auto;
-
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
     font-size: 24px;
     padding: 20px;
     margin: 20px auto;
-
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {

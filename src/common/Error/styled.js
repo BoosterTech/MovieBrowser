@@ -12,13 +12,29 @@ export const ErrorMessageWrapper = styled.div`
 `;
 
 export const MessageHeader = styled.h1`
-  max-width: auto;
   max-height: 44px;
   font-size: 36px;
   font-weight: 600;
   line-height: 43.2px;
   text-align: left;
   margin: 0 0 24px 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+    font-size: 30px;
+    text-align: center;
+    margin: 48px 16px 48px 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    font-size: 24px;
+    text-align: center;
+    margin: 24px 16px 48px 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileUltraMin}px) {
+    font-size: 24px;
+    text-align: center;
+  }
 `;
 
 export const MessageInfo = styled.h2`
@@ -29,6 +45,12 @@ export const MessageInfo = styled.h2`
   line-height: 28.6px;
   text-align: center;
   margin: 0 auto 24px auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+    font-size: 18px;
+    text-align: center;
+    margin: 0 16px 36px 16px;
+  }
 `;
 
 export const ErrorButton = styled.button`
@@ -40,6 +62,12 @@ export const ErrorButton = styled.button`
   color: ${({ theme }) => theme.color.White};
   margin: 0 auto;
   border: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+    font-size: 18px;
+    text-align: center;
+    margin: 0 auto 72px auto;
+  }
 `;
 export const ErrorButtonText = styled.p`
   width: 133px;
@@ -50,6 +78,6 @@ export const ErrorButtonText = styled.p`
   font-size: 14px;
   font-weight: 700;
   line-height: 19px;
-  text-align: left;
+  text-align: center;
   margin: auto;
 `;
