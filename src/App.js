@@ -20,7 +20,7 @@ import ErrorPage from "./common/Error";
 
 const App = () => {
   return (
-    <HashRouter basename="/MovieBrowser">
+    <HashRouter>
       <Navigation />
       <Switch>
         <Route exact path={toProfile()}>
