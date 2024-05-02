@@ -7,6 +7,10 @@ export const StyledHeader = styled.section`
   max-height: 94px;
   color: ${({ theme }) => theme.color.White};
   padding: 0 15px 0 30px;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     padding: 0px;
