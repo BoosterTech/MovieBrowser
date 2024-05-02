@@ -126,7 +126,7 @@ const MovieListPage = () => {
 
   return loadingState === "loading" ? (
     searchState ? (
-      SearchPage(myQuery)
+      <ContentWrapper>{SearchPage(myQuery)}</ContentWrapper>
     ) : (
       <LoadingSpinner />
     )
