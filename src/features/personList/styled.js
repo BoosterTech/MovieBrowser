@@ -78,8 +78,7 @@ export const TilesWrapper = styled.div`
     grid-template-columns: repeat(5, 1fr);
   }
 
-  @media (max-width: ${({ theme }) =>
-      theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     grid-template-columns: repeat(4, 1fr);
   }
 
