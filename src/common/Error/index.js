@@ -1,3 +1,4 @@
+import { useHistory } from "react-router-dom";
 import DangerIcon from "./components";
 import {
   ErrorButton,
@@ -8,6 +9,12 @@ import {
 } from "./styled";
 
 const ErrorPage = () => {
+  const history = useHistory();
+
+  const handleOnClick = () => {
+    history.push("/movies");
+  };
+
   return (
     <>
       <DangerIcon />
@@ -17,7 +24,9 @@ const ErrorPage = () => {
           Please check your network connection and try again
         </MessageInfo>
         <ErrorButton>
-          <ErrorButtonText>Back to home page</ErrorButtonText>
+          <ErrorButtonText onClick={handleOnClick}>
+            Back to home page
+          </ErrorButtonText>
         </ErrorButton>
       </ErrorMessageWrapper>
     </>
