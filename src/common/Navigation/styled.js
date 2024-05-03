@@ -52,20 +52,17 @@ export const StyledItems = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     gap: 10px;
     padding: 0;
-   
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     gap: 10px;
     margin: 16px 0 10px 0;
-   
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     gap: 0;
     margin: 24px 0 10px 0;
     height: 34px;
-
   }
 `;
 
@@ -329,6 +326,7 @@ export const Icon = styled.svg`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
     top: 36%;
+    left: 1%;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
