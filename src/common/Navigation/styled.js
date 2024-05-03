@@ -7,7 +7,6 @@ export const StyledHeader = styled.section`
   max-height: 94px;
   color: ${({ theme }) => theme.color.White};
   padding: 0 15px 0 30px;
-  position: fixed;
   z-index: 100;
   top: 0;
   left: 0;
@@ -224,7 +223,7 @@ export const StyledButton = styled.button`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileUltraMin}px) {
     font-size: 10px;
     width: 60px;
-    height: 28px;  
+    height: 28px;
   }
 `;
 
@@ -245,7 +244,8 @@ export const SearchWrapper = styled.div`
   align-items: center;
   position: relative;
 
-  @media (max-width: ${({ theme }) =>theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) =>
+      theme.breakpoints.tabletHorizontalMax}px) {
     display: flex;
     align-items: center;
     width: 390px;
@@ -280,9 +280,8 @@ export const SearchWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileUltraMin}px) {
     width: 260px;
-    height: 36px; 
+    height: 36px;
     margin: 8px 12px 12px 12px;
-
   }
 `;
 
@@ -303,7 +302,6 @@ export const Input = styled.input`
     padding: 12px 0 12px 50px;
     height: 12px;
     font-size: 14px;
-
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
@@ -320,30 +318,29 @@ export const Icon = styled.svg`
   position: absolute;
   margin-left: 30px;
   top: 53%;
-  transform: translateY(-50%);
+  left: 0;
+  transform: translate(-50%, -50%);
   fill: none;
   width: 24px;
   height: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    margin-left: 20px;
-    transform: translateY(-60%);
+    top: 50%;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin-left: 15px;
-    transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
+    top: 53%;
+    left: 5%;
+    width: 20px;
+    height: 20px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
-    margin-left: 15px;
-    transform: translateY(-60%);
+    top: 36%;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
-    margin-left: 15px;
-    transform: translateY(-60%);
+    top: 52%;
+    left: 3%;
   }
 `;
