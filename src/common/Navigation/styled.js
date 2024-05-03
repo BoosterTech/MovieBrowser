@@ -8,15 +8,6 @@ export const StyledHeader = styled.section`
   color: ${({ theme }) => theme.color.White};
   padding: 0;
 
-  /* @media (max-width: ${({ theme }) =>
-    theme.breakpoints.tabletVerticalMax}px) {
-    padding: 0px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    padding: 0px;
-  } */
-
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
     height: 130px;
     max-height: 170px;
