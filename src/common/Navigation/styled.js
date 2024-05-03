@@ -6,10 +6,7 @@ export const StyledHeader = styled.section`
   width: 100%;
   max-height: 94px;
   color: ${({ theme }) => theme.color.White};
-  padding: 0 15px 0 30px;
-  z-index: 100;
-  top: 0;
-  left: 0;
+  padding: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     padding: 0px;
@@ -52,6 +49,8 @@ export const StyledItems = styled.div`
   display: flex;
   align-items: center;
   gap: 80px;
+  padding-left: 10px;
+  justify-content: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     grid-gap: 60px;
@@ -59,6 +58,7 @@ export const StyledItems = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     gap: 0;
+    padding: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
@@ -243,14 +243,12 @@ export const SearchWrapper = styled.div`
   margin-left: auto;
   align-items: center;
   position: relative;
+  padding-right: 15px;
 
-  @media (max-width: ${({ theme }) =>
-      theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     display: flex;
     align-items: center;
     width: 390px;
-    margin: 0 16px 0 0;
-    padding: 0 40px 0 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
@@ -275,7 +273,6 @@ export const SearchWrapper = styled.div`
     margin: 14px 12px 12px 12px;
     width: 288px;
     height: 44px;
-    padding: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileUltraMin}px) {
