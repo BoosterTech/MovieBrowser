@@ -35,6 +35,7 @@ import { APIAuthorization } from "../../common/API_URL";
 import ImageProfile from "./DefaultImage";
 import { toMovieDetails } from "../../routes";
 import searchQueryParamName from "../../common/Navigation/components/Search/searchQueryParamName";
+import ErrorPage from "../../common/Error";
 
 const ProfileDetails = () => {
   const { id } = useParams();
@@ -87,6 +88,10 @@ const ProfileDetails = () => {
     };
     fetchProfile();
   }, [dispatch, id]);
+
+  if (loadingState === "error") {
+    return <ErrorPage />;
+  }
 
   return loadingState === "loading" ? (
     <LoadingSpinner />
