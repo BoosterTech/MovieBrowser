@@ -16,7 +16,9 @@ import { PersonTile } from "./components/PersonTile";
 import { TopTileBox } from "./components/TopTileBox";
 import { MovieDetailsWrapper } from "./components/MovieDetailsWrapper";
 import { TopTileContainer, Content } from "./styled";
+
 import searchQueryParamName from "../../common/Navigation/components/Search/searchQueryParamName";
+import ErrorPage from "../../common/Error";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -70,6 +72,10 @@ const MovieDetails = () => {
     };
     fetchMovie();
   }, [id, dispatch]);
+
+  if (loadingState === "error") {
+    return <ErrorPage />;
+  }
 
   return loadingState === "loading" ? (
     <LoadingSpinner />
