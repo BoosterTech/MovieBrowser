@@ -150,8 +150,8 @@ const Pagination = () => {
   }, []);
   return (
     loadingState !== "loading" &&
-    pageState !== "error" &&
-    pageState !== "noResult" && (
+    loadingState !== "error" &&
+    loadingState !== "noResult" && (
       <Wrapper>
         <Section>
           <ButtonFirst
