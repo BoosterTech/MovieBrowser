@@ -80,7 +80,7 @@ const MovieListPage = () => {
 
   useEffect(() => {
     if (searchState === true && (!moviesData || moviesData.length === 0)) {
-      dispatch(setPageState("noResult"));
+      dispatch(setLoadingState("noResult"));
     } else {
       dispatch(setPageState(DEFAULT_PAGE_STATE));
     }

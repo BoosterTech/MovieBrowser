@@ -70,7 +70,7 @@ const PersonList = () => {
 
   useEffect(() => {
     if (searchState === true && (!peopleData || peopleData.length === 0)) {
-      dispatch(setPageState("noResult"));
+      dispatch(setLoadingState("noResult"));
     } else {
       dispatch(setPageState("people"));
     }
