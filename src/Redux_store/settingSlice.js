@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice } from "@reduxjs/toolkit";
 
 const settingSlice = createSlice({
   name: "setting",
@@ -88,20 +88,44 @@ export const {
 } = settingSlice.actions;
 
 export const selectState = (state) => state.setting;
-export const selectSettingPageStateValue = (state) =>
-  selectState(state).pageState;
-export const selectSettingLoadingValue = (state) =>
-  selectState(state).loadingState;
-export const selectSettingMoviePageNrValue = (state) =>
-  selectState(state).moviesPageNr;
-export const selectSettingPeoplePageNrValue = (state) =>
-  selectState(state).peoplePageNr;
-export const selectSettingSearchValue = (state) =>
-  selectState(state).searchState;
-export const selectSettingSearchPageNrValue = (state) =>
-  selectState(state).searchPageNr;
-export const selectSettingSearchMaxPageNrValue = (state) =>
-  selectState(state).searchMaxPageNr;
-export const selectSettingQueryValue = (state) => selectState(state).query;
+export const selectSettingPageStateValue = createSelector(
+  [selectState],
+  (setting) => setting.pageState
+);
+
+export const selectSettingLoadingValue = createSelector(
+  [selectState],
+  (setting) => setting.loadingState
+);
+
+export const selectSettingMoviePageNrValue = createSelector(
+  [selectState],
+  (setting) => setting.moviesPageNr
+);
+
+export const selectSettingPeoplePageNrValue = createSelector(
+  [selectState],
+  (setting) => setting.peoplePageNr
+);
+
+export const selectSettingSearchValue = createSelector(
+  [selectState],
+  (setting) => setting.searchState
+);
+
+export const selectSettingSearchPageNrValue = createSelector(
+  [selectState],
+  (setting) => setting.searchPageNr
+);
+
+export const selectSettingSearchMaxPageNrValue = createSelector(
+  [selectState],
+  (setting) => setting.searchMaxPageNr
+);
+
+export const selectSettingQueryValue = createSelector(
+  [selectState],
+  (setting) => setting.query
+);
 
 export default settingSlice.reducer;

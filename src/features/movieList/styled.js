@@ -1,13 +1,5 @@
-import styled, { keyframes } from "styled-components";
-
-export const showin = keyframes`
-  0% {
-   opacity:0;
-  }
-  100% {
-    opacity:1;
-  }
-`;
+import styled from "styled-components";
+import { showin } from "../../common/showin_animation";
 
 export const ContentWrapper = styled.section`
   max-width: 1368px;

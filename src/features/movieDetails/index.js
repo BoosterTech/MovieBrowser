@@ -15,8 +15,15 @@ import { TilesContainer } from "../movieList/styled";
 import { PersonTile } from "./components/PersonTile";
 import { TopTileBox } from "./components/TopTileBox";
 import { MovieDetailsWrapper } from "./components/MovieDetailsWrapper";
+<<<<<<< HEAD
 import searchQueryParamName from "../../common/Search/searchQueryParamName";
 import {backdropURL} from "../../common/API_URL";
+=======
+import { TopTileContainer, Content } from "./styled";
+
+import searchQueryParamName from "../../common/Navigation/components/Search/searchQueryParamName";
+import ErrorPage from "../../common/Error";
+>>>>>>> 3a46aec09a9839be9ce4f4d09987934a44447a71
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -70,6 +77,10 @@ const MovieDetails = () => {
     };
     fetchMovie();
   }, [id, dispatch]);
+
+  if (loadingState === "error") {
+    return <ErrorPage />;
+  }
 
   return loadingState === "loading" ? (
     <LoadingSpinner />

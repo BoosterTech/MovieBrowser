@@ -15,14 +15,7 @@ import {
 import { ReactComponent as Star } from "./../../../../assets/images/star.svg";
 import ImageDefaultMovie from "../../../../common/ImageDefaultMovie";
 
-export const MovieTile = ({
-  imageSrc,
-  title = "Mulan",
-  year = "Director (2020)",
-  category = ["action", "fantasy", " thiller"],
-  rate = 7.8,
-  vote = 3876,
-}) => {
+const MovieTile = ({ imageSrc, title, year, category, rate, vote }) => {
   return (
     <MovieTileWrapper>
       {imageSrc ? (

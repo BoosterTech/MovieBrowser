@@ -1,10 +1,10 @@
+import { ContentHeader } from "../../features/movieList/styled";
 import { LoadingSpinner } from "../Loader";
-import { MessageHeader } from "./styled";
 
 const SearchPage = (searchQuery) => {
   return (
     <>
-      <MessageHeader>Search Results for “{searchQuery}”</MessageHeader>
+      <ContentHeader>Search Results for “{searchQuery}”</ContentHeader>
       <LoadingSpinner />
     </>
   );

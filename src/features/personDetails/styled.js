@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { showin } from "../../common/showin_animation";
 
 export const TopTileWrapper = styled.div`
   display: flex;
@@ -8,6 +9,8 @@ export const TopTileWrapper = styled.div`
   min-height: 570px;
   padding: 40px;
   margin: 56px auto 0 auto;
+  animation: ${showin} 1s ease;
+  
 `;
 
 export const DescriptionWrapper = styled.div`
@@ -16,12 +19,14 @@ export const DescriptionWrapper = styled.div`
   padding: 8px 0;
   margin: 0;
   margin-left: 40px;
+
 `;
 
 export const Image = styled.img`
   width: 399px;
   height: 564px;
   border-radius: 5px;
+  
 `;
 
 export const Header = styled.h1`
@@ -83,6 +88,7 @@ export const CastCrewWrapper = styled.div`
   height: auto;
   max-width: 1368px;
   margin: 64px auto;
+  animation: ${showin} 1s ease;
 
   ${(props) => props.$second && `margin-bottom:220px;`}
 

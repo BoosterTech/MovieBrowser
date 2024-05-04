@@ -19,7 +19,7 @@ import {
   setBothPages,
   setSearchState,
 } from "../../Redux_store/settingSlice";
-import Search from "../Search";
+import Search from "./components/Search";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";

@@ -6,15 +6,7 @@ export const StyledHeader = styled.section`
   width: 100%;
   max-height: 94px;
   color: ${({ theme }) => theme.color.White};
-  padding: 0 15px 0 30px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    padding: 0px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    padding: 0px;
-  }
+  padding: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
     height: 130px;
@@ -49,17 +41,21 @@ export const StyledItems = styled.div`
   display: flex;
   align-items: center;
   gap: 80px;
+  padding-left: 10px;
+  justify-content: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     grid-gap: 60px;
+    padding-left: 30px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    gap: 0;
+    gap: 10px;
+    padding: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    gap: 0;
+    gap: 10px;
     margin: 16px 0 10px 0;
   }
 
@@ -165,7 +161,7 @@ export const StyledContainerButton = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     grid-gap: 12px;
-    padding: 0;
+    padding: 0 10px 0 0;
     margin-left: 19px;
   }
 
@@ -220,7 +216,7 @@ export const StyledButton = styled.button`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileUltraMin}px) {
     font-size: 10px;
     width: 60px;
-    height: 28px;  
+    height: 28px;
   }
 `;
 
@@ -240,21 +236,19 @@ export const SearchWrapper = styled.div`
   margin-left: auto;
   align-items: center;
   position: relative;
+  padding-right: 15px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     display: flex;
     align-items: center;
     width: 390px;
     margin: 0 16px 0 0;
-    padding: 0 40px 0 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     display: flex;
     align-items: center;
     width: 320px;
-    margin: 0 16px 0 0;
-    padding: 0 16px 0 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
@@ -264,21 +258,19 @@ export const SearchWrapper = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
-    margin: 8px 12px 16px 20px;
+    margin: 8px 12px 16px 10px;
     width: 320px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     margin: 14px 12px 12px 12px;
     width: 288px;
     height: 44px;
-    padding: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileUltraMin}px) {
     width: 260px;
-    height: 36px; 
+    height: 36px;
     margin: 8px 12px 12px 12px;
-
   }
 `;
 
@@ -299,7 +291,6 @@ export const Input = styled.input`
     padding: 12px 0 12px 50px;
     height: 12px;
     font-size: 14px;
-
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
@@ -316,30 +307,30 @@ export const Icon = styled.svg`
   position: absolute;
   margin-left: 30px;
   top: 53%;
-  transform: translateY(-50%);
+  left: 0;
+  transform: translate(-50%, -50%);
   fill: none;
   width: 24px;
   height: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    margin-left: 20px;
-    transform: translateY(-60%);
+    top: 50%;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin-left: 15px;
-    transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
+    top: 53%;
+    left: 5%;
+    width: 20px;
+    height: 20px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
-    margin-left: 15px;
-    transform: translateY(-60%);
+    top: 36%;
+    left: 1%;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
-    margin-left: 15px;
-    transform: translateY(-60%);
+    top: 52%;
+    left: 3%;
   }
 `;
