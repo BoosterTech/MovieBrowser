@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import { PersonTile } from "./components/PersonTile";
 import { ContentWrapper, ContentHeader, TilesWrapper } from "./styled";
-import { APIAuthorization, apiPeoplePopularURL } from "../../common/API_URL";
+import {
+  API_AUTHORIZATION,
+  API_PEOPLE_POPULAR_URL,
+  DEFAULT_DEBOUNCE_TIME,
+  SEARCH_RESULTS_TITLE,
+} from "../../common/Global_Variables";
 import { useDispatch, useSelector } from "react-redux";
 import { LoadingSpinner } from "../../common/Loader";
 import {
@@ -24,31 +29,36 @@ import SearchPage from "../../common/SearchPage";
 import NoResultPage from "../../common/noResult";
 import useDebounce from "../../hooks/useDebounce";
 
+const DEFAULT_PAGE_STATE = "people";
+const POPULAR_MOVIES_TITLE = "Popular People";
+
 const PersonList = () => {
   const [peopleData, setPeopleData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
+  const dispatch = useDispatch();
+
   const peoplePageNr = useSelector(selectSettingPeoplePageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
   const pageState = useSelector(selectSettingPageStateValue);
   const searchPageNr = useSelector(selectSettingSearchPageNrValue);
   const searchState = useSelector(selectSettingSearchValue);
+
   const location = useLocation();
   const history = useHistory();
   const myQuery = new URLSearchParams(location.search).get(
     searchQueryParamName
   );
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const params = new URLSearchParams(location.search).get("page");
     const path = location.pathname;
 
     dispatch(setLoadingState("loading"));
-    dispatch(setPageState("people"));
+    dispatch(setPageState("DEFAULT_PAGE_STATE"));
 
     if (params && path.includes("/people")) dispatch(setPageNr(Number(params)));
 
-    sessionStorage.setItem("pageState", "people");
+    sessionStorage.setItem("pageState", DEFAULT_PAGE_STATE);
     sessionStorage.setItem("peoplePageNr", peoplePageNr);
     setIsFirstEffect(false);
   }, [peoplePageNr, searchPageNr]);
@@ -72,11 +82,11 @@ const PersonList = () => {
     if (searchState === true && (!peopleData || peopleData.length === 0)) {
       dispatch(setLoadingState("noResult"));
     } else {
-      dispatch(setPageState("people"));
+      dispatch(setPageState(DEFAULT_PAGE_STATE));
     }
   }, [searchState, peopleData, dispatch]);
 
-  const debouncedQuery = useDebounce(myQuery, 500);
+  const debouncedQuery = useDebounce(myQuery, DEFAULT_DEBOUNCE_TIME);
 
   useEffect(() => {
     const fetchPeople = async () => {
@@ -84,10 +94,10 @@ const PersonList = () => {
         const responsePeople = await fetch(
           searchState && debouncedQuery !== null
             ? `https://api.themoviedb.org/3/search/person?query=${myQuery}&include_adult=false&language=en-US&page=${searchPageNr}`
-            : `${apiPeoplePopularURL}${peoplePageNr}`,
+            : `${API_PEOPLE_POPULAR_URL}${peoplePageNr}`,
           {
             headers: {
-              Authorization: APIAuthorization,
+              Authorization: API_AUTHORIZATION,
               accept: "application/json",
             },
           }
@@ -121,15 +131,15 @@ const PersonList = () => {
       <LoadingSpinner />
     )
   ) : (
-    (pageState === "people" || searchState === true) &&
+    (pageState === DEFAULT_PAGE_STATE || searchState === true) &&
       (searchState === true && (!peopleData || peopleData.length === 0) ? (
         NoResultPage(debouncedQuery)
       ) : (
         <ContentWrapper>
           <ContentHeader>
             {!searchState || myQuery === null
-              ? "Popular People"
-              : `Search result for "${myQuery}"`}
+              ? POPULAR_MOVIES_TITLE
+              : `${SEARCH_RESULTS_TITLE} "${myQuery}"`}
           </ContentHeader>
           <TilesWrapper>
             {peopleData &&
