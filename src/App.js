@@ -17,6 +17,7 @@ import MovieDetails from "./features/movieDetails";
 import SearchPage from "./common/SearchPage";
 import NoResultPage from "./common/noResult";
 import ErrorPage from "./common/Error";
+import RefreshOnConnectionRestore from "./common/RefreshOnConnectionRestore";
 
 const App = () => {
   return (
@@ -52,6 +53,7 @@ const App = () => {
           <Pagination />
         </Route>
       </Switch>
+      <RefreshOnConnectionRestore />
     </HashRouter>
   );
 };
