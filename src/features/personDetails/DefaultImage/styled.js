@@ -10,6 +10,17 @@ export const DefaultImageWrapper = styled.div`
   margin: auto;
   margin-top: 16px;
   border-radius: 5px;
+
+  @media(max-width: ${({theme}) => theme.breakpoints.disabled}px){
+    margin-top: 0;
+    width:  180px;
+    height: 260px;
+  }
+
+  @media(max-width: ${({theme}) => theme.breakpoints.mobileMax}px){
+    max-width: 116px;
+    max-height: 163px;
+  }
 `;
 
 export const ProfileImage = styled.img`
