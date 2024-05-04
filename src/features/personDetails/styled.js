@@ -89,6 +89,10 @@ export const CastCrewWrapper = styled.div`
   @media(max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
     margin: 24px 16px;
   }
+
+  /* @media(max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    padding-top: 40px;
+  } */
 `;
 
 export const ForDesktop = styled.div`

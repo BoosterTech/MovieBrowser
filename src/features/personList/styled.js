@@ -31,6 +31,7 @@ export const ContentHeader = styled.h1`
   text-align: left;
   color: ${({ theme }) => theme.color.Woodsmoke};
   margin: 24px 0;
+  object-fit: cover;
 
   animation: ${showin} 1s ease;
 

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import star from "../../../../assets/images/star.svg";
 
 import {
@@ -20,6 +21,7 @@ import {
     YearBlock,
 } from "./styled";
 
+
 export const MovieDetailsWrapper = ({
 
     imageSrc,
@@ -33,6 +35,21 @@ export const MovieDetailsWrapper = ({
     description,
 
 }) => {
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
     return (
         <Wrapper>
             <Tile>
@@ -41,11 +58,23 @@ export const MovieDetailsWrapper = ({
                     <Title>{title}</Title>
                     <Year>{yearShort}</Year>
                     <NameBlock>
-                        <GreyName>Production:</GreyName>
+                        {windowWidth >= 390 ? (
+                            <>
+                                <GreyName>Production:</GreyName>
+                            </>
+                        ) : (
+                            null
+                        )}
                         <DescriptionName>
                             {production}
                         </DescriptionName>
-                        <GreyName>Release date:</GreyName>
+                        {windowWidth >= 390 ? (
+                            <>
+                                <GreyName>Release date:</GreyName>
+                            </>
+                        ) : (
+                            null
+                        )}
                         <YearBlock>{yearFull}</YearBlock>
                     </NameBlock>
                     <Tags>
@@ -59,10 +88,10 @@ export const MovieDetailsWrapper = ({
                         <VotesBlockRest>/ 10</VotesBlockRest>
                         <VotesBlockRest>{vote} votes</VotesBlockRest>
                     </VotesBlock>
-                    <Description>
-                        {description}
-                    </Description>
-                </Content>
+
+                </Content><Description>
+                    {description}
+                </Description>
             </Tile>
         </Wrapper>
     )

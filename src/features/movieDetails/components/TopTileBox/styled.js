@@ -1,72 +1,103 @@
 import styled from "styled-components";
+import {ReactComponent as VignetteSVG} from "../../../../assets/images/backdrop-vignette.svg";
 
-export const PosterContainer = styled.div`
-  max-height: 770px;
-  margin: 0 auto;
+export const PosterContainer = styled.section`
   background-color: ${({ theme }) => theme.color.Black};
-  position: relative;
-  z-index: -3;
-  `;
-
-export const ImageWrapper = styled.div`
-  max-width: 1356px;
-  max-height: 770px;
-  position: relative;
-  margin: 0 auto;
 `;
 
-export const StyledPoster = styled.div`
-  max-width: 1356px;
-  max-height: 770px;
-  box-shadow: inset 0 0 100px 90px rgba(0, 0, 0);
-  z-index: -1;
+export const Poster = styled.div`
+  position: relative;
+  margin: auto;
+  max-width: 1368px;
+  aspect-ratio: 2.1622;
+  background: ${({ $background }) => `url('${$background}')`};
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopMini}) {
-    box-shadow: inset 0 0 100px 80px rgba(0, 0, 0);
-  }
+export const GradientCover = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    rgba(0, 0, 0, 0.7) 1%,
+    rgba(0, 0, 0, 0.3) 3%,
+    rgba(0, 0, 0, 0.15) 6%,
+    rgba(0, 0, 0, 0) 10%
+  );
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}) {
-    box-shadow: inset 0 0 92px 70px rgba(0, 0, 0);
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}) {
-    box-shadow: inset 0 0 84px 60px rgba(0, 0, 0);
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
-    box-shadow: inset 0 0 67px 50px rgba(0, 0, 0);
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}) {
-    box-shadow: inset 0 0 44px 33px rgba(0, 0, 0);
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
-    box-shadow: inset 0 0 39px 25px rgba(0, 0, 0);
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    background: linear-gradient(
+      180deg,
+      #000000 0%,
+      rgba(0, 0, 0, 0.7) 1%,
+      rgba(0, 0, 0, 0.3) 3%,
+      rgba(0, 0, 0, 0.15) 6%,
+      rgba(0, 0, 0, 0) 10%
+    );
   }
 `;
 
-export const Poster = styled.img`
-  max-width: 1356px;
-  max-height: 770px;
-  position: relative;
-  z-index: -2;
+export const Vignette = styled(VignetteSVG)`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
 `;
 
 export const TitleWrapper = styled.div`
   color: ${({ theme }) => theme.color.White};
   bottom: 0px;
   left: 0px;
-  z-index: 3;
   position: absolute;
   text-align: left;
   padding: 0 16px;
   padding-bottom: 56px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+    padding: 0 0 46px 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    padding: 0 0 36px 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    padding: 0 0 26px 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+    padding: 0 0 16px 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    padding: 0 0 8px 16px;
+  }
 `;
 
 export const Title = styled.h2`
   font-weight: 600;
   font-size: 64px;
+  margin-bottom: 4px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+    font-size: 50px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    font-size: 24px;
+  }
 `;
 
 export const RatingWrapper = styled.div`
@@ -82,19 +113,82 @@ export const RatingWrapper = styled.div`
 export const IconStar = styled.div`
   width: 40px;
   height: 38.12px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    width: 35px;
+    height: 33px;  
+}
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    width: 27px;
+    height: 24px;  
+}
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+    width: 20px;
+    height: 18px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    width: 16px;
+    height: 15.25px;
+    margin: 0;
+  }
 `;
 
 export const RateContainer = styled.div`
   font-size: 30px;
   font-weight: 500;
   margin: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    font-size: 25px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    font-size: 14px;
+  }
 `;
 
 export const VoteContainer = styled.div`
   margin-top: 4px;
   margin-bottom: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    font-size: 10px;
+  }
 `;
 
 export const ScoreLimit = styled.div`
   padding-top: 14px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    font-size: 10px;
+    padding-top: 3px;
+
+  }
 `;

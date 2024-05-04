@@ -15,8 +15,8 @@ import { TilesContainer } from "../movieList/styled";
 import { PersonTile } from "./components/PersonTile";
 import { TopTileBox } from "./components/TopTileBox";
 import { MovieDetailsWrapper } from "./components/MovieDetailsWrapper";
-import { TopTileContainer, Content } from "./styled";
 import searchQueryParamName from "../../common/Search/searchQueryParamName";
+import {backdropURL} from "../../common/API_URL";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -76,18 +76,14 @@ const MovieDetails = () => {
   ) : (
     movieData && (
       <>
-        <TopTileContainer>
           {movieData.backdrop_path ? (
             <TopTileBox
               title={movieData.original_title}
               rate={movieData.vote_average || 0}
               vote={movieData.vote_count || 0}
-              imageSrc={
-                "https://image.tmdb.org/t/p/original" + movieData.backdrop_path
-              }
+              imageSrc={`${backdropURL}${movieData.backdrop_path}`}
             />
           ) : null}
-        </TopTileContainer>
         <MovieDetailsWrapper
           imageSrc={
             movieData.poster_path
@@ -105,7 +101,6 @@ const MovieDetails = () => {
           vote={movieData.vote_count || 0}
           description={movieData.overview}
         />
-        <Content>
           <CastCrewWrapper>
             <Header>Cast</Header>
             <TilesContainer $persontile="true">
@@ -156,7 +151,6 @@ const MovieDetails = () => {
                 })}
             </TilesContainer>
           </CastCrewWrapper>
-        </Content>
       </>
     )
   );
