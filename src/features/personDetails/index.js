@@ -31,11 +31,11 @@ import { TilesContainer } from "../movieList/styled";
 import { LoadingSpinner } from "../../common/Loader";
 import { moviesGenres_ids } from "../../common/moviesGenre_ids";
 import { NavLink, useHistory, useLocation, useParams } from "react-router-dom";
-import { APIAuthorization } from "../../common/API_URL";
 import ImageProfile from "./DefaultImage";
 import { toMovieDetails } from "../../routes";
 import searchQueryParamName from "../../common/Navigation/components/Search/searchQueryParamName";
 import ErrorPage from "../../common/Error";
+import { API_AUTHORIZATION } from "../../common/Global_Variables";
 
 const ProfileDetails = () => {
   const { id } = useParams();
@@ -68,7 +68,7 @@ const ProfileDetails = () => {
           {
             method: "GET",
             headers: {
-              Authorization: APIAuthorization,
+              Authorization: API_AUTHORIZATION,
               Accept: "application/json",
             },
           }
