@@ -1,31 +1,28 @@
 import { styled } from "styled-components";
 
 export const MessageParagraph = styled.h1`
-  height: auto;
-  font-weight: 600;
+  width: auto;
+  max-height: 43px;
   font-size: 36px;
+  font-weight: 600;
   line-height: 43.2px;
-  color: ${({ theme }) => theme.color.Black};
-  margin: 56px auto 0 276px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
-    margin: 56px auto;
-    text-align: center;
-  }
+  text-align: left;
+  color: ${({ theme }) => theme.color.Woodsmoke};
+  margin: 0;
+  margin-bottom: 24px;
+  padding: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    font-size: 30px;
-    margin: 40px auto;
+    font-size: 18px;
+    margin-bottom: 12px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
-    font-size: 24px;
-    padding: 20px;
-    margin: 20px auto;
+    font-size: 18px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     font-size: 18px;
-    padding: 20px;
+    margin-left: 16px;
   }
 `;
