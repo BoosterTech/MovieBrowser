@@ -22,15 +22,10 @@ import SearchPage from "../../common/SearchPage";
 import NoResultPage from "../../common/noResult";
 import ErrorPage from "../../common/Error";
 import useDebounce from "../../hooks/useDebounce";
+import { API_AUTHORIZATION, API_MOVIE_POPULAR_URL, DEFAULT_DEBOUNCE_TIME, SEARCH_RESULTS_TITLE } from "../../common/Global_Variables";
 
-const API_MOVIE_POPULAR_URL =
-  "https://api.themoviedb.org/3/movie/popular?language=en-US&page=";
-const API_AUTHORIZATION =
-  "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYjI2MDE5NmJjOWJiYjBkZjdiZDc0N2NmMDEzNTdjMCIsInN1YiI6IjY2MDAwZmZjNjJmMzM1MDE2NDUxNWJhZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.j5BdMVijb7g_8sAaxu9WLzzFLGen6qB1lNYLha-96Tw";
-const DEFAULT_DEBOUNCE_TIME = 500;
 const DEFAULT_PAGE_STATE = "movies";
 const POPULAR_MOVIES_TITLE = "Popular Movies";
-const SEARCH_RESULTS_TITLE = "Search Results for";
 
 const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
