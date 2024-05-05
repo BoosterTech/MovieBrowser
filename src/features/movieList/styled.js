@@ -68,11 +68,10 @@ export const TilesContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
     max-width: 1037px;
     margin: 0px auto;
-    grid-template-columns: repeat(5, 1fr);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     max-width: 1000px;
     display: grid;
     justify-content: center;
@@ -80,22 +79,16 @@ export const TilesContainer = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    grid-template-columns: repeat(3, 1fr);
-    display: grid;
-    justify-content: center;
-    margin: 10px 84px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     grid-template-columns: repeat(2, 1fr);
     display: grid;
     justify-content: center;
     margin: 10px 84px;
   }
 
-  ${(props) =>
-    props.$persontile &&
-    `
-  grid-template-columns: repeat(6, 1fr);
-  `}
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    grid-template-columns: 1fr;
+    display: grid;
+    justify-content: center;
+    margin: 10px 84px;
+  }
 `;

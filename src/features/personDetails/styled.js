@@ -42,6 +42,12 @@ export const Header = styled.h1`
     margin: 0 0 16px 0;
     height: 20px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    margin: 0 0 12px 0;
+    height: 24px;
+
+  }
 `;
 
 export const BirthInfoContainer = styled.div`
@@ -96,9 +102,9 @@ export const CastCrewWrapper = styled.div`
     margin: 24px 16px;
   }
 
-  /* @media(max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    padding-top: 40px;
-  } */
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    margin-top: 21px;
+  }
 `;
 
 export const ForDesktop = styled.div`

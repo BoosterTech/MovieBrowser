@@ -5,9 +5,13 @@ export const Wrapper = styled.div`
   max-height: 544px;
   margin: 64px auto;
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    margin: 16px auto;
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        margin: 16px auto;
 }
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+        max-width: 288px;
+    }
 `;
 
 export const Tile = styled.article`
@@ -29,6 +33,11 @@ export const Tile = styled.article`
         "tekst tekst"
         "tekst tekst";
         grid-gap: 20px;
+    }
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+        grid-gap: 16px;
+        padding: 16px;
     }
 `;
 
@@ -56,13 +65,17 @@ export const Content = styled.div`
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
         margin-right: 22px;
     }
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+        margin-right: 0px;
+        width: 126px;
+    }
 `;
 
 export const Title = styled.div`
-    font-weight: 600px;
+    font-weight: 600;
     font-size: 36px;
     margin-bottom: 24px;
-    font-weight: 600;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 24px;
@@ -70,6 +83,8 @@ export const Title = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
         font-size: 16px;
+        margin-bottom: 4px;
+
     }
 `;
 
@@ -83,6 +98,8 @@ export const Year = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
         font-size: 13px;
+        color: ${({ theme }) => theme.color.Waterloo};
+        margin-bottom: 8px;
     }
 `;
 
@@ -95,6 +112,10 @@ export const NameBlock = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
         font-size: 12px;
+        grid-template-columns: 1fr;
+        margin: 0;
+        grid-gap: 0px;
+
     }
 `;
 
@@ -121,12 +142,19 @@ export const YearBlock = styled.p`
 
 export const DescriptionName = styled.p`
     font-size: 18px;
-    margin: -16px;
+    margin-left: -16px;
     font-weight: 400;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        font-size: 10px;
+        font-size: 14px;
   }
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+        margin-left: 0px;
+        font-size: 12px;
+        margin-top: -2px;
+        margin-bottom: 8px;
+    }
 `;
 
 export const Tags = styled.div`
@@ -135,6 +163,10 @@ export const Tags = styled.div`
     flex-wrap: wrap;
     padding-left: 0;
     margin: 24px -8px;
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+        margin: 8px 0 12px -4px;
+    }
 `;
 
 export const Tag = styled.div`
@@ -146,8 +178,14 @@ export const Tag = styled.div`
     font-weight: 400;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        font-size: 12px;
+    }
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
         font-size: 10px;
-  }
+        padding: 4px 8px;
+        margin: 4px;
+    }
 `;
 
 export const VotesBlock = styled.div`   
@@ -158,11 +196,20 @@ export const VotesBlock = styled.div`
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         grid-template-columns: 32px 30px 30px 80px;
   }
+
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+        grid-template-columns: 24px 26px 28px 36px;
+    }
 `;
 
 export const ImageSvg = styled.img`
     width: 24px;
     height: 22.87px;
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+        width: 16px;
+        height: 15.25px;
+    }
 `;
 
 export const VotesBlockScore = styled.div`
@@ -171,7 +218,13 @@ export const VotesBlockScore = styled.div`
     margin-top: 1px;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        font-size: 14px;
+        font-size: 16px;
+  }
+
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+        font-size: 13px;
+        font-weight: 600;
+        margin-top: 4px;
   }
 `;
 
@@ -181,9 +234,14 @@ export const VotesBlockRest = styled.div`
     height: 10px;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        font-size: 10px;
         margin-top: 5px;
-  }
+    }
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+        font-size: 13px;
+        margin-top: 0px;
+        color: ${({ theme }) => theme.color.DarkerGray};
+    }
 `;
 
 export const Description = styled.div`
@@ -195,5 +253,5 @@ export const Description = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
         font-size: 14px;
-  }
+    }
 `;

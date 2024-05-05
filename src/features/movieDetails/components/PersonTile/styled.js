@@ -26,7 +26,12 @@ export const TileWrapper = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    min-height: 290px;
+    min-height: 270px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    width: 136px;
+    padding: 0px;
   }
 `;
 
@@ -55,7 +60,6 @@ export const PersonName = styled.div`
     line-height: 18.2px;
     max-width: 120px;
     margin-top: 0px;
-    padding-top: 10px;
   }
 `;
 
@@ -65,4 +69,8 @@ export const PersonCharacter = styled.div`
   margin-bottom: 16px;
   text-align: center;
   font-weight: 400;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 13px;
+  }
 `;

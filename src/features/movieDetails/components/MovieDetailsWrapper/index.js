@@ -28,6 +28,7 @@ export const MovieDetailsWrapper = ({
     title,
     yearShort,
     production,
+    shortProduction,
     yearFull,
     categories,
     rate,
@@ -61,19 +62,21 @@ export const MovieDetailsWrapper = ({
                         {windowWidth >= 390 ? (
                             <>
                                 <GreyName>Production:</GreyName>
+                                <DescriptionName>
+                                    {production}
+                                </DescriptionName>
                             </>
                         ) : (
-                            null
+                            <DescriptionName>
+                                {shortProduction}
+                            </DescriptionName>
                         )}
-                        <DescriptionName>
-                            {production}
-                        </DescriptionName>
                         {windowWidth >= 390 ? (
                             <>
                                 <GreyName>Release date:</GreyName>
                             </>
                         ) : (
-                            null
+                            ""
                         )}
                         <YearBlock>{yearFull}</YearBlock>
                     </NameBlock>
@@ -85,8 +88,15 @@ export const MovieDetailsWrapper = ({
                     <VotesBlock>
                         <ImageSvg src={star} />
                         <VotesBlockScore>{rate.toFixed(1)}</VotesBlockScore>
-                        <VotesBlockRest>/ 10</VotesBlockRest>
-                        <VotesBlockRest>{vote} votes</VotesBlockRest>
+                        {windowWidth >= 390 ? (
+                            <>
+                                <VotesBlockRest>/ 10</VotesBlockRest>
+                            </>
+                        ) : (
+                            ""
+                        )}
+                        <VotesBlockRest>{vote}</VotesBlockRest>
+                        <VotesBlockRest>votes</VotesBlockRest>
                     </VotesBlock>
 
                 </Content><Description>
