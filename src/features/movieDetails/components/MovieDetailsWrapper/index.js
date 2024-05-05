@@ -98,8 +98,8 @@ export const MovieDetailsWrapper = ({
                         <VotesBlockRest>{vote}</VotesBlockRest>
                         <VotesBlockRest>votes</VotesBlockRest>
                     </VotesBlock>
-
-                </Content><Description>
+                </Content>
+                <Description>
                     {description}
                 </Description>
             </Tile>
