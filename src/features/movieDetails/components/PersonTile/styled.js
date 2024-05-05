@@ -7,7 +7,7 @@ export const TileWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   width: 176px;
-  min-height: 339px;
+  min-height: 360px;
   padding: 16px;
   border-radius: 5px;
   color: ${({ theme }) => theme.color.Black};
@@ -27,6 +27,9 @@ export const TileWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     min-height: 270px;
+    padding: 0px;
+    width: 150px;
+
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {

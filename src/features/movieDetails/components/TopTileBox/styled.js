@@ -159,7 +159,7 @@ export const RateContainer = styled.div`
 `;
 
 export const VoteContainer = styled.div`
-  margin-top: 4px;
+  margin-top: 6px;
   margin-bottom: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
@@ -180,10 +180,14 @@ export const ScoreLimit = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 15px;
+    padding-top: 8px;
+
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
     font-size: 12px;
+    padding-top: 6px;
+
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
