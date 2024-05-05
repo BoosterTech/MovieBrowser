@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.js": "/MovieBrowser/static/js/main.c564fa2a.js",
+    "main.js": "/MovieBrowser/static/js/main.cc4d0bc7.js",
     "static/js/453.11d5da13.chunk.js": "/MovieBrowser/static/js/453.11d5da13.chunk.js",
+    "static/media/backdrop-vignette.svg": "/MovieBrowser/static/media/backdrop-vignette.1174004df10cb645cdd9797e05571696.svg",
     "static/media/star.svg": "/MovieBrowser/static/media/star.4f2011363333ab2b47242d91b179296c.svg",
     "index.html": "/MovieBrowser/index.html",
     "static/media/defaultIconPerson.svg": "/MovieBrowser/static/media/defaultIconPerson.fe520c1315cfd8aafd63e5512948c99c.svg",
@@ -9,10 +10,10 @@
     "static/media/Vector1.svg": "/MovieBrowser/static/media/Vector1.95a980d03aa24878b4b68139a4fd2714.svg",
     "static/media/defaultIcon.svg": "/MovieBrowser/static/media/defaultIcon.1cc0505b0a0d4e169ed9d9305ea585bc.svg",
     "static/media/SearchIcon.svg": "/MovieBrowser/static/media/SearchIcon.8424b78946fdf221ba6a49ce59ed3b45.svg",
-    "main.c564fa2a.js.map": "/MovieBrowser/static/js/main.c564fa2a.js.map",
+    "main.cc4d0bc7.js.map": "/MovieBrowser/static/js/main.cc4d0bc7.js.map",
     "453.11d5da13.chunk.js.map": "/MovieBrowser/static/js/453.11d5da13.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.c564fa2a.js"
+    "static/js/main.cc4d0bc7.js"
   ]
 }
