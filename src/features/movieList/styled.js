@@ -66,8 +66,7 @@ export const TilesContainer = styled.div`
   height: auto;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
-    max-width: 1037px;
-    margin: 0px auto;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
