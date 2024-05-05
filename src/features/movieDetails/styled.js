@@ -24,6 +24,10 @@ export const TilesContainer = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMediumMin}px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -33,5 +37,9 @@ export const TilesContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     margin: 0px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileUltraMin}px) {
+    grid-template-columns: 1fr;
   }
 `;
