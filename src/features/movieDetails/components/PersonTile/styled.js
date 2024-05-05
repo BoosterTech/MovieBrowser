@@ -7,7 +7,7 @@ export const TileWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   width: 176px;
-  min-height: 339px;
+  min-height: 360px;
   padding: 16px;
   border-radius: 5px;
   color: ${({ theme }) => theme.color.Black};
@@ -26,19 +26,28 @@ export const TileWrapper = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    min-height: 270px;
+    padding: 0px;
+    width: 150px;
+
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     width: 136px;
-    height: 245px;
+    padding: 0px;
   }
 `;
 
 export const TileImage = styled.img`
-  width: 176px;
-  height: 231px;
+  max-width: 176px;
+  max-height: 231px;
   border-radius: 5px;
+  object-fit: cover;
+  width: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    width: 120px;
-    height: 178px;
+    max-width: 120px;
+    max-height: 178px;
     margin: 8px;
   }
 `;
@@ -54,7 +63,6 @@ export const PersonName = styled.div`
     line-height: 18.2px;
     max-width: 120px;
     margin-top: 0px;
-    padding-top: 0px;
   }
 `;
 
@@ -64,4 +72,8 @@ export const PersonCharacter = styled.div`
   margin-bottom: 16px;
   text-align: center;
   font-weight: 400;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 13px;
+  }
 `;

@@ -47,9 +47,15 @@ export const ContentHeader = styled.h1`
   line-height: 43.2px;
   text-align: left;
   color: ${({ theme }) => theme.color.Woodsmoke};
+<<<<<<< HEAD
+  margin: 24px 0;
+  object-fit: cover;
+
+=======
   margin: 0;
   margin-bottom: 24px;
   padding: 0;
+>>>>>>> 3a46aec09a9839be9ce4f4d09987934a44447a71
   animation: ${showin} 1s ease;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {

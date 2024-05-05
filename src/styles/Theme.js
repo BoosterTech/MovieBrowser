@@ -17,9 +17,10 @@ export const theme = {
     StormGray: "#74788B",
   },
   breakpoints: {
-    mobileUltraMin: 298,
+    mobileUltraMin: 310,
     mobileMin: 390,
     mobilePeopleMedium: 452,
+    mobileMediumMin: 540,
     mobileMedium: 675,
     mobileMax: 767,
     tabletVerticalMax: 991,

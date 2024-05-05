@@ -11,11 +11,11 @@ import { NavLink } from "react-router-dom";
 import { toProfile } from "../../routes";
 import { LoadingSpinner } from "../../common/Loader";
 import { CastCrewWrapper, Header } from "../personDetails/styled";
-import { TilesContainer } from "../movieList/styled";
+import { TilesContainer } from "./styled";
 import { PersonTile } from "./components/PersonTile";
 import { TopTileBox } from "./components/TopTileBox";
 import { MovieDetailsWrapper } from "./components/MovieDetailsWrapper";
-import { TopTileContainer, Content } from "./styled";
+import { backdropURL } from "../../common/Global_Variables";
 
 import searchQueryParamName from "../../common/Navigation/components/Search/searchQueryParamName";
 import ErrorPage from "../../common/Error";
@@ -82,18 +82,14 @@ const MovieDetails = () => {
   ) : (
     movieData && (
       <>
-        <TopTileContainer>
-          {movieData.backdrop_path ? (
-            <TopTileBox
-              title={movieData.original_title}
-              rate={movieData.vote_average || 0}
-              vote={movieData.vote_count || 0}
-              imageSrc={
-                "https://image.tmdb.org/t/p/original" + movieData.backdrop_path
-              }
-            />
-          ) : null}
-        </TopTileContainer>
+        {movieData.backdrop_path ? (
+          <TopTileBox
+            title={movieData.original_title}
+            rate={movieData.vote_average || 0}
+            vote={movieData.vote_count || 0}
+            imageSrc={`${backdropURL}${movieData.backdrop_path}`}
+          />
+        ) : null}
         <MovieDetailsWrapper
           imageSrc={
             movieData.poster_path
@@ -105,64 +101,64 @@ const MovieDetails = () => {
           production={movieData.production_countries
             .map((country) => country.name)
             .join(", ")}
-          yearFull={movieData.release_date}
+          shortProduction={movieData.production_countries
+            .map((country) => country.iso_3166_1)}
+          yearFull={movieData.release_date ? `${movieData.release_date.split('-')[2]}.${movieData.release_date.split('-')[1]}.${movieData.release_date.split('-')[0]}` : ''}
           categories={movieData.genres.map((genre) => genre.name)}
           rate={movieData.vote_average || 0}
           vote={movieData.vote_count || 0}
           description={movieData.overview}
         />
-        <Content>
-          <CastCrewWrapper>
-            <Header>Cast</Header>
-            <TilesContainer $persontile="true">
-              {movieData.credits.cast &&
-                movieData.credits.cast.map((castMember, index) => {
-                  return (
-                    <NavLink
-                      key={`${castMember.id}-${index}`}
-                      to={toProfile({ id: castMember.id })}
-                      style={{ textDecoration: "none" }}
-                    >
-                      <PersonTile
-                        imageSrc={
-                          castMember.profile_path
-                            ? `https://image.tmdb.org/t/p/w500${castMember.profile_path}`
-                            : null
-                        }
-                        character={castMember.character}
-                        name={castMember.name}
-                      />
-                    </NavLink>
-                  );
-                })}
-            </TilesContainer>
-          </CastCrewWrapper>
-          <CastCrewWrapper $second={`${true}`}>
-            <Header>Crew</Header>
-            <TilesContainer $persontile="true">
-              {movieData.credits.crew &&
-                movieData.credits.crew.map((crewMember, index) => {
-                  return (
-                    <NavLink
-                      key={`${crewMember.id}-${index}`}
-                      to={toProfile({ id: crewMember.id })}
-                      style={{ textDecoration: "none" }}
-                    >
-                      <PersonTile
-                        imageSrc={
-                          crewMember.profile_path
-                            ? `https://image.tmdb.org/t/p/w500${crewMember.profile_path}`
-                            : null
-                        }
-                        character={crewMember.job}
-                        name={crewMember.name}
-                      />
-                    </NavLink>
-                  );
-                })}
-            </TilesContainer>
-          </CastCrewWrapper>
-        </Content>
+        <CastCrewWrapper>
+          <Header>Cast</Header>
+          <TilesContainer $persontile="true">
+            {movieData.credits.cast &&
+              movieData.credits.cast.map((castMember, index) => {
+                return (
+                  <NavLink
+                    key={`${castMember.id}-${index}`}
+                    to={toProfile({ id: castMember.id })}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <PersonTile
+                      imageSrc={
+                        castMember.profile_path
+                          ? `https://image.tmdb.org/t/p/w500${castMember.profile_path}`
+                          : null
+                      }
+                      character={castMember.character}
+                      name={castMember.name}
+                    />
+                  </NavLink>
+                );
+              })}
+          </TilesContainer>
+        </CastCrewWrapper>
+        <CastCrewWrapper $second={`${true}`}>
+          <Header>Crew</Header>
+          <TilesContainer $persontile="true">
+            {movieData.credits.crew &&
+              movieData.credits.crew.map((crewMember, index) => {
+                return (
+                  <NavLink
+                    key={`${crewMember.id}-${index}`}
+                    to={toProfile({ id: crewMember.id })}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <PersonTile
+                      imageSrc={
+                        crewMember.profile_path
+                          ? `https://image.tmdb.org/t/p/w500${crewMember.profile_path}`
+                          : null
+                      }
+                      character={crewMember.job}
+                      name={crewMember.name}
+                    />
+                  </NavLink>
+                );
+              })}
+          </TilesContainer>
+        </CastCrewWrapper>
       </>
     )
   );
