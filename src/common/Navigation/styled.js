@@ -265,12 +265,13 @@ export const SearchWrapper = styled.div`
     margin: 14px 12px 12px 12px;
     width: 288px;
     height: 44px;
+    padding-right: 0px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileUltraMin}px) {
-    width: 260px;
+    width: 244px;
     height: 36px;
-    margin: 8px 12px 12px 12px;
+    margin: 8px 8px 12px 8px;
   }
 `;
 
@@ -294,12 +295,12 @@ export const Input = styled.input`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
-    width: 288px;
+    width: 240px;
     margin: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileUltraMin}px) {
-    width: 260px;
+    width: 240px;
   }
 `;
 
@@ -319,18 +320,18 @@ export const Icon = styled.svg`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     top: 53%;
-    left: 5%;
+    left: 0%;
     width: 20px;
     height: 20px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
-    top: 36%;
-    left: 1%;
+    top: 50%;
+    left: 0%;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     top: 52%;
-    left: 3%;
+    left: -2%;
   }
 `;
