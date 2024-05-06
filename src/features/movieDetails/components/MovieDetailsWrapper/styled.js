@@ -237,10 +237,8 @@ export const VotesBlock = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
-    grid-template-columns: 20px 26px 30px 36px 36px;
+    grid-template-columns: 20px 26px 30px 36px;
     font-size: 10px;
-    padding: 4px 8px;
-    margin: 4px;
   }
 `;
 
