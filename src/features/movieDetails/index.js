@@ -102,7 +102,7 @@ const MovieDetails = () => {
             .map((country) => country.name)
             .join(", ")}
           shortProduction={movieData.production_countries
-            .map((country) => country.iso_3166_1)}
+            .map((country) => country.iso_3166_1).join(" ")}
           yearFull={movieData.release_date ? `${movieData.release_date.split('-')[2]}.${movieData.release_date.split('-')[1]}.${movieData.release_date.split('-')[0]}` : ''}
           categories={movieData.genres.map((genre) => genre.name)}
           rate={movieData.vote_average || 0}
