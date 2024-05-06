@@ -276,8 +276,7 @@ export const Description = styled.div`
   font-weight: 400;
   grid-area: tekst;
 
-  @media (max-width: ${({ theme }) =>
-      theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     font-size: 16px;
   }
 
