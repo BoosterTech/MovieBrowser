@@ -116,7 +116,7 @@ const MovieDetails = () => {
           vote={movieData.vote_count || 0}
           description={movieData.overview}
         />
-        {movieData.credits.cast.length && (
+        {movieData.credits.cast.length > 0 && (
           <CastCrewWrapper>
             <Header>Cast</Header>
             <TilesContainer $persontile="true">
@@ -143,7 +143,7 @@ const MovieDetails = () => {
             </TilesContainer>
           </CastCrewWrapper>
         )}
-        {movieData.credits.crew.length && (
+        {movieData.credits.crew.length > 0 && (
           <CastCrewWrapper $second={`${true}`}>
             <Header>Crew</Header>
             <TilesContainer $persontile="true">
