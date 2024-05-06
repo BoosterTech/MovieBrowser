@@ -18,7 +18,7 @@ export const theme = {
   },
   breakpoints: {
     mobileUltraMin: 310,
-    mobileMin: 390,
+    mobileMin: 395,
     mobilePeopleMedium: 452,
     mobileMediumMin: 540,
     mobileMedium: 675,

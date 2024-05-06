@@ -10,8 +10,10 @@ export const DefaultImageWrapper = styled.div`
   border-radius: 5px;
   margin-top: 16px;
 
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 120px;
     height: 178px;
+    margin: 8px;
   }
 `;

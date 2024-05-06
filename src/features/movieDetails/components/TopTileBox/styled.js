@@ -95,6 +95,10 @@ export const Title = styled.h2`
     font-size: 30px;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMediumMin}px) {
+    font-size: 26px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     font-size: 24px;
   }

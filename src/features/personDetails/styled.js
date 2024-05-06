@@ -102,6 +102,20 @@ export const CastCrewWrapper = styled.div`
     margin: 24px 16px;
   }
 
+  @media(max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    padding-top: 20px;
+  }
+
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    margin-top: 21px;
+    padding-top: 10px;
+  }
+
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}px) {
+    margin-top: 40px;
+    padding-top: 25px;
+  }
+
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     margin-top: 21px;
   }

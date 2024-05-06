@@ -103,7 +103,7 @@ const MovieDetails = () => {
             .join(", ")}
           shortProduction={movieData.production_countries.map(
             (country) => country.iso_3166_1
-          )}
+          ).join(" ")}
           yearFull={
             movieData.release_date
               ? `${movieData.release_date.split("-")[2]}.${
