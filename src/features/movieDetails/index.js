@@ -101,9 +101,9 @@ const MovieDetails = () => {
           production={movieData.production_countries
             .map((country) => country.name)
             .join(", ")}
-          shortProduction={movieData.production_countries.map(
-            (country) => country.iso_3166_1
-          ).join(" ")}
+          shortProduction={movieData.production_countries
+            .map((country) => country.iso_3166_1)
+            .join(" ")}
           yearFull={
             movieData.release_date
               ? `${movieData.release_date.split("-")[2]}.${
@@ -118,7 +118,7 @@ const MovieDetails = () => {
         />
         {movieData.credits.cast.length > 0 && (
           <CastCrewWrapper>
-            <Header>Cast</Header>
+            <Header>Cast ({movieData.credits.cast.length})</Header>
             <TilesContainer $persontile="true">
               {movieData.credits.cast &&
                 movieData.credits.cast.map((castMember, index) => {
@@ -145,7 +145,7 @@ const MovieDetails = () => {
         )}
         {movieData.credits.crew.length > 0 && (
           <CastCrewWrapper $second={`${true}`}>
-            <Header>Crew</Header>
+            <Header>Crew ({movieData.credits.crew.length})</Header>
             <TilesContainer $persontile="true">
               {movieData.credits.crew &&
                 movieData.credits.crew.map((crewMember, index) => {
