@@ -29,7 +29,6 @@ export const TileWrapper = styled.div`
     min-height: 270px;
     padding: 0px;
     width: 150px;
-
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
