@@ -1,4 +1,4 @@
-import ImageDefaultPerson from "../../../../common/ImageDefaultPerson";
+import ImageDefaultPerson from "../ImageDefaultPerson";
 import { PersonName, TileImage, TileWrapper, PersonCharacter } from "./styled";
 
 export const PersonTile = ({ imageSrc, name, character }) => {
