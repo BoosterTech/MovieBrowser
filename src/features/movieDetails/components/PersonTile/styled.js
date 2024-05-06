@@ -48,6 +48,7 @@ export const TileImage = styled.img`
     max-width: 120px;
     max-height: 178px;
     margin: 8px;
+    
   }
 `;
 
