@@ -33,7 +33,7 @@ export const ContentWrapper = styled.section`
 
 export const ContentHeader = styled.h1`
   width: auto;
- height: auto;
+  height: auto;
   font-size: 36px;
   font-weight: 600;
   /* line-height: 43.2px; */

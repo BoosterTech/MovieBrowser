@@ -52,7 +52,6 @@ export const ContentWrapper = styled.section`
 `;
 
 export const ContentHeader = styled.h1`
- word-break: normal;
   width: auto;
   height: auto;
   font-size: 36px;
