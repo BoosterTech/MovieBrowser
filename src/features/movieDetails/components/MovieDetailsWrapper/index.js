@@ -59,7 +59,7 @@ export const MovieDetailsWrapper = ({
                     <Title>{title}</Title>
                     <Year>{yearShort}</Year>
                     <NameBlock>
-                        {windowWidth >= 390 ? (
+                        {windowWidth >= 395 ? (
                             <>
                                 <GreyName>Production:</GreyName>
                                 <DescriptionName>
@@ -71,7 +71,7 @@ export const MovieDetailsWrapper = ({
                                 {shortProduction}
                             </DescriptionName>
                         )}
-                        {windowWidth >= 390 ? (
+                        {windowWidth >= 395 ? (
                             <>
                                 <GreyName>Release date:</GreyName>
                             </>
@@ -88,7 +88,7 @@ export const MovieDetailsWrapper = ({
                     <VotesBlock>
                         <ImageSvg src={star} />
                         <VotesBlockScore>{rate.toFixed(1)}</VotesBlockScore>
-                        {windowWidth >= 390 ? (
+                        {windowWidth >= 395 ? (
                             <>
                                 <VotesBlockRest>/ 10</VotesBlockRest>
                             </>
