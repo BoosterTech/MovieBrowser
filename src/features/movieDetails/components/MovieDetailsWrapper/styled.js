@@ -28,7 +28,7 @@ export const Tile = styled.article`
     margin-bottom: 40px;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-        padding: 25px;
+        padding-bottom: 25px;
     }
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
@@ -153,6 +153,10 @@ export const GreyName = styled.p`
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 14px;
   }
+
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}px) {
+        font-size: 12px;
+  }
 `;
 
 export const YearBlock = styled.p`
@@ -162,6 +166,10 @@ export const YearBlock = styled.p`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 14px;
+  }
+
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}px) {
+        font-size: 13px;
   }
 `;
 
@@ -173,7 +181,10 @@ export const DescriptionName = styled.p`
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         font-size: 14px;
         margin-left: 0px;
+    }
 
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        font-size: 13px;
   }
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
@@ -220,11 +231,11 @@ export const Tag = styled.div`
 
 export const VotesBlock = styled.div`   
     display: grid;
-    grid-template-columns: 32px 34px 30px 24px 20px;
+    grid-template-columns: 32px 34px 30px 34px 20px;
     align-items: center;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        grid-template-columns: 32px 26px 30px 30px 36px;
+        grid-template-columns: 32px 26px 30px 36px 36px;
   }
 
   @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
@@ -283,6 +294,11 @@ export const Description = styled.div`
 
     @media(max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
         font-size: 14px;
+        margin-top: -20px;
+    }
+
+    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        margin-top: 0px;
     }
 
     @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
