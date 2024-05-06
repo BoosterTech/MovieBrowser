@@ -34,6 +34,7 @@ const POPULAR_MOVIES_TITLE = "Popular People";
 
 const PersonList = () => {
   const [peopleData, setPeopleData] = useState(null);
+  const [totalResults, setTotalResults] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
   const dispatch = useDispatch();
 
@@ -107,9 +108,11 @@ const PersonList = () => {
           throw new Error(responsePeople.statusText());
         }
 
-        const { results, total_pages } = await responsePeople.json();
+        const { results, total_pages, total_results } =
+          await responsePeople.json();
 
         setPeopleData(results);
+        setTotalResults(total_results);
         dispatch(setSearchMaxPageNr(total_pages));
         dispatch(setLoadingState("success"));
       } catch (error) {
@@ -139,7 +142,7 @@ const PersonList = () => {
           <ContentHeader>
             {!searchState || myQuery === null
               ? POPULAR_MOVIES_TITLE
-              : `${SEARCH_RESULTS_TITLE} "${myQuery}"`}
+              : `${SEARCH_RESULTS_TITLE} "${myQuery}" (${totalResults})`}
           </ContentHeader>
           <TilesWrapper>
             {peopleData &&

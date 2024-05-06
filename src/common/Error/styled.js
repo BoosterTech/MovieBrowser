@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { showin } from "../showin_animation";
 
 export const ErrorMessageWrapper = styled.div`
   display: flex;
@@ -9,6 +10,7 @@ export const ErrorMessageWrapper = styled.div`
   max-height: 201px;
   padding: 0;
   margin: 24px auto auto auto;
+  animation: ${showin} 1s ease;
 `;
 
 export const MessageHeader = styled.h1`
