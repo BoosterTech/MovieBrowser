@@ -22,7 +22,12 @@ import SearchPage from "../../common/SearchPage";
 import NoResultPage from "../../common/noResult";
 import ErrorPage from "../../common/Error";
 import useDebounce from "../../hooks/useDebounce";
-import { API_AUTHORIZATION, API_MOVIE_POPULAR_URL, DEFAULT_DEBOUNCE_TIME, SEARCH_RESULTS_TITLE } from "../../common/Global_Variables";
+import {
+  API_AUTHORIZATION,
+  API_MOVIE_POPULAR_URL,
+  DEFAULT_DEBOUNCE_TIME,
+  SEARCH_RESULTS_TITLE,
+} from "../../common/Global_Variables";
 
 const DEFAULT_PAGE_STATE = "movies";
 const POPULAR_MOVIES_TITLE = "Popular Movies";
@@ -31,6 +36,7 @@ const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
   const dispatch = useDispatch();
+  const [totalResults, setTotalResults] = useState(null);
 
   const moviePageNr = useSelector(selectSettingMoviePageNrValue);
   const pageState = useSelector(selectSettingPageStateValue);
@@ -102,9 +108,11 @@ const MovieListPage = () => {
           throw new Error("Response not OK");
         }
 
-        const { results, total_pages } = await responseMovies.json();
+        const { results, total_pages, total_results } =
+          await responseMovies.json();
 
         setMoviesData(results);
+        setTotalResults(total_results);
         dispatch(setSearchMaxPageNr(total_pages));
         dispatch(setLoadingState("success"));
       } catch (error) {
@@ -134,7 +142,7 @@ const MovieListPage = () => {
           <ContentHeader>
             {!searchState || myQuery === null
               ? POPULAR_MOVIES_TITLE
-              : `${SEARCH_RESULTS_TITLE} "${myQuery}"`}
+              : `${SEARCH_RESULTS_TITLE} "${myQuery}" (${totalResults})`}
           </ContentHeader>
           <TilesContainer>
             {moviesData &&
