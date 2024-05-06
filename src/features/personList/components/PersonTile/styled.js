@@ -37,6 +37,7 @@ export const TileImage = styled.img`
   margin-top: 16px;
   margin-bottom: 0;
   border-radius: 5px;
+  object-fit: cover;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 120px;

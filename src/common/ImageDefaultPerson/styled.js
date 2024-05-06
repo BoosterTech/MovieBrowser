@@ -8,12 +8,11 @@ export const DefaultImageWrapper = styled.div`
   width: 176px;
   height: 231px;
   border-radius: 5px;
-  margin-top: 16px;
   margin-bottom: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 120px;
-    min-height: 178px;
+    height: 178px;
     margin: 8px;
     margin-bottom: 12px;
   }

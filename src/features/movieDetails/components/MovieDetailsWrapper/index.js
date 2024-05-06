@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import star from "../../../../assets/images/star.svg";
 
 import {
@@ -20,12 +21,14 @@ import {
     YearBlock,
 } from "./styled";
 
+
 export const MovieDetailsWrapper = ({
 
     imageSrc,
     title,
     yearShort,
     production,
+    shortProduction,
     yearFull,
     categories,
     rate,
@@ -33,6 +36,21 @@ export const MovieDetailsWrapper = ({
     description,
 
 }) => {
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
     return (
         <Wrapper>
             <Tile>
@@ -41,11 +59,25 @@ export const MovieDetailsWrapper = ({
                     <Title>{title}</Title>
                     <Year>{yearShort}</Year>
                     <NameBlock>
-                        <GreyName>Production:</GreyName>
-                        <DescriptionName>
-                            {production}
-                        </DescriptionName>
-                        <GreyName>Release date:</GreyName>
+                        {windowWidth >= 390 ? (
+                            <>
+                                <GreyName>Production:</GreyName>
+                                <DescriptionName>
+                                    {production}
+                                </DescriptionName>
+                            </>
+                        ) : (
+                            <DescriptionName>
+                                {shortProduction}
+                            </DescriptionName>
+                        )}
+                        {windowWidth >= 390 ? (
+                            <>
+                                <GreyName>Release date:</GreyName>
+                            </>
+                        ) : (
+                            ""
+                        )}
                         <YearBlock>{yearFull}</YearBlock>
                     </NameBlock>
                     <Tags>
@@ -56,13 +88,20 @@ export const MovieDetailsWrapper = ({
                     <VotesBlock>
                         <ImageSvg src={star} />
                         <VotesBlockScore>{rate.toFixed(1)}</VotesBlockScore>
-                        <VotesBlockRest>/ 10</VotesBlockRest>
-                        <VotesBlockRest>{vote} votes</VotesBlockRest>
+                        {windowWidth >= 390 ? (
+                            <>
+                                <VotesBlockRest>/ 10</VotesBlockRest>
+                            </>
+                        ) : (
+                            ""
+                        )}
+                        <VotesBlockRest>{vote}</VotesBlockRest>
+                        <VotesBlockRest>votes</VotesBlockRest>
                     </VotesBlock>
-                    <Description>
-                        {description}
-                    </Description>
                 </Content>
+                <Description>
+                    {description}
+                </Description>
             </Tile>
         </Wrapper>
     )

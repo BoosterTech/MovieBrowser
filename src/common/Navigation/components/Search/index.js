@@ -6,7 +6,7 @@ import {
   setPageNr,
   setSearchState,
 } from "../../../../Redux_store/settingSlice";
-import { Input, SearchWrapper } from "../../styled";
+import { Input } from "../../styled";
 import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
 import searchQueryParamName from "./searchQueryParamName";
 import { useDispatch, useSelector } from "react-redux";
@@ -53,7 +53,7 @@ const Search = () => {
   };
 
   return (
-    <SearchWrapper>
+    <>
       <Input
         type="text"
         placeholder={
@@ -64,7 +64,7 @@ const Search = () => {
         onChange={onInputChange}
         value={query || ""}
       />
-    </SearchWrapper>
+    </>
   );
 };
 
