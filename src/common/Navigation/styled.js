@@ -44,6 +44,11 @@ export const StyledItems = styled.div`
   padding-left: 10px;
   justify-content: center;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
+    grid-gap: 60px;
+    padding-left: 30px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     grid-gap: 60px;
     padding-left: 30px;
