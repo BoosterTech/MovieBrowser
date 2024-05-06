@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { showin } from "../showin_animation";
 
 export const MessageParagraph = styled.h1`
   width: auto;
@@ -11,6 +12,7 @@ export const MessageParagraph = styled.h1`
   margin: 0;
   margin-bottom: 24px;
   padding: 0;
+  animation: ${showin} 1s ease;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 18px;
