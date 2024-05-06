@@ -15,7 +15,7 @@ import { TilesContainer } from "./styled";
 import { PersonTile } from "./components/PersonTile";
 import { TopTileBox } from "./components/TopTileBox";
 import { MovieDetailsWrapper } from "./components/MovieDetailsWrapper";
-import { backdropURL } from "../../common/Global_Variables";
+import { IMAGE_BASE_URL, backdropURL } from "../../common/Global_Variables";
 
 import searchQueryParamName from "../../common/Navigation/components/Search/searchQueryParamName";
 import ErrorPage from "../../common/Error";
@@ -93,7 +93,7 @@ const MovieDetails = () => {
         <MovieDetailsWrapper
           imageSrc={
             movieData.poster_path
-              ? `https://image.tmdb.org/t/p/w500${movieData.poster_path}`
+              ? `${IMAGE_BASE_URL}${movieData.poster_path}`
               : null
           }
           title={movieData.original_title}
@@ -131,7 +131,7 @@ const MovieDetails = () => {
                       <PersonTile
                         imageSrc={
                           castMember.profile_path
-                            ? `https://image.tmdb.org/t/p/w500${castMember.profile_path}`
+                            ? `${IMAGE_BASE_URL}${castMember.profile_path}`
                             : null
                         }
                         character={castMember.character}
