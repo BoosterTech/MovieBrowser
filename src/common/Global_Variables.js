@@ -9,3 +9,5 @@ export const URLImages = "https://image.tmdb.org/t/p/";
 export const backdropURL = `${URLImages}w1920_and_h800_multi_faces`;
 export const DEFAULT_DEBOUNCE_TIME = 500;
 export const SEARCH_RESULTS_TITLE = "Search Results for";
+export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
+
