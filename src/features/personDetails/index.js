@@ -172,7 +172,7 @@ const ProfileDetails = () => {
           </TopTileWrapper>
         </ForDesktop>
 
-        {profileData.movie_credits.cast.length && (
+        {profileData.movie_credits.cast.length > 0 && (
           <CastCrewWrapper>
             <Header>
               Movies - cast ({profileData.movie_credits.cast.length})
@@ -216,7 +216,7 @@ const ProfileDetails = () => {
           </CastCrewWrapper>
         )}
 
-        {profileData.movie_credits.crew.length && (
+        {profileData.movie_credits.crew.length > 0 && (
           <CastCrewWrapper $second={`${true}`}>
             <Header>
               Movies - crew ({profileData.movie_credits.crew.length})
