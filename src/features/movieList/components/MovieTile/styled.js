@@ -34,7 +34,7 @@ export const MovieTileWrapper = styled.div`
     margin: auto;
     width: 256px;
     max-width: 294px;
-    height: 210px;
+    align-items: start;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
@@ -111,8 +111,7 @@ export const MovieYear = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 13px;
-    line-height: 16.9px;
-    height: 17px;
+    margin: 8px 0 0 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {

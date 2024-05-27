@@ -11,6 +11,7 @@ export const TileWrapper = styled.div`
   padding: 16px;
   border-radius: 5px;
   color: ${({ theme }) => theme.color.Black};
+  background-color: ${({ theme }) => theme.color.White};
   box-shadow: 0px 4px 12px 0px ${({ theme }) => theme.color.Heather};
   animation: ${showin} 1s ease;
   transition: all 0.5s ease;

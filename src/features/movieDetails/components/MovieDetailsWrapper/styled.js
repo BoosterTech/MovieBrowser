@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   max-width: 1368px;
   height: auto;
   margin: 64px auto 0 auto;
+  box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     margin: 16px auto;
@@ -19,12 +20,12 @@ export const Tile = styled.article`
   padding: 40px;
   box-shadow: 0px 4px 12px ${({ theme }) => theme.color.Heather};
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 312px 1fr;
+  grid-template-rows: auto 1fr;
   grid-template-areas:
     "image data"
-    "image data"
     "image tekst";
-  grid-gap: 40px;
+  grid-gap: 20px 40px;
 
     @media(max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
         padding-bottom: 25px;

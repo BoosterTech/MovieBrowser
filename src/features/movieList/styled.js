@@ -36,7 +36,6 @@ export const ContentHeader = styled.h1`
   height: auto;
   font-size: 36px;
   font-weight: 600;
-  /* line-height: 43.2px; */
   text-align: left;
   color: ${({ theme }) => theme.color.Woodsmoke};
   margin: 0;
@@ -82,9 +81,10 @@ export const TilesContainer = styled.div`
     display: grid;
     justify-content: center;
     margin: 10px 84px;
+    
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
     grid-template-columns: 1fr;
     display: grid;
     justify-content: center;
