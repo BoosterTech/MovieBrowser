@@ -6,7 +6,7 @@ import {
   API_PEOPLE_POPULAR_URL,
   DEFAULT_DEBOUNCE_TIME,
   SEARCH_RESULTS_TITLE,
-} from "../../common/Global_Variables";
+} from "../../common/globalVariables";
 import { useDispatch, useSelector } from "react-redux";
 import { LoadingSpinner } from "../../common/Loader";
 import {

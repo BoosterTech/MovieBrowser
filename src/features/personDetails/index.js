@@ -35,7 +35,7 @@ import ImageProfile from "./DefaultImage";
 import { toMovieDetails } from "../../routes";
 import searchQueryParamName from "../../common/Navigation/components/Search/searchQueryParamName";
 import ErrorPage from "../../common/Error";
-import { API_AUTHORIZATION } from "../../common/Global_Variables";
+import { API_AUTHORIZATION } from "../../common/globalVariables";
 
 const ProfileDetails = () => {
   const [profileData, setProfileData] = useState(null);

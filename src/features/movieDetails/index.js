@@ -15,7 +15,7 @@ import { TilesContainer } from "./styled";
 import { PersonTile } from "./components/PersonTile";
 import { TopTileBox } from "./components/TopTileBox";
 import { MovieDetailsWrapper } from "./components/MovieDetailsWrapper";
-import { IMAGE_BASE_URL, backdropURL } from "../../common/Global_Variables";
+import { IMAGE_BASE_URL, backdropURL } from "../../common/globalVariables";
 
 import searchQueryParamName from "../../common/Navigation/components/Search/searchQueryParamName";
 import ErrorPage from "../../common/Error";

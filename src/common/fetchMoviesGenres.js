@@ -1,4 +1,4 @@
-import { API_AUTHORIZATION } from "./Global_Variables";
+import { API_AUTHORIZATION } from "./globalVariables";
 
 const fetchMovieGenres = async () => {
   try {

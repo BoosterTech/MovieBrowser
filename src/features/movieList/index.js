@@ -27,7 +27,7 @@ import {
   API_MOVIE_POPULAR_URL,
   DEFAULT_DEBOUNCE_TIME,
   SEARCH_RESULTS_TITLE,
-} from "../../common/Global_Variables";
+} from "../../common/globalVariables";
 import { movieGenres_ids } from "../../common/fetchMoviesGenres";
 const DEFAULT_PAGE_STATE = "movies";
 const POPULAR_MOVIES_TITLE = "Popular Movies";
