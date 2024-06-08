@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { showin } from "../../common/showin_animation";
+import { showin } from "../../common/componentsDisplayAnimation";
 
 export const TopTileWrapper = styled.div`
   display: flex;

@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { showin } from "../showin_animation";
+import { showin } from "../componentsDisplayAnimation";
 
 export const MessageParagraph = styled.h1`
   width: auto;
