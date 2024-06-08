@@ -3,7 +3,7 @@ import { LoadingSpinner } from "../../common/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import MovieTile from "./components/MovieTile";
 import { useEffect, useState } from "react";
-import { moviesGenres_ids } from "../../common/moviesGenre_ids";
+
 import {
   selectSettingLoadingValue,
   selectSettingPageStateValue,
@@ -28,13 +28,15 @@ import {
   DEFAULT_DEBOUNCE_TIME,
   SEARCH_RESULTS_TITLE,
 } from "../../common/Global_Variables";
-
+import { movieGenres_ids } from "../../common/fetchMoviesGenres";
 const DEFAULT_PAGE_STATE = "movies";
 const POPULAR_MOVIES_TITLE = "Popular Movies";
 
 const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
+  const [Genres, setGenres] = useState({});
+
   const dispatch = useDispatch();
   const [totalResults, setTotalResults] = useState(null);
 
@@ -49,6 +51,10 @@ const MovieListPage = () => {
   const myQuery = new URLSearchParams(location.search).get(
     searchQueryParamName
   );
+
+  useEffect(() => {
+    movieGenres_ids.then((genres) => setGenres(genres));
+  }, []);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search).get("page");
@@ -147,9 +153,7 @@ const MovieListPage = () => {
           <TilesContainer>
             {moviesData &&
               moviesData.map((movie) => {
-                const movieGenres = movie.genre_ids.map(
-                  (id) => moviesGenres_ids[id]
-                );
+                const movieGenres = movie.genre_ids.map((id) => Genres[id]);
                 return (
                   <NavLink
                     to={toMovieDetails({ id: movie.id })}
