@@ -29,7 +29,7 @@ import {
 import MovieTile from "../movieList/components/MovieTile";
 import { TilesContainer } from "../movieList/styled";
 import { LoadingSpinner } from "../../common/Loader";
-import { moviesGenres_ids } from "../../common/moviesGenre_ids";
+import { movieGenres_ids } from "../../common/fetchMoviesGenres";
 import { NavLink, useHistory, useLocation, useParams } from "react-router-dom";
 import ImageProfile from "./DefaultImage";
 import { toMovieDetails } from "../../routes";
@@ -38,17 +38,24 @@ import ErrorPage from "../../common/Error";
 import { API_AUTHORIZATION } from "../../common/Global_Variables";
 
 const ProfileDetails = () => {
-  const { id } = useParams();
   const [profileData, setProfileData] = useState(null);
+  const [genres, setGenres] = useState({});
+
   const loadingState = useSelector(selectSettingLoadingValue);
   const searchState = useSelector(selectSettingSearchValue);
   const personPageNr = useSelector(selectSettingPeoplePageNrValue);
+  const dispatch = useDispatch();
+
   const history = useHistory();
   const location = useLocation();
+  const { id } = useParams();
   const myQuery = new URLSearchParams(location.search).get(
     searchQueryParamName
   );
-  const dispatch = useDispatch();
+
+  useEffect(() => {
+    movieGenres_ids.then((genres) => setGenres(genres));
+  }, []);
 
   useEffect(() => {
     if (searchState && myQuery !== null) {
@@ -181,7 +188,7 @@ const ProfileDetails = () => {
               {profileData.movie_credits.cast &&
                 profileData.movie_credits.cast.map((castMember) => {
                   const movieGenres = castMember.genre_ids
-                    ? castMember.genre_ids.map((id) => moviesGenres_ids[id])
+                    ? castMember.genre_ids.map((id) => genres[id])
                     : [];
                   return (
                     <NavLink
@@ -225,7 +232,7 @@ const ProfileDetails = () => {
               {profileData.movie_credits.crew &&
                 profileData.movie_credits.crew.map((crewMember) => {
                   const movieGenres = crewMember.genre_ids
-                    ? crewMember.genre_ids.map((id) => moviesGenres_ids[id])
+                    ? crewMember.genre_ids.map((id) => genres[id])
                     : [];
                   return (
                     <NavLink
