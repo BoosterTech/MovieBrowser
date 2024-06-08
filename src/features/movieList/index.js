@@ -24,7 +24,7 @@ import ErrorPage from "../../common/Error";
 import useDebounce from "../../hooks/useDebounce";
 import {
   API_AUTHORIZATION,
-  API_MOVIE_POPULAR_URL,
+  ApiPopularMovies,
   DEFAULT_DEBOUNCE_TIME,
   SEARCH_RESULTS_TITLE,
 } from "../../common/globalVariables";
@@ -53,7 +53,7 @@ const MovieListPage = () => {
   );
 
   useEffect(() => {
-    movieGenres_ids.then((genres) => setGenres(genres));
+    movieGenres_ids.then((result) => setGenres(result));
   }, []);
 
   useEffect(() => {
@@ -101,7 +101,7 @@ const MovieListPage = () => {
         const responseMovies = await fetch(
           searchState && debouncedQuery !== null
             ? `https://api.themoviedb.org/3/search/movie?query=${myQuery}&include_adult=false&language=en-US&page=${searchPageNr}`
-            : `${API_MOVIE_POPULAR_URL}${moviePageNr}`,
+            : `${ApiPopularMovies}${moviePageNr}`,
           {
             headers: {
               Authorization: API_AUTHORIZATION,
