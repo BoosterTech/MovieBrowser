@@ -29,10 +29,14 @@ export const TopTileBox = ({ imageSrc, title, rate, vote, trailerKey }) => {
       <Poster $background={imageSrc} alt={title}>
         <GradientCover />
         <Vignette />
-        <TrailerButton onClick={handleTrailerPlay} $display={trailerOpen}>
-          {trailerOpen ? "❌" : "Watch Trailer "}
-        </TrailerButton>
-        {trailerOpen ? (
+        {trailerKey.length !== 0 ? (
+          <TrailerButton onClick={handleTrailerPlay} $display={trailerOpen}>
+            {trailerOpen ? "❌" : "Watch Trailer "}
+          </TrailerButton>
+        ) : (
+          ""
+        )}
+        {trailerOpen && trailerKey.length !== 0 ? (
           <TrailerPlayer
             $show={trailerOpen}
             url={`https://www.youtube.com/embed/${trailerKey}?autoplay=1`}
