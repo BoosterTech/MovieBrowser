@@ -16,16 +16,16 @@ export const Poster = styled.div`
   background-repeat: no-repeat;
   background-position: center;
 `;
-export const WatchTrailerButton = styled.button`
+export const TrailerButton = styled.button`
   position: absolute;
-  top: 76%;
-  left: 60%;
+  top: 0%;
+  left: 50%;
   padding: 5px 10px;
   border-radius: 25px;
   z-index: 100;
   background: transparent;
   color: white;
-  border: 1px solid white;
+  border: 1px solid transparent;
   transform: translate(-50%, -50%);
   transition: all 0.3s ease;
 
@@ -36,58 +36,33 @@ export const WatchTrailerButton = styled.button`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
-    font-size: 0.9rem;
-    padding: 2px 5px;
-    max-width: 180px;
-    width: 120px;
-    top: 76%;
-    left: 80%;
+ 
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-    font-size: 0.8rem;
-    padding: 1px 5px;
-    max-width: 180px;
-    width: 100px;
-    top: 44%;
-    left: 50%;
+  
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    font-size: 0.7rem;
-    padding: 1px 5px;
-    max-width: 180px;
-    width: 100px;
-    top: 42%;
-    left: 50%;
+    
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
-    font-size: 0.7rem;
-    padding: 1px 5px;
-    max-width: 180px;
-    width: 100px;
-    top: 45.5%;
-    left: 50%;
+    
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
-    font-size: 0.7rem;
-    padding: 1px 5px;
-    max-width: 180px;
-    width: 100px;
-    top: 61%;
-    left: 50%;
+  padding: 2px;
   }
 `;
 
-export const CloseTrailerButton = styled(WatchTrailerButton)`
-  border: none;
-  top: 8%;
-  left: 50%;
-  padding: 10px;
-  display: ${({ $display }) => ($display ? "block" : "none")};
-`;
+// export const CloseTrailerButton = styled(WatchTrailerButton)`
+//   border: none;
+//   top: 8%;
+//   left: 50%;
+//   padding: 10px;
+//   display: ${({ $display }) => ($display ? "block" : "none")};
+// `;
 
 export const TrailerPlayer = styled(ReactPlayer)`
   opacity: 0;
