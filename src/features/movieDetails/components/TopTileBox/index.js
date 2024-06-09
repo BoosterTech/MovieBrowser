@@ -14,19 +14,14 @@ import {
   VoteContainer,
   ScoreLimit,
   TrailerPlayer,
-  WatchTrailerButton,
-  CloseTrailerButton,
+  TrailerButton,
 } from "./styled";
 
 export const TopTileBox = ({ imageSrc, title, rate, vote, trailerKey }) => {
   const [trailerOpen, setTrailerOpen] = useState(false);
 
-  const handleTrailerOpen = () => {
+  const handleTrailerPlay = () => {
     trailerOpen ? setTrailerOpen(false) : setTrailerOpen(true);
-  };
-
-  const handleTrailerClose = () => {
-    setTrailerOpen(false);
   };
 
   return (
@@ -34,9 +29,9 @@ export const TopTileBox = ({ imageSrc, title, rate, vote, trailerKey }) => {
       <Poster $background={imageSrc} alt={title}>
         <GradientCover />
         <Vignette />
-        <CloseTrailerButton onClick={handleTrailerClose} $display={trailerOpen}>
-          ❌{" "}
-        </CloseTrailerButton>
+        <TrailerButton onClick={handleTrailerPlay} $display={trailerOpen}>
+          {trailerOpen ? "❌" : "Watch Trailer "}
+        </TrailerButton>
         {trailerOpen ? (
           <TrailerPlayer
             $show={trailerOpen}
@@ -54,12 +49,6 @@ export const TopTileBox = ({ imageSrc, title, rate, vote, trailerKey }) => {
           />
         ) : (
           <TitleWrapper>
-            <WatchTrailerButton
-              onClick={handleTrailerOpen}
-              $position={trailerOpen}
-            >
-              Watch Trailer
-            </WatchTrailerButton>
             <Title>{title}</Title>
             <RatingWrapper>
               <IconStar as={Star} />
