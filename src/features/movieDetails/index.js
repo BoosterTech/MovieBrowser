@@ -21,14 +21,17 @@ import searchQueryParamName from "../../common/Navigation/components/Search/sear
 import ErrorPage from "../../common/Error";
 
 const MovieDetails = () => {
-  const { id } = useParams();
   const [movieData, setMovieData] = useState(null);
+  const [trailerKey, setTrailerKey] = useState(null);
+
   const loadingState = useSelector(selectSettingLoadingValue);
   const searchState = useSelector(selectSettingSearchValue);
   const moviePageNr = useSelector(selectSettingMoviePageNrValue);
-  const history = useHistory();
   const dispatch = useDispatch();
+
+  const history = useHistory();
   const location = useLocation();
+  const { id } = useParams();
   const myQuery = new URLSearchParams(location.search).get(
     searchQueryParamName
   );
@@ -47,7 +50,7 @@ const MovieDetails = () => {
     const fetchMovie = async () => {
       try {
         const responseMovie = await fetch(
-          `https://api.themoviedb.org/3/movie/${id}?append_to_response=credits&language=en-US`,
+          `https://api.themoviedb.org/3/movie/${id}?append_to_response=credits%2Cvideos&language=en-US`,
           {
             method: "GET",
             headers: {
@@ -65,6 +68,18 @@ const MovieDetails = () => {
         const result = await responseMovie.json();
         dispatch(setLoadingState("success"));
         setMovieData(result);
+        setTrailerKey(
+          result.videos.results
+            .filter((video) => video.name === "Official Trailer")
+            .map((video) => video.key)
+        );
+
+        console.log(
+          "Video Id:",
+          result.videos.results
+            .filter((video) => video.name === "Official Trailer")
+            .map((video) => video.key)
+        );
       } catch (error) {
         dispatch(setLoadingState("error"));
         console.error("Error fetching movie details:", error);
@@ -88,6 +103,7 @@ const MovieDetails = () => {
             rate={movieData.vote_average || 0}
             vote={movieData.vote_count || 0}
             imageSrc={`${backdropURL}${movieData.backdrop_path}`}
+            trailerKey={trailerKey}
           />
         ) : null}
         <MovieDetailsWrapper
