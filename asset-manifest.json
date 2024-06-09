@@ -1,7 +1,21 @@
 {
   "files": {
-    "main.js": "/MovieBrowser/static/js/main.fbcd9493.js",
-    "static/js/453.11d5da13.chunk.js": "/MovieBrowser/static/js/453.11d5da13.chunk.js",
+    "main.js": "/MovieBrowser/static/js/main.c298320b.js",
+    "static/js/453.5c53b3d1.chunk.js": "/MovieBrowser/static/js/453.5c53b3d1.chunk.js",
+    "reactPlayerYouTube.js": "/MovieBrowser/static/js/reactPlayerYouTube.174fd81c.chunk.js",
+    "reactPlayerSoundCloud.js": "/MovieBrowser/static/js/reactPlayerSoundCloud.02ffa02e.chunk.js",
+    "reactPlayerVimeo.js": "/MovieBrowser/static/js/reactPlayerVimeo.02057130.chunk.js",
+    "reactPlayerMux.js": "/MovieBrowser/static/js/reactPlayerMux.b2b0beef.chunk.js",
+    "reactPlayerFacebook.js": "/MovieBrowser/static/js/reactPlayerFacebook.0cd3540e.chunk.js",
+    "reactPlayerStreamable.js": "/MovieBrowser/static/js/reactPlayerStreamable.b3337a7c.chunk.js",
+    "reactPlayerWistia.js": "/MovieBrowser/static/js/reactPlayerWistia.b4a8edf8.chunk.js",
+    "reactPlayerTwitch.js": "/MovieBrowser/static/js/reactPlayerTwitch.fbc37617.chunk.js",
+    "reactPlayerDailyMotion.js": "/MovieBrowser/static/js/reactPlayerDailyMotion.20c7a98d.chunk.js",
+    "reactPlayerMixcloud.js": "/MovieBrowser/static/js/reactPlayerMixcloud.60bcc5ad.chunk.js",
+    "reactPlayerVidyard.js": "/MovieBrowser/static/js/reactPlayerVidyard.78139a94.chunk.js",
+    "reactPlayerKaltura.js": "/MovieBrowser/static/js/reactPlayerKaltura.43f4d3e1.chunk.js",
+    "reactPlayerFilePlayer.js": "/MovieBrowser/static/js/reactPlayerFilePlayer.97bfa3e4.chunk.js",
+    "reactPlayerPreview.js": "/MovieBrowser/static/js/reactPlayerPreview.25bba8b1.chunk.js",
     "static/media/backdrop-vignette.svg": "/MovieBrowser/static/media/backdrop-vignette.1174004df10cb645cdd9797e05571696.svg",
     "static/media/star.svg": "/MovieBrowser/static/media/star.4f2011363333ab2b47242d91b179296c.svg",
     "index.html": "/MovieBrowser/index.html",
@@ -10,10 +24,24 @@
     "static/media/Vector1.svg": "/MovieBrowser/static/media/Vector1.95a980d03aa24878b4b68139a4fd2714.svg",
     "static/media/defaultIcon.svg": "/MovieBrowser/static/media/defaultIcon.1cc0505b0a0d4e169ed9d9305ea585bc.svg",
     "static/media/SearchIcon.svg": "/MovieBrowser/static/media/SearchIcon.8424b78946fdf221ba6a49ce59ed3b45.svg",
-    "main.fbcd9493.js.map": "/MovieBrowser/static/js/main.fbcd9493.js.map",
-    "453.11d5da13.chunk.js.map": "/MovieBrowser/static/js/453.11d5da13.chunk.js.map"
+    "main.c298320b.js.map": "/MovieBrowser/static/js/main.c298320b.js.map",
+    "453.5c53b3d1.chunk.js.map": "/MovieBrowser/static/js/453.5c53b3d1.chunk.js.map",
+    "reactPlayerYouTube.174fd81c.chunk.js.map": "/MovieBrowser/static/js/reactPlayerYouTube.174fd81c.chunk.js.map",
+    "reactPlayerSoundCloud.02ffa02e.chunk.js.map": "/MovieBrowser/static/js/reactPlayerSoundCloud.02ffa02e.chunk.js.map",
+    "reactPlayerVimeo.02057130.chunk.js.map": "/MovieBrowser/static/js/reactPlayerVimeo.02057130.chunk.js.map",
+    "reactPlayerMux.b2b0beef.chunk.js.map": "/MovieBrowser/static/js/reactPlayerMux.b2b0beef.chunk.js.map",
+    "reactPlayerFacebook.0cd3540e.chunk.js.map": "/MovieBrowser/static/js/reactPlayerFacebook.0cd3540e.chunk.js.map",
+    "reactPlayerStreamable.b3337a7c.chunk.js.map": "/MovieBrowser/static/js/reactPlayerStreamable.b3337a7c.chunk.js.map",
+    "reactPlayerWistia.b4a8edf8.chunk.js.map": "/MovieBrowser/static/js/reactPlayerWistia.b4a8edf8.chunk.js.map",
+    "reactPlayerTwitch.fbc37617.chunk.js.map": "/MovieBrowser/static/js/reactPlayerTwitch.fbc37617.chunk.js.map",
+    "reactPlayerDailyMotion.20c7a98d.chunk.js.map": "/MovieBrowser/static/js/reactPlayerDailyMotion.20c7a98d.chunk.js.map",
+    "reactPlayerMixcloud.60bcc5ad.chunk.js.map": "/MovieBrowser/static/js/reactPlayerMixcloud.60bcc5ad.chunk.js.map",
+    "reactPlayerVidyard.78139a94.chunk.js.map": "/MovieBrowser/static/js/reactPlayerVidyard.78139a94.chunk.js.map",
+    "reactPlayerKaltura.43f4d3e1.chunk.js.map": "/MovieBrowser/static/js/reactPlayerKaltura.43f4d3e1.chunk.js.map",
+    "reactPlayerFilePlayer.97bfa3e4.chunk.js.map": "/MovieBrowser/static/js/reactPlayerFilePlayer.97bfa3e4.chunk.js.map",
+    "reactPlayerPreview.25bba8b1.chunk.js.map": "/MovieBrowser/static/js/reactPlayerPreview.25bba8b1.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.fbcd9493.js"
+    "static/js/main.c298320b.js"
   ]
 }
