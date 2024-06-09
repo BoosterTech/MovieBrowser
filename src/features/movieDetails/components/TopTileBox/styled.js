@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import {ReactComponent as VignetteSVG} from "../../../../assets/images/backdrop-vignette.svg";
+import { ReactComponent as VignetteSVG } from "../../../../assets/images/backdrop-vignette.svg";
+import ReactPlayer from "react-player";
 
 export const PosterContainer = styled.section`
   background-color: ${({ theme }) => theme.color.Black};
@@ -14,6 +15,90 @@ export const Poster = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+`;
+export const WatchTrailerButton = styled.button`
+  position: absolute;
+  top: 76%;
+  left: 60%;
+  padding: 5px 10px;
+  border-radius: 25px;
+  z-index: 100;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    color: ${({ theme }) => theme.color.Gray};
+    border: 1px solid white;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+    font-size: 0.9rem;
+    padding: 2px 5px;
+    max-width: 180px;
+    width: 120px;
+    top: 76%;
+    left: 80%;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+    font-size: 0.8rem;
+    padding: 1px 5px;
+    max-width: 180px;
+    width: 100px;
+    top: 44%;
+    left: 50%;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    font-size: 0.7rem;
+    padding: 1px 5px;
+    max-width: 180px;
+    width: 100px;
+    top: 42%;
+    left: 50%;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+    font-size: 0.7rem;
+    padding: 1px 5px;
+    max-width: 180px;
+    width: 100px;
+    top: 45.5%;
+    left: 50%;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    font-size: 0.7rem;
+    padding: 1px 5px;
+    max-width: 180px;
+    width: 100px;
+    top: 61%;
+    left: 50%;
+  }
+`;
+
+export const CloseTrailerButton = styled(WatchTrailerButton)`
+  border: none;
+  top: 8%;
+  left: 50%;
+  padding: 10px;
+  display: ${({ $display }) => ($display ? "block" : "none")};
+`;
+
+export const TrailerPlayer = styled(ReactPlayer)`
+  opacity: 0;
+  transition: all 5s;
+
+  ${(props) =>
+    props.$show &&
+    ` 
+      opacity:1;
+      display: block;
+    `}
 `;
 
 export const GradientCover = styled.div`
@@ -83,7 +168,8 @@ export const Title = styled.h2`
   font-size: 64px;
   margin-bottom: 4px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) =>
+      theme.breakpoints.tabletHorizontalMax}px) {
     font-size: 50px;
   }
 
@@ -120,13 +206,13 @@ export const IconStar = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
     width: 35px;
-    height: 33px;  
-}
+    height: 33px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     width: 27px;
-    height: 24px;  
-}
+    height: 24px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
     width: 20px;
@@ -185,18 +271,15 @@ export const ScoreLimit = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
     font-size: 15px;
     padding-top: 8px;
-
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
     font-size: 12px;
     padding-top: 6px;
-
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     font-size: 10px;
     padding-top: 3px;
-
   }
 `;
