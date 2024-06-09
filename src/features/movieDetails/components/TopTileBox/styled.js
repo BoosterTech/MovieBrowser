@@ -168,8 +168,7 @@ export const Title = styled.h2`
   font-size: 64px;
   margin-bottom: 4px;
 
-  @media (max-width: ${({ theme }) =>
-      theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     font-size: 50px;
   }
 
