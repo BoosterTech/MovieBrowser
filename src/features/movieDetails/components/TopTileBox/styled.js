@@ -32,7 +32,7 @@ export const TrailerButton = styled.button`
   &:hover {
     cursor: pointer;
     color: ${({ theme }) => theme.color.Gray};
-    border: 1px solid white;
+    /* border: 1px solid white; */
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
