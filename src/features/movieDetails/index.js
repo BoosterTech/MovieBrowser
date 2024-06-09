@@ -73,13 +73,6 @@ const MovieDetails = () => {
             .filter((video) => video.name === "Official Trailer")
             .map((video) => video.key)
         );
-
-        console.log(
-          "Video Id:",
-          result.videos.results
-            .filter((video) => video.name === "Official Trailer")
-            .map((video) => video.key)
-        );
       } catch (error) {
         dispatch(setLoadingState("error"));
         console.error("Error fetching movie details:", error);
