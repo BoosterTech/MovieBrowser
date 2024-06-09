@@ -21,19 +21,9 @@ import searchQueryParamName from "../../common/Navigation/components/Search/sear
 import ErrorPage from "../../common/Error";
 
 const searchTrailer = (data) => {
-  const officialTrailerKeys = data
-    .filter(
-      (video) =>
-        video.name.includes("Official") && video.name.includes("Trailer")
-    )
+  const trailerKeys = data
+    .filter((video) => video.type === "Trailer")
     .map((video) => video.key);
-
-  const trailerKeys =
-    officialTrailerKeys.length === 0
-      ? data
-          .filter((video) => video.name.includes("Trailer"))
-          .map((video) => video.key)
-      : officialTrailerKeys;
 
   return trailerKeys;
 };
