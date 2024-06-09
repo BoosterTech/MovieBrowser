@@ -39,7 +39,7 @@ export const TrailerButton = styled.button`
     }
   }
 
-  @media (max-width: ${({ theme }) =>
+  /* @media (max-width: ${({ theme }) =>
       theme.breakpoints.tabletHorizontalMax}px) {
   }
 
@@ -53,8 +53,8 @@ export const TrailerButton = styled.button`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
-    padding: 2px;
-  }
+
+  } */
 `;
 
 export const TrailerPlayer = styled(ReactPlayer)`
