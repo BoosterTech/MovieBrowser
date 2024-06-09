@@ -18,8 +18,8 @@ export const Poster = styled.div`
 `;
 export const TrailerButton = styled.button`
   position: absolute;
-  top: 5%;
-  left: ${({ $display }) => ($display ? "3%" : "50%")};
+  top: 8%;
+  left: 50%;
   padding: 5px 10px;
   border-radius: 25px;
   z-index: 100;
@@ -109,7 +109,8 @@ export const TitleWrapper = styled.div`
   padding: 0 16px;
   padding-bottom: 56px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) =>
+      theme.breakpoints.tabletHorizontalMax}px) {
     padding: 0 0 46px 16px;
   }
 
@@ -135,7 +136,8 @@ export const Title = styled.h2`
   font-size: 64px;
   margin-bottom: 4px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) =>
+      theme.breakpoints.tabletHorizontalMax}px) {
     font-size: 50px;
   }
 
