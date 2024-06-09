@@ -20,6 +20,24 @@ import { IMAGE_BASE_URL, backdropURL } from "../../common/globalVariables";
 import searchQueryParamName from "../../common/Navigation/components/Search/searchQueryParamName";
 import ErrorPage from "../../common/Error";
 
+const searchTrailer = (data) => {
+  const officialTrailerKeys = data
+    .filter(
+      (video) =>
+        video.name.includes("Official") && video.name.includes("Trailer")
+    )
+    .map((video) => video.key);
+
+  const trailerKeys =
+    officialTrailerKeys.length === 0
+      ? data
+          .filter((video) => video.name.includes("Trailer"))
+          .map((video) => video.key)
+      : officialTrailerKeys;
+
+  return trailerKeys;
+};
+
 const MovieDetails = () => {
   const [movieData, setMovieData] = useState(null);
   const [trailerKey, setTrailerKey] = useState(null);
@@ -68,11 +86,7 @@ const MovieDetails = () => {
         const result = await responseMovie.json();
         dispatch(setLoadingState("success"));
         setMovieData(result);
-        setTrailerKey(
-          result.videos.results
-            .filter((video) => video.name === "Official Trailer")
-            .map((video) => video.key)
-        );
+        setTrailerKey(searchTrailer(result.videos.results));
       } catch (error) {
         dispatch(setLoadingState("error"));
         console.error("Error fetching movie details:", error);
