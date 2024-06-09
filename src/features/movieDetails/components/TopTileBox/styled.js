@@ -19,7 +19,7 @@ export const Poster = styled.div`
 export const TrailerButton = styled.button`
   position: absolute;
   top: 5%;
-  left:  ${({ $display }) => ($display ? "3%" : "50%")};
+  left: ${({ $display }) => ($display ? "3%" : "50%")};
   padding: 5px 10px;
   border-radius: 25px;
   z-index: 100;
@@ -30,11 +30,13 @@ export const TrailerButton = styled.button`
   transform: translate(-50%, -50%);
   transition: all 0.3s ease;
 
-  &:hover {
-    cursor: pointer;
-    color: ${({ theme }) => theme.color.Gray};
-    border: ${({ $display }) =>
-      $display ? "1px solid white" : "1px solid grey"};
+  @media (hover: hover) {
+    &:hover {
+      cursor: pointer;
+      color: ${({ theme }) => theme.color.Gray};
+      border: ${({ $display }) =>
+        $display ? "1px solid white" : "1px solid grey"};
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
