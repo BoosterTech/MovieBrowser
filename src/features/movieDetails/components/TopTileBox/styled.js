@@ -109,8 +109,7 @@ export const TitleWrapper = styled.div`
   padding: 0 16px;
   padding-bottom: 56px;
 
-  @media (max-width: ${({ theme }) =>
-      theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     padding: 0 0 46px 16px;
   }
 
@@ -136,8 +135,7 @@ export const Title = styled.h2`
   font-size: 64px;
   margin-bottom: 4px;
 
-  @media (max-width: ${({ theme }) =>
-      theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
     font-size: 50px;
   }
 
