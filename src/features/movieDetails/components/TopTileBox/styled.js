@@ -18,51 +18,41 @@ export const Poster = styled.div`
 `;
 export const TrailerButton = styled.button`
   position: absolute;
-  top: 0%;
-  left: 50%;
+  top: 5%;
+  left:  ${({ $display }) => ($display ? "3%" : "50%")};
   padding: 5px 10px;
   border-radius: 25px;
   z-index: 100;
   background: transparent;
   color: white;
-  border: 1px solid transparent;
+  border: ${({ $display }) =>
+    $display ? "1px solid transparent" : "1px solid white"};
   transform: translate(-50%, -50%);
   transition: all 0.3s ease;
 
   &:hover {
     cursor: pointer;
     color: ${({ theme }) => theme.color.Gray};
-    /* border: 1px solid white; */
+    border: ${({ $display }) =>
+      $display ? "1px solid white" : "1px solid grey"};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
- 
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
-  
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-    
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
-    
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
-  padding: 2px;
+    padding: 2px;
   }
 `;
-
-// export const CloseTrailerButton = styled(WatchTrailerButton)`
-//   border: none;
-//   top: 8%;
-//   left: 50%;
-//   padding: 10px;
-//   display: ${({ $display }) => ($display ? "block" : "none")};
-// `;
 
 export const TrailerPlayer = styled(ReactPlayer)`
   opacity: 0;
