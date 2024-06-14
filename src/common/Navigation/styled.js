@@ -243,8 +243,7 @@ export const SearchWrapper = styled.div`
   position: relative;
   padding-right: 15px;
 
-  @media (max-width: ${({ theme }) =>
-      theme.breakpoints.tabletHorizontalMax}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}) {
     display: flex;
     align-items: center;
     width: 390px;
