@@ -11,7 +11,7 @@ export const DefaultImageWrapper = styled.div`
   margin-top: 16px;
 
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     width: 120px;
     height: 178px;
     margin: 8px;
