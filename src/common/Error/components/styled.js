@@ -6,7 +6,7 @@ export const StyledDangerIcon = styled.svg`
   max-height: 120px;
   margin: 174px auto 0 auto;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
     margin: 90px auto 0 auto;
   }
 `;
