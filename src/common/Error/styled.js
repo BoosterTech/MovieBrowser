@@ -21,19 +21,19 @@ export const MessageHeader = styled.h1`
   text-align: left;
   margin: 0 0 24px 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
     font-size: 30px;
     text-align: center;
     margin: 48px 16px 48px 16px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     font-size: 24px;
     text-align: center;
     margin: 24px 16px 48px 16px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileUltraMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileUltraMin}) {
     font-size: 24px;
     text-align: center;
   }
@@ -48,7 +48,7 @@ export const MessageInfo = styled.h2`
   text-align: center;
   margin: 0 auto 24px auto;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
     font-size: 18px;
     text-align: center;
     margin: 0 16px 36px 16px;
@@ -71,7 +71,7 @@ export const ErrorButton = styled.button`
     filter: brightness(1.09);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
     font-size: 18px;
     text-align: center;
     margin: 0 auto 72px auto;
