@@ -14,16 +14,16 @@ export const MessageParagraph = styled.h1`
   padding: 0;
   animation: ${showin} 1s ease;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 18px;
     margin-bottom: 12px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
     font-size: 18px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     font-size: 18px;
     margin-left: 16px;
   }

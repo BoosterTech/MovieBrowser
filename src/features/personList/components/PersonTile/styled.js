@@ -21,11 +21,11 @@ export const TileWrapper = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopMini}) {
     margin: auto;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     width: 136px;
     height: 245px;
   }
@@ -39,7 +39,7 @@ export const TileImage = styled.img`
   border-radius: 5px;
   object-fit: cover;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     width: 120px;
     height: 178px;
     margin: 8px;
@@ -56,7 +56,7 @@ export const PersonName = styled.div`
   text-align: center;
   margin: 12px auto 22px auto;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 14px;
     line-height: 18.2px;
     max-width: 120px;

@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const ForMobile = styled.div`
-  @media (min-width: ${({ theme }) =>theme.breakpoints.desktopMini}px) {
+  @media (min-width: ${({ theme }) =>theme.breakpoints.desktopMini}) {
     display: none;
   }
 `;
@@ -13,7 +13,7 @@ export const TopTileWrapperMedia = styled.div`
   height: auto;
   margin: 23px 16px 24px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     margin: 23px 16px;
   }
 `;
@@ -24,7 +24,7 @@ export const PersonImageDataContainer = styled.div`
   margin: 16px;
   grid-template-columns: auto 1fr;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}) {
   }
 `;
 
@@ -45,7 +45,7 @@ export const HeaderMobile = styled.h1`
   line-height: 43.2px;
   margin: 0 0 30px 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}) {
     font-size: 14px;
     font-weight: 500;
     margin: 0 0 16px 0;
@@ -65,7 +65,7 @@ export const ParagraphMobile = styled.p`
       font-size:20px;
   `}
 
-@media(max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}px) {
+@media(max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}) {
     margin: 0 0 8px 0;
     font-size: 12px;
   }
@@ -76,7 +76,7 @@ export const ParagraphContainer = styled.div`
   font-size: 20px;
   line-height: 32px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 14px;
     line-height: 22.4px;
   }

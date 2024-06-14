@@ -19,7 +19,7 @@ export const MovieTileWrapper = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: ${({ theme }) =>theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) =>theme.breakpoints.tabletHorizontalMax}) {
     margin: 0 auto;
 
     &:hover {
@@ -27,7 +27,7 @@ export const MovieTileWrapper = styled.div`
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto;
@@ -37,11 +37,11 @@ export const MovieTileWrapper = styled.div`
     align-items: start;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
     height: auto;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileUltraMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileUltraMin}) {
     width: 240px;
   }
 `;
@@ -53,7 +53,7 @@ export const TileImage = styled.img`
   margin-bottom: 0;
   border-radius: 5px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     width: 114px;
     height: 169px;
   }
@@ -66,7 +66,7 @@ export const DescriptionContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(3, auto) 1fr auto;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     padding: 0 0 0 16px;
     margin-top: 0px;
     max-width: 190px;
@@ -88,12 +88,12 @@ export const MovieTitle = styled.h2`
     cursor: pointer;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 16px;
     line-height: 20.8px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     margin-bottom: 4px;
   }
 `;
@@ -109,12 +109,12 @@ export const MovieYear = styled.p`
   text-align: left;
   padding: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 13px;
     margin: 8px 0 0 0;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     margin: 0;
   }
 `;
@@ -127,7 +127,7 @@ export const CategoryTagWrapper = styled.div`
   font-size: 13px;
   gap: 8px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 10px;
     margin: 8px 0;
   }
@@ -140,7 +140,7 @@ export const CategoryTag = styled.div`
   background: ${({ theme }) => theme.color.Mystic};
   white-space: nowrap;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
   }
 `;
 
@@ -150,10 +150,10 @@ export const RatingWrapper = styled.div`
   gap: 12px;
   margin: auto auto 0 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     grid-gap: 4px;
   }
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     grid-gap: 4px;
   }
 `;
@@ -166,7 +166,7 @@ export const RateContainer = styled.div`
   line-height: 24px;
   text-align: left;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     max-height: 17px;
     font-size: 13px;
     line-height: 16.9px;
@@ -183,7 +183,7 @@ export const VoteContainer = styled.div`
   text-align: left;
   color: ${({ theme }) => theme.color.Waterloo};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     max-width: 68px;
     max-height: 24px;
     font-size: 13px;
@@ -192,7 +192,7 @@ export const VoteContainer = styled.div`
 `;
 
 export const IconStar = styled.svg`
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     width: 16px;
     height: 15.25px;
   }

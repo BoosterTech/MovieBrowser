@@ -36,14 +36,14 @@ export const Header = styled.h1`
   line-height: 43.2px;
   margin: 0 0 24px 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 20px;
     line-height: 24px;
     margin: 0 0 16px 0;
     height: 20px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     margin: 0 0 12px 0;
     height: 24px;
 
@@ -98,31 +98,31 @@ export const CastCrewWrapper = styled.div`
 
   ${(props) => props.$second && `margin-bottom:220px;`}
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
+  @media(max-width: ${({ theme }) => theme.breakpoints.desktopMini}) {
     margin: 24px 16px;
   }
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+  @media(max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}) {
     padding-top: 20px;
   }
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     margin-top: 21px;
     padding-top: 10px;
   }
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}px) {
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}) {
     margin-top: 40px;
     padding-top: 25px;
   }
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     margin-top: 21px;
   }
 `;
 
 export const ForDesktop = styled.div`
-  @media (max-width: ${({ theme }) => theme.breakpoints.disabled}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.disabled}) {
     display: none;
   }
 `;

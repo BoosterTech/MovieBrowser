@@ -8,7 +8,7 @@ export const StyledSvg = styled.svg`
   margin: auto;
   animation: ${showin} 1s ease;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     max-width: 500px;
     max-height: 350px;
   }

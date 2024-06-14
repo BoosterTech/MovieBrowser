@@ -16,6 +16,7 @@ export const Poster = styled.div`
   background-repeat: no-repeat;
   background-position: center;
 `;
+
 export const TrailerButton = styled.button`
   position: absolute;
   top: 8%;
@@ -39,19 +40,19 @@ export const TrailerButton = styled.button`
   }
 
   /* @media (max-width: ${({ theme }) =>
-    theme.breakpoints.tabletHorizontalMax}px) {
+    theme.breakpoints.tabletHorizontalMax}) {
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}) {
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
 
   } */
 `;
@@ -81,7 +82,7 @@ export const GradientCover = styled.div`
     rgba(0, 0, 0, 0) 10%
   );
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     background: linear-gradient(
       180deg,
       #000000 0%,
@@ -109,23 +110,23 @@ export const TitleWrapper = styled.div`
   padding: 0 16px;
   padding-bottom: 56px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}) {
     padding: 0 0 46px 16px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}) {
     padding: 0 0 36px 16px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     padding: 0 0 26px 16px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
     padding: 0 0 16px 16px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     padding: 0 0 8px 16px;
   }
 `;
@@ -135,23 +136,23 @@ export const Title = styled.h2`
   font-size: 64px;
   margin-bottom: 4px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}) {
     font-size: 50px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}) {
     font-size: 40px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 30px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMediumMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMediumMin}) {
     font-size: 26px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     font-size: 24px;
   }
 `;
@@ -170,22 +171,22 @@ export const IconStar = styled.div`
   width: 40px;
   height: 38.12px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}) {
     width: 35px;
     height: 33px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     width: 27px;
     height: 24px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
     width: 20px;
     height: 18px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     width: 16px;
     height: 15.25px;
     margin: 0;
@@ -197,19 +198,19 @@ export const RateContainer = styled.div`
   font-weight: 500;
   margin: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}) {
     font-size: 25px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 20px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
     font-size: 15px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     font-size: 14px;
   }
 `;
@@ -218,15 +219,15 @@ export const VoteContainer = styled.div`
   margin-top: 6px;
   margin-bottom: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 15px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
     font-size: 12px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     font-size: 10px;
   }
 `;
@@ -234,17 +235,17 @@ export const VoteContainer = styled.div`
 export const ScoreLimit = styled.div`
   padding-top: 14px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 15px;
     padding-top: 8px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
     font-size: 12px;
     padding-top: 6px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     font-size: 10px;
     padding-top: 3px;
   }

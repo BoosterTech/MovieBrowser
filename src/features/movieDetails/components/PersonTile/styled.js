@@ -22,18 +22,18 @@ export const TileWrapper = styled.div`
     transition: 0.3s;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopMini}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopMini}) {
     margin: auto;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     min-height: 270px;
     padding: 0px;
     width: 150px;
     padding-top: 6px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     width: 136px;
     padding: 0px;
   }
@@ -46,7 +46,7 @@ export const TileImage = styled.img`
   object-fit: cover;
   width: 100%;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     max-width: 120px;
     max-height: 178px;
     margin: 8px;
@@ -59,7 +59,7 @@ export const PersonName = styled.div`
   font-weight: 500;
   font-size: 22px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 14px;
     line-height: 18.2px;
     max-width: 120px;
@@ -74,7 +74,7 @@ export const PersonCharacter = styled.div`
   text-align: center;
   font-weight: 400;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 13px;
   }
 `;
