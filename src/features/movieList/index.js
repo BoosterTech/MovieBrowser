@@ -26,6 +26,7 @@ import useDebounce from "../../hooks/useDebounce";
 import {
   API_AUTHORIZATION,
   ApiPopularMovies,
+  ApiTopRatedMovies,
   ApiUpcomingMovies,
   DEFAULT_DEBOUNCE_TIME,
   SEARCH_RESULTS_TITLE,
@@ -46,6 +47,10 @@ const getUrl = (state) => {
       break;
     case "upcoming":
       url = ApiUpcomingMovies;
+      break;
+
+    case "top rated":
+      url = ApiTopRatedMovies;
       break;
 
     default:
