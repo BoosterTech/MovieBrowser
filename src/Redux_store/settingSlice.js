@@ -5,16 +5,25 @@ const settingSlice = createSlice({
   initialState: {
     moviesPageNr: sessionStorage.getItem("moviesPageNr") || 1,
     peoplePageNr: sessionStorage.getItem("peoplePageNr") || 1,
+    totalPages: 500,
+
     searchPageNr: 1,
     searchMaxPageNr: 1,
+
     pageState: sessionStorage.getItem("pageState") || "movies",
     loadingState: "loading",
+    movieState: "popular",
+
     searchState: false,
     query: "",
   },
   reducers: {
     setSearchState: (state, { payload: newState }) => {
       state.searchState = newState;
+    },
+
+    setTotalPages: (state, { payload: number }) => {
+      state.totalPages = number;
     },
 
     setSearchMaxPageNr: (state, { payload: number }) => {
@@ -70,6 +79,10 @@ const settingSlice = createSlice({
     setQuery: (state, { payload: query }) => {
       state.query = query;
     },
+
+    setMovieState: (state, { payload: newState }) => {
+      state.movieState = newState;
+    },
   },
 });
 
@@ -85,6 +98,8 @@ export const {
   setBothPages,
   setPageState,
   setLoadingState,
+  setTotalPages,
+  setMovieState,
 } = settingSlice.actions;
 
 export const selectState = (state) => state.setting;
@@ -126,6 +141,16 @@ export const selectSettingSearchMaxPageNrValue = createSelector(
 export const selectSettingQueryValue = createSelector(
   [selectState],
   (setting) => setting.query
+);
+
+export const selectSettingTotalPagesValue = createSelector(
+  [selectState],
+  (setting) => setting.totalPages
+);
+
+export const selectSettingMovieStateValue = createSelector(
+  [selectState],
+  (setting) => setting.movieState
 );
 
 export default settingSlice.reducer;
