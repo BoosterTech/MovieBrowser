@@ -1,5 +1,5 @@
 import { toMovieListPage, toPeople } from "../../../../routes";
 
-const navBarItems = ["Popular", "Upcoming", "Top Rated", "Now Playing"];
+const navBarItems = ["Popular", "Top Rated", "Now Playing", "Upcoming"];
 
 export default navBarItems;
