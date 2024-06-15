@@ -10,6 +10,8 @@ export const ApiUpcomingMovies =
   "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=";
 export const ApiTopRatedMovies =
   "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=";
+export const ApiNowPlayingMovies =
+  "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=";
 
 export const API_PEOPLE_POPULAR_URL =
   "https://api.themoviedb.org/3/person/popular?language=en-US&page=";

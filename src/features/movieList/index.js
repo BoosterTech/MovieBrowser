@@ -25,6 +25,7 @@ import ErrorPage from "../../common/Error";
 import useDebounce from "../../hooks/useDebounce";
 import {
   API_AUTHORIZATION,
+  ApiNowPlayingMovies,
   ApiPopularMovies,
   ApiTopRatedMovies,
   ApiUpcomingMovies,
@@ -36,7 +37,6 @@ import MoviesNav from "./components/MoviesNav";
 import { fetchOptions } from "../../common/globalVariables";
 
 const DEFAULT_PAGE_STATE = "movies";
-const POPULAR_MOVIES_TITLE = "Popular Movies";
 
 const getUrl = (state) => {
   var url = ApiPopularMovies;
@@ -48,9 +48,11 @@ const getUrl = (state) => {
     case "upcoming":
       url = ApiUpcomingMovies;
       break;
-
     case "top rated":
       url = ApiTopRatedMovies;
+      break;
+    case "now playing":
+      url = ApiNowPlayingMovies;
       break;
 
     default:
