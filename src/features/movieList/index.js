@@ -29,6 +29,7 @@ import {
   SEARCH_RESULTS_TITLE,
 } from "../../common/globalVariables";
 import { movieGenres_ids } from "../../common/fetchMoviesGenres";
+import MoviesNav from "./components/MoviesNav";
 const DEFAULT_PAGE_STATE = "movies";
 const POPULAR_MOVIES_TITLE = "Popular Movies";
 
@@ -145,6 +146,7 @@ const MovieListPage = () => {
         NoResultPage(debouncedQuery)
       ) : (
         <ContentWrapper>
+          <MoviesNav />
           <ContentHeader>
             {!searchState || myQuery === null
               ? POPULAR_MOVIES_TITLE
