@@ -1,21 +1,23 @@
-import { NavItem, NavLinkItem, NavList } from "./styled";
+import { NavItem, NavList } from "./styled";
 import navBarItems from "./navBarItems";
 import {
   selectSettingMovieStateValue,
   setMovieState,
 } from "../../../../Redux_store/settingSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const MoviesNav = () => {
   const dispatch = useDispatch();
-  const [activeItem, setActiveItem] = useState(
-    useSelector(selectSettingMovieStateValue)
-  );
+  const movieStateValue = useSelector(selectSettingMovieStateValue);
+  const [activeItem, setActiveItem] = useState(movieStateValue);
+
+useEffect(() => {
+    setActiveItem(movieStateValue);
+  }, [movieStateValue]);
+
 
   const handleClick = (item) => {
- 
-
     dispatch(setMovieState(item));
     setActiveItem(item);
   };
