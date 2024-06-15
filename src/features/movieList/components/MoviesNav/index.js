@@ -12,10 +12,9 @@ const MoviesNav = () => {
   const movieStateValue = useSelector(selectSettingMovieStateValue);
   const [activeItem, setActiveItem] = useState(movieStateValue);
 
-useEffect(() => {
+  useEffect(() => {
     setActiveItem(movieStateValue);
   }, [movieStateValue]);
-
 
   const handleClick = (item) => {
     dispatch(setMovieState(item));
