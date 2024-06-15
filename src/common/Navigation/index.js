@@ -17,6 +17,7 @@ import { ReactComponent as VideoIcon } from "../../assets/images/NavVideoIcon.sv
 import {
   selectSettingSearchValue,
   setBothPages,
+  setMovieState,
   setSearchState,
 } from "../../Redux_store/settingSlice";
 import Search from "./components/Search";
@@ -37,10 +38,14 @@ export const Navigation = () => {
 
     setActiveButton(buttonId);
   };
+
   const handleOnClick = () => {
     dispatch(setBothPages(1));
-    if (searchState) dispatch(setSearchState(false));
+    dispatch(setMovieState("popular"));
     setActiveButton("button1");
+
+    if (searchState) dispatch(setSearchState(false));
+    
     sessionStorage.setItem("buttonState", "button1");
     sessionStorage.setItem("moviesPageNr", 1);
     sessionStorage.setItem("peoplePageNr", 1);
