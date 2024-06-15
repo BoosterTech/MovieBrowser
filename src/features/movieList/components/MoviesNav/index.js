@@ -1,12 +1,13 @@
-import { NavLink } from "react-router-dom";
 import { NavItem, NavList } from "./styled";
+import navBarItems from "./navBarItems";
 
 const MoviesNav = () => {
   return (
     <div>
       <NavList>
-        <NavItem>Popular Movies</NavItem>
-        <li>Upcoming Movies</li>
+        {navBarItems.map((item) => (
+          <NavItem>{item}</NavItem>
+        ))}
       </NavList>
     </div>
   );
