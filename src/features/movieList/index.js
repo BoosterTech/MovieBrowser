@@ -24,7 +24,6 @@ import NoResultPage from "../../common/noResult";
 import ErrorPage from "../../common/Error";
 import useDebounce from "../../hooks/useDebounce";
 import {
-  API_AUTHORIZATION,
   ApiNowPlayingMovies,
   ApiPopularMovies,
   ApiTopRatedMovies,
@@ -58,7 +57,6 @@ const getUrl = (state) => {
     default:
       url = ApiPopularMovies;
   }
-
   return url;
 };
 
