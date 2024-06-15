@@ -11,6 +11,7 @@ export const NavList = styled.ul`
   font-weight: 600;
   padding: 30px 15px 30px 15px;
   margin-top: 0;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopMini}) {
     gap: 30px;
   }
@@ -46,9 +47,11 @@ export const NavItem = styled.li`
     $active ? "darkorange" : "transparent"};
   transition: all 0.5s ease;
 
-  &:hover {
-    border: 1px solid darkorange;
-    cursor: pointer;
+  @media (hover: hover) {
+    &:hover {
+      border: 1px solid darkorange;
+      cursor: pointer;
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}) {
