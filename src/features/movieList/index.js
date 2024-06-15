@@ -14,6 +14,7 @@ import {
   selectSettingSearchValue,
   selectSettingSearchPageNrValue,
   setSearchMaxPageNr,
+  selectSettingMovieStateValue,
 } from "../../Redux_store/settingSlice";
 import { toMovieDetails } from "../../routes";
 import { NavLink, useHistory, useLocation } from "react-router-dom";
@@ -25,18 +26,40 @@ import useDebounce from "../../hooks/useDebounce";
 import {
   API_AUTHORIZATION,
   ApiPopularMovies,
+  ApiUpcomingMovies,
   DEFAULT_DEBOUNCE_TIME,
   SEARCH_RESULTS_TITLE,
 } from "../../common/globalVariables";
 import { movieGenres_ids } from "../../common/fetchMoviesGenres";
 import MoviesNav from "./components/MoviesNav";
+import { fetchOptions } from "../../common/globalVariables";
+
 const DEFAULT_PAGE_STATE = "movies";
 const POPULAR_MOVIES_TITLE = "Popular Movies";
+
+const getUrl = (state) => {
+  var url = ApiPopularMovies;
+
+  switch (state.toLowerCase()) {
+    case "popular":
+      url = ApiPopularMovies;
+      break;
+    case "upcoming":
+      url = ApiUpcomingMovies;
+      break;
+
+    default:
+      url = ApiPopularMovies;
+  }
+
+  return url;
+};
 
 const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
   const [Genres, setGenres] = useState({});
+  const movieState = useSelector(selectSettingMovieStateValue);
 
   const dispatch = useDispatch();
   const [totalResults, setTotalResults] = useState(null);
@@ -102,12 +125,9 @@ const MovieListPage = () => {
         const responseMovies = await fetch(
           searchState && debouncedQuery !== null
             ? `https://api.themoviedb.org/3/search/movie?query=${myQuery}&include_adult=false&language=en-US&page=${searchPageNr}`
-            : `${ApiPopularMovies}${moviePageNr}`,
+            : `${getUrl(movieState)}${moviePageNr}`,
           {
-            headers: {
-              Authorization: API_AUTHORIZATION,
-              Accept: "application/json",
-            },
+            ...fetchOptions,
           }
         );
 
@@ -128,7 +148,7 @@ const MovieListPage = () => {
       }
     };
     fetchMovies();
-  }, [moviePageNr, searchPageNr, debouncedQuery]);
+  }, [moviePageNr, searchPageNr, debouncedQuery, movieState]);
 
   if (loadingState === "error") {
     return <ErrorPage />;
@@ -149,7 +169,7 @@ const MovieListPage = () => {
           <MoviesNav />
           <ContentHeader>
             {!searchState || myQuery === null
-              ? POPULAR_MOVIES_TITLE
+              ? ""
               : `${SEARCH_RESULTS_TITLE} "${myQuery}" (${totalResults})`}
           </ContentHeader>
           <TilesContainer>
