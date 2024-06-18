@@ -38,7 +38,7 @@ export const TrailerButton = styled.button`
       border: 1px solid white;
     }
 
-    ${({$disabled})=> $disabled && `pointer-events: none;`}
+    ${({ $disabled }) => $disabled && `pointer-events: none;`}
   }
 
   /* @media (max-width: ${({ theme }) =>
@@ -160,38 +160,43 @@ export const Title = styled.h2`
 `;
 
 export const RatingWrapper = styled.div`
-  max-width: 130px;
+  max-width: auto;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  margin: 20px 0;
-  margin-bottom: 0;
-  gap: 8px;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  margin: 20px auto 0 10px;
+
+  gap: 5px;
+
+  & > :nth-child(2) {
+    margin-left: 10px;
+  }
+
+  & > :nth-child(2) {
+    margin-right: 0px;
+  }
 `;
 
 export const IconStar = styled.div`
-  width: 40px;
-  height: 38.12px;
+  max-width: 40px;
+  height: 50px;
+  width: auto;
+  max-height: 38.12px;
+  margin-bottom: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}) {
-    width: 35px;
-    height: 33px;
+    height: 35px;
+    margin-bottom: 7px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
-    width: 27px;
-    height: 24px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
-    width: 20px;
-    height: 18px;
+    height: 30px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
-    width: 16px;
-    height: 15.25px;
-    margin: 0;
+    height: 20px;
+    margin-bottom: 1px;
   }
 `;
 
@@ -208,47 +213,47 @@ export const RateContainer = styled.div`
     font-size: 20px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
-    font-size: 15px;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     font-size: 14px;
   }
 `;
 
 export const VoteContainer = styled.div`
-  margin-top: 6px;
-  margin-bottom: 0;
-
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 15px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     font-size: 10px;
+    margin-top: 1px;
   }
 `;
 
 export const ScoreLimit = styled.div`
-  padding-top: 14px;
+  text-align: center;
+  justify-content: center;
+  padding: 2px;
+  padding-left: 0;
+  margin-right: 10px;
+  margin-left: 0;
+  font-size: 20px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 15px;
-    padding-top: 8px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMedium}) {
-    font-size: 12px;
-    padding-top: 6px;
+    font-size: 13px;
+    margin-right: 5px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     font-size: 10px;
     padding-top: 3px;
+    margin-right: 3px;
   }
 `;
