@@ -12,18 +12,11 @@ import {
   IconStar,
 } from "./styled";
 
+import  getVoteState from "../../../../functions/getVoteState";
 import { ReactComponent as Star } from "./../../../../assets/images/star.svg";
 import ImageDefaultMovie from "../../../../common/ImageDefaultMovie";
 
 const MovieTile = ({ imageSrc, title, year, category, rate, vote }) => {
-  const getVote = (vote) => {
-    if (vote === 0) {
-      return "No votes yet";
-    }
-
-    return `${vote} ${vote > 1 ? "votes" : "vote"}`;
-  };
-
   return (
     <MovieTileWrapper>
       {imageSrc ? (
@@ -47,7 +40,7 @@ const MovieTile = ({ imageSrc, title, year, category, rate, vote }) => {
           ) : (
             <RateContainer>{rate.toFixed(1).replace(".", ",")}</RateContainer>
           )}
-          <VoteContainer>{getVote(vote)}</VoteContainer>
+          <VoteContainer>{getVoteState(vote)}</VoteContainer>
         </RatingWrapper>
       </DescriptionContainer>
     </MovieTileWrapper>
