@@ -37,6 +37,8 @@ export const TrailerButton = styled.button`
       color: darkgrey;
       border: 1px solid white;
     }
+
+    ${({$disabled})=> $disabled && `pointer-events: none;`}
   }
 
   /* @media (max-width: ${({ theme }) =>
