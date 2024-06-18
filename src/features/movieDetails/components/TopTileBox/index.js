@@ -16,6 +16,7 @@ import {
   TrailerPlayer,
   TrailerButton,
 } from "./styled";
+import getVoteState from "../../../../functions/getVoteState";
 
 export const TopTileBox = ({ imageSrc, title, rate, vote, trailerKey }) => {
   const [trailerOpen, setTrailerOpen] = useState(false);
@@ -34,7 +35,7 @@ export const TopTileBox = ({ imageSrc, title, rate, vote, trailerKey }) => {
             {trailerOpen ? "❌" : "Watch Trailer "}
           </TrailerButton>
         ) : (
-          ""
+          <TrailerButton $disabled="true">No trailer available</TrailerButton>
         )}
         {trailerOpen && trailerKey.length !== 0 ? (
           <TrailerPlayer
@@ -57,12 +58,10 @@ export const TopTileBox = ({ imageSrc, title, rate, vote, trailerKey }) => {
             <RatingWrapper>
               <IconStar as={Star} />
               <RateContainer>
-                {rate.toFixed(1).toString().replace(".", ",")}
+                {rate !== 0 ? rate.toFixed(1).toString().replace(".", ",") : ""}
               </RateContainer>
-              <ScoreLimit>/ 10</ScoreLimit>
-              <VoteContainer>
-                {vote} {vote > 1 ? "votes" : "vote"}
-              </VoteContainer>
+              <ScoreLimit>{rate !== 0 ? "/ 10" : ""}</ScoreLimit>
+              <VoteContainer>{getVoteState(vote)}</VoteContainer>
             </RatingWrapper>
           </TitleWrapper>
         )}
