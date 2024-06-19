@@ -19,7 +19,7 @@ export const MovieTileWrapper = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: ${({ theme }) =>theme.breakpoints.tabletHorizontalMax}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}) {
     margin: 0 auto;
 
     &:hover {
@@ -138,6 +138,8 @@ export const CategoryTag = styled.div`
   padding: 4px 8px;
   border-radius: 5px;
   background: ${({ theme }) => theme.color.Mystic};
+  border: 1px solid lightgrey;
+
   white-space: nowrap;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
