@@ -217,6 +217,7 @@ export const Tags = styled.div`
 
 export const Tag = styled.div`
   background: ${({ theme }) => theme.color.Mystic};
+  border: 1px solid lightgrey;
   padding: 8px 16px;
   font-size: 14px;
   margin: 8px;
