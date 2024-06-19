@@ -85,6 +85,7 @@ export const StyledContainerLink = styled(NavLink)`
   letter-spacing: -1.5px;
   font-weight: 500;
   margin-left: -10px;
+  transition: all 0.3s;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}) {
     font-size: 17px;
@@ -107,7 +108,7 @@ export const StyledContainerLink = styled(NavLink)`
   }
 
   &:hover {
-    color: ${({ theme }) => theme.color.Alto};
+    color: ${({ theme }) => theme.color.Gray};
   }
 `;
 
@@ -151,6 +152,7 @@ export const Styledlink = styled.a`
 
   &:hover {
     cursor: pointer;
+    color: ${({ theme }) => theme.color.Gray};
   }
 `;
 
