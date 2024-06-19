@@ -8,7 +8,7 @@ export const MovieTileWrapper = styled.div`
   max-height: 650px;
   border-radius: 5px;
   padding: 16px;
-  box-shadow: 0px 4px 12px 0px ${({ theme }) => theme.color.Heather};
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.2);
   background-color: ${({ theme }) => theme.color.White};
   transition: all 0.5s ease;
   animation: ${showin} 1s ease;
