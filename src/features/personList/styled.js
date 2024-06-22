@@ -56,7 +56,6 @@ export const ContentHeader = styled.h1`
   height: auto;
   font-size: 36px;
   font-weight: 600;
-  /* line-height: 43.2px; */
   text-align: left;
   color: ${({ theme }) => theme.color.Woodsmoke};
   margin: 0;

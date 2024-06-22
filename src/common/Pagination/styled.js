@@ -27,7 +27,7 @@ export const Section = styled.div`
 export const ButtonFirst = styled.button`
   background: ${({ theme }) => theme.color.PattensBlue};
   padding: auto;
-  border: 1px solid ${({ theme }) => theme.color.PattensBlue};
+  border: 1px solid lightgrey;
   border-radius: 5px;
   text-align: center;
   margin: 3px;
@@ -36,10 +36,12 @@ export const ButtonFirst = styled.button`
   transition: all 0.1s linear;
   width: 76px;
   height: 36px;
+  transition: all 0.3s ease;
 
   &:not(:disabled):hover {
     cursor: pointer;
     font-weight: 425;
+    border: 1px solid grey;
   }
 
   &:disabled {

@@ -27,9 +27,9 @@ export const Tile = styled.article`
     "image tekst";
   grid-gap: 20px 40px;
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}) {
-        padding-bottom: 25px;
-    }
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}) {
+    padding-bottom: 25px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     grid-template-columns: 250px auto;
@@ -58,8 +58,8 @@ export const Tile = styled.article`
 `;
 
 export const Image = styled.img`
-  width: 312px;
-  height: 464px;
+  max-width: 312px;
+  max-height: 464px;
   border-radius: 5px;
   grid-area: image;
 
@@ -102,6 +102,10 @@ export const Title = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
     font-size: 24px;
     margin-bottom: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}) {
+    font-size: 20px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
@@ -153,8 +157,8 @@ export const GreyName = styled.p`
     font-size: 14px;
   }
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}) {
-        font-size: 12px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}) {
+    font-size: 12px;
   }
 `;
 
@@ -167,23 +171,25 @@ export const YearBlock = styled.p`
     font-size: 14px;
   }
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}) {
-        font-size: 13px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobilePeopleMedium}) {
+    font-size: 13px;
   }
 `;
 
 export const DescriptionName = styled.p`
-    font-size: 18px;
-    margin-left: -16px;
-    font-weight: 400;
+  font-size: 18px;
+  margin-left: -16px;
+  font-weight: 400;
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
-        font-size: 14px;
-        margin-left: 0px;
-    }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
+    font-size: 14px;
+    margin-left: 0px;
+  /
+  }
 
-  @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
-        font-size: 13px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
+    font-size: 13px;
+   
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
@@ -211,74 +217,105 @@ export const Tags = styled.div`
 
 export const Tag = styled.div`
   background: ${({ theme }) => theme.color.Mystic};
+  border: 1px solid lightgrey;
   padding: 8px 16px;
   font-size: 14px;
   margin: 8px;
   border-radius: 5px;
   font-weight: 400;
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
-        font-size: 12px;
-    }
-
-    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
-        font-size: 10px;
-        padding: 4px 8px;
-        margin: 4px;
-    }
-`;
-
-export const VotesBlock = styled.div`   
-    display: grid;
-    grid-template-columns: 32px 34px 30px 34px 20px;
-    align-items: center;
-
-    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
-        grid-template-columns: 32px 26px 30px 36px 36px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
+    font-size: 12px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
-    grid-template-columns: 20px 26px 30px 36px;
     font-size: 10px;
+    padding: 4px 8px;
+    margin: 4px;
+  }
+`;
+
+export const VotesBlock = styled.div`
+  display: flex;
+  gap: 0;
+  align-items: center;
+  justify-content: flex-start;
+
+  & > :nth-child(2) {
+    margin-left: 10px;
+  }
+  & > :nth-child(3) {
+    margin-left: 3px;
+  }
+
+  & > :nth-child(4) {
+    margin-left: 15px;
+  }
+  & > :nth-child(5) {
+    margin-left: 5px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
+    font-size: 11px;
+
+    & > :nth-child(4) {
+      margin-left: 4px;
+    }
+
+    & > :nth-child(2) {
+      margin-left: 5px;
+    }
   }
 `;
 
 export const ImageSvg = styled.img`
-  width: 24px;
-  height: 22.87px;
+  max-width: 35px;
+  max-height: 35px;
+  height: 35px;
+  width: auto;
+  margin-bottom: 3px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
+    height: 30px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
-    width: 16px;
-    height: 15.25px;
+    height: 20px;
   }
 `;
 
 export const VotesBlockScore = styled.div`
   font-weight: 500;
   font-size: 22px;
-  margin-top: 2px;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
-    font-size: 16px;
-    margin-top: 3px;
+    font-size: 20px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
-    margin-top: 4px;
   }
 `;
 
 export const VotesBlockRest = styled.div`
   font-weight: 400;
   font-size: 14px;
-  height: 10px;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${({ $const }) =>
+    $const &&
+    `
+    color:gray;
+     `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
-    font-size: 13px;
-    margin-top: 0px;
-    color: ${({ theme }) => theme.color.DarkerGray};
+    font-size: 10px;
   }
 `;
 
@@ -287,19 +324,18 @@ export const Description = styled.div`
   line-height: 1.6;
   font-weight: 400;
   grid-area: tekst;
+  margin-top: 25px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tabletHorizontalMax}) {
     font-size: 16px;
   }
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}) {
-        font-size: 14px;
-        margin-top: -20px;
-    }
+  @media (max-width: ${({ theme }) => theme.breakpoints.tabletVerticalMax}) {
+    font-size: 14px;
+  }
 
-    @media(max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
-        margin-top: 0px;
-    }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}) {
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}) {
     font-size: 14px;

@@ -12,6 +12,7 @@ import {
   IconStar,
 } from "./styled";
 
+import  getVoteState from "../../../../functions/getVoteState";
 import { ReactComponent as Star } from "./../../../../assets/images/star.svg";
 import ImageDefaultMovie from "../../../../common/ImageDefaultMovie";
 
@@ -34,10 +35,12 @@ const MovieTile = ({ imageSrc, title, year, category, rate, vote }) => {
 
         <RatingWrapper>
           <IconStar as={Star} />
-          <RateContainer>{rate.toFixed(1).replace(".", ",")}</RateContainer>
-          <VoteContainer>
-            {vote} {vote > 1 ? "votes" : "vote"}
-          </VoteContainer>
+          {rate === 0 ? (
+            ""
+          ) : (
+            <RateContainer>{rate.toFixed(1).replace(".", ",")}</RateContainer>
+          )}
+          <VoteContainer>{getVoteState(vote)}</VoteContainer>
         </RatingWrapper>
       </DescriptionContainer>
     </MovieTileWrapper>
