@@ -16,17 +16,10 @@ import { PersonTile } from "./components/PersonTile";
 import { TopTileBox } from "./components/TopTileBox";
 import { MovieDetailsWrapper } from "./components/MovieDetailsWrapper";
 import { IMAGE_BASE_URL, backdropURL } from "../../common/globalVariables";
+import getVoteState from "../../functions/getVoteState";
 
 import searchQueryParamName from "../../common/Navigation/components/Search/searchQueryParamName";
 import ErrorPage from "../../common/Error";
-
-const searchTrailer = (data) => {
-  const trailerKeys = data
-    .filter((video) => video.type === "Trailer")
-    .map((video) => video.key);
-
-  return trailerKeys;
-};
 
 const MovieDetails = () => {
   const [movieData, setMovieData] = useState(null);
@@ -43,6 +36,14 @@ const MovieDetails = () => {
   const myQuery = new URLSearchParams(location.search).get(
     searchQueryParamName
   );
+
+  const searchTrailer = (data) => {
+    const trailerKeys = data
+      .filter((video) => video.type === "Trailer")
+      .map((video) => video.key);
+
+    return trailerKeys;
+  };
 
   useEffect(() => {
     if (searchState && myQuery !== null) {
