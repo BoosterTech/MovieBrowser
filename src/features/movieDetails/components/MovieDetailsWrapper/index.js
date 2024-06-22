@@ -21,6 +21,7 @@ import {
   YearBlock,
 } from "./styled";
 import ImageDefaultMovie from "../../../../common/ImageDefaultMovie";
+import getVoteState from "../../../../functions/getVoteState";
 
 export const MovieDetailsWrapper = ({
   imageSrc,
@@ -80,16 +81,24 @@ export const MovieDetailsWrapper = ({
           </Tags>
           <VotesBlock>
             <ImageSvg src={star} />
-            <VotesBlockScore>{rate.toFixed(1)}</VotesBlockScore>
+            <VotesBlockScore>
+              {rate !== 0 ? rate.toFixed(1) : ""}
+            </VotesBlockScore>
             {windowWidth >= 395 ? (
               <>
-                <VotesBlockRest>/ 10</VotesBlockRest>
+                <VotesBlockRest>{rate !== 0 ? "/ 10" : ""}</VotesBlockRest>
               </>
+            ) : rate !== 0 ? (
+              "/ 10"
             ) : (
               ""
             )}
-            <VotesBlockRest>{vote}</VotesBlockRest>
-            <VotesBlockRest>votes</VotesBlockRest>
+            <VotesBlockRest $const="true">
+              {rate !== 0 ? vote : "No votes"}
+            </VotesBlockRest>
+            <VotesBlockRest $const="true">
+              {getVoteState(vote, false)}{" "}
+            </VotesBlockRest>
           </VotesBlock>
         </Content>
         <Description>{description}</Description>
