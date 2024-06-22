@@ -61,7 +61,7 @@ export const TopTileBox = ({ imageSrc, title, rate, vote, trailerKey }) => {
                 {rate !== 0 ? rate.toFixed(1).toString().replace(".", ",") : ""}
               </RateContainer>
               <ScoreLimit>{rate !== 0 ? "/ 10" : ""}</ScoreLimit>
-              <VoteContainer>{getVoteState(vote)}</VoteContainer>
+              <VoteContainer>{getVoteState(rate, vote)}</VoteContainer>
             </RatingWrapper>
           </TitleWrapper>
         )}
