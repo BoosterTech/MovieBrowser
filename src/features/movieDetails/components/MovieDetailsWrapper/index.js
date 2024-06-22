@@ -97,7 +97,7 @@ export const MovieDetailsWrapper = ({
               {rate !== 0 ? vote : "No votes yet"}
             </VotesBlockRest>
             <VotesBlockRest $const="true">
-              {getVoteState(rate, vote, false)}{" "}
+              {getVoteState(rate, vote)}{" "}
             </VotesBlockRest>
           </VotesBlock>
         </Content>
