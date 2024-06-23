@@ -34,6 +34,7 @@ import {
 import { movieGenres_ids } from "../../common/fetchMoviesGenres";
 import MoviesNav from "./components/MoviesNav";
 import { fetchOptions } from "../../common/globalVariables";
+import useFetchMovies from "../../hooks/useFetchMovies";
 
 const DEFAULT_PAGE_STATE = "movies";
 
@@ -64,16 +65,15 @@ const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
   const [isFirstEffect, setIsFirstEffect] = useState(true);
   const [Genres, setGenres] = useState({});
-  const movieState = useSelector(selectSettingMovieStateValue);
-
-  const dispatch = useDispatch();
   const [totalResults, setTotalResults] = useState(null);
 
+  const movieState = useSelector(selectSettingMovieStateValue);
   const moviePageNr = useSelector(selectSettingMoviePageNrValue);
   const pageState = useSelector(selectSettingPageStateValue);
   const searchPageNr = useSelector(selectSettingSearchPageNrValue);
   const loadingState = useSelector(selectSettingLoadingValue);
   const searchState = useSelector(selectSettingSearchValue);
+  const dispatch = useDispatch();
 
   const location = useLocation();
   const history = useHistory();
@@ -124,36 +124,20 @@ const MovieListPage = () => {
 
   const debouncedQuery = useDebounce(myQuery, DEFAULT_DEBOUNCE_TIME);
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const responseMovies = await fetch(
-          searchState && debouncedQuery !== null
-            ? `https://api.themoviedb.org/3/search/movie?query=${myQuery}&include_adult=false&language=en-US&page=${searchPageNr}`
-            : `${getUrl(movieState)}${moviePageNr}`,
-          {
-            ...fetchOptions,
-          }
-        );
-
-        if (!responseMovies.ok) {
-          throw new Error("Response not OK");
-        }
-
-        const { results, total_pages, total_results } =
-          await responseMovies.json();
-
-        setMoviesData(results);
-        setTotalResults(total_results);
-        dispatch(setSearchMaxPageNr(total_pages));
-        dispatch(setLoadingState("success"));
-      } catch (error) {
-        dispatch(setLoadingState("error"));
-        console.error("Error fetching movies:", error);
-      }
-    };
-    fetchMovies();
-  }, [moviePageNr, searchPageNr, debouncedQuery, movieState]);
+  useFetchMovies(
+    searchState,
+    debouncedQuery,
+    myQuery,
+    searchPageNr,
+    movieState,
+    moviePageNr,
+    fetchOptions,
+    setMoviesData,
+    setTotalResults,
+    dispatch,
+    setSearchMaxPageNr,
+    setLoadingState
+  );
 
   if (loadingState === "error") {
     return <ErrorPage />;
