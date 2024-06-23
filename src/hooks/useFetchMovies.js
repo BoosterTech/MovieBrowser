@@ -5,6 +5,7 @@ import {
   ApiTopRatedMovies,
   ApiUpcomingMovies,
 } from "../common/globalVariables";
+import { setTotalPages } from "../Redux_store/settingSlice";
 
 const getUrl = (state) => {
   var url = ApiPopularMovies;
@@ -63,6 +64,7 @@ const useFetchMovies = (
         setMoviesData(results);
         setTotalResults(total_results);
         dispatch(setSearchMaxPageNr(total_pages));
+        dispatch(setTotalPages(total_pages));
         dispatch(setLoadingState("success"));
       } catch (error) {
         dispatch(setLoadingState("error"));
