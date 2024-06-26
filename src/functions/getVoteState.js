@@ -4,7 +4,7 @@ const getVoteState = (rate, vote) => {
   }
   // if (display === true) return `${vote} ${vote > 1 ? "votes" : "vote"}`;
   else if (vote !== 0) {
-    return `${vote > 1 ? "votes" : "vote"}`;
+    return vote > 1 ? `${vote} votes` : `${vote} vote`;
   }
 };
 

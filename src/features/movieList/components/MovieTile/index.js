@@ -40,7 +40,7 @@ const MovieTile = ({ imageSrc, title, year, category, rate, vote }) => {
           ) : (
             <RateContainer>{rate.toFixed(1).replace(".", ",")}</RateContainer>
           )}
-          <VoteContainer>{getVoteState(vote)}</VoteContainer>
+          <VoteContainer>{getVoteState(rate, vote)}</VoteContainer>
         </RatingWrapper>
       </DescriptionContainer>
     </MovieTileWrapper>
