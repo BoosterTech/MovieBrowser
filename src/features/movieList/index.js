@@ -24,42 +24,15 @@ import NoResultPage from "../../common/noResult";
 import ErrorPage from "../../common/Error";
 import useDebounce from "../../hooks/useDebounce";
 import {
-  ApiNowPlayingMovies,
-  ApiPopularMovies,
-  ApiTopRatedMovies,
-  ApiUpcomingMovies,
   DEFAULT_DEBOUNCE_TIME,
   SEARCH_RESULTS_TITLE,
 } from "../../common/globalVariables";
 import { movieGenres_ids } from "../../common/fetchMoviesGenres";
-import MoviesNav from "./components/MoviesNav";
+
 import { fetchOptions } from "../../common/globalVariables";
 import useFetchMovies from "../../hooks/useFetchMovies";
 
 const DEFAULT_PAGE_STATE = "movies";
-
-const getUrl = (state) => {
-  var url = ApiPopularMovies;
-
-  switch (state.toLowerCase()) {
-    case "popular":
-      url = ApiPopularMovies;
-      break;
-    case "upcoming":
-      url = ApiUpcomingMovies;
-      break;
-    case "top rated":
-      url = ApiTopRatedMovies;
-      break;
-    case "now playing":
-      url = ApiNowPlayingMovies;
-      break;
-
-    default:
-      url = ApiPopularMovies;
-  }
-  return url;
-};
 
 const MovieListPage = () => {
   const [moviesData, setMoviesData] = useState(null);
@@ -80,6 +53,7 @@ const MovieListPage = () => {
   const myQuery = new URLSearchParams(location.search).get(
     searchQueryParamName
   );
+  const debouncedQuery = useDebounce(myQuery, DEFAULT_DEBOUNCE_TIME);
 
   useEffect(() => {
     movieGenres_ids.then((result) => setGenres(result));
@@ -122,7 +96,7 @@ const MovieListPage = () => {
     }
   }, [searchState, moviesData, dispatch]);
 
-  const debouncedQuery = useDebounce(myQuery, DEFAULT_DEBOUNCE_TIME);
+ 
 
   useFetchMovies(
     searchState,
@@ -155,10 +129,9 @@ const MovieListPage = () => {
         NoResultPage(debouncedQuery)
       ) : (
         <ContentWrapper>
-          <MoviesNav />
           <ContentHeader>
             {!searchState || myQuery === null
-              ? ""
+              ? "Poular Movies"
               : `${SEARCH_RESULTS_TITLE} "${myQuery}" (${totalResults})`}
           </ContentHeader>
           <TilesContainer>
