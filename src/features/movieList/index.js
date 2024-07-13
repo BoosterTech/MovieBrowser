@@ -131,7 +131,7 @@ const MovieListPage = () => {
         <ContentWrapper>
           <ContentHeader>
             {!searchState || myQuery === null
-              ? "Poular Movies"
+              ? "Popular Movies"
               : `${SEARCH_RESULTS_TITLE} "${myQuery}" (${totalResults})`}
           </ContentHeader>
           <TilesContainer>
